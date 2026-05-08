@@ -7,7 +7,7 @@ const TIMELINE = [
   { year:"Dec 2024",  event:"Reached 84.85% cross-subject accuracy on Ninapro DB5" },
   { year:"Feb 2025",  event:"Launched myojam.com — full-stack web demo, no hardware required" },
   { year:"Sept 2025", event:"Co-op at Fairly AI as AI QA Intern — designed 1,000+ test cases" },
-  { year:"Jan 2026",  event:"Completed Fairly AI co-op; returned to myojam full-time" },
+  { year:"Jan 2026",  event:"Completed Fairly AI co-op; returned to myojam as Co-founder & Lead Developer (volunteer)" },
   { year:"Apr 2026",  event:"Launched ELEVATE — international EMG innovation competition" },
 ]
 
@@ -100,6 +100,40 @@ export default function About() {
           <Reveal>
             <div style={{ fontSize:10, color:"var(--gold)", textTransform:"uppercase", letterSpacing:"0.25em", marginBottom:8, fontFamily:"var(--serif)" }}>Experience</div>
             <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4.5vw,52px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:64 }}>Where I've worked.</h2>
+          </Reveal>
+
+          {/* myojam — big card */}
+          <Reveal delay={0.05} grand>
+            <div style={{ background:"var(--bg-2)", borderRadius:24, padding:"48px", marginBottom:16, borderLeft:"3px solid var(--gold)" }}>
+              <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:28, flexWrap:"wrap", gap:16 }}>
+                <div>
+                  <div style={{ fontSize:26, fontWeight:700, color:"var(--text)", fontFamily:"var(--serif)", letterSpacing:"-0.5px", marginBottom:6 }}>myojam</div>
+                  <div style={{ fontSize:13, color:"var(--gold)", fontWeight:500, marginBottom:4 }}>Co-founder & Lead Developer (volunteer)</div>
+                  <div style={{ fontSize:12, color:"var(--text-tertiary)", fontWeight:300 }}>Sept 2024 – present · Remote</div>
+                </div>
+                <div style={{ display:"flex", gap:12 }}>
+                  {[["84.85%","accuracy"],["11","articles"],["MIT","license"]].map(([v,l]) => (
+                    <div key={l} style={{ textAlign:"center", padding:"14px 20px", background:"var(--bg)", borderRadius:12 }}>
+                      <div style={{ fontSize:20, fontWeight:800, color:"var(--gold)", fontFamily:"var(--serif)", letterSpacing:"-0.5px" }}>{v}</div>
+                      <div style={{ fontSize:10, color:"var(--text-tertiary)", textTransform:"uppercase", letterSpacing:"0.06em", marginTop:2 }}>{l}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div style={{ display:"flex", flexDirection:"column", gap:12 }}>
+                {[
+                  "Built an open-source sEMG gesture classifier from scratch — 84.85% cross-subject accuracy on Ninapro DB5",
+                  "Designed and shipped the full stack: FastAPI backend, React/Vite frontend, PyQt6 native macOS app",
+                  "Published 11 educational articles and 3 lesson plans; launched the ELEVATE international EMG competition",
+                  "No lab access, no funding, no hardware — built entirely from public data and open-source tooling",
+                ].map((b, i) => (
+                  <div key={i} style={{ display:"flex", gap:14, alignItems:"flex-start" }}>
+                    <span style={{ color:"var(--gold)", fontWeight:700, flexShrink:0, marginTop:1 }}>→</span>
+                    <span style={{ fontSize:14, color:"var(--text-secondary)", fontWeight:300, lineHeight:1.75 }}>{b}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </Reveal>
 
           {/* Fairly AI — big card */}

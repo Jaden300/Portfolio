@@ -137,7 +137,7 @@ export default function Home() {
               I'm a <strong style={{ color:"var(--text)", fontWeight:500 }}>16-year-old engineer and researcher</strong> from Toronto, Ontario. I build full-stack ML systems, process biomedical signals, and publish educational content — because open access to technology is the point.
             </p>
             <p style={{ fontSize:17, fontWeight:300, lineHeight:1.82, color:"rgba(237,234,226,0.7)" }}>
-              My flagship project <strong style={{ color:"var(--text)", fontWeight:500 }}>myojam</strong> achieves 84.85% cross-subject accuracy on EMG gesture classification. Previously AI QA intern at <strong style={{ color:"var(--text)", fontWeight:500 }}>Fairly AI</strong>, designing 1,000+ test cases and reducing evaluation pipeline time by 60%.
+              As <strong style={{ color:"var(--text)", fontWeight:500 }}>Co-founder & Lead Developer (volunteer)</strong> of <strong style={{ color:"var(--text)", fontWeight:500 }}>myojam</strong>, I built an open-source EMG gesture classifier achieving 84.85% cross-subject accuracy — no lab, no funding. Previously AI QA intern at <strong style={{ color:"var(--text)", fontWeight:500 }}>Fairly AI</strong>, designing 1,000+ test cases and cutting evaluation pipeline time by 60%.
             </p>
             <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(108px,1fr))", gap:10, marginTop:44 }}>
               {["Python","React","FastAPI","scikit-learn","PyQt6","Three.js","Signal Processing","Random Forest","XGBoost","LIME","NumPy","Vite"].map(chip => (
