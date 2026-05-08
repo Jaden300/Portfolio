@@ -80,8 +80,25 @@ body:hover #cursor { opacity: 1; }
 @keyframes cSway { 0%,100%{transform:translateY(0) rotate(-4deg);}   50%{transform:translateY(-6px) rotate(4deg);}   }
 @keyframes cWig  { 0%,100%{transform:translateY(0) rotate(-3deg);}   40%{transform:translateY(-7px) rotate(3deg);}   }
 @keyframes cJig  { 0%,100%{transform:translateY(0) scale(1);}        50%{transform:translateY(-10px) scale(1.04);}   }
+@keyframes cNod  { 0%,100%{transform:rotate(-4deg);}                  50%{transform:rotate(4deg);}                   }
 
 .critter { position:absolute; pointer-events:none; z-index:5; filter:drop-shadow(0 8px 20px rgba(0,0,0,0.45)); }
+
+/* ── Critter animation assignments ── */
+.c-bunny  { animation: cBob  2.6s ease-in-out infinite; }
+.c-chick  { animation: cJig  2.8s ease-in-out infinite; }
+.c-bear   { animation: cSway 3.4s ease-in-out infinite; }
+.c-cat    { animation: cWig  3.0s ease-in-out infinite; }
+.c-frog   { animation: cBob  3.2s ease-in-out infinite; }
+.c-panda  { animation: cSway 3.8s ease-in-out infinite; }
+.c-fox    { animation: cWig  3.2s ease-in-out infinite; }
+.c-dog    { animation: cBob  2.9s ease-in-out infinite; }
+.c-sheep  { animation: cSway 3.5s ease-in-out infinite; }
+.c-penguin{ animation: cJig  2.6s ease-in-out infinite; }
+.c-mouse  { animation: cBob  3.0s ease-in-out infinite; }
+.c-hamster{ animation: cJig  2.4s ease-in-out infinite; }
+.c-dino   { animation: cWig  3.8s ease-in-out infinite; }
+.c-owl    { animation: cSway 4.0s ease-in-out infinite; }
 
 /* ── BUNNY ── */
 .c-bunny { }
@@ -213,3 +230,118 @@ body:hover #cursor { opacity: 1; }
   transition: width 0.4s ease;
 }
 .ink-line:hover::after { width: 100%; }
+
+/* ── Page progress bar ── */
+.page-progress {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 2px;
+  background: transparent;
+  pointer-events: none;
+}
+.page-progress-fill {
+  height: 100%;
+  background: linear-gradient(to right, #f5e040, #fbbf24);
+  transition: width 0.1s linear;
+  box-shadow: 0 0 8px rgba(245,224,64,0.5);
+}
+
+/* ── NEW CRITTERS ── */
+
+/* FOX */
+.c-fox .ear { position:absolute; width:18px; height:28px; background:#e85c20; border-radius:60% 60% 40% 40%; top:-20px; box-shadow:0 3px 8px rgba(0,0,0,0.22); }
+.c-fox .ear.l { left:8px; transform:rotate(-10deg); }
+.c-fox .ear.r { right:8px; transform:rotate(10deg); }
+.c-fox .ear-in { position:absolute; width:10px; height:17px; background:#f5c0a0; border-radius:50%; top:5px; left:4px; }
+.c-fox .body { width:74px; height:80px; background:radial-gradient(ellipse at 36% 28%,#f07030 0%,#c04c18 100%); border-radius:50% 50% 46% 46%; box-shadow:0 8px 24px rgba(0,0,0,0.30),inset 0 -5px 10px rgba(100,30,0,0.25); }
+.c-fox .eye { position:absolute; width:9px; height:9px; background:#1a2800; border-radius:50%; top:26px; }
+.c-fox .eye.l { left:15px; } .c-fox .eye.r { right:15px; }
+.c-fox .snout { position:absolute; width:26px; height:22px; background:radial-gradient(ellipse,#f5d5c0 0%,#ecdac0 100%); border-radius:50%; top:36px; left:50%; transform:translateX(-50%); }
+.c-fox .nose { position:absolute; width:8px; height:6px; background:#1a1010; border-radius:50%; top:40px; left:50%; transform:translateX(-50%); }
+.c-fox .cheek { position:absolute; border-radius:50%; background:rgba(255,120,80,0.45); width:14px; height:9px; top:36px; }
+.c-fox .cheek.l { left:8px; } .c-fox .cheek.r { right:8px; }
+
+/* DOG */
+.c-dog .ear { position:absolute; width:26px; height:34px; background:radial-gradient(ellipse at 38%,#c49060 0%,#9a6030 100%); border-radius:30% 30% 60% 60%; box-shadow:0 3px 8px rgba(0,0,0,0.22); }
+.c-dog .ear.l { left:-8px; top:6px; transform:rotate(8deg); }
+.c-dog .ear.r { right:-8px; top:6px; transform:rotate(-8deg); }
+.c-dog .body { width:76px; height:82px; background:radial-gradient(ellipse at 36% 28%,#e8c88a 0%,#c49060 100%); border-radius:50% 50% 46% 46%; box-shadow:0 8px 24px rgba(0,0,0,0.30),inset 0 -5px 10px rgba(100,60,20,0.22); }
+.c-dog .eye { position:absolute; width:9px; height:9px; background:#1e1010; border-radius:50%; top:28px; }
+.c-dog .eye.l { left:15px; } .c-dog .eye.r { right:15px; }
+.c-dog .snout { position:absolute; width:30px; height:22px; background:radial-gradient(ellipse,#eedcb0 0%,#d4b880 100%); border-radius:50%; top:38px; left:50%; transform:translateX(-50%); }
+.c-dog .nose { position:absolute; width:11px; height:8px; background:#1e1010; border-radius:50%; top:43px; left:50%; transform:translateX(-50%); }
+.c-dog .cheek { position:absolute; border-radius:50%; background:rgba(255,140,100,0.4); width:14px; height:9px; top:40px; }
+.c-dog .cheek.l { left:7px; } .c-dog .cheek.r { right:7px; }
+
+/* SHEEP */
+.c-sheep { position:relative; }
+.c-sheep .puff { position:absolute; background:radial-gradient(ellipse at 38% 30%,#f8f8f6 0%,#e4e2dc 100%); border-radius:50%; box-shadow:0 4px 10px rgba(0,0,0,0.18); }
+.c-sheep .puff.p1 { width:42px; height:38px; top:0px; left:0px; }
+.c-sheep .puff.p2 { width:42px; height:38px; top:0px; right:0px; }
+.c-sheep .puff.p3 { width:38px; height:34px; top:-8px; left:50%; transform:translateX(-50%); }
+.c-sheep .face { position:relative; width:54px; height:52px; background:radial-gradient(ellipse at 38% 28%,#cfc5b0 0%,#b0a090 100%); border-radius:50% 50% 46% 46%; margin:28px auto 0; box-shadow:0 6px 18px rgba(0,0,0,0.28); }
+.c-sheep .eye { position:absolute; width:8px; height:8px; background:#1e1010; border-radius:50%; top:16px; }
+.c-sheep .eye.l { left:12px; } .c-sheep .eye.r { right:12px; }
+.c-sheep .cheek { position:absolute; border-radius:50%; background:rgba(255,140,120,0.5); width:13px; height:8px; top:26px; }
+.c-sheep .cheek.l { left:6px; } .c-sheep .cheek.r { right:6px; }
+.c-sheep .snout { position:absolute; width:20px; height:14px; background:radial-gradient(ellipse,#c4b0a0 0%,#a89080 100%); border-radius:50%; top:32px; left:50%; transform:translateX(-50%); }
+
+/* PENGUIN */
+.c-penguin .body { position:relative; width:70px; height:88px; background:radial-gradient(ellipse at 36% 28%,#2e2e40 0%,#181820 100%); border-radius:50% 50% 50% 50% / 45% 45% 55% 55%; box-shadow:0 8px 24px rgba(0,0,0,0.38),inset 0 -5px 10px rgba(0,0,0,0.4); }
+.c-penguin .belly { position:absolute; width:40px; height:54px; background:radial-gradient(ellipse at 50% 30%,#ffffff 0%,#f0ede8 100%); border-radius:50% 50% 50% 50% / 40% 40% 60% 60%; top:12px; left:50%; transform:translateX(-50%); }
+.c-penguin .eye { position:absolute; width:10px; height:10px; background:#f0f0e8; border-radius:50%; top:18px; box-shadow:0 2px 4px rgba(0,0,0,0.3); }
+.c-penguin .eye.l { left:12px; } .c-penguin .eye.r { right:12px; }
+.c-penguin .pupil { position:absolute; width:6px; height:6px; background:#1a1a22; border-radius:50%; top:2px; left:2px; }
+.c-penguin .beak { position:absolute; top:30px; left:50%; transform:translateX(-50%); width:18px; height:11px; background:radial-gradient(ellipse,#f07c20 0%,#d05c10 100%); border-radius:50% 50% 50% 50% / 40% 40% 60% 60%; }
+.c-penguin .wing { position:absolute; width:18px; height:34px; background:#1e1e2c; border-radius:50%; top:22px; }
+.c-penguin .wing.l { left:-10px; transform:rotate(-10deg); }
+.c-penguin .wing.r { right:-10px; transform:rotate(10deg); }
+.c-penguin .cheek { position:absolute; border-radius:50%; background:rgba(255,140,100,0.4); width:12px; height:7px; top:32px; }
+.c-penguin .cheek.l { left:9px; } .c-penguin .cheek.r { right:9px; }
+
+/* MOUSE */
+.c-mouse .ear { position:absolute; width:30px; height:30px; background:radial-gradient(ellipse at 38% 30%,#d0c0c0 0%,#a08888 100%); border-radius:50%; top:-18px; box-shadow:0 3px 8px rgba(0,0,0,0.22); }
+.c-mouse .ear.l { left:0px; } .c-mouse .ear.r { right:0px; }
+.c-mouse .ear-in { position:absolute; width:16px; height:16px; background:rgba(255,180,172,0.85); border-radius:50%; top:6px; left:7px; }
+.c-mouse .body { width:68px; height:76px; background:radial-gradient(ellipse at 36% 28%,#d8d0cc 0%,#9a9090 100%); border-radius:50% 50% 46% 46%; box-shadow:0 8px 24px rgba(0,0,0,0.28),inset 0 -5px 10px rgba(60,40,40,0.22); }
+.c-mouse .eye { position:absolute; width:9px; height:9px; background:#1a1010; border-radius:50%; top:26px; }
+.c-mouse .eye.l { left:14px; } .c-mouse .eye.r { right:14px; }
+.c-mouse .nose { position:absolute; width:8px; height:6px; background:#d08080; border-radius:50%; top:40px; left:50%; transform:translateX(-50%); }
+.c-mouse .cheek { position:absolute; border-radius:50%; background:rgba(255,140,130,0.45); width:14px; height:9px; top:36px; }
+.c-mouse .cheek.l { left:6px; } .c-mouse .cheek.r { right:6px; }
+
+/* HAMSTER */
+.c-hamster .ear { position:absolute; width:22px; height:20px; background:radial-gradient(ellipse at 38% 30%,#f0d090 0%,#c09060 100%); border-radius:50%; top:-8px; box-shadow:0 3px 6px rgba(0,0,0,0.20); }
+.c-hamster .ear.l { left:10px; } .c-hamster .ear.r { right:10px; }
+.c-hamster .ear-in { position:absolute; width:12px; height:11px; background:rgba(255,185,165,0.85); border-radius:50%; top:4px; left:5px; }
+.c-hamster .body { width:84px; height:86px; background:radial-gradient(ellipse at 36% 28%,#f8da90 0%,#d4a870 100%); border-radius:50% 50% 50% 50% / 38% 38% 62% 62%; box-shadow:0 8px 24px rgba(0,0,0,0.28),inset 0 -5px 10px rgba(100,60,20,0.22); }
+.c-hamster .eye { position:absolute; width:10px; height:10px; background:#1e1010; border-radius:50%; top:24px; }
+.c-hamster .eye.l { left:18px; } .c-hamster .eye.r { right:18px; }
+.c-hamster .cheek { position:absolute; border-radius:50%; background:rgba(255,165,120,0.65); top:32px; }
+.c-hamster .cheek.l { width:26px; height:20px; left:-2px; }
+.c-hamster .cheek.r { width:26px; height:20px; right:-2px; }
+.c-hamster .nose { position:absolute; width:9px; height:7px; background:#c07070; border-radius:50%; top:44px; left:50%; transform:translateX(-50%); }
+
+/* DINO */
+.c-dino .spine { position:absolute; width:0; height:0; border-left:7px solid transparent; border-right:7px solid transparent; }
+.c-dino .spine.s1 { border-bottom:14px solid #4ab840; left:12px; top:-10px; }
+.c-dino .spine.s2 { border-bottom:20px solid #4ab840; left:24px; top:-16px; }
+.c-dino .spine.s3 { border-bottom:16px solid #4ab840; left:38px; top:-12px; }
+.c-dino .spine.s4 { border-bottom:10px solid #4ab840; left:52px; top:-7px; }
+.c-dino .body { width:76px; height:82px; background:radial-gradient(ellipse at 36% 28%,#82e060 0%,#4aa030 100%); border-radius:50% 50% 46% 46%; box-shadow:0 8px 24px rgba(0,0,0,0.28),inset 0 -5px 10px rgba(20,60,10,0.28); }
+.c-dino .eye { position:absolute; width:15px; height:15px; background:radial-gradient(ellipse at 40% 35%,#ffffff 0%,#f0f0e8 100%); border-radius:50%; top:22px; box-shadow:0 2px 6px rgba(0,0,0,0.2); }
+.c-dino .eye.l { left:11px; } .c-dino .eye.r { right:11px; }
+.c-dino .pupil { position:absolute; width:8px; height:8px; background:#1a2010; border-radius:50%; top:3px; left:3px; }
+.c-dino .cheek { position:absolute; border-radius:50%; background:rgba(100,220,80,0.55); width:16px; height:10px; top:42px; }
+.c-dino .cheek.l { left:8px; } .c-dino .cheek.r { right:8px; }
+.c-dino .mouth { position:absolute; width:26px; height:10px; border-bottom:3px solid rgba(20,70,10,0.5); border-radius:0 0 50% 50%; top:48px; left:50%; transform:translateX(-50%); }
+
+/* OWL */
+.c-owl .tuft { position:absolute; width:14px; height:16px; background:radial-gradient(ellipse at 38% 30%,#c8a050 0%,#9a6c28 100%); border-radius:50% 50% 30% 30%; top:-10px; box-shadow:0 2px 6px rgba(0,0,0,0.22); }
+.c-owl .tuft.l { left:16px; transform:rotate(-10deg); }
+.c-owl .tuft.r { right:16px; transform:rotate(10deg); }
+.c-owl .body { position:relative; width:76px; height:88px; background:radial-gradient(ellipse at 36% 30%,#c8a050 0%,#8a5828 100%); border-radius:50% 50% 46% 46%; box-shadow:0 8px 24px rgba(0,0,0,0.30),inset 0 -5px 10px rgba(60,28,8,0.3); }
+.c-owl .disc { position:absolute; width:58px; height:52px; background:radial-gradient(ellipse at 40% 30%,#f4e0b8 0%,#d8c080 100%); border-radius:50% 50% 46% 46%; top:6px; left:9px; }
+.c-owl .eye { position:absolute; width:18px; height:18px; background:radial-gradient(ellipse at 40% 35%,#fce080 0%,#e8b800 100%); border-radius:50%; top:8px; box-shadow:0 2px 6px rgba(0,0,0,0.32); }
+.c-owl .eye.l { left:4px; } .c-owl .eye.r { right:4px; }
+.c-owl .pupil { position:absolute; width:9px; height:9px; background:#1a1010; border-radius:50%; top:4px; left:4px; }
+.c-owl .beak { position:absolute; top:30px; left:50%; transform:translateX(-50%); width:0; height:0; border-left:7px solid transparent; border-right:7px solid transparent; border-top:12px solid #d08020; }

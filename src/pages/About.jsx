@@ -1,6 +1,8 @@
 import Reveal from "../components/Reveal"
 import ParticleWarp from "../components/ParticleWarp"
 import HelixScene from "../components/HelixScene"
+import { SkillProficiencyBars, PipelineViz } from "../components/Charts"
+import { Fox, Mouse, Hamster, Owl, Penguin, Dino } from "../components/Critters"
 
 const TIMELINE = [
   { year:"Sept 2024", event:"Started myojam — EMG gesture classification from scratch, no lab, no hardware, just public data" },
@@ -95,7 +97,9 @@ export default function About() {
       <HelixScene />
 
       {/* ── EXPERIENCE */}
-      <section style={{ position:"relative", zIndex:1, padding:"100px 48px", borderBottom:"1px solid var(--border)" }}>
+      <section style={{ position:"relative", zIndex:1, padding:"100px 48px", borderBottom:"1px solid var(--border)", overflow:"visible" }}>
+        <Fox style={{ top:80, left:"3%" }} />
+        <Penguin style={{ bottom:80, right:"3%" }} />
         <div style={{ maxWidth:1000, margin:"0 auto" }}>
           <Reveal>
             <div style={{ fontSize:10, color:"var(--gold)", textTransform:"uppercase", letterSpacing:"0.25em", marginBottom:8, fontFamily:"var(--serif)" }}>Experience</div>
@@ -186,14 +190,15 @@ export default function About() {
       </section>
 
       {/* ── SKILLS */}
-      <section style={{ position:"relative", zIndex:1, padding:"100px 48px", borderBottom:"1px solid var(--border)" }}>
+      <section style={{ position:"relative", zIndex:1, padding:"100px 48px", borderBottom:"1px solid var(--border)", overflow:"visible" }}>
+        <Owl style={{ top:80, right:"3%" }} />
         <div style={{ maxWidth:1000, margin:"0 auto" }}>
           <Reveal>
             <div style={{ fontSize:10, color:"var(--gold)", textTransform:"uppercase", letterSpacing:"0.25em", marginBottom:8, fontFamily:"var(--serif)" }}>Technical skills</div>
             <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4.5vw,52px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:64 }}>What I work with.</h2>
           </Reveal>
 
-          <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:2 }}>
+          <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:2, marginBottom:40 }}>
             {SKILLS.map((skill, i) => (
               <Reveal key={skill.cat} delay={i * 0.07}>
                 <div style={{ padding:"36px", background:"var(--bg-2)", borderRadius: i===0?"20px 0 0 0": i===1?"0 20px 0 0": i===2?"0 0 0 20px":"0 0 20px 0" }}>
@@ -210,11 +215,29 @@ export default function About() {
               </Reveal>
             ))}
           </div>
+
+          {/* Proficiency bars */}
+          <Reveal delay={0.12}>
+            <div style={{ background:"var(--bg-2)", borderRadius:20, padding:"36px 40px", marginBottom:16 }}>
+              <div style={{ fontSize:10, color:"var(--text-tertiary)", textTransform:"uppercase", letterSpacing:"0.18em", marginBottom:24 }}>Core proficiency</div>
+              <SkillProficiencyBars />
+            </div>
+          </Reveal>
+
+          {/* EMG Pipeline */}
+          <Reveal delay={0.16}>
+            <div style={{ background:"var(--bg-2)", borderRadius:20, padding:"36px 40px" }}>
+              <div style={{ fontSize:10, color:"var(--text-tertiary)", textTransform:"uppercase", letterSpacing:"0.18em", marginBottom:24 }}>myojam classification pipeline</div>
+              <PipelineViz />
+            </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ── TIMELINE */}
-      <section style={{ position:"relative", zIndex:1, padding:"100px 48px 120px" }}>
+      <section style={{ position:"relative", zIndex:1, padding:"100px 48px 120px", overflow:"visible" }}>
+        <Mouse style={{ top:80, left:"3%" }} />
+        <Hamster style={{ bottom:120, right:"4%" }} />
         <div style={{ maxWidth:1000, margin:"0 auto" }}>
           <Reveal>
             <div style={{ fontSize:10, color:"var(--gold)", textTransform:"uppercase", letterSpacing:"0.25em", marginBottom:8, fontFamily:"var(--serif)" }}>Journey</div>
@@ -222,13 +245,11 @@ export default function About() {
           </Reveal>
 
           <div style={{ position:"relative" }}>
-            {/* Vertical line */}
             <div style={{ position:"absolute", left:0, top:8, bottom:0, width:1, background:"linear-gradient(to bottom, var(--gold), transparent)" }} />
 
             {TIMELINE.map((item, i) => (
               <Reveal key={i} delay={i * 0.07}>
                 <div style={{ display:"flex", gap:40, paddingBottom:48, paddingLeft:32, position:"relative" }}>
-                  {/* Dot */}
                   <div style={{ position:"absolute", left:-5, top:8, width:11, height:11, borderRadius:"50%", background:"var(--bg)", border:"2px solid var(--gold)", flexShrink:0 }} />
                   <div style={{ minWidth:110, flexShrink:0 }}>
                     <span style={{ fontSize:11, color:"var(--gold)", fontWeight:600, letterSpacing:"0.06em" }}>{item.year}</span>

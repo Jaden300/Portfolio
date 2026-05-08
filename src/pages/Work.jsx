@@ -1,6 +1,7 @@
 import Reveal from "../components/Reveal"
 import PageBanner from "../components/PageBanner"
 import ProjectRotunda from "../components/ProjectRotunda"
+import { Dog, Sheep, Bunny } from "../components/Critters"
 
 const _PROJECTS_UNUSED = [
   {
@@ -93,7 +94,9 @@ export default function Work() {
       <ProjectRotunda />
 
     {/* Publications & Writing */}
-    <section style={{ padding:"0 48px 100px", borderTop:"1px solid var(--border)" }}>
+    <section style={{ padding:"0 48px 100px", borderTop:"1px solid var(--border)", position:"relative", overflow:"visible" }}>
+      <Dog style={{ top:60, right:"3%" }} />
+      <Sheep style={{ bottom:120, left:"3%" }} />
       <div style={{ maxWidth:1000, margin:"0 auto", paddingTop:64 }}>
         <Reveal>
           <div style={{ fontSize:10, color:"var(--gold)", textTransform:"uppercase", letterSpacing:"0.25em", marginBottom:16, fontFamily:"var(--serif)" }}>Publications & Writing</div>

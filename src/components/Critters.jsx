@@ -83,3 +83,119 @@ export function Panda({ style }) {
     </div>
   )
 }
+
+export function Fox({ style }) {
+  return (
+    <div className="critter c-fox" style={style}>
+      <div className="ear l"><div className="ear-in" /></div>
+      <div className="ear r"><div className="ear-in" /></div>
+      <div className="body">
+        <div className="eye l" /><div className="eye r" />
+        <div className="cheek l" /><div className="cheek r" />
+        <div className="snout" />
+        <div className="nose" />
+      </div>
+    </div>
+  )
+}
+
+export function Dog({ style }) {
+  return (
+    <div className="critter c-dog" style={style}>
+      <div className="ear l" /><div className="ear r" />
+      <div className="body">
+        <div className="eye l" /><div className="eye r" />
+        <div className="cheek l" /><div className="cheek r" />
+        <div className="snout" />
+        <div className="nose" />
+      </div>
+    </div>
+  )
+}
+
+export function Sheep({ style }) {
+  return (
+    <div className="critter c-sheep" style={style}>
+      <div className="puff p1" />
+      <div className="puff p2" />
+      <div className="puff p3" />
+      <div className="face">
+        <div className="eye l" /><div className="eye r" />
+        <div className="cheek l" /><div className="cheek r" />
+        <div className="snout" />
+      </div>
+    </div>
+  )
+}
+
+export function Penguin({ style }) {
+  return (
+    <div className="critter c-penguin" style={style}>
+      <div className="body">
+        <div className="belly" />
+        <div className="eye l"><div className="pupil" /></div>
+        <div className="eye r"><div className="pupil" /></div>
+        <div className="beak" />
+        <div className="cheek l" /><div className="cheek r" />
+        <div className="wing l" /><div className="wing r" />
+      </div>
+    </div>
+  )
+}
+
+export function Mouse({ style }) {
+  return (
+    <div className="critter c-mouse" style={style}>
+      <div className="ear l"><div className="ear-in" /></div>
+      <div className="ear r"><div className="ear-in" /></div>
+      <div className="body">
+        <div className="eye l" /><div className="eye r" />
+        <div className="cheek l" /><div className="cheek r" />
+        <div className="nose" />
+      </div>
+    </div>
+  )
+}
+
+export function Hamster({ style }) {
+  return (
+    <div className="critter c-hamster" style={style}>
+      <div className="ear l"><div className="ear-in" /></div>
+      <div className="ear r"><div className="ear-in" /></div>
+      <div className="body">
+        <div className="eye l" /><div className="eye r" />
+        <div className="cheek l" /><div className="cheek r" />
+        <div className="nose" />
+      </div>
+    </div>
+  )
+}
+
+export function Dino({ style }) {
+  return (
+    <div className="critter c-dino" style={style}>
+      <div className="spine s1" /><div className="spine s2" /><div className="spine s3" /><div className="spine s4" />
+      <div className="body">
+        <div className="eye l"><div className="pupil" /></div>
+        <div className="eye r"><div className="pupil" /></div>
+        <div className="cheek l" /><div className="cheek r" />
+        <div className="mouth" />
+      </div>
+    </div>
+  )
+}
+
+export function Owl({ style }) {
+  return (
+    <div className="critter c-owl" style={style}>
+      <div className="tuft l" /><div className="tuft r" />
+      <div className="body">
+        <div className="disc">
+          <div className="eye l"><div className="pupil" /></div>
+          <div className="eye r"><div className="pupil" /></div>
+          <div className="beak" />
+        </div>
+      </div>
+    </div>
+  )
+}

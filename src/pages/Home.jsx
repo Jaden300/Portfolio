@@ -4,7 +4,8 @@ import Reveal from "../components/Reveal"
 import ChessHero from "../components/ChessHero"
 import RoyalCanvas3D from "../components/RoyalCanvas3D"
 import ParticleWarp from "../components/ParticleWarp"
-import { Bunny, Chick, Bear, Cat, Frog, Panda } from "../components/Critters"
+import { Bunny, Chick, Bear, Cat, Frog, Panda, Fox, Dog, Sheep, Penguin } from "../components/Critters"
+import { AccuracyGauge } from "../components/Charts"
 
 function Counter({ end, suffix = "", duration = 1200 }) {
   const [val, setVal] = useState(0)
@@ -72,6 +73,8 @@ export default function Home() {
         <Bunny style={{ bottom: 230, right: "7%" }} />
         {/* Chick — left of name heading */}
         <Chick style={{ bottom: 230, left: "7%" }} />
+        <Sheep style={{ bottom: 180, right: "18%" }} />
+        <Fox style={{ bottom: 180, left: "18%" }} />
 
         {/* Hero content */}
         <div style={{ position:"relative", zIndex:3, padding:"0 48px 68px", textAlign:"center", display:"flex", flexDirection:"column", alignItems:"center" }}>
@@ -153,6 +156,7 @@ export default function Home() {
 
       {/* ── NUMBERS STRIP */}
       <div style={{ position:"relative", zIndex:1, display:"grid", gridTemplateColumns:"repeat(3,1fr)", borderBottom:"1px solid var(--border)", overflow:"visible" }}>
+        <Penguin style={{ top:-32, right:"8%" }} />
         {[
           { val:84, suffix:".85%", label:"Cross-subject accuracy" },
           { val:1000, suffix:"+", label:"QA test cases designed" },
@@ -256,13 +260,16 @@ export default function Home() {
                       ))}
                     </div>
                   </div>
-                  <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8 }}>
-                    {[["84.85%","Accuracy"],["<5ms","Inference"],["16ch","EMG"],["MIT","License"]].map(([v, l]) => (
-                      <div key={l} style={{ background:"var(--bg)", border:"1px solid var(--border)", borderRadius:4, padding:"14px", textAlign:"center" }}>
-                        <div style={{ fontSize:16, fontWeight:400, color:"var(--accent)", fontStyle:"italic", fontFamily:"var(--serif)", marginBottom:4 }}>{v}</div>
-                        <div style={{ fontSize:10, color:"var(--text-tertiary)", textTransform:"uppercase", letterSpacing:"0.1em" }}>{l}</div>
-                      </div>
-                    ))}
+                  <div style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:12 }}>
+                    <AccuracyGauge pct={84.85} size={134} />
+                    <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:6, width:"100%" }}>
+                      {[["<5ms","Inference"],["16ch","EMG input"],["6","Gestures"],["MIT","License"]].map(([v, l]) => (
+                        <div key={l} style={{ background:"var(--bg)", border:"1px solid var(--border)", borderRadius:4, padding:"10px", textAlign:"center" }}>
+                          <div style={{ fontSize:14, fontWeight:400, color:"var(--accent)", fontStyle:"italic", fontFamily:"var(--serif)", marginBottom:2 }}>{v}</div>
+                          <div style={{ fontSize:9, color:"var(--text-tertiary)", textTransform:"uppercase", letterSpacing:"0.1em" }}>{l}</div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -295,7 +302,8 @@ export default function Home() {
       </section>
 
       {/* ── EXPERIENCE */}
-      <section style={{ padding:"100px 48px", borderBottom:"1px solid var(--border)", position:"relative", zIndex:1 }}>
+      <section style={{ padding:"100px 48px", borderBottom:"1px solid var(--border)", position:"relative", zIndex:1, overflow:"visible" }}>
+        <Dog style={{ top:72, right:"4%" }} />
         <div style={{ maxWidth:1000, margin:"0 auto", display:"grid", gridTemplateColumns:"240px 1fr", gap:"0 80px" }}>
           <Reveal>
             <div style={{ fontSize:10, fontWeight:600, letterSpacing:"0.36em", textTransform:"uppercase", color:"var(--text-tertiary)", paddingTop:6 }}>

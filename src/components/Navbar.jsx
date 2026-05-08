@@ -5,9 +5,15 @@ export default function Navbar() {
   const navigate = useNavigate()
   const { pathname } = useLocation()
   const [scrolled, setScrolled] = useState(false)
+  const [pct, setPct] = useState(0)
 
   useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 60)
+    const fn = () => {
+      const y = window.scrollY
+      setScrolled(y > 60)
+      const docH = document.documentElement.scrollHeight - window.innerHeight
+      setPct(docH > 0 ? Math.min((y / docH) * 100, 100) : 0)
+    }
     window.addEventListener("scroll", fn, { passive: true })
     return () => window.removeEventListener("scroll", fn)
   }, [])
@@ -28,45 +34,52 @@ export default function Navbar() {
       borderBottom: scrolled ? "1px solid rgba(237,234,226,0.06)" : "none",
       transition: "all 0.4s ease"
     }}>
-      {/* Logo */}
-      <div onClick={() => navigate("/")} style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: 0 }}>
-        <span style={{
-          fontFamily: "'DM Serif Display', Georgia, serif",
-          fontSize: 20,
-          fontWeight: 400,
-          color: "var(--text)",
-          letterSpacing: "-0.5px",
-        }}>JW</span>
-        <span style={{
-          fontFamily: "serif",
-          fontSize: 17,
-          color: "var(--gold)",
-          marginLeft: 1,
-        }}>黃</span>
+      {/* Progress bar */}
+      <div style={{ position:"absolute", top:0, left:0, right:0, height:2, pointerEvents:"none" }}>
+        <div style={{
+          height:"100%", width:`${pct}%`,
+          background:"linear-gradient(to right, #f5e040, #fbbf24)",
+          transition:"width 0.1s linear",
+          boxShadow:"0 0 8px rgba(245,224,64,0.5)",
+        }} />
       </div>
 
-      <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
+      {/* Logo */}
+      <div onClick={() => navigate("/")} style={{ cursor:"pointer", display:"flex", alignItems:"center", gap:0 }}>
+        <span style={{ fontFamily:"'DM Serif Display',Georgia,serif", fontSize:20, fontWeight:400, color:"var(--text)", letterSpacing:"-0.5px" }}>JW</span>
+        <span style={{ fontFamily:"serif", fontSize:17, color:"var(--gold)", marginLeft:1 }}>黃</span>
+      </div>
+
+      <div style={{ display:"flex", alignItems:"center", gap:32 }}>
         {links.map(([label, path]) => (
           <span key={path} onClick={() => navigate(path)} className="ink-line" style={{
-            fontSize: 13, cursor: "pointer", fontWeight: 400,
+            fontSize:13, cursor:"pointer", fontWeight:400,
             color: pathname === path ? "var(--gold)" : "var(--text-tertiary)",
-            letterSpacing: "0.04em", transition: "color 0.2s",
-            fontFamily: "var(--font)"
-          }}>{label}</span>
+            letterSpacing:"0.04em", transition:"color 0.2s",
+            fontFamily:"var(--font)",
+            position:"relative",
+          }}>
+            {label}
+            {pathname === path && (
+              <span style={{ position:"absolute", bottom:-4, left:"50%", transform:"translateX(-50%)", width:4, height:4, borderRadius:"50%", background:"var(--gold)" }} />
+            )}
+          </span>
         ))}
         <a href="/contact" onClick={e => { e.preventDefault(); navigate("/contact") }} style={{
-          fontSize: 13, fontWeight: 400,
-          color: "var(--text)",
-          border: "1px solid var(--border-dark)",
-          borderRadius: 100,
-          padding: "7px 18px",
-          letterSpacing: "0.04em",
-          transition: "border-color 0.2s, color 0.2s, background 0.2s",
-          display: "inline-block",
-          fontFamily: "var(--font)"
+          fontSize:13, fontWeight:400,
+          color: pathname === "/contact" ? "var(--gold)" : "var(--text)",
+          border:`1px solid ${pathname === "/contact" ? "var(--gold)" : "var(--border-dark)"}`,
+          borderRadius:100, padding:"7px 18px",
+          letterSpacing:"0.04em",
+          transition:"border-color 0.2s, color 0.2s, background 0.2s",
+          display:"inline-block",
+          fontFamily:"var(--font)",
         }}
           onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--gold)"; e.currentTarget.style.color = "var(--gold)" }}
-          onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border-dark)"; e.currentTarget.style.color = "var(--text)" }}
+          onMouseLeave={e => {
+            e.currentTarget.style.borderColor = pathname === "/contact" ? "var(--gold)" : "var(--border-dark)"
+            e.currentTarget.style.color = pathname === "/contact" ? "var(--gold)" : "var(--text)"
+          }}
         >Get in touch</a>
       </div>
     </nav>

@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Reveal from "../components/Reveal"
 import ParticleWarp from "../components/ParticleWarp"
+import { Hamster, Chick, Fox, Penguin } from "../components/Critters"
 
 export default function Contact() {
   const [copied, setCopied] = useState(false)
@@ -65,6 +66,9 @@ export default function Contact() {
           </p>
         </div>
 
+        <Chick style={{ bottom:220, left:"8%" }} />
+        <Penguin style={{ bottom:220, right:"8%" }} />
+
         {/* Scroll hint */}
         <div style={{
           position:"absolute", bottom:28, left:"50%", transform:"translateX(-50%)",
@@ -79,7 +83,9 @@ export default function Contact() {
       </section>
 
       {/* ── CONTACT CONTENT */}
-      <section style={{ padding:"80px 48px 120px", position:"relative", zIndex:1 }}>
+      <section style={{ padding:"80px 48px 120px", position:"relative", zIndex:1, overflow:"visible" }}>
+        <Hamster style={{ top:60, left:"2%" }} />
+        <Fox style={{ bottom:100, right:"2%" }} />
         <div style={{ maxWidth:1000, margin:"0 auto", display:"grid", gridTemplateColumns:"1fr 1fr", gap:56, alignItems:"start" }}>
 
           {/* LEFT */}

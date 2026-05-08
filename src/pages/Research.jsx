@@ -1,6 +1,8 @@
 import Reveal from "../components/Reveal"
 import ParticleWarp from "../components/ParticleWarp"
 import ResearchCanvas3D from "../components/ResearchCanvas3D"
+import { GestureAccuracyBars, AccuracyGauge } from "../components/Charts"
+import { Dino, Sheep, Dog, Penguin, Mouse } from "../components/Critters"
 
 const PAPER = {
   title: "myojam: Open-Source Surface EMG Gesture Classification for Assistive Human-Computer Interaction",
@@ -181,7 +183,8 @@ export default function Research() {
       <ResearchCanvas3D />
 
       {/* ── TECHNICAL REPORT */}
-      <section style={{ position:"relative", zIndex:1, padding:"100px 48px", borderBottom:"1px solid var(--border)" }}>
+      <section style={{ position:"relative", zIndex:1, padding:"100px 48px", borderBottom:"1px solid var(--border)", overflow:"visible" }}>
+        <Dino style={{ top:80, right:"3%" }} />
         <div style={{ maxWidth:1000, margin:"0 auto" }}>
           <Reveal>
             <div style={{ fontSize:10, color:"var(--gold)", textTransform:"uppercase", letterSpacing:"0.25em", marginBottom:8, fontFamily:"var(--serif)" }}>Technical report</div>
@@ -224,6 +227,15 @@ export default function Research() {
                     ))}
                   </div>
 
+                  {/* Data visualization */}
+                  <div style={{ display:"grid", gridTemplateColumns:"auto 1fr", gap:36, alignItems:"start", borderTop:"1px solid var(--border)", paddingTop:28, marginBottom:24 }}>
+                    <div style={{ display:"flex", flexDirection:"column", alignItems:"center" }}>
+                      <AccuracyGauge pct={84.85} size={130} />
+                      <div style={{ fontSize:9, color:"var(--text-tertiary)", textTransform:"uppercase", letterSpacing:"0.14em", marginTop:4 }}>Cross-subject · 10 subjects</div>
+                    </div>
+                    <GestureAccuracyBars />
+                  </div>
+
                   <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", borderTop:"1px solid var(--border)", paddingTop:24 }}>
                     <span style={{ fontSize:12, color:"var(--text-tertiary)", fontStyle:"italic" }}>Wong, J. (2026). myojam Technical Report. myojam Project.</span>
                     <span style={{ fontSize:14, fontWeight:600, color:"var(--gold)", letterSpacing:"0.08em" }}>Read paper ↗</span>
@@ -236,7 +248,8 @@ export default function Research() {
       </section>
 
       {/* ── ARTICLES */}
-      <section style={{ position:"relative", zIndex:1, padding:"100px 48px", borderBottom:"1px solid var(--border)" }}>
+      <section style={{ position:"relative", zIndex:1, padding:"100px 48px", borderBottom:"1px solid var(--border)", overflow:"visible" }}>
+        <Mouse style={{ top:80, left:"2%" }} />
         <div style={{ maxWidth:1000, margin:"0 auto" }}>
           <Reveal>
             <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-end", marginBottom:56, flexWrap:"wrap", gap:16 }}>
@@ -309,7 +322,9 @@ export default function Research() {
       </section>
 
       {/* ── LESSON PLANS */}
-      <section style={{ position:"relative", zIndex:1, padding:"100px 48px 120px" }}>
+      <section style={{ position:"relative", zIndex:1, padding:"100px 48px 120px", overflow:"visible" }}>
+        <Sheep style={{ top:80, right:"3%" }} />
+        <Dog style={{ bottom:120, left:"3%" }} />
         <div style={{ maxWidth:1000, margin:"0 auto" }}>
           <Reveal>
             <div style={{ fontSize:10, color:"var(--gold)", textTransform:"uppercase", letterSpacing:"0.25em", marginBottom:8, fontFamily:"var(--serif)" }}>Educational resources</div>
