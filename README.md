@@ -1,8 +1,20 @@
 # Portfolio — Jaden Wong
 
+![React](https://img.shields.io/badge/React_19-20232A?style=flat&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite_8-646CFF?style=flat&logo=vite&logoColor=white)
+![Three.js](https://img.shields.io/badge/Three.js-black?style=flat&logo=three.js&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-black?style=flat&logo=vercel&logoColor=white)
+
 Personal portfolio site for Jaden Wong — 16-year-old ML engineer and researcher from Toronto, Ontario.
 
-Built with React + Vite. Live at **[jadenwong.dev](https://jadenwong.dev)**.
+---
+
+## Preview
+
+| | |
+|---|---|
+| ![Home](public/screenshots/home.png) | ![Research](public/screenshots/research.png) |
+| ![About](public/screenshots/about.png) | ![Contact](public/screenshots/contact.png) |
 
 ---
 
@@ -32,8 +44,8 @@ Built with React + Vite. Live at **[jadenwong.dev](https://jadenwong.dev)**.
 
 ## Features
 
-- **Three.js scenes** — DNA double helix, chess piece rotunda, particle character animations (黃德治)
-- **Data visualizations** — SVG accuracy gauge (84.85%), per-gesture accuracy bars, skill proficiency bars, EMG pipeline diagram — all built without a charting library
+- **Three.js scenes** — DNA double helix, chess piece rotunda, particle character animations
+- **Data visualizations** — SVG accuracy gauge, per-gesture accuracy bars, skill proficiency bars, EMG pipeline diagram — all built without a charting library
 - **14 CSS critter characters** — hand-crafted in pure CSS, each independently animated
 - **Immersive scroll** — parallax CJK backgrounds, particle warp star field, cinematic entrance animations
 - **Page progress bar** — gold fill bar tracks scroll position across all pages
@@ -46,11 +58,3 @@ Built with React + Vite. Live at **[jadenwong.dev](https://jadenwong.dev)**.
 npm install
 npm run dev
 ```
-
----
-
-## About the work
-
-Most of this site documents **[myojam](https://myojam.com)** — an open-source surface EMG gesture classification system I built as Co-founder & Lead Developer (volunteer). It achieves 84.85% cross-subject accuracy on Ninapro DB5 using a Random Forest classifier trained on 64-dimensional time-domain feature vectors.
-
-Previously AI QA Intern at **Fairly AI** (Sept 2025 – Jan 2026), designing 1,000+ test cases and cutting evaluation pipeline time by 60%.
