@@ -1,20 +1,13 @@
 # Portfolio — Jaden Wong
 
+![banner](public/banner.svg)
+
 ![React](https://img.shields.io/badge/React_19-20232A?style=flat&logo=react&logoColor=61DAFB)
 ![Vite](https://img.shields.io/badge/Vite_8-646CFF?style=flat&logo=vite&logoColor=white)
 ![Three.js](https://img.shields.io/badge/Three.js-black?style=flat&logo=three.js&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Vercel-black?style=flat&logo=vercel&logoColor=white)
 
 Personal portfolio site for Jaden Wong — 16-year-old ML engineer and researcher from Toronto, Ontario.
-
----
-
-## Preview
-
-| | |
-|---|---|
-| ![Home](public/screenshots/home.png) | ![Research](public/screenshots/research.png) |
-| ![About](public/screenshots/about.png) | ![Contact](public/screenshots/contact.png) |
 
 ---
 
