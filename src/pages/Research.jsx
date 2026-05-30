@@ -33,7 +33,7 @@ const ARTICLES = [
     url: "https://myojam.com/education/phantom-limb", likes: 61,
   },
   {
-    title: "Muscle memory is real — it's just not in your muscles",
+    title: "Muscle memory is real - it's just not in your muscles",
     tag: "Neuroscience", date: "January 2026",
     desc: "What neuroscientists actually mean by motor learning, how repetition reshapes the brain's motor cortex, and why gesture consistency matters for classification.",
     url: "https://myojam.com/education/muscle-memory", likes: 52,
@@ -41,13 +41,13 @@ const ARTICLES = [
   {
     title: "The science of muscle-computer interfaces",
     tag: "Foundations", date: "April 2026",
-    desc: "From the biology of muscle contraction to the machine learning that classifies gesture intent — a complete explainer from the ground up.",
+    desc: "From the biology of muscle contraction to the machine learning that classifies gesture intent - a complete explainer from the ground up.",
     url: "https://myojam.com/education/emg-explainer", likes: 47,
   },
   {
     title: "Why EMG is harder than it looks",
     tag: "Signal Processing", date: "November 2025",
-    desc: "Six specific reasons EMG gesture classification keeps failing in real-world deployment — and what research is doing about each one.",
+    desc: "Six specific reasons EMG gesture classification keeps failing in real-world deployment - and what research is doing about each one.",
     url: "https://myojam.com/education/why-emg-is-hard", likes: 44,
   },
   {
@@ -77,7 +77,7 @@ const ARTICLES = [
   {
     title: "The art of cutting a signal into pieces",
     tag: "Signal Processing", date: "July 2025",
-    desc: "Window size, step size, and overlap are the least glamorous choices in EMG classification — and silently the most consequential.",
+    desc: "Window size, step size, and overlap are the least glamorous choices in EMG classification - and silently the most consequential.",
     url: "https://myojam.com/education/windowing-explained", likes: 29,
   },
 ]
@@ -96,7 +96,7 @@ const TAG_COLORS = {
 
 const RESOURCES = [
   {
-    title: "EMG Basics — full lesson plan",
+    title: "EMG Basics - full lesson plan",
     type: "Lesson Plan",
     audience: "Grades 9–12 · Biology / Physics",
     duration: "75 min",
@@ -108,7 +108,7 @@ const RESOURCES = [
     type: "Lesson Plan",
     audience: "Grades 10–12 / Intro university · CS / Data Science",
     duration: "90 min",
-    desc: "Hands-on ML lesson covering feature extraction, decision boundaries, and confusion matrix interpretation — using real Ninapro data.",
+    desc: "Hands-on ML lesson covering feature extraction, decision boundaries, and confusion matrix interpretation - using real Ninapro data.",
     url: "https://myojam.com/educators/lesson-gesture-classifier",
   },
   {
@@ -150,7 +150,7 @@ export default function Research() {
             Research &<br /><em style={{ fontStyle:"italic", color:"var(--accent)" }}>writing.</em>
           </h1>
           <p style={{ fontSize:16, fontWeight:300, color:"var(--text-secondary)", maxWidth:520, margin:"28px auto 0", lineHeight:1.75, animation:"heroFade 1s ease 0.75s both" }}>
-            A peer-readable technical report on myojam's methodology, eleven articles spanning neuroscience, signal processing, and ML ethics, and three educator-ready lesson plans — all openly published.
+            A peer-readable technical report on myojam's methodology, eleven articles spanning neuroscience, signal processing, and ML ethics, and three educator-ready lesson plans - all openly published.
           </p>
         </div>
 
@@ -265,7 +265,7 @@ export default function Research() {
             </div>
           </Reveal>
 
-          {/* Featured 2 — large cards */}
+          {/* Featured 2 - large cards */}
           <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:16, marginBottom:4 }}>
             {FEATURED.map((article, i) => {
               const tc = TAG_COLORS[article.tag] || "var(--gold)"
@@ -295,7 +295,7 @@ export default function Research() {
             })}
           </div>
 
-          {/* Rest — clean rows */}
+          {/* Rest - clean rows */}
           <div style={{ border:"1px solid var(--border)", borderRadius:20, overflow:"hidden", marginTop:4 }}>
             {REST.map((article, i) => {
               const tc = TAG_COLORS[article.tag] || "var(--gold)"

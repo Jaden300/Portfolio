@@ -5,12 +5,12 @@ import { SkillProficiencyBars, PipelineViz } from "../components/Charts"
 import { Fox, Mouse, Hamster, Owl, Penguin, Dino } from "../components/Critters"
 
 const TIMELINE = [
-  { year:"Sept 2024", event:"Started myojam — EMG gesture classification from scratch, no lab, no hardware, just public data" },
+  { year:"Sept 2024", event:"Started myojam - EMG gesture classification from scratch, no lab, no hardware, just public data" },
   { year:"Dec 2024",  event:"Reached 84.85% cross-subject accuracy on Ninapro DB5" },
-  { year:"Feb 2025",  event:"Launched myojam.com — full-stack web demo, no hardware required" },
-  { year:"Sept 2025", event:"Co-op at Fairly AI as AI QA Intern — designed 1,000+ test cases" },
+  { year:"Feb 2025",  event:"Launched myojam.com - full-stack web demo, no hardware required" },
+  { year:"Sept 2025", event:"Co-op at Fairly AI as AI QA Intern - designed 1,000+ test cases" },
   { year:"Jan 2026",  event:"Completed Fairly AI co-op; returned to myojam as Co-founder & Lead Developer (volunteer)" },
-  { year:"Apr 2026",  event:"Launched ELEVATE — international EMG innovation competition" },
+  { year:"Apr 2026",  event:"Launched ELEVATE - international EMG innovation competition" },
 ]
 
 const SKILLS = [
@@ -46,7 +46,7 @@ export default function About() {
             Jaden<br /><em style={{ fontStyle:"italic", color:"var(--accent)" }}>Wong.</em>
           </h1>
           <p style={{ fontSize:16, fontWeight:300, color:"var(--text-secondary)", maxWidth:500, margin:"28px auto 0", lineHeight:1.75, animation:"heroFade 1s ease 0.75s both" }}>
-            I build full-stack ML systems, process biomedical signals, and publish openly — because access to technology is the whole point.
+            I build full-stack ML systems, process biomedical signals, and publish openly - because access to technology is the whole point.
           </p>
         </div>
 
@@ -60,7 +60,7 @@ export default function About() {
       <section style={{ position:"relative", zIndex:1, borderTop:"1px solid var(--border)", borderBottom:"1px solid var(--border)" }}>
         <div style={{ maxWidth:1200, margin:"0 auto", display:"grid", gridTemplateColumns:"1fr 1fr" }}>
 
-          {/* Left — big editorial statement */}
+          {/* Left - big editorial statement */}
           <div style={{ padding:"80px 64px 80px 48px", borderRight:"1px solid var(--border)" }}>
             <Reveal grand>
               <p style={{ fontFamily:"var(--serif)", fontSize:"clamp(24px,3vw,38px)", fontWeight:400, fontStyle:"italic", color:"var(--text)", lineHeight:1.35, letterSpacing:"-0.5px" }}>
@@ -70,7 +70,7 @@ export default function About() {
             </Reveal>
           </div>
 
-          {/* Right — compact facts */}
+          {/* Right - compact facts */}
           <div style={{ padding:"80px 48px 80px 64px" }}>
             <Reveal delay={0.1}>
               <div style={{ display:"flex", flexDirection:"column", gap:20 }}>
@@ -106,7 +106,7 @@ export default function About() {
             <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4.5vw,52px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:64 }}>Where I've worked.</h2>
           </Reveal>
 
-          {/* myojam — big card */}
+          {/* myojam - big card */}
           <Reveal delay={0.05} grand>
             <div style={{ background:"var(--bg-2)", borderRadius:24, padding:"48px", marginBottom:16, borderLeft:"3px solid var(--gold)" }}>
               <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:28, flexWrap:"wrap", gap:16 }}>
@@ -126,10 +126,10 @@ export default function About() {
               </div>
               <div style={{ display:"flex", flexDirection:"column", gap:12 }}>
                 {[
-                  "Built an open-source sEMG gesture classifier from scratch — 84.85% cross-subject accuracy on Ninapro DB5",
+                  "Built an open-source sEMG gesture classifier from scratch - 84.85% cross-subject accuracy on Ninapro DB5",
                   "Designed and shipped the full stack: FastAPI backend, React/Vite frontend, PyQt6 native macOS app",
                   "Published 11 educational articles and 3 lesson plans; launched the ELEVATE international EMG competition",
-                  "No lab access, no funding, no hardware — built entirely from public data and open-source tooling",
+                  "No lab access, no funding, no hardware - built entirely from public data and open-source tooling",
                 ].map((b, i) => (
                   <div key={i} style={{ display:"flex", gap:14, alignItems:"flex-start" }}>
                     <span style={{ color:"var(--gold)", fontWeight:700, flexShrink:0, marginTop:1 }}>→</span>
@@ -140,13 +140,13 @@ export default function About() {
             </div>
           </Reveal>
 
-          {/* Fairly AI — big card */}
+          {/* Fairly AI - big card */}
           <Reveal delay={0.08} grand>
             <div style={{ background:"var(--bg-2)", borderRadius:24, padding:"48px", marginBottom:16, borderLeft:"3px solid #3B82F6" }}>
               <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:28, flexWrap:"wrap", gap:16 }}>
                 <div>
                   <div style={{ fontSize:26, fontWeight:700, color:"var(--text)", fontFamily:"var(--serif)", letterSpacing:"-0.5px", marginBottom:6 }}>Fairly AI</div>
-                  <div style={{ fontSize:13, color:"#3B82F6", fontWeight:500, marginBottom:4 }}>AI Intern — QA Assistant (Student Co-op)</div>
+                  <div style={{ fontSize:13, color:"#3B82F6", fontWeight:500, marginBottom:4 }}>AI Intern - QA Assistant (Student Co-op)</div>
                   <div style={{ fontSize:12, color:"var(--text-tertiary)", fontWeight:300 }}>Sept 2025 – Jan 2026 · Kitchener, ON</div>
                 </div>
                 <div style={{ display:"flex", gap:12 }}>
@@ -162,7 +162,7 @@ export default function About() {
                 {[
                   "Designed and executed 1,000+ test cases to systematically investigate model behaviour",
                   "Developed data workflows reducing project time by 60%",
-                  "Led benchmarking across 12+ scenarios over 15 cycles — improved classification by 70%",
+                  "Led benchmarking across 12+ scenarios over 15 cycles - improved classification by 70%",
                   "Produced structured documentation with visualisations for stakeholder decisions",
                 ].map((b, i) => (
                   <div key={i} style={{ display:"flex", gap:14, alignItems:"flex-start" }}>
@@ -181,7 +181,7 @@ export default function About() {
                 <div>
                   <div style={{ fontSize:20, fontWeight:700, color:"var(--text)", fontFamily:"var(--serif)", marginBottom:4 }}>Bur Oak Secondary School</div>
                   <div style={{ fontSize:13, color:"var(--gold)", fontWeight:500, marginBottom:4 }}>2023 – present · Markham, ON</div>
-                  <div style={{ fontSize:13, color:"var(--text-tertiary)", fontWeight:300 }}>Software Engineering Workshop Club — Lesson Planner · Designed Python curriculum for elementary students</div>
+                  <div style={{ fontSize:13, color:"var(--text-tertiary)", fontWeight:300 }}>Software Engineering Workshop Club - Lesson Planner · Designed Python curriculum for elementary students</div>
                 </div>
               </div>
             </div>

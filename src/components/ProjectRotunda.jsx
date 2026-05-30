@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from "react"
 import * as THREE from "three"
 
-// ── Project data — one stage per project ─────────────────────────────────────
+// ── Project data - one stage per project ─────────────────────────────────────
 const PROJECTS = [
   {
     numeral: "I",
     name: "myojam",
     tagline: "Gesture. Decoded.",
-    verse: "Open-source surface EMG gesture classification. 84.85% cross-subject accuracy on Ninapro DB5 — built from scratch, no hardware required.",
+    verse: "Open-source surface EMG gesture classification. 84.85% cross-subject accuracy on Ninapro DB5 - built from scratch, no hardware required.",
     tags: ["Python", "React", "FastAPI", "Three.js", "PyQt6", "scikit-learn"],
     metrics: [["84.85%","Accuracy"],["<5ms","Inference"],["16ch","EMG input"],["MIT","License"]],
     mat: "gold",
@@ -20,7 +20,7 @@ const PROJECTS = [
     numeral: "II",
     name: "Unsupervised Learning",
     tagline: "Structure. Discovered.",
-    verse: "PCA, t-SNE, KMeans, DBSCAN — the full unsupervised toolkit on Spotify and Sign Language MNIST. Dimensionality reduction to its essence.",
+    verse: "PCA, t-SNE, KMeans, DBSCAN - the full unsupervised toolkit on Spotify and Sign Language MNIST. Dimensionality reduction to its essence.",
     tags: ["Python", "scikit-learn", "PCA", "t-SNE", "KMeans", "DBSCAN"],
     metrics: [["5+","Algorithms"],["2","Datasets"],["3D","t-SNE viz"],["Full","Pipeline"]],
     mat: "obsidian",
@@ -33,7 +33,7 @@ const PROJECTS = [
     numeral: "III",
     name: "Mobile Price",
     tagline: "Predict. Explain.",
-    verse: "Ten algorithms, one dataset, full explainability. From Logistic Regression to XGBoost — every prediction traced back to its cause via LIME.",
+    verse: "Ten algorithms, one dataset, full explainability. From Logistic Regression to XGBoost - every prediction traced back to its cause via LIME.",
     tags: ["Python", "XGBoost", "Random Forest", "SVM", "LIME", "GridSearchCV"],
     metrics: [["10+","Algorithms"],["95%+","Accuracy"],["LIME","Explainability"],["Full","Workflow"]],
     mat: "stone",
@@ -46,7 +46,7 @@ const PROJECTS = [
     numeral: "IV",
     name: "Student Performance",
     tagline: "Regress. Refine.",
-    verse: "Regression analysis on academic outcomes. Multiple methods compared, features engineered — predictions distilled to their essential geometry.",
+    verse: "Regression analysis on academic outcomes. Multiple methods compared, features engineered - predictions distilled to their essential geometry.",
     tags: ["Python", "Regression", "scikit-learn", "Feature engineering"],
     metrics: [["Multiple","Methods"],["Kaggle","Dataset"],["2026","Published"]],
     mat: "wire",
@@ -231,7 +231,7 @@ export default function ProjectRotunda() {
       const { idx, t } = stageInfo(smoothed)
       applyStage(idx, t)
 
-      // Direct DOM — no React re-render
+      // Direct DOM - no React re-render
       if (progressFillRef.current) {
         progressFillRef.current.style.width = `${smoothed * 100}%`
       }
@@ -243,7 +243,7 @@ export default function ProjectRotunda() {
         el.children[0].style.opacity = active ? "1" : "0.45"
       })
 
-      // React state — only when stage actually changes
+      // React state - only when stage actually changes
       if (idx !== lastIdxRef.current) {
         lastIdxRef.current = idx
         setActiveIdx(idx)
@@ -335,7 +335,7 @@ export default function ProjectRotunda() {
               </div>
             )}
 
-            {/* Copy — re-mounts on stage change for entrance animation */}
+            {/* Copy - re-mounts on stage change for entrance animation */}
             <div key={activeIdx} className="pr-enter" style={{
               position:"absolute", inset:0,
               display:"flex", flexDirection:"column",
@@ -376,7 +376,7 @@ export default function ProjectRotunda() {
                   {proj.tags.map(tag => <span key={tag} className="pr-tag">{tag}</span>)}
                 </div>
 
-                {/* Action buttons — re-enable pointer events */}
+                {/* Action buttons - re-enable pointer events */}
                 <div style={{ display:"flex", gap:10, pointerEvents:"auto" }}>
                   <a href={proj.url}    target="_blank" rel="noreferrer" className="pr-btn pr-btn-gold">Visit ↗</a>
                   <a href={proj.github} target="_blank" rel="noreferrer" className="pr-btn">GitHub</a>

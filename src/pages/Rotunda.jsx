@@ -4,11 +4,11 @@ import * as THREE from "three"
 
 // ── Design data ───────────────────────────────────────────────────────────────
 const STAGES = [
-  { numeral: "I",   word: "Form",    mat: "stone",    verse: "Before light, before colour — the edge. Twenty faces, thirty edges, the first promise a polyhedron makes." },
+  { numeral: "I",   word: "Form",    mat: "stone",    verse: "Before light, before colour - the edge. Twenty faces, thirty edges, the first promise a polyhedron makes." },
   { numeral: "II",  word: "Weight",  mat: "obsidian", verse: "Obsidian. Cut from the quiet part of the earth; heavier in the hand than the eye expects." },
-  { numeral: "III", word: "Lustre",  mat: "gold",     verse: "Brushed gold — not the colour of wealth, the colour of attention. It does not glow; it listens." },
+  { numeral: "III", word: "Lustre",  mat: "gold",     verse: "Brushed gold - not the colour of wealth, the colour of attention. It does not glow; it listens." },
   { numeral: "IV",  word: "Clarity", mat: "glass",    verse: "Glass, ground to a thousandth. Every facet becomes a small honest window onto everything behind it." },
-  { numeral: "V",   word: "Truth",   mat: "wire",     verse: "All ornament removed. What remains is the drawing — the original thought, held in the air." },
+  { numeral: "V",   word: "Truth",   mat: "wire",     verse: "All ornament removed. What remains is the drawing - the original thought, held in the air." },
 ]
 const BG_COLORS = ["#0b0d1f","#0f0a1a","#140e14","#0a1420","#09090d"]
 const ACCENTS   = [
@@ -300,7 +300,7 @@ export default function Rotunda() {
     <>
       <style>{css}</style>
 
-      {/* ── Tall scroller — drives progress */}
+      {/* ── Tall scroller - drives progress */}
       <div style={{ height: "600vh", background: "var(--rot-bg, #0b0d1f)" }}>
 
         {/* ── Sticky viewport */}
@@ -360,7 +360,7 @@ export default function Rotunda() {
               ))}
             </div>
 
-            {/* Copy — keyed so it re-animates on stage change */}
+            {/* Copy - keyed so it re-animates on stage change */}
             {tweaks.showCopy && (
               <div key={activeIdx} className="rot-copy-enter" style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "flex-start", padding: "0 clamp(40px,8vw,120px)" }}>
                 <div style={{ maxWidth: 520 }}>
@@ -380,7 +380,7 @@ export default function Rotunda() {
               </div>
             )}
 
-            {/* Tweaks toggle — subtle T key hint bottom-left-ish */}
+            {/* Tweaks toggle - subtle T key hint bottom-left-ish */}
             <div style={{ position: "absolute", bottom: 28, left: "50%", transform: "translateX(-50%) translateX(-140px)", fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: inkFaint, fontFamily: "'Inter', sans-serif", cursor: "pointer", pointerEvents: "auto" }}
               onClick={() => setShowPanel(p => !p)}>
               ⌥ Tweaks

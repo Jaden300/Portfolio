@@ -62,7 +62,7 @@ export default function Contact() {
             animation:"heroFade 1s ease 0.75s both",
           }}>
             ML engineering, biomedical signal processing, research collaborations,
-            or just a conversation — reach out any time.
+            or just a conversation - reach out any time.
           </p>
         </div>
 
@@ -129,7 +129,7 @@ export default function Contact() {
                 </div>
                 <div style={{ fontSize:22, fontWeight:700, color:"white", marginBottom:10, fontFamily:"var(--serif)", letterSpacing:"-0.5px" }}>Open to work.</div>
                 <p style={{ fontSize:14, color:"rgba(255,255,255,0.4)", lineHeight:1.8, fontWeight:300, margin:0 }}>
-                  Seeking internships in ML research, biomedical engineering, and full-stack development. Toronto-based — remote or hybrid.
+                  Seeking internships in ML research, biomedical engineering, and full-stack development. Toronto-based - remote or hybrid.
                 </p>
               </div>
             </Reveal>
@@ -143,7 +143,7 @@ export default function Contact() {
                   onMouseEnter={e => e.currentTarget.style.opacity="0.75"}
                   onMouseLeave={e => e.currentTarget.style.opacity="1"}
                 >
-                  LinkedIn — jaden-wong09 ↗
+                  LinkedIn - jaden-wong09 ↗
                 </a>
                 <p style={{ fontSize:13, color:"var(--text-tertiary)", marginTop:8, fontWeight:300 }}>
                   Typically responds within 24 hours.
@@ -152,7 +152,7 @@ export default function Contact() {
             </Reveal>
           </div>
 
-          {/* RIGHT — form */}
+          {/* RIGHT - form */}
           <Reveal delay={0.1}>
             <div style={{ fontSize:10, color:"var(--gold)", textTransform:"uppercase", letterSpacing:"0.25em", marginBottom:20, fontFamily:"var(--serif)" }}>Send a message</div>
             <div style={{ background:"var(--bg-2)", borderRadius:20, overflow:"hidden", padding:"8px 20px 0" }}>

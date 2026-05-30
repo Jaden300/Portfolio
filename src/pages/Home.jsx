@@ -69,9 +69,9 @@ export default function Home() {
         <ChessHero />
         <div style={{ position:"absolute", bottom:0, left:0, right:0, height:200, background:"linear-gradient(to top,rgba(8,10,15,0.92),transparent)", zIndex:2, pointerEvents:"none" }} />
 
-        {/* Bunny — right of name heading */}
+        {/* Bunny - right of name heading */}
         <Bunny style={{ bottom: 230, right: "7%" }} />
-        {/* Chick — left of name heading */}
+        {/* Chick - left of name heading */}
         <Chick style={{ bottom: 230, left: "7%" }} />
         <Sheep style={{ bottom: 180, right: "18%" }} />
         <Fox style={{ bottom: 180, left: "18%" }} />
@@ -122,9 +122,9 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ── BIO — Bear sits next to "About" heading label */}
+      {/* ── BIO - Bear sits next to "About" heading label */}
       <section style={{ position:"relative", zIndex:1, padding:"100px 48px 100px", display:"grid", gridTemplateColumns:"240px 1fr", gap:"0 80px", borderBottom:"1px solid var(--border)", overflow:"visible" }}>
-        {/* Bear — next to the "About / 01." label (top of left column) */}
+        {/* Bear - next to the "About / 01." label (top of left column) */}
         <Bear style={{ top: 88, left: 256 }} />
 
         <Reveal>
@@ -137,10 +137,10 @@ export default function Home() {
         <Reveal delay={0.1} grand>
           <div>
             <p style={{ fontSize:17, fontWeight:300, lineHeight:1.82, color:"rgba(237,234,226,0.7)", marginBottom:24 }}>
-              I'm a <strong style={{ color:"var(--text)", fontWeight:500 }}>16-year-old engineer and researcher</strong> from Toronto, Ontario. I build full-stack ML systems, process biomedical signals, and publish educational content — because open access to technology is the point.
+              I'm a <strong style={{ color:"var(--text)", fontWeight:500 }}>16-year-old engineer and researcher</strong> from Toronto, Ontario. I build full-stack ML systems, process biomedical signals, and publish educational content - because open access to technology is the point.
             </p>
             <p style={{ fontSize:17, fontWeight:300, lineHeight:1.82, color:"rgba(237,234,226,0.7)" }}>
-              As <strong style={{ color:"var(--text)", fontWeight:500 }}>Co-founder & Lead Developer (volunteer)</strong> of <strong style={{ color:"var(--text)", fontWeight:500 }}>myojam</strong>, I built an open-source EMG gesture classifier achieving 84.85% cross-subject accuracy — no lab, no funding. Previously AI QA intern at <strong style={{ color:"var(--text)", fontWeight:500 }}>Fairly AI</strong>, designing 1,000+ test cases and cutting evaluation pipeline time by 60%.
+              As <strong style={{ color:"var(--text)", fontWeight:500 }}>Co-founder & Lead Developer (volunteer)</strong> of <strong style={{ color:"var(--text)", fontWeight:500 }}>myojam</strong>, I built an open-source EMG gesture classifier achieving 84.85% cross-subject accuracy - no lab, no funding. Previously AI QA intern at <strong style={{ color:"var(--text)", fontWeight:500 }}>Fairly AI</strong>, designing 1,000+ test cases and cutting evaluation pipeline time by 60%.
             </p>
             <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(108px,1fr))", gap:10, marginTop:44 }}>
               {["Python","React","FastAPI","scikit-learn","PyQt6","Three.js","Signal Processing","Random Forest","XGBoost","LIME","NumPy","Vite"].map(chip => (
@@ -184,10 +184,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── RESEARCH — Cat sits next to "Research" heading */}
+      {/* ── RESEARCH - Cat sits next to "Research" heading */}
       <section style={{ padding:"100px 48px", borderBottom:"1px solid var(--border)", position:"relative", zIndex:1, overflow:"visible" }}>
         <div style={{ maxWidth:1000, margin:"0 auto", display:"grid", gridTemplateColumns:"240px 1fr", gap:"0 80px", position:"relative" }}>
-          {/* Cat — next to "Research / 02." label */}
+          {/* Cat - next to "Research / 02." label */}
           <Cat style={{ top: -10, left: 248 }} />
 
           <Reveal>
@@ -203,7 +203,7 @@ export default function Home() {
                 1 technical report.<br />11 published articles.
               </h2>
               <p style={{ fontSize:17, fontWeight:300, lineHeight:1.82, color:"rgba(237,234,226,0.7)", marginBottom:32, maxWidth:540 }}>
-                A peer-readable technical report on myojam's methodology and eleven articles spanning neuroscience, signal processing, machine learning, hardware, and the ethics of biometric interfaces — openly published on myojam.com.
+                A peer-readable technical report on myojam's methodology and eleven articles spanning neuroscience, signal processing, machine learning, hardware, and the ethics of biometric interfaces - openly published on myojam.com.
               </p>
               <div style={{ display:"flex", flexDirection:"column", gap:8, marginBottom:32 }}>
                 {[
@@ -226,10 +226,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── PROJECTS — Frog sits next to "Projects" heading */}
+      {/* ── PROJECTS - Frog sits next to "Projects" heading */}
       <section style={{ padding:"100px 48px", borderBottom:"1px solid var(--border)", position:"relative", zIndex:1, overflow:"visible" }}>
         <div style={{ maxWidth:1000, margin:"0 auto", display:"grid", gridTemplateColumns:"240px 1fr", gap:"0 80px", position:"relative" }}>
-          {/* Frog — next to "Projects / 03." label */}
+          {/* Frog - next to "Projects / 03." label */}
           <Frog style={{ top: -10, left: 248 }} />
 
           <Reveal>
@@ -315,7 +315,7 @@ export default function Home() {
             <div>
               <div style={{ marginBottom:24 }}>
                 <div style={{ fontSize:22, fontWeight:400, color:"var(--text)", fontFamily:"var(--serif)", letterSpacing:"-0.5px", marginBottom:4 }}>Fairly AI</div>
-                <div style={{ fontSize:12, color:"var(--accent)", fontWeight:400, letterSpacing:"0.04em", marginBottom:2 }}>AI Intern — QA Assistant</div>
+                <div style={{ fontSize:12, color:"var(--accent)", fontWeight:400, letterSpacing:"0.04em", marginBottom:2 }}>AI Intern - QA Assistant</div>
                 <div style={{ fontSize:11, color:"var(--text-tertiary)", fontWeight:300, letterSpacing:"0.06em" }}>Sept 2025 – Jan 2026 · Kitchener, ON</div>
               </div>
               <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:12, marginBottom:24 }}>
@@ -334,9 +334,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FOOTER — Panda peeks above it */}
+      {/* ── FOOTER - Panda peeks above it */}
       <footer style={{ position:"relative", zIndex:1, padding:"28px 48px", display:"flex", justifyContent:"space-between", alignItems:"center", borderTop:"1px solid var(--border)", fontSize:11, letterSpacing:"0.16em", color:"var(--text-tertiary)", overflow:"visible" }}>
-        {/* Panda — peeking above the footer bar */}
+        {/* Panda - peeking above the footer bar */}
         <Panda style={{ top: -54, left: "50%", transform: "translateX(-50%)" }} />
 
         <span>© 2026 Jaden Wong &nbsp;·&nbsp; 黃德治</span>

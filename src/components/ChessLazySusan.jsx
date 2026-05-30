@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react"
 import * as THREE from "three"
 
-// ── Narrative slides — each maps to a chess piece ──────────────────────────
+// ── Narrative slides - each maps to a chess piece ──────────────────────────
 const SLIDES = [
   {
     piece: "king",
     title: "myojam",
-    body: "Flagship open-source project. 84.85% cross-subject EMG gesture accuracy on Ninapro DB5 — built from scratch with public data alone.",
+    body: "Flagship open-source project. 84.85% cross-subject EMG gesture accuracy on Ninapro DB5 - built from scratch with public data alone.",
     tags: ["Python", "React", "FastAPI", "scikit-learn", "Three.js"],
   },
   {
@@ -24,7 +24,7 @@ const SLIDES = [
   {
     piece: "bishop",
     title: "Full Stack",
-    body: "From raw EMG signal to interactive web demo — React frontend, FastAPI backend, Three.js visualisations, deployed on Vercel and Render.",
+    body: "From raw EMG signal to interactive web demo - React frontend, FastAPI backend, Three.js visualisations, deployed on Vercel and Render.",
     tags: ["React", "FastAPI", "Three.js", "Canvas API", "PyQt6"],
   },
   {
@@ -36,7 +36,7 @@ const SLIDES = [
   {
     piece: "pawn",
     title: "The Origin",
-    body: "September 2024 — no hardware, no lab, no funding. Just public data, curiosity, and a relentless need to build something that mattered.",
+    body: "September 2024 - no hardware, no lab, no funding. Just public data, curiosity, and a relentless need to build something that mattered.",
     tags: ["Sept 2024", "Self-taught", "From scratch"],
   },
 ]
@@ -56,7 +56,7 @@ function buildPiece(type, mat) {
     return m
   }
 
-  // Shared base — wide disc + small step
+  // Shared base - wide disc + small step
   mesh(new THREE.CylinderGeometry(0.42, 0.46, 0.07, 32), 0.035)
   mesh(new THREE.CylinderGeometry(0.37, 0.42, 0.045, 32), 0.09)
 
@@ -263,7 +263,7 @@ export default function ChessLazySusan() {
       carousel.add(spoke)
     }
 
-    // ── Static front indicator ring (world space — doesn't rotate)
+    // ── Static front indicator ring (world space - doesn't rotate)
     const indicatorMat = new THREE.MeshBasicMaterial({ color: 0xe8b84b, transparent: true, opacity: 0.0 })
     const indicator = new THREE.Mesh(new THREE.TorusGeometry(0.55, 0.018, 8, 56), indicatorMat)
     indicator.rotation.x = Math.PI / 2
@@ -287,7 +287,7 @@ export default function ChessLazySusan() {
     // ── Lights
     scene.add(new THREE.AmbientLight(0xfff5e0, 0.45))
 
-    // Key spotlight — illuminates the front piece
+    // Key spotlight - illuminates the front piece
     const keySpot = new THREE.SpotLight(0xffd060, 5.5, 20, Math.PI / 7, 0.35)
     keySpot.position.set(0, 7, 4)
     keySpot.target.position.set(0, 0, RADIUS)
@@ -328,7 +328,7 @@ export default function ChessLazySusan() {
     let mx = 0, my = 0
 
     const onMouse = (e) => {
-      mx = (e.clientX / window.innerWidth  - 0.5) * 2
+      mx = (e.clientX / window.innerWidth - 0.5) * 2
       my = (e.clientY / window.innerHeight - 0.5) * 2
     }
     const onResize = () => {
@@ -406,7 +406,7 @@ export default function ChessLazySusan() {
   const slide = SLIDES[activeIdx]
 
   return (
-    // Tall container — each piece owns 100vh of scroll
+    // Tall container - each piece owns 100vh of scroll
     <div ref={containerRef} style={{ height: `${100 * N}vh` }}>
 
       {/* Sticky viewport */}
@@ -426,7 +426,7 @@ export default function ChessLazySusan() {
         {/* ── Info panel (right) */}
         <div style={{ flex: "0 0 42%", padding: "0 56px 0 0" }}>
 
-          {/* Title — keyed so it re-animates on change */}
+          {/* Title - keyed so it re-animates on change */}
           <div
             key={activeIdx}
             style={{ animation: "chessReveal 0.45s cubic-bezier(0.22,1,0.36,1) both" }}
@@ -460,7 +460,7 @@ export default function ChessLazySusan() {
             </div>
           </div>
 
-          {/* Progress indicator — pill dots */}
+          {/* Progress indicator - pill dots */}
           <div style={{ display: "flex", gap: 7, alignItems: "center" }}>
             {SLIDES.map((_, i) => (
               <div key={i} style={{

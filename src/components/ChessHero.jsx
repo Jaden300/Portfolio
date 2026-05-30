@@ -86,13 +86,13 @@ export default function ChessHero() {
     const scene = new THREE.Scene()
     const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100)
 
-    // Lights — match template exactly
+    // Lights - match template exactly
     const key = new THREE.DirectionalLight(0xfff060, 2.4); key.position.set(5, 10, 6); scene.add(key)
     const rim = new THREE.DirectionalLight(0xff8c30, 1.1); rim.position.set(-6, 4, -5); scene.add(rim)
     const fill = new THREE.DirectionalLight(0x4466ff, 0.5); fill.position.set(0, 6, -8); scene.add(fill)
     scene.add(new THREE.AmbientLight(0xffffff, 0.22))
 
-    // Environment map — amber warm gradient
+    // Environment map - amber warm gradient
     ;(function () {
       const sz = 128, c = document.createElement("canvas")
       c.width = c.height = sz

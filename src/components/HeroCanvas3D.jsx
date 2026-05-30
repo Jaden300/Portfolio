@@ -97,7 +97,7 @@ export default function HeroCanvas3D() {
       scroll = Math.min(window.scrollY / window.innerHeight, 1)
     }
     const onMouse = (e) => {
-      mx = (e.clientX / window.innerWidth  - 0.5) * 2
+      mx = (e.clientX / window.innerWidth - 0.5) * 2
       my = (e.clientY / window.innerHeight - 0.5) * 2
     }
     const onResize = () => {

@@ -40,7 +40,7 @@ export default function RoyalCanvas3D() {
     sphereGroup.add(new THREE.Mesh(coreGeo, coreMat))
     scene.add(sphereGroup)
 
-    // ── Orbital rings  — armillary sphere layout
+    // ── Orbital rings - armillary sphere layout
     const RING_R = 2.3
     const ringDefs = [
       { rot: [0,           0,           0          ], color: 0xe8b84b, speed:  0.0030 }, // equatorial
@@ -66,7 +66,7 @@ export default function RoyalCanvas3D() {
       ringMats.push(mat)
     })
 
-    // ── Gem points — tiny octahedra at 6 cardinal positions
+    // ── Gem points - tiny octahedra at 6 cardinal positions
     const gemGeo = new THREE.OctahedronGeometry(0.1)
     const gemMat = new THREE.MeshBasicMaterial({ color: 0xffe090, transparent: true, opacity: 0.9 })
     const gemPositions = [
@@ -81,7 +81,7 @@ export default function RoyalCanvas3D() {
       return g
     })
 
-    // ── Ring particles — 32 per ring, orbiting along each ring's plane
+    // ── Ring particles - 32 per ring, orbiting along each ring's plane
     const PARTS_PER_RING = 32
     const TOTAL_PARTS    = ringDefs.length * PARTS_PER_RING
     const pArr  = new Float32Array(TOTAL_PARTS * 3)
@@ -114,7 +114,7 @@ export default function RoyalCanvas3D() {
     let t = 0, mx = 0, my = 0, rafId
 
     const onMouse  = (e) => {
-      mx = (e.clientX / window.innerWidth  - 0.5) * 2
+      mx = (e.clientX / window.innerWidth - 0.5) * 2
       my = (e.clientY / window.innerHeight - 0.5) * 2
     }
     const onResize = () => {

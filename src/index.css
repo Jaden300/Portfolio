@@ -1,21 +1,21 @@
 :root {
-  --font: "Inter", -apple-system, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
-  --serif: "DM Serif Display", Georgia, serif;
-  --gold: #f5e040;
-  --gold-light: #f9ec72;
-  --gold-soft: rgba(245,224,64,0.1);
-  --accent: #f5e040;
-  --bg: #080a0f;
-  --bg-2: #0e1219;
-  --bg-dark: #040608;
-  --text: #edeae2;
-  --text-secondary: rgba(237,234,226,0.55);
-  --text-tertiary: rgba(237,234,226,0.32);
-  --border: rgba(237,234,226,0.08);
-  --border-dark: rgba(237,234,226,0.15);
-  --radius: 16px;
-  --shadow: 0 4px 24px rgba(0,0,0,0.4);
-  --shadow-lg: 0 16px 64px rgba(0,0,0,0.6);
+ --font: "Inter", -apple-system, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+ --serif: "DM Serif Display", Georgia, serif;
+ --gold: #f5e040;
+ --gold-light: #f9ec72;
+ --gold-soft: rgba(245,224,64,0.1);
+ --accent: #f5e040;
+ --bg: #080a0f;
+ --bg-2: #0e1219;
+ --bg-dark: #040608;
+ --text: #edeae2;
+ --text-secondary: rgba(237,234,226,0.55);
+ --text-tertiary: rgba(237,234,226,0.32);
+ --border: rgba(237,234,226,0.08);
+ --border-dark: rgba(237,234,226,0.15);
+ --radius: 16px;
+ --shadow: 0 4px 24px rgba(0,0,0,0.4);
+ --shadow-lg: 0 16px 64px rgba(0,0,0,0.6);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -26,7 +26,7 @@ body {
   font-family: var(--font);
   background: var(--bg);
   color: var(--text);
-  -webkit-font-smoothing: antialiased;
+ -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
@@ -189,7 +189,7 @@ body:hover #cursor { opacity: 1; }
   transform: translateY(0);
 }
 
-/* Grand variant — for section headings and big moments */
+/* Grand variant - for section headings and big moments */
 .reveal-grand {
   opacity: 0;
   transform: translateY(64px) scale(0.97);
@@ -211,8 +211,8 @@ body:hover #cursor { opacity: 1; }
 
 .gold-text {
   background: linear-gradient(135deg, #f5e040 0%, #f9ec72 50%, #f5e040 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 

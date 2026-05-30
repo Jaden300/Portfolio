@@ -68,7 +68,7 @@ export default function ResearchCanvas3D() {
       renderer.toneMappingExposure = 1.1
       mount.appendChild(renderer.domElement)
 
-      // Circular sprite texture — eliminates square-box artefact on points
+      // Circular sprite texture - eliminates square-box artefact on points
       const spriteCanvas = document.createElement("canvas")
       spriteCanvas.width = spriteCanvas.height = 64
       const sctx = spriteCanvas.getContext("2d")
@@ -211,7 +211,7 @@ export default function ResearchCanvas3D() {
           const { N, targetPos, scatterPos, curPos, dissolveDir, posAttr, coreMat, haloMat, dustMat, coreP, haloP } = sys
 
           for (let i = 0; i < N; i++) {
-            const bx = scatterPos[i*3]   + (targetPos[i*3]   - scatterPos[i*3])   * assembleT
+            const bx = scatterPos[i*3]   + (targetPos[i*3] - scatterPos[i*3])   * assembleT
             const by = scatterPos[i*3+1] + (targetPos[i*3+1] - scatterPos[i*3+1]) * assembleT
             const bz = scatterPos[i*3+2] + (targetPos[i*3+2] - scatterPos[i*3+2]) * assembleT
             curPos[i*3]   = bx + dissolveDir[i*3]   * dissolveT
@@ -288,7 +288,7 @@ export default function ResearchCanvas3D() {
         {/* Right: content panels */}
         <div style={{ width: "50%", height: "100%", position: "relative", borderLeft: "1px solid rgba(237,234,226,0.06)" }}>
 
-          {/* Panel 0 — 黃 — Technical Report */}
+          {/* Panel 0 - 黃 - Technical Report */}
           <div ref={panel0Ref} style={panelStyle}>
             <div style={accentBar(COLORS[0].hex)} />
             <div style={{ fontSize: 10, letterSpacing: "0.3em", textTransform: "uppercase", color: `${COLORS[0].hex}90`, marginBottom: 14, fontFamily: "var(--font)" }}>Technical report</div>
@@ -312,7 +312,7 @@ export default function ResearchCanvas3D() {
             </a>
           </div>
 
-          {/* Panel 1 — 德 — Articles */}
+          {/* Panel 1 - 德 - Articles */}
           <div ref={panel1Ref} style={panelStyle}>
             <div style={accentBar(COLORS[1].hex)} />
             <div style={{ fontSize: 10, letterSpacing: "0.3em", textTransform: "uppercase", color: `${COLORS[1].hex}90`, marginBottom: 14, fontFamily: "var(--font)" }}>Articles</div>
@@ -324,7 +324,7 @@ export default function ResearchCanvas3D() {
                 { title: "Build your own EMG sensor for under $60", tag: "Hardware", likes: 89 },
                 { title: "After EMG: what comes next", tag: "Future", likes: 73 },
                 { title: "The ghost in the electrode: phantom limb EMG", tag: "Neuroscience", likes: 61 },
-                { title: "Muscle memory is real — it's just not in your muscles", tag: "Neuroscience", likes: 52 },
+                { title: "Muscle memory is real - it's just not in your muscles", tag: "Neuroscience", likes: 52 },
               ].map(({ title, tag, likes }) => (
                 <div key={title} style={{ display: "flex", alignItems: "center", gap: 14, padding: "14px 18px", background: "rgba(255,255,255,0.03)", borderRadius: 12 }}>
                   <span style={{ fontSize: 13, color: `${COLORS[1].hex}60`, fontWeight: 400, minWidth: 36, textAlign: "right" }}>♥ {likes}</span>
@@ -340,7 +340,7 @@ export default function ResearchCanvas3D() {
             </a>
           </div>
 
-          {/* Panel 2 — 治 — Resources */}
+          {/* Panel 2 - 治 - Resources */}
           <div ref={panel2Ref} style={panelStyle}>
             <div style={accentBar(COLORS[2].hex)} />
             <div style={{ fontSize: 10, letterSpacing: "0.3em", textTransform: "uppercase", color: `${COLORS[2].hex}80`, marginBottom: 14, fontFamily: "var(--font)" }}>Educational resources</div>
@@ -349,7 +349,7 @@ export default function ResearchCanvas3D() {
             </h3>
             <div style={{ display: "flex", flexDirection: "column", gap: 12, maxWidth: 480 }}>
               {[
-                { title: "EMG Basics — full lesson plan", audience: "Grades 9–12 · Biology / Physics", duration: "75 min" },
+                { title: "EMG Basics - full lesson plan", audience: "Grades 9–12 · Biology / Physics", duration: "75 min" },
                 { title: "Teaching a machine to read gestures", audience: "Grades 10–12 / Intro university · CS", duration: "90 min" },
                 { title: "myocode: code with your muscles", audience: "Grades 6–10 · CS / STEM", duration: "60 min" },
               ].map(({ title, audience, duration }) => (
