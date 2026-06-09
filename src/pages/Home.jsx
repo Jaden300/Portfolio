@@ -1,31 +1,6 @@
 import { useNavigate } from "react-router-dom"
-import { useEffect, useRef, useState } from "react"
 import Reveal from "../components/Reveal"
 import ChessHero from "../components/ChessHero"
-
-function Counter({ end, suffix = "", duration = 1200 }) {
-  const [val, setVal] = useState(0)
-  const ref = useRef(null)
-  const started = useRef(false)
-  useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting && !started.current) {
-        started.current = true
-        const step = end / (duration / 16)
-        let cur = 0
-        const tick = () => {
-          cur = Math.min(cur + step, end)
-          setVal(Math.floor(cur))
-          if (cur < end) requestAnimationFrame(tick)
-        }
-        requestAnimationFrame(tick)
-      }
-    }, { threshold: 0.5 })
-    if (ref.current) obs.observe(ref.current)
-    return () => obs.disconnect()
-  }, [end])
-  return <span ref={ref}>{val}{suffix}</span>
-}
 
 export default function Home() {
   const navigate = useNavigate()
@@ -44,7 +19,7 @@ export default function Home() {
         <div style={{ position:"absolute", bottom:0, left:0, right:0, height:200, background:"linear-gradient(to top,rgba(8,10,15,0.92),transparent)", zIndex:2, pointerEvents:"none" }} />
 
         <div style={{ position:"relative", zIndex:3, padding:"0 48px 68px", textAlign:"center", display:"flex", flexDirection:"column", alignItems:"center" }}>
-          <img src="/profile.jpg" alt="Jaden Wong" style={{ width:84, height:84, borderRadius:"50%", objectFit:"cover", border:"2px solid rgba(245,224,64,0.4)", marginBottom:20, animation:"heroFade 0.9s ease 0.1s both" }} />
+          <img src="/profile.jpg" alt="Jaden Wong" style={{ width:116, height:116, borderRadius:"50%", objectFit:"cover", border:"2px solid rgba(245,224,64,0.4)", marginBottom:20, animation:"heroFade 0.9s ease 0.1s both" }} />
           <div style={{ display:"inline-flex", alignItems:"center", gap:14, fontSize:11, fontWeight:500, letterSpacing:"0.34em", textTransform:"uppercase", color:"var(--accent)", marginBottom:16, animation:"heroLabel 0.9s cubic-bezier(0.16,1,0.3,1) 0.2s both" }}>
             <span style={{ display:"inline-block", width:28, height:1, background:"var(--accent)", opacity:0.7 }} />
             Engineer · Researcher · Builder
@@ -112,7 +87,7 @@ export default function Home() {
           <Reveal key={i} delay={i * 0.08}>
             <div style={{ padding:"44px 48px", borderRight: i < 2 ? "1px solid var(--border)" : "none" }}>
               <div style={{ fontFamily:"var(--serif)", fontSize:"clamp(42px,5vw,80px)", lineHeight:1, color:"var(--text)", letterSpacing:"-0.02em", marginBottom:10 }}>
-                <Counter end={s.val} />
+                {s.val}
               </div>
               <div style={{ fontSize:11, fontWeight:400, letterSpacing:"0.2em", textTransform:"uppercase", color:"var(--text-tertiary)" }}>{s.label}</div>
             </div>
@@ -131,7 +106,7 @@ export default function Home() {
               {
                 label: "EMG Research",
                 name: "myojam",
-                desc: "Open-source EMG gesture classification. Full-stack platform spanning web, API, desktop, and hardware.",
+                desc: "Built a signal pipeline from scratch - Arduino sensors through a Butterworth filter, feature extraction, and a Random Forest classifier - then wrapped it in a full-stack web platform with interactive demos.",
                 stack: ["Python", "React", "FastAPI", "scikit-learn", "Arduino"],
                 url: "https://myojam.com",
                 cta: "Visit site",
@@ -140,7 +115,7 @@ export default function Home() {
               {
                 label: "Full-Stack AI",
                 name: "MyMurry",
-                desc: "AI study platform. Upload notes, free-recall what you remember, get scored 0-100 with a point-by-point breakdown.",
+                desc: "Built the active recall loop end-to-end: note upload, GPT-4o concept sectioning, free-recall session scoring, and a point-by-point breakdown of what you missed. Auth, i18n, and calendar integration included.",
                 stack: ["Next.js 15", "TypeScript", "PostgreSQL", "GPT-4o", "Supabase"],
                 url: "https://mymurry.com",
                 cta: "Visit site",
@@ -149,7 +124,7 @@ export default function Home() {
               {
                 label: "Quant Research",
                 name: "Quant-Trading",
-                desc: "Python trading framework. 23 strategies, live S&P 500 scanner across 491 tickers.",
+                desc: "Built a backtesting engine, a grid-search optimizer, and a custom scoring formula that penalizes strategies inconsistent across tickers - then promoted the best ones to a live scanner.",
                 stack: ["Python", "NumPy", "pandas", "scikit-learn", "Pine Script v6"],
                 url: "https://github.com/Jaden300/Quant-Trading",
                 cta: "View repo",
