@@ -48,7 +48,6 @@ export default function Navbar() {
       {/* Logo */}
       <div onClick={() => navigate("/")} style={{ cursor:"pointer", display:"flex", alignItems:"center", gap:0 }}>
         <span style={{ fontFamily:"'DM Serif Display',Georgia,serif", fontSize:20, fontWeight:400, color:"var(--text)", letterSpacing:"-0.5px" }}>JW</span>
-        <span style={{ fontFamily:"serif", fontSize:17, color:"var(--gold)", marginLeft:1 }}>黃</span>
       </div>
 
       <div style={{ display:"flex", alignItems:"center", gap:32 }}>

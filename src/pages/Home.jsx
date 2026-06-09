@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom"
 import { useEffect, useRef, useState } from "react"
 import Reveal from "../components/Reveal"
 import ChessHero from "../components/ChessHero"
-import RoyalCanvas3D from "../components/RoyalCanvas3D"
 import ParticleWarp from "../components/ParticleWarp"
 import { Bunny, Chick, Bear, Cat, Frog, Panda, Fox, Dog, Sheep, Penguin } from "../components/Critters"
 import { AccuracyGauge } from "../components/Charts"
@@ -35,29 +34,10 @@ const TOP_SKILLS = ["Python","Machine Learning","React","FastAPI","scikit-learn"
 
 export default function Home() {
   const navigate = useNavigate()
-  const hz0 = useRef(null), hz1 = useRef(null), hz2 = useRef(null)
-
-  useEffect(() => {
-    const handle = () => {
-      const y = window.scrollY
-      if (hz0.current) hz0.current.style.transform = `rotate(-6deg) translateY(${y * 0.14}px)`
-      if (hz1.current) hz1.current.style.transform = `rotate(4deg) translateY(${y * 0.07}px)`
-      if (hz2.current) hz2.current.style.transform = `rotate(-3deg) translateY(${-y * 0.05}px)`
-    }
-    window.addEventListener("scroll", handle, { passive: true })
-    return () => window.removeEventListener("scroll", handle)
-  }, [])
 
   return (
     <div style={{ background: "var(--bg)", minHeight: "100vh", color: "var(--text)" }}>
       <ParticleWarp />
-
-      {/* ── Parallax hanzi background */}
-      <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0, overflow: "hidden" }}>
-        <div ref={hz0} style={{ position:"absolute", fontFamily:"'Noto Serif CJK SC','Hiragino Mincho ProN','SimSun',serif", fontWeight:900, lineHeight:1, color:"var(--accent)", fontSize:"72vw", top:"-10%", left:"-18%", transform:"rotate(-6deg)", opacity:0.04, userSelect:"none" }}>黃</div>
-        <div ref={hz1} style={{ position:"absolute", fontFamily:"'Noto Serif CJK SC','Hiragino Mincho ProN','SimSun',serif", fontWeight:900, lineHeight:1, color:"var(--accent)", fontSize:"65vw", top:"28%", left:"42%", transform:"rotate(4deg)", opacity:0.038, userSelect:"none" }}>德</div>
-        <div ref={hz2} style={{ position:"absolute", fontFamily:"'Noto Serif CJK SC','Hiragino Mincho ProN','SimSun',serif", fontWeight:900, lineHeight:1, color:"var(--accent)", fontSize:"70vw", top:"62%", left:"-8%", transform:"rotate(-3deg)", opacity:0.04, userSelect:"none" }}>治</div>
-      </div>
 
       {/* ── HERO */}
       <section style={{
@@ -86,9 +66,6 @@ export default function Home() {
           <h1 style={{ fontFamily:"var(--serif)", fontSize:"clamp(60px,8vw,120px)", lineHeight:0.93, letterSpacing:"-0.02em", color:"var(--text)", marginBottom:8, animation:"heroName 1.1s cubic-bezier(0.16,1,0.3,1) 0.38s both" }}>
             Jaden<br /><em style={{ fontStyle:"italic" }}>Wong.</em>
           </h1>
-          <div style={{ fontSize:"clamp(20px,2.8vw,34px)", color:"var(--accent)", letterSpacing:"0.22em", marginBottom:18, opacity:0.9, fontFamily:"'Noto Serif CJK SC','Hiragino Mincho ProN',serif", animation:"heroSub 1s cubic-bezier(0.16,1,0.3,1) 0.6s both" }}>
-            黃 &thinsp; 德 &thinsp; 治
-          </div>
           <p style={{ fontSize:13, letterSpacing:"0.06em", color:"var(--text-tertiary)", marginBottom:28, animation:"heroFade 0.9s ease 0.85s both" }}>
             ML Engineering · Signal Processing · Toronto, Ontario
           </p>
@@ -172,17 +149,6 @@ export default function Home() {
           </Reveal>
         ))}
       </div>
-
-      {/* ── ROYAL 3D SHOWCASE */}
-      <section style={{ height:"90vh", position:"relative", overflow:"hidden", borderTop:"1px solid var(--border)", zIndex:1 }}>
-        <RoyalCanvas3D />
-        <div style={{ position:"absolute", inset:0, display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"flex-end", padding:"0 0 48px", pointerEvents:"none" }}>
-          <div style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:10 }}>
-            <div style={{ fontSize:9, color:"rgba(245,224,64,0.3)", textTransform:"uppercase", letterSpacing:"0.3em" }}>Scroll to reveal</div>
-            <div style={{ width:1, height:28, background:"linear-gradient(to bottom, rgba(245,224,64,0.25), transparent)" }} />
-          </div>
-        </div>
-      </section>
 
       {/* ── RESEARCH - Cat sits next to "Research" heading */}
       <section style={{ padding:"100px 48px", borderBottom:"1px solid var(--border)", position:"relative", zIndex:1, overflow:"visible" }}>
@@ -339,7 +305,7 @@ export default function Home() {
         {/* Panda - peeking above the footer bar */}
         <Panda style={{ top: -54, left: "50%", transform: "translateX(-50%)" }} />
 
-        <span>© 2026 Jaden Wong &nbsp;·&nbsp; 黃德治</span>
+        <span>© 2026 Jaden Wong</span>
         <span>Toronto, Ontario</span>
         <a href="mailto:jn.wong.enterprise@gmail.com" style={{ color:"var(--text-tertiary)", textDecoration:"none", transition:"color 0.2s" }}
           onMouseEnter={e => e.currentTarget.style.color = "var(--text)"}

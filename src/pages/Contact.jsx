@@ -174,7 +174,7 @@ export default function Contact() {
       <div style={{ textAlign:"center", padding:"0 48px 80px", position:"relative", zIndex:1 }}>
         <Reveal>
           <p style={{ fontSize:13, color:"var(--text-tertiary)", fontWeight:300, letterSpacing:"0.04em" }}>
-            黃德治 &nbsp;·&nbsp; Toronto, Ontario &nbsp;·&nbsp; 2026
+            Toronto, Ontario &nbsp;·&nbsp; 2026
           </p>
         </Reveal>
       </div>
