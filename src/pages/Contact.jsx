@@ -1,6 +1,5 @@
 import { useState } from "react"
 import Reveal from "../components/Reveal"
-import ParticleWarp from "../components/ParticleWarp"
 import { Hamster, Chick, Fox, Penguin } from "../components/Critters"
 
 export default function Contact() {
@@ -15,8 +14,6 @@ export default function Contact() {
 
   return (
     <div style={{ background:"var(--bg)", minHeight:"100vh", color:"var(--text)" }}>
-      <ParticleWarp />
-
       {/* ── HERO */}
       <section style={{
         position:"relative", height:"100vh", minHeight:600,

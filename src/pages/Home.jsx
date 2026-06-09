@@ -2,9 +2,6 @@ import { useNavigate } from "react-router-dom"
 import { useEffect, useRef, useState } from "react"
 import Reveal from "../components/Reveal"
 import ChessHero from "../components/ChessHero"
-import ParticleWarp from "../components/ParticleWarp"
-import { Bunny, Chick, Bear, Cat, Frog, Panda, Fox, Dog, Sheep, Penguin } from "../components/Critters"
-import { AccuracyGauge } from "../components/Charts"
 
 function Counter({ end, suffix = "", duration = 1200 }) {
   const [val, setVal] = useState(0)
@@ -30,14 +27,11 @@ function Counter({ end, suffix = "", duration = 1200 }) {
   return <span ref={ref}>{val}{suffix}</span>
 }
 
-const TOP_SKILLS = ["Python","Machine Learning","React","FastAPI","scikit-learn","Signal Processing","PyQt6","Random Forest","XGBoost","Three.js"]
-
 export default function Home() {
   const navigate = useNavigate()
 
   return (
     <div style={{ background: "var(--bg)", minHeight: "100vh", color: "var(--text)" }}>
-      <ParticleWarp />
 
       {/* ── HERO */}
       <section style={{
@@ -49,15 +43,8 @@ export default function Home() {
         <ChessHero />
         <div style={{ position:"absolute", bottom:0, left:0, right:0, height:200, background:"linear-gradient(to top,rgba(8,10,15,0.92),transparent)", zIndex:2, pointerEvents:"none" }} />
 
-        {/* Bunny - right of name heading */}
-        <Bunny style={{ bottom: 230, right: "7%" }} />
-        {/* Chick - left of name heading */}
-        <Chick style={{ bottom: 230, left: "7%" }} />
-        <Sheep style={{ bottom: 180, right: "18%" }} />
-        <Fox style={{ bottom: 180, left: "18%" }} />
-
-        {/* Hero content */}
         <div style={{ position:"relative", zIndex:3, padding:"0 48px 68px", textAlign:"center", display:"flex", flexDirection:"column", alignItems:"center" }}>
+          <img src="/profile.jpg" alt="Jaden Wong" style={{ width:84, height:84, borderRadius:"50%", objectFit:"cover", border:"2px solid rgba(245,224,64,0.4)", marginBottom:20, animation:"heroFade 0.9s ease 0.1s both" }} />
           <div style={{ display:"inline-flex", alignItems:"center", gap:14, fontSize:11, fontWeight:500, letterSpacing:"0.34em", textTransform:"uppercase", color:"var(--accent)", marginBottom:16, animation:"heroLabel 0.9s cubic-bezier(0.16,1,0.3,1) 0.2s both" }}>
             <span style={{ display:"inline-block", width:28, height:1, background:"var(--accent)", opacity:0.7 }} />
             Engineer · Researcher · Builder
@@ -70,44 +57,28 @@ export default function Home() {
             ML Engineering · Signal Processing · Toronto, Ontario
           </p>
           <div style={{ display:"flex", gap:12, animation:"heroFade 0.9s ease 1.05s both" }}>
-            <button onClick={() => navigate("/work")} style={{ fontSize:11, fontWeight:500, letterSpacing:"0.2em", textTransform:"uppercase", color:"#080a0f", padding:"11px 22px", border:"1px solid var(--accent)", borderRadius:3, background:"var(--accent)", cursor: "pointer", fontFamily:"var(--font)", transition:"filter 0.2s" }}
+            <button onClick={() => navigate("/work")} style={{ fontSize:11, fontWeight:500, letterSpacing:"0.2em", textTransform:"uppercase", color:"#080a0f", padding:"11px 22px", border:"1px solid var(--accent)", borderRadius:3, background:"var(--accent)", cursor:"pointer", fontFamily:"var(--font)", transition:"filter 0.2s" }}
               onMouseEnter={e => e.currentTarget.style.filter = "brightness(1.1)"}
               onMouseLeave={e => e.currentTarget.style.filter = "brightness(1)"}
             >View Work</button>
-            <button onClick={() => navigate("/contact")} style={{ fontSize:11, fontWeight:500, letterSpacing:"0.2em", textTransform:"uppercase", color:"var(--text)", padding:"11px 22px", border:"1px solid var(--border-dark)", borderRadius:3, background:"transparent", cursor: "pointer", fontFamily:"var(--font)", transition:"border-color 0.2s" }}
+            <button onClick={() => navigate("/contact")} style={{ fontSize:11, fontWeight:500, letterSpacing:"0.2em", textTransform:"uppercase", color:"var(--text)", padding:"11px 22px", border:"1px solid var(--border-dark)", borderRadius:3, background:"transparent", cursor:"pointer", fontFamily:"var(--font)", transition:"border-color 0.2s" }}
               onMouseEnter={e => e.currentTarget.style.borderColor = "var(--text)"}
               onMouseLeave={e => e.currentTarget.style.borderColor = "var(--border-dark)"}
             >Get in Touch</button>
           </div>
         </div>
 
-        {/* Scroll hint */}
         <div style={{ position:"absolute", bottom:24, left:"50%", transform:"translateX(-50%)", zIndex:3, display:"flex", flexDirection:"column", alignItems:"center", gap:8, fontSize:9, letterSpacing:"0.28em", textTransform:"uppercase", color:"var(--text-tertiary)" }}>
           <div style={{ width:1, height:34, background:"linear-gradient(to bottom, var(--text-tertiary), transparent)", animation:"tickDrop 1.6s 0.4s infinite" }} />
           <span>Scroll</span>
         </div>
       </section>
 
-      {/* ── SKILLS ROW */}
-      <div style={{ borderTop:"1px solid var(--border)", borderBottom:"1px solid var(--border)", padding:"16px 48px", background:"var(--bg-2)", position:"relative", zIndex:1 }}>
-        <div style={{ maxWidth:1000, margin:"0 auto", display:"flex", gap:8, flexWrap:"wrap", justifyContent:"center" }}>
-          {TOP_SKILLS.map(skill => (
-            <span key={skill} style={{ fontSize:11, fontWeight:500, letterSpacing:"0.14em", color:"var(--text-tertiary)", border:"1px solid var(--border)", borderRadius:4, padding:"7px 14px", whiteSpace:"nowrap" }}>
-              {skill}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* ── BIO - Bear sits next to "About" heading label */}
-      <section style={{ position:"relative", zIndex:1, padding:"100px 48px 100px", display:"grid", gridTemplateColumns:"240px 1fr", gap:"0 80px", borderBottom:"1px solid var(--border)", overflow:"visible" }}>
-        {/* Bear - next to the "About / 01." label (top of left column) */}
-        <Bear style={{ top: 88, left: 256 }} />
-
+      {/* ── BIO */}
+      <section style={{ position:"relative", zIndex:1, padding:"100px 48px", display:"grid", gridTemplateColumns:"240px 1fr", gap:"0 80px", borderBottom:"1px solid var(--border)" }}>
         <Reveal>
           <div style={{ fontSize:10, fontWeight:600, letterSpacing:"0.36em", textTransform:"uppercase", color:"var(--text-tertiary)", paddingTop:6 }}>
             About
-            <span style={{ display:"block", fontFamily:"var(--serif)", fontSize:56, fontWeight:400, letterSpacing:"-0.02em", color:"rgba(237,234,226,0.05)", lineHeight:1, marginTop:4, fontStyle:"italic" }}>01.</span>
           </div>
         </Reveal>
 
@@ -117,7 +88,7 @@ export default function Home() {
               I'm a <strong style={{ color:"var(--text)", fontWeight:500 }}>16-year-old engineer and researcher</strong> from Toronto, Ontario. I build full-stack ML systems, AI-powered web platforms, and quantitative trading frameworks - across whatever the problem demands.
             </p>
             <p style={{ fontSize:17, fontWeight:300, lineHeight:1.82, color:"rgba(237,234,226,0.7)" }}>
-              Currently volunteering as SWE at <strong style={{ color:"var(--text)", fontWeight:500 }}>One Community</strong> and web developer at <strong style={{ color:"var(--text)", fontWeight:500 }}>The Volunteer Well</strong>. Previously AI intern at <strong style={{ color:"var(--text)", fontWeight:500 }}>Asenion</strong> and co-founder of <strong style={{ color:"var(--text)", fontWeight:500 }}>myojam</strong> - 84.85% cross-subject EMG accuracy, no lab, no funding.
+              Currently volunteering as SWE at <strong style={{ color:"var(--text)", fontWeight:500 }}>One Community</strong> and web developer at <strong style={{ color:"var(--text)", fontWeight:500 }}>The Volunteer Well</strong>. Previously AI intern at <strong style={{ color:"var(--text)", fontWeight:500 }}>Asenion</strong> and co-founder of <strong style={{ color:"var(--text)", fontWeight:500 }}>myojam</strong> - open-source EMG gesture classification, no lab, no funding.
             </p>
             <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(108px,1fr))", gap:10, marginTop:44 }}>
               {["Python","React","FastAPI","scikit-learn","PyQt6","Three.js","Signal Processing","Random Forest","XGBoost","LIME","NumPy","Vite"].map(chip => (
@@ -131,18 +102,17 @@ export default function Home() {
         </Reveal>
       </section>
 
-      {/* ── NUMBERS STRIP */}
-      <div style={{ position:"relative", zIndex:1, display:"grid", gridTemplateColumns:"repeat(3,1fr)", borderBottom:"1px solid var(--border)", overflow:"visible" }}>
-        <Penguin style={{ top:-32, right:"8%" }} />
+      {/* ── NUMBERS */}
+      <div style={{ position:"relative", zIndex:1, display:"grid", gridTemplateColumns:"repeat(3,1fr)", borderBottom:"1px solid var(--border)" }}>
         {[
-          { val:84, suffix:".85%", label:"Cross-subject accuracy" },
-          { val:4, suffix:"", label:"Volunteer roles" },
-          { val:3, suffix:"", label:"Major projects" },
+          { val:1, label:"Internship" },
+          { val:2, label:"Volunteer positions" },
+          { val:3, label:"Projects" },
         ].map((s, i) => (
           <Reveal key={i} delay={i * 0.08}>
-            <div style={{ padding:"44px 48px", borderRight: i < 2 ? "1px solid var(--border)" : "none", position:"relative", overflow:"visible" }}>
+            <div style={{ padding:"44px 48px", borderRight: i < 2 ? "1px solid var(--border)" : "none" }}>
               <div style={{ fontFamily:"var(--serif)", fontSize:"clamp(42px,5vw,80px)", lineHeight:1, color:"var(--text)", letterSpacing:"-0.02em", marginBottom:10 }}>
-                <Counter end={s.val} suffix="" /><span style={{ color:"var(--accent)", fontStyle:"italic" }}>{s.suffix}</span>
+                <Counter end={s.val} />
               </div>
               <div style={{ fontSize:11, fontWeight:400, letterSpacing:"0.2em", textTransform:"uppercase", color:"var(--text-tertiary)" }}>{s.label}</div>
             </div>
@@ -150,161 +120,141 @@ export default function Home() {
         ))}
       </div>
 
-      {/* ── RESEARCH - Cat sits next to "Research" heading */}
-      <section style={{ padding:"100px 48px", borderBottom:"1px solid var(--border)", position:"relative", zIndex:1, overflow:"visible" }}>
-        <div style={{ maxWidth:1000, margin:"0 auto", display:"grid", gridTemplateColumns:"240px 1fr", gap:"0 80px", position:"relative" }}>
-          {/* Cat - next to "Research / 02." label */}
-          <Cat style={{ top: -10, left: 248 }} />
-
+      {/* ── PROJECTS */}
+      <section style={{ padding:"100px 48px", borderBottom:"1px solid var(--border)", position:"relative", zIndex:1 }}>
+        <div style={{ maxWidth:1000, margin:"0 auto" }}>
           <Reveal>
-            <div style={{ fontSize:10, fontWeight:600, letterSpacing:"0.36em", textTransform:"uppercase", color:"var(--text-tertiary)", paddingTop:6 }}>
-              Research
-              <span style={{ display:"block", fontFamily:"var(--serif)", fontSize:56, fontWeight:400, letterSpacing:"-0.02em", color:"rgba(237,234,226,0.05)", lineHeight:1, marginTop:4, fontStyle:"italic" }}>02.</span>
-            </div>
+            <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4vw,48px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:48 }}>Projects.</h2>
           </Reveal>
-
-          <Reveal delay={0.1} grand>
-            <div>
-              <h2 style={{ fontSize:"clamp(26px,3.5vw,40px)", fontWeight:400, color:"var(--text)", letterSpacing:"-1.5px", fontFamily:"var(--serif)", marginBottom:16, lineHeight:1.2 }}>
-                1 technical report.<br />11 published articles.
-              </h2>
-              <p style={{ fontSize:17, fontWeight:300, lineHeight:1.82, color:"rgba(237,234,226,0.7)", marginBottom:32, maxWidth:540 }}>
-                A peer-readable technical report on myojam's methodology and eleven articles spanning neuroscience, signal processing, machine learning, hardware, and the ethics of biometric interfaces - openly published on myojam.com.
-              </p>
-              <div style={{ display:"flex", flexDirection:"column", gap:8, marginBottom:32 }}>
-                {[
-                  ["Technical report","myojam: Open-Source Surface EMG Gesture Classification"],
-                  ["Most read","The ghost in the electrode: phantom limb EMG"],
-                  ["Latest","The science of muscle-computer interfaces"],
-                ].map(([label, title]) => (
-                  <div key={label} style={{ background:"var(--bg-2)", border:"1px solid var(--border)", borderRadius:4, padding:"14px 20px", display:"flex", gap:16, alignItems:"center" }}>
-                    <div style={{ fontSize:10, color:"var(--accent)", textTransform:"uppercase", letterSpacing:"0.12em", flexShrink:0, minWidth:96 }}>{label}</div>
-                    <div style={{ fontSize:13, color:"var(--text-tertiary)", fontWeight:300 }}>{title}</div>
+          <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:12 }}>
+            {[
+              {
+                label: "EMG Research",
+                name: "myojam",
+                desc: "Open-source EMG gesture classification. Full-stack platform spanning web, API, desktop, and hardware.",
+                stack: ["Python", "React", "FastAPI", "scikit-learn", "Arduino"],
+                url: "https://myojam.com",
+                cta: "Visit site",
+                accent: "#f5e040",
+              },
+              {
+                label: "Full-Stack AI",
+                name: "MyMurry",
+                desc: "AI study platform. Upload notes, free-recall what you remember, get scored 0-100 with a point-by-point breakdown.",
+                stack: ["Next.js 15", "TypeScript", "PostgreSQL", "GPT-4o", "Supabase"],
+                url: "https://mymurry.com",
+                cta: "Visit site",
+                accent: "#A855F7",
+              },
+              {
+                label: "Quant Research",
+                name: "Quant-Trading",
+                desc: "Python trading framework. 23 strategies, live S&P 500 scanner across 491 tickers.",
+                stack: ["Python", "NumPy", "pandas", "scikit-learn", "Pine Script v6"],
+                url: "https://github.com/Jaden300/Quant-Trading",
+                cta: "View repo",
+                accent: "#10B981",
+              },
+            ].map((p, i) => (
+              <Reveal key={p.name} delay={i * 0.07} grand>
+                <div style={{ background:"var(--bg-2)", borderRadius:16, padding:"32px", height:"100%", display:"flex", flexDirection:"column", borderTop:`2px solid ${p.accent}` }}>
+                  <div style={{ fontSize:10, color:p.accent, fontWeight:600, textTransform:"uppercase", letterSpacing:"0.18em", marginBottom:12 }}>{p.label}</div>
+                  <h3 style={{ fontFamily:"var(--serif)", fontSize:22, fontWeight:700, color:"var(--text)", letterSpacing:"-0.5px", marginBottom:10 }}>{p.name}</h3>
+                  <p style={{ fontSize:13, color:"var(--text-secondary)", fontWeight:300, lineHeight:1.7, marginBottom:16, flex:1 }}>{p.desc}</p>
+                  <div style={{ display:"flex", flexWrap:"wrap", gap:5, marginBottom:20 }}>
+                    {p.stack.map(t => (
+                      <span key={t} style={{ fontSize:11, color:"var(--text-tertiary)", border:"1px solid var(--border)", borderRadius:100, padding:"3px 10px", fontWeight:300 }}>{t}</span>
+                    ))}
                   </div>
-                ))}
-              </div>
-              <button onClick={() => navigate("/research")} style={{ fontSize:11, fontWeight:500, letterSpacing:"0.2em", textTransform:"uppercase", color:"var(--accent)", background:"transparent", border:"1px solid rgba(245,224,64,0.38)", borderRadius:3, padding:"9px 20px", cursor: "pointer", fontFamily:"var(--font)", transition:"background 0.2s, color 0.2s" }}
-                onMouseEnter={e => { e.currentTarget.style.background = "var(--accent)"; e.currentTarget.style.color = "#080a0f" }}
-                onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--accent)" }}
-              >View all research →</button>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ── PROJECTS - Frog sits next to "Projects" heading */}
-      <section style={{ padding:"100px 48px", borderBottom:"1px solid var(--border)", position:"relative", zIndex:1, overflow:"visible" }}>
-        <div style={{ maxWidth:1000, margin:"0 auto", display:"grid", gridTemplateColumns:"240px 1fr", gap:"0 80px", position:"relative" }}>
-          {/* Frog - next to "Projects / 03." label */}
-          <Frog style={{ top: -10, left: 248 }} />
-
-          <Reveal>
-            <div style={{ fontSize:10, fontWeight:600, letterSpacing:"0.36em", textTransform:"uppercase", color:"var(--text-tertiary)", paddingTop:6 }}>
-              Projects
-              <span style={{ display:"block", fontFamily:"var(--serif)", fontSize:56, fontWeight:400, letterSpacing:"-0.02em", color:"rgba(237,234,226,0.05)", lineHeight:1, marginTop:4, fontStyle:"italic" }}>03.</span>
-            </div>
-          </Reveal>
-
-          <div>
-            <Reveal delay={0.1}>
-              <div className="hover-lift" style={{ background:"var(--bg-2)", border:"1px solid var(--border)", borderRadius:4, overflow:"hidden", marginBottom:12, cursor: "pointer" }}
-                onClick={() => window.open("https://myojam.com","_blank")}
-              >
-                <div style={{ padding:"32px 36px", display:"grid", gridTemplateColumns:"1fr 1fr", gap:36, alignItems:"center" }}>
-                  <div>
-                    <div style={{ display:"flex", gap:8, marginBottom:16 }}>
-                      <span style={{ fontSize:10, fontWeight:500, color:"#10B981", background:"rgba(16,185,129,0.12)", border:"1px solid rgba(16,185,129,0.2)", borderRadius:2, padding:"3px 10px" }}>Active</span>
-                      <span style={{ fontSize:10, fontWeight:300, color:"var(--text-tertiary)", border:"1px solid var(--border)", borderRadius:2, padding:"3px 10px" }}>2024–present</span>
-                    </div>
-                    <h3 style={{ fontSize:28, fontWeight:400, color:"var(--text)", letterSpacing:"-1px", fontFamily:"var(--serif)", marginBottom:12 }}>myojam</h3>
-                    <p style={{ fontSize:14, color:"rgba(237,234,226,0.6)", lineHeight:1.8, fontWeight:300, marginBottom:18 }}>
-                      Open-source EMG gesture classification. 84.85% cross-subject accuracy on Ninapro DB5. Full-stack platform, education hub, and international competition.
-                    </p>
-                    <div style={{ display:"flex", flexWrap:"wrap", gap:6 }}>
-                      {["Python","React","FastAPI","scikit-learn"].map(t => (
-                        <span key={t} style={{ fontSize:11, color:"var(--text-tertiary)", border:"1px solid var(--border)", borderRadius:2, padding:"3px 10px" }}>{t}</span>
-                      ))}
-                    </div>
-                  </div>
-                  <div style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:12 }}>
-                    <AccuracyGauge pct={84.85} size={134} />
-                    <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:6, width:"100%" }}>
-                      {[["<5ms","Inference"],["16ch","EMG input"],["6","Gestures"],["MIT","License"]].map(([v, l]) => (
-                        <div key={l} style={{ background:"var(--bg)", border:"1px solid var(--border)", borderRadius:4, padding:"10px", textAlign:"center" }}>
-                          <div style={{ fontSize:14, fontWeight:400, color:"var(--accent)", fontStyle:"italic", fontFamily:"var(--serif)", marginBottom:2 }}>{v}</div>
-                          <div style={{ fontSize:9, color:"var(--text-tertiary)", textTransform:"uppercase", letterSpacing:"0.1em" }}>{l}</div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                  <a href={p.url} target="_blank" rel="noreferrer" style={{
+                    display:"inline-block", alignSelf:"flex-start",
+                    fontSize:11, fontWeight:600, letterSpacing:"0.14em", textTransform:"uppercase",
+                    color:p.accent, border:`1px solid ${p.accent}`, borderRadius:4,
+                    padding:"8px 16px", textDecoration:"none",
+                    transition:"background 0.2s, color 0.2s",
+                  }}
+                    onMouseEnter={e => { e.currentTarget.style.background = p.accent; e.currentTarget.style.color = "#080a0f" }}
+                    onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = p.accent }}
+                  >{p.cta} ↗</a>
                 </div>
-              </div>
-            </Reveal>
-
-            <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:12 }}>
-              {[
-                { title:"MyMurry", label:"Full-Stack AI", sub:"GPT-4o · Next.js 15 · PostgreSQL · Supabase", url:"https://mymurry.com", cta:"Visit site ↗" },
-                { title:"Quant-Trading", label:"Quant Research", sub:"23 strategies · 5 production · Pine Script v6", url:"https://github.com/Jaden300/Quant-Trading", cta:"GitHub ↗" },
-              ].map((p, i) => (
-                <Reveal key={p.title} delay={0.15 + i * 0.05}>
-                  <div className="hover-lift" style={{ background:"var(--bg-2)", border:"1px solid var(--border)", borderRadius:4, padding:"24px", cursor: "pointer", height:"100%" }}
-                    onClick={() => window.open(p.url,"_blank")}
-                  >
-                    <div style={{ fontSize:10, color:"var(--accent)", fontWeight:500, textTransform:"uppercase", letterSpacing:"0.14em", marginBottom:10 }}>{p.label}</div>
-                    <h3 style={{ fontSize:16, fontWeight:400, color:"var(--text)", letterSpacing:"-0.5px", marginBottom:8, fontFamily:"var(--serif)" }}>{p.title}</h3>
-                    <p style={{ fontSize:12, color:"var(--text-tertiary)", fontWeight:300, marginBottom:14 }}>{p.sub}</p>
-                    <span style={{ fontSize:11, color:"var(--accent)", fontWeight:500, letterSpacing:"0.1em" }}>{p.cta}</span>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-            <Reveal delay={0.25}>
-              <div style={{ marginTop:18, textAlign:"right" }}>
-                <span onClick={() => navigate("/work")} className="ink-line" style={{ fontSize:12, color:"var(--text-tertiary)", cursor: "pointer", letterSpacing:"0.1em" }}>All projects →</span>
-              </div>
-            </Reveal>
+              </Reveal>
+            ))}
           </div>
+          <Reveal delay={0.2}>
+            <div style={{ marginTop:18, textAlign:"right" }}>
+              <span onClick={() => navigate("/work")} className="ink-line" style={{ fontSize:12, color:"var(--text-tertiary)", cursor:"pointer", letterSpacing:"0.1em" }}>All projects →</span>
+            </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ── EXPERIENCE */}
-      <section style={{ padding:"100px 48px", borderBottom:"1px solid var(--border)", position:"relative", zIndex:1, overflow:"visible" }}>
-        <Dog style={{ top:72, right:"4%" }} />
-        <div style={{ maxWidth:1000, margin:"0 auto", display:"grid", gridTemplateColumns:"240px 1fr", gap:"0 80px" }}>
+      <section style={{ padding:"100px 48px", borderBottom:"1px solid var(--border)", position:"relative", zIndex:1 }}>
+        <div style={{ maxWidth:1000, margin:"0 auto" }}>
           <Reveal>
-            <div style={{ fontSize:10, fontWeight:600, letterSpacing:"0.36em", textTransform:"uppercase", color:"var(--text-tertiary)", paddingTop:6 }}>
-              Experience
-              <span style={{ display:"block", fontFamily:"var(--serif)", fontSize:56, fontWeight:400, letterSpacing:"-0.02em", color:"rgba(237,234,226,0.05)", lineHeight:1, marginTop:4, fontStyle:"italic" }}>04.</span>
-            </div>
+            <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4vw,48px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:48 }}>Experience.</h2>
           </Reveal>
-          <Reveal delay={0.1}>
-            <div>
-              <div style={{ display:"flex", flexDirection:"column", gap:10, marginBottom:28 }}>
-                {[
-                  { org:"One Community",      title:"Software Engineer",        period:"May 2026 – Present",   accent:"#3B82F6" },
-                  { org:"The Volunteer Well", title:"Web Developer",            period:"May 2026 – Present",   accent:"#8B5CF6" },
-                  { org:"Asenion",            title:"AI Intern - QA Assistant", period:"Sep 2025 – Jan 2026", accent:"#3B82F6" },
-                ].map(r => (
-                  <div key={r.org} style={{ background:"var(--bg-2)", border:"1px solid var(--border)", borderRadius:8, padding:"16px 20px", display:"flex", justifyContent:"space-between", alignItems:"center", flexWrap:"wrap", gap:8 }}>
-                    <div>
-                      <div style={{ fontSize:15, fontWeight:600, color:"var(--text)", fontFamily:"var(--serif)", marginBottom:2 }}>{r.org}</div>
-                      <div style={{ fontSize:12, color:r.accent, fontWeight:400 }}>{r.title}</div>
-                    </div>
-                    <div style={{ fontSize:11, color:"var(--text-tertiary)", fontWeight:300, whiteSpace:"nowrap" }}>{r.period}</div>
-                  </div>
-                ))}
-              </div>
+          <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:12 }}>
+            {[
+              {
+                org: "One Community",
+                title: "Software Engineer",
+                period: "May 2026 - Present",
+                type: "Volunteer",
+                desc: "Built Garden Management dashboard and User Management section. 20+ QA reviews across 10+ components.",
+                accent: "#3B82F6",
+                anchor: "one-community",
+              },
+              {
+                org: "The Volunteer Well",
+                title: "Web Developer",
+                period: "May 2026 - Present",
+                type: "Volunteer",
+                desc: "UX audit identifying 5+ accessibility issues. Improvement proposal covering contrast, navigation, and scroll depth.",
+                accent: "#8B5CF6",
+                anchor: "volunteer-well",
+              },
+              {
+                org: "Asenion",
+                title: "AI Intern - QA",
+                period: "Sep 2025 - Jan 2026",
+                type: "Co-op",
+                desc: "LLM safety evaluator and token cost estimator across 3 provider families. 200+ adversarial prompts, R² ≥ 0.95.",
+                accent: "#3B82F6",
+                anchor: "asenion",
+              },
+            ].map((r, i) => (
+              <Reveal key={r.org} delay={i * 0.07} grand>
+                <div style={{ background:"var(--bg-2)", borderRadius:16, padding:"32px", height:"100%", display:"flex", flexDirection:"column", borderTop:`2px solid ${r.accent}` }}>
+                  <div style={{ fontSize:10, color:r.accent, fontWeight:600, textTransform:"uppercase", letterSpacing:"0.18em", marginBottom:12 }}>{r.type}</div>
+                  <div style={{ fontFamily:"var(--serif)", fontSize:20, fontWeight:700, color:"var(--text)", letterSpacing:"-0.5px", marginBottom:4 }}>{r.org}</div>
+                  <div style={{ fontSize:12, color:"var(--text-secondary)", fontWeight:400, marginBottom:4 }}>{r.title}</div>
+                  <div style={{ fontSize:11, color:"var(--text-tertiary)", fontWeight:300, marginBottom:16 }}>{r.period}</div>
+                  <p style={{ fontSize:13, color:"var(--text-secondary)", fontWeight:300, lineHeight:1.7, flex:1, marginBottom:20 }}>{r.desc}</p>
+                  <a href={`/experience#${r.anchor}`} style={{
+                    display:"inline-block", alignSelf:"flex-start",
+                    fontSize:11, fontWeight:600, letterSpacing:"0.14em", textTransform:"uppercase",
+                    color:r.accent, border:`1px solid ${r.accent}`, borderRadius:4,
+                    padding:"8px 16px", textDecoration:"none",
+                    transition:"background 0.2s, color 0.2s",
+                  }}
+                    onMouseEnter={e => { e.currentTarget.style.background = r.accent; e.currentTarget.style.color = "#080a0f" }}
+                    onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = r.accent }}
+                  >View role →</a>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal delay={0.2}>
+            <div style={{ marginTop:18, textAlign:"right" }}>
               <span onClick={() => navigate("/experience")} className="ink-line" style={{ fontSize:12, color:"var(--text-tertiary)", cursor:"pointer", letterSpacing:"0.1em" }}>Full experience →</span>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ── FOOTER - Panda peeks above it */}
-      <footer style={{ position:"relative", zIndex:1, padding:"28px 48px", display:"flex", justifyContent:"space-between", alignItems:"center", borderTop:"1px solid var(--border)", fontSize:11, letterSpacing:"0.16em", color:"var(--text-tertiary)", overflow:"visible" }}>
-        {/* Panda - peeking above the footer bar */}
-        <Panda style={{ top: -54, left: "50%", transform: "translateX(-50%)" }} />
-
+      {/* ── FOOTER */}
+      <footer style={{ position:"relative", zIndex:1, padding:"28px 48px", display:"flex", justifyContent:"space-between", alignItems:"center", borderTop:"1px solid var(--border)", fontSize:11, letterSpacing:"0.16em", color:"var(--text-tertiary)" }}>
         <span>© 2026 Jaden Wong</span>
         <span>Toronto, Ontario</span>
         <a href="mailto:jn.wong.enterprise@gmail.com" style={{ color:"var(--text-tertiary)", textDecoration:"none", transition:"color 0.2s" }}

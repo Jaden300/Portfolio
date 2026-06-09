@@ -1,5 +1,4 @@
 import Reveal from "../components/Reveal"
-import ParticleWarp from "../components/ParticleWarp"
 import HelixScene from "../components/HelixScene"
 import { SkillProficiencyBars, PipelineViz } from "../components/Charts"
 import { Mouse, Hamster, Owl } from "../components/Critters"
@@ -24,8 +23,6 @@ const SKILLS = [
 export default function About() {
   return (
     <div style={{ background:"var(--bg)", minHeight:"100vh", color:"var(--text)" }}>
-      <ParticleWarp />
-
       {/* ── HERO */}
       <section style={{
         position:"relative", height:"100vh", minHeight:600, zIndex:1,

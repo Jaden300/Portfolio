@@ -1,5 +1,4 @@
 import Reveal from "../components/Reveal"
-import ParticleWarp from "../components/ParticleWarp"
 import { GestureAccuracyBars, AccuracyGauge } from "../components/Charts"
 import { Dino, Sheep, Dog, Penguin, Mouse } from "../components/Critters"
 
@@ -126,8 +125,6 @@ const REST     = ARTICLES.slice(2)
 export default function Research() {
   return (
     <div style={{ background:"var(--bg)", minHeight:"100vh", color:"var(--text)" }}>
-      <ParticleWarp />
-
       {/* ── HERO */}
       <section style={{
         position:"relative", height:"100vh", minHeight:600, zIndex:1,

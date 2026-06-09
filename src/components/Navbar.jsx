@@ -5,15 +5,9 @@ export default function Navbar() {
   const navigate = useNavigate()
   const { pathname } = useLocation()
   const [scrolled, setScrolled] = useState(false)
-  const [pct, setPct] = useState(0)
 
   useEffect(() => {
-    const fn = () => {
-      const y = window.scrollY
-      setScrolled(y > 60)
-      const docH = document.documentElement.scrollHeight - window.innerHeight
-      setPct(docH > 0 ? Math.min((y / docH) * 100, 100) : 0)
-    }
+    const fn = () => setScrolled(window.scrollY > 60)
     window.addEventListener("scroll", fn, { passive: true })
     return () => window.removeEventListener("scroll", fn)
   }, [])
@@ -35,16 +29,6 @@ export default function Navbar() {
       borderBottom: scrolled ? "1px solid rgba(237,234,226,0.06)" : "none",
       transition: "all 0.4s ease"
     }}>
-      {/* Progress bar */}
-      <div style={{ position:"absolute", top:0, left:0, right:0, height:2, pointerEvents:"none" }}>
-        <div style={{
-          height:"100%", width:`${pct}%`,
-          background:"linear-gradient(to right, #f5e040, #fbbf24)",
-          transition:"width 0.1s linear",
-          boxShadow:"0 0 8px rgba(245,224,64,0.5)",
-        }} />
-      </div>
-
       {/* Logo */}
       <div onClick={() => navigate("/")} style={{ cursor:"pointer", display:"flex", alignItems:"center", gap:0 }}>
         <span style={{ fontFamily:"'DM Serif Display',Georgia,serif", fontSize:20, fontWeight:400, color:"var(--text)", letterSpacing:"-0.5px" }}>JW</span>

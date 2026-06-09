@@ -1,5 +1,4 @@
 import Reveal from "../components/Reveal"
-import ParticleWarp from "../components/ParticleWarp"
 import { Fox, Penguin, Mouse, Owl } from "../components/Critters"
 
 const ROLES = [
@@ -57,8 +56,6 @@ const CERTS = [
 export default function Experience() {
   return (
     <div style={{ background: "var(--bg)", minHeight: "100vh", color: "var(--text)" }}>
-      <ParticleWarp />
-
       {/* HERO */}
       <section style={{
         position: "relative", height: "100vh", minHeight: 600, zIndex: 1,
@@ -99,7 +96,7 @@ export default function Experience() {
 
           {ROLES.map((role, i) => (
             <Reveal key={role.org} delay={i * 0.07} grand>
-              <div style={{ background: "var(--bg-2)", borderRadius: 24, padding: "48px", marginBottom: 16, borderLeft: `3px solid ${role.accent}` }}>
+              <div id={role.org.toLowerCase().replace(/\s+/g, "-")} style={{ background: "var(--bg-2)", borderRadius: 24, padding: "48px", marginBottom: 16, borderLeft: `3px solid ${role.accent}` }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 28, flexWrap: "wrap", gap: 16 }}>
                   <div>
                     <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 4 }}>
