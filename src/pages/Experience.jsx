@@ -1,5 +1,6 @@
+import { useEffect } from "react"
 import Reveal from "../components/Reveal"
-import { Fox, Penguin, Mouse, Owl } from "../components/Critters"
+import { Fox, Penguin } from "../components/Critters"
 
 const ROLES = [
   {
@@ -9,6 +10,7 @@ const ROLES = [
     location: "Remote",
     type: "Volunteer, Part-Time",
     accent: "#3B82F6",
+    url: null,
     bullets: [
       "Built Garden Management dashboard from scratch - 4 metric cards, 4-tab navigation, and a 2×2 calendar grid (16 event slots: Seeding, Transplanting, Succession, Harvesting) with date range, location, yield, and status per event",
       "Built User Management section - 5-column user table, collapsible UI architecture, dark mode support, and empty-state handling; data layer decoupled for seamless API replacement",
@@ -54,6 +56,14 @@ const CERTS = [
 ]
 
 export default function Experience() {
+  useEffect(() => {
+    const hash = window.location.hash
+    if (hash) {
+      const el = document.querySelector(hash)
+      if (el) setTimeout(() => el.scrollIntoView({ behavior:"smooth", block:"start" }), 150)
+    }
+  }, [])
+
   return (
     <div style={{ background: "var(--bg)", minHeight: "100vh", color: "var(--text)" }}>
       {/* HERO */}
@@ -72,15 +82,11 @@ export default function Experience() {
             <span style={{ display: "inline-block", width: 32, height: 1, background: "var(--accent)", opacity: 0.6 }} />
           </div>
           <h1 style={{ fontFamily: "var(--serif)", fontSize: "clamp(64px,10vw,130px)", lineHeight: 0.9, letterSpacing: "-0.03em", color: "var(--text)", animation: "heroName 1.1s cubic-bezier(0.16,1,0.3,1) 0.35s both" }}>
-            Where I've<br /><em style={{ fontStyle: "italic", color: "var(--accent)" }}>worked.</em>
+            Where I've<br /><em style={{ fontStyle: "italic", color: "var(--accent)" }}>worked</em>
           </h1>
           <p style={{ fontSize: 16, fontWeight: 300, color: "var(--text-secondary)", maxWidth: 480, margin: "28px auto 0", lineHeight: 1.75, animation: "heroFade 1s ease 0.75s both" }}>
             Volunteer engineering, co-op internships, and self-directed projects - building across ML, full-stack, and UX.
           </p>
-        </div>
-        <div style={{ position: "absolute", bottom: 28, left: "50%", transform: "translateX(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: 8, fontSize: 9, letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--text-tertiary)", animation: "heroFade 1s ease 1.1s both", zIndex: 1 }}>
-          <div style={{ width: 1, height: 34, background: "linear-gradient(to bottom, var(--text-tertiary), transparent)", animation: "tickDrop 1.6s 1.4s infinite" }} />
-          <span>Scroll</span>
         </div>
       </section>
 
@@ -90,8 +96,7 @@ export default function Experience() {
         <Penguin style={{ bottom: 80, right: "3%" }} />
         <div style={{ maxWidth: 1000, margin: "0 auto" }}>
           <Reveal>
-            <div style={{ fontSize: 10, color: "var(--gold)", textTransform: "uppercase", letterSpacing: "0.25em", marginBottom: 8, fontFamily: "var(--serif)" }}>Experience</div>
-            <h2 style={{ fontFamily: "var(--serif)", fontSize: "clamp(32px,4.5vw,52px)", fontWeight: 700, color: "var(--text)", letterSpacing: "-1.5px", marginBottom: 64 }}>Roles.</h2>
+            <h2 style={{ fontFamily: "var(--serif)", fontSize: "clamp(32px,4.5vw,52px)", fontWeight: 700, color: "var(--text)", letterSpacing: "-1.5px", marginBottom: 64 }}>Experience</h2>
           </Reveal>
 
           {ROLES.map((role, i) => (
@@ -120,7 +125,7 @@ export default function Experience() {
                 <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                   {role.bullets.map((b, j) => (
                     <div key={j} style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
-                      <span style={{ color: role.accent, fontWeight: 700, flexShrink: 0, marginTop: 1 }}>→</span>
+                      <span style={{ color: role.accent, fontWeight: 700, flexShrink: 0, marginTop: 1 }}>•</span>
                       <span style={{ fontSize: 14, color: "var(--text-secondary)", fontWeight: 300, lineHeight: 1.75 }}>{b}</span>
                     </div>
                   ))}
@@ -139,26 +144,13 @@ export default function Experience() {
         </div>
       </section>
 
-      {/* EDUCATION + CERTS */}
+      {/* CERTIFICATIONS */}
       <section style={{ position: "relative", zIndex: 1, padding: "100px 48px 120px", overflow: "visible" }}>
-        <Owl style={{ top: 80, right: "3%" }} />
-        <Mouse style={{ bottom: 120, left: "3%" }} />
         <div style={{ maxWidth: 1000, margin: "0 auto" }}>
           <Reveal>
-            <div style={{ fontSize: 10, color: "var(--gold)", textTransform: "uppercase", letterSpacing: "0.25em", marginBottom: 8, fontFamily: "var(--serif)" }}>Education</div>
-            <h2 style={{ fontFamily: "var(--serif)", fontSize: "clamp(32px,4.5vw,52px)", fontWeight: 700, color: "var(--text)", letterSpacing: "-1.5px", marginBottom: 48 }}>Background.</h2>
+            <h2 style={{ fontFamily: "var(--serif)", fontSize: "clamp(32px,4.5vw,52px)", fontWeight: 700, color: "var(--text)", letterSpacing: "-1.5px", marginBottom: 48 }}>Certifications</h2>
           </Reveal>
-
           <Reveal delay={0.05}>
-            <div style={{ background: "var(--bg-2)", borderRadius: 24, padding: "36px 48px", marginBottom: 32, borderLeft: "3px solid var(--gold)" }}>
-              <div style={{ fontSize: 20, fontWeight: 700, color: "var(--text)", fontFamily: "var(--serif)", marginBottom: 6 }}>Bur Oak Secondary School</div>
-              <div style={{ fontSize: 13, color: "var(--gold)", fontWeight: 500, marginBottom: 4 }}>Energy · 2023 – present · Markham, ON</div>
-              <div style={{ fontSize: 13, color: "var(--text-tertiary)", fontWeight: 300 }}>Software Engineering Workshop Club &nbsp;·&nbsp; Winds Ensemble &nbsp;·&nbsp; Math Club</div>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.1}>
-            <div style={{ fontSize: 10, color: "var(--text-tertiary)", textTransform: "uppercase", letterSpacing: "0.18em", marginBottom: 16 }}>Certifications</div>
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               {CERTS.map(cert => (
                 <div key={cert.name} style={{ background: "var(--bg-2)", border: "1px solid var(--border)", borderRadius: 12, padding: "16px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}>
@@ -170,15 +162,6 @@ export default function Experience() {
           </Reveal>
         </div>
       </section>
-
-      {/* CLOSING */}
-      <div style={{ textAlign: "center", padding: "0 48px 80px", position: "relative", zIndex: 1, borderTop: "1px solid var(--border)" }}>
-        <Reveal>
-          <p style={{ fontSize: 13, color: "var(--text-tertiary)", fontWeight: 300, letterSpacing: "0.04em", paddingTop: 48 }}>
-            Toronto, Ontario &nbsp;·&nbsp; 2026
-          </p>
-        </Reveal>
-      </div>
     </div>
   )
 }

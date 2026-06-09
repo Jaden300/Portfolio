@@ -143,17 +143,13 @@ export default function Research() {
             <span style={{ display:"inline-block", width:32, height:1, background:"var(--accent)", opacity:0.6 }} />
           </div>
           <h1 style={{ fontFamily:"var(--serif)", fontSize:"clamp(64px,10vw,130px)", lineHeight:0.9, letterSpacing:"-0.03em", color:"var(--text)", animation:"heroName 1.1s cubic-bezier(0.16,1,0.3,1) 0.35s both" }}>
-            Research &<br /><em style={{ fontStyle:"italic", color:"var(--accent)" }}>writing.</em>
+            Research &<br /><em style={{ fontStyle:"italic", color:"var(--accent)" }}>writing</em>
           </h1>
           <p style={{ fontSize:16, fontWeight:300, color:"var(--text-secondary)", maxWidth:520, margin:"28px auto 0", lineHeight:1.75, animation:"heroFade 1s ease 0.75s both" }}>
             A peer-readable technical report on myojam's methodology, eleven articles spanning neuroscience, signal processing, and ML ethics, and three educator-ready lesson plans - all openly published.
           </p>
         </div>
 
-        <div style={{ position:"absolute", bottom:28, left:"50%", transform:"translateX(-50%)", display:"flex", flexDirection:"column", alignItems:"center", gap:8, fontSize:9, letterSpacing:"0.28em", textTransform:"uppercase", color:"var(--text-tertiary)", animation:"heroFade 1s ease 1.1s both", zIndex:1 }}>
-          <div style={{ width:1, height:34, background:"linear-gradient(to bottom, var(--text-tertiary), transparent)", animation:"tickDrop 1.6s 1.4s infinite" }} />
-          <span>Scroll</span>
-        </div>
       </section>
 
       {/* ── STATS */}
@@ -181,7 +177,7 @@ export default function Research() {
         <div style={{ maxWidth:1000, margin:"0 auto" }}>
           <Reveal>
             <div style={{ fontSize:10, color:"var(--gold)", textTransform:"uppercase", letterSpacing:"0.25em", marginBottom:8, fontFamily:"var(--serif)" }}>Technical report</div>
-            <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4.5vw,52px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:56 }}>The paper.</h2>
+            <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4.5vw,52px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:56 }}>The paper</h2>
           </Reveal>
 
           <Reveal delay={0.08} grand>
@@ -248,7 +244,7 @@ export default function Research() {
             <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-end", marginBottom:56, flexWrap:"wrap", gap:16 }}>
               <div>
                 <div style={{ fontSize:10, color:"var(--gold)", textTransform:"uppercase", letterSpacing:"0.25em", marginBottom:8, fontFamily:"var(--serif)" }}>Articles</div>
-                <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4.5vw,52px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px" }}>11 published articles.</h2>
+                <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4.5vw,52px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px" }}>11 published articles</h2>
               </div>
               <a href="https://myojam.com/education" target="_blank" rel="noreferrer"
                 style={{ fontSize:13, color:"var(--gold)", fontWeight:500, letterSpacing:"0.06em", textDecoration:"none" }}
@@ -321,7 +317,7 @@ export default function Research() {
         <div style={{ maxWidth:1000, margin:"0 auto" }}>
           <Reveal>
             <div style={{ fontSize:10, color:"var(--gold)", textTransform:"uppercase", letterSpacing:"0.25em", marginBottom:8, fontFamily:"var(--serif)" }}>Educational resources</div>
-            <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4.5vw,52px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:16 }}>Lesson plans.</h2>
+            <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4.5vw,52px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:16 }}>Lesson plans</h2>
             <p style={{ fontSize:16, fontWeight:300, color:"var(--text-secondary)", maxWidth:520, lineHeight:1.75, marginBottom:56 }}>
               Classroom-ready lesson plans with timed phases, student activities, teacher notes, and assessment rubrics. Published on the myojam educators hub.
             </p>
@@ -354,14 +350,6 @@ export default function Research() {
         </div>
       </section>
 
-      {/* ── CLOSING */}
-      <div style={{ textAlign:"center", padding:"0 48px 80px", position:"relative", zIndex:1, borderTop:"1px solid var(--border)" }}>
-        <Reveal>
-          <p style={{ fontSize:13, color:"var(--text-tertiary)", fontWeight:300, letterSpacing:"0.04em", paddingTop:48 }}>
-            Toronto, Ontario &nbsp;·&nbsp; 2026
-          </p>
-        </Reveal>
-      </div>
     </div>
   )
 }

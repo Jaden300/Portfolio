@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Reveal from "../components/Reveal"
 import PageBanner from "../components/PageBanner"
 import { Dog, Sheep, Bunny } from "../components/Critters"
@@ -95,6 +95,14 @@ const PROJECTS = [
 ]
 
 export default function Work() {
+  useEffect(() => {
+    const hash = window.location.hash
+    if (hash) {
+      const el = document.querySelector(hash)
+      if (el) setTimeout(() => el.scrollIntoView({ behavior:"smooth", block:"start" }), 150)
+    }
+  }, [])
+
   return (
     <div style={{ background: "var(--bg)", minHeight: "100vh", paddingTop: 60 }}>
       <PageBanner
@@ -111,7 +119,7 @@ export default function Work() {
         <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", flexDirection: "column", gap: 16 }}>
           {PROJECTS.map((p, i) => (
             <Reveal key={p.name} delay={i * 0.08} grand>
-              <div style={{ background: "var(--bg-2)", borderRadius: 24, overflow: "visible", borderLeft: `3px solid ${p.accent}` }}>
+              <div id={p.name.toLowerCase()} style={{ background: "var(--bg-2)", borderRadius: 24, overflow: "visible", borderLeft: `3px solid ${p.accent}` }}>
                 <div style={{ padding: "48px" }}>
                   <div style={{ display:"grid", gridTemplateColumns:"1fr 360px", gap:56, alignItems:"start" }}>
 
@@ -126,7 +134,7 @@ export default function Work() {
                       <div style={{ display:"flex", flexDirection:"column", gap:10, marginBottom:28 }}>
                         {p.bullets.map((b, j) => (
                           <div key={j} style={{ display:"flex", gap:14, alignItems:"flex-start" }}>
-                            <span style={{ color:p.accent, fontWeight:700, flexShrink:0, marginTop:2 }}>→</span>
+                            <span style={{ color:p.accent, fontWeight:700, flexShrink:0, marginTop:2 }}>•</span>
                             <span style={{ fontSize:14, color:"var(--text-secondary)", fontWeight:300, lineHeight:1.75 }}>{b}</span>
                           </div>
                         ))}

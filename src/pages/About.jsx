@@ -36,17 +36,13 @@ export default function About() {
             <span style={{ display:"inline-block", width:32, height:1, background:"var(--accent)", opacity:0.6 }} />
           </div>
           <h1 style={{ fontFamily:"var(--serif)", fontSize:"clamp(64px,10vw,130px)", lineHeight:0.9, letterSpacing:"-0.03em", color:"var(--text)", animation:"heroName 1.1s cubic-bezier(0.16,1,0.3,1) 0.35s both" }}>
-            Jaden<br /><em style={{ fontStyle:"italic", color:"var(--accent)" }}>Wong.</em>
+            Jaden<br /><em style={{ fontStyle:"italic", color:"var(--accent)" }}>Wong</em>
           </h1>
           <p style={{ fontSize:16, fontWeight:300, color:"var(--text-secondary)", maxWidth:500, margin:"28px auto 0", lineHeight:1.75, animation:"heroFade 1s ease 0.75s both" }}>
             I build full-stack ML systems, process biomedical signals, and publish openly - because access to technology is the whole point.
           </p>
         </div>
 
-        <div style={{ position:"absolute", bottom:28, left:"50%", transform:"translateX(-50%)", display:"flex", flexDirection:"column", alignItems:"center", gap:8, fontSize:9, letterSpacing:"0.28em", textTransform:"uppercase", color:"var(--text-tertiary)", animation:"heroFade 1s ease 1.1s both", zIndex:1 }}>
-          <div style={{ width:1, height:34, background:"linear-gradient(to bottom, var(--text-tertiary), transparent)", animation:"tickDrop 1.6s 1.4s infinite" }} />
-          <span>Scroll</span>
-        </div>
       </section>
 
       {/* ── STATEMENT + FACTS */}
@@ -95,7 +91,7 @@ export default function About() {
         <div style={{ maxWidth:1000, margin:"0 auto" }}>
           <Reveal>
             <div style={{ fontSize:10, color:"var(--gold)", textTransform:"uppercase", letterSpacing:"0.25em", marginBottom:8, fontFamily:"var(--serif)" }}>Technical skills</div>
-            <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4.5vw,52px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:64 }}>What I work with.</h2>
+            <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4.5vw,52px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:64 }}>What I work with</h2>
           </Reveal>
 
           <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:2, marginBottom:40 }}>
@@ -158,7 +154,7 @@ export default function About() {
         <div style={{ maxWidth:1000, margin:"0 auto" }}>
           <Reveal>
             <div style={{ fontSize:10, color:"var(--gold)", textTransform:"uppercase", letterSpacing:"0.25em", marginBottom:8, fontFamily:"var(--serif)" }}>Journey</div>
-            <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4.5vw,52px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:72 }}>How I got here.</h2>
+            <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4.5vw,52px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:72 }}>How I got here</h2>
           </Reveal>
 
           <div style={{ position:"relative" }}>

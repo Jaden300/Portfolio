@@ -50,7 +50,7 @@ export default function Contact() {
             lineHeight:0.9, letterSpacing:"-0.03em", color:"var(--text)",
             animation:"heroName 1.1s cubic-bezier(0.16,1,0.3,1) 0.35s both",
           }}>
-            Let's<br /><em style={{ fontStyle:"italic", color:"var(--accent)" }}>talk.</em>
+            Let's<br /><em style={{ fontStyle:"italic", color:"var(--accent)" }}>talk</em>
           </h1>
 
           <p style={{
@@ -66,17 +66,6 @@ export default function Contact() {
         <Chick style={{ bottom:220, left:"8%" }} />
         <Penguin style={{ bottom:220, right:"8%" }} />
 
-        {/* Scroll hint */}
-        <div style={{
-          position:"absolute", bottom:28, left:"50%", transform:"translateX(-50%)",
-          display:"flex", flexDirection:"column", alignItems:"center", gap:8,
-          fontSize:9, letterSpacing:"0.28em", textTransform:"uppercase",
-          color:"var(--text-tertiary)", animation:"heroFade 1s ease 1.1s both",
-          zIndex:1,
-        }}>
-          <div style={{ width:1, height:34, background:"linear-gradient(to bottom, var(--text-tertiary), transparent)", animation:"tickDrop 1.6s 1.4s infinite" }} />
-          <span>Scroll</span>
-        </div>
       </section>
 
       {/* ── CONTACT CONTENT */}
@@ -124,7 +113,7 @@ export default function Contact() {
                   <div style={{ width:7, height:7, borderRadius:"50%", background:"#10B981", animation:"pulse 2s infinite" }}/>
                   <span style={{ fontSize:10, color:"rgba(255,255,255,0.4)", textTransform:"uppercase", letterSpacing:"0.14em" }}>Status</span>
                 </div>
-                <div style={{ fontSize:22, fontWeight:700, color:"white", marginBottom:10, fontFamily:"var(--serif)", letterSpacing:"-0.5px" }}>Open to work.</div>
+                <div style={{ fontSize:22, fontWeight:700, color:"white", marginBottom:10, fontFamily:"var(--serif)", letterSpacing:"-0.5px" }}>Open to work</div>
                 <p style={{ fontSize:14, color:"rgba(255,255,255,0.4)", lineHeight:1.8, fontWeight:300, margin:0 }}>
                   Seeking internships in ML research, biomedical engineering, and full-stack development. Toronto-based - remote or hybrid.
                 </p>
@@ -167,14 +156,6 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* ── CLOSING LINE */}
-      <div style={{ textAlign:"center", padding:"0 48px 80px", position:"relative", zIndex:1 }}>
-        <Reveal>
-          <p style={{ fontSize:13, color:"var(--text-tertiary)", fontWeight:300, letterSpacing:"0.04em" }}>
-            Toronto, Ontario &nbsp;·&nbsp; 2026
-          </p>
-        </Reveal>
-      </div>
 
     </div>
   )

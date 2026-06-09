@@ -26,7 +26,7 @@ export default function Home() {
             <span style={{ display:"inline-block", width:28, height:1, background:"var(--accent)", opacity:0.7 }} />
           </div>
           <h1 style={{ fontFamily:"var(--serif)", fontSize:"clamp(60px,8vw,120px)", lineHeight:0.93, letterSpacing:"-0.02em", color:"var(--text)", marginBottom:8, animation:"heroName 1.1s cubic-bezier(0.16,1,0.3,1) 0.38s both" }}>
-            Jaden<br /><em style={{ fontStyle:"italic" }}>Wong.</em>
+            Jaden<br /><em style={{ fontStyle:"italic" }}>Wong</em>
           </h1>
           <p style={{ fontSize:13, letterSpacing:"0.06em", color:"var(--text-tertiary)", marginBottom:28, animation:"heroFade 0.9s ease 0.85s both" }}>
             ML Engineering · Signal Processing · Toronto, Ontario
@@ -42,11 +42,6 @@ export default function Home() {
             >Get in Touch</button>
           </div>
         </div>
-
-        <div style={{ position:"absolute", bottom:24, left:"50%", transform:"translateX(-50%)", zIndex:3, display:"flex", flexDirection:"column", alignItems:"center", gap:8, fontSize:9, letterSpacing:"0.28em", textTransform:"uppercase", color:"var(--text-tertiary)" }}>
-          <div style={{ width:1, height:34, background:"linear-gradient(to bottom, var(--text-tertiary), transparent)", animation:"tickDrop 1.6s 0.4s infinite" }} />
-          <span>Scroll</span>
-        </div>
       </section>
 
       {/* ── BIO */}
@@ -56,7 +51,6 @@ export default function Home() {
             About
           </div>
         </Reveal>
-
         <Reveal delay={0.1} grand>
           <div>
             <p style={{ fontSize:17, fontWeight:300, lineHeight:1.82, color:"rgba(237,234,226,0.7)", marginBottom:24 }}>
@@ -80,16 +74,16 @@ export default function Home() {
       {/* ── NUMBERS */}
       <div style={{ position:"relative", zIndex:1, display:"grid", gridTemplateColumns:"repeat(3,1fr)", borderBottom:"1px solid var(--border)" }}>
         {[
-          { val:1, label:"Internship" },
-          { val:2, label:"Volunteer positions" },
-          { val:3, label:"Projects" },
+          { val:"4+", label:"Months of internship experience" },
+          { val:2,    label:"Volunteer positions" },
+          { val:3,    label:"Projects" },
         ].map((s, i) => (
           <Reveal key={i} delay={i * 0.08}>
             <div style={{ padding:"44px 48px", borderRight: i < 2 ? "1px solid var(--border)" : "none" }}>
               <div style={{ fontFamily:"var(--serif)", fontSize:"clamp(42px,5vw,80px)", lineHeight:1, color:"var(--text)", letterSpacing:"-0.02em", marginBottom:10 }}>
                 {s.val}
               </div>
-              <div style={{ fontSize:11, fontWeight:400, letterSpacing:"0.2em", textTransform:"uppercase", color:"var(--text-tertiary)" }}>{s.label}</div>
+              <div style={{ fontSize:14, fontWeight:400, letterSpacing:"0.08em", textTransform:"uppercase", color:"var(--text-tertiary)" }}>{s.label}</div>
             </div>
           </Reveal>
         ))}
@@ -99,7 +93,7 @@ export default function Home() {
       <section style={{ padding:"100px 48px", borderBottom:"1px solid var(--border)", position:"relative", zIndex:1 }}>
         <div style={{ maxWidth:1000, margin:"0 auto" }}>
           <Reveal>
-            <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4vw,48px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:48 }}>Projects.</h2>
+            <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4vw,48px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:48 }}>Projects</h2>
           </Reveal>
           <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:12 }}>
             {[
@@ -108,8 +102,7 @@ export default function Home() {
                 name: "myojam",
                 desc: "Built a signal pipeline from scratch - Arduino sensors through a Butterworth filter, feature extraction, and a Random Forest classifier - then wrapped it in a full-stack web platform with interactive demos.",
                 stack: ["Python", "React", "FastAPI", "scikit-learn", "Arduino"],
-                url: "https://myojam.com",
-                cta: "Visit site",
+                anchor: "myojam",
                 accent: "#f5e040",
               },
               {
@@ -117,8 +110,7 @@ export default function Home() {
                 name: "MyMurry",
                 desc: "Built the active recall loop end-to-end: note upload, GPT-4o concept sectioning, free-recall session scoring, and a point-by-point breakdown of what you missed. Auth, i18n, and calendar integration included.",
                 stack: ["Next.js 15", "TypeScript", "PostgreSQL", "GPT-4o", "Supabase"],
-                url: "https://mymurry.com",
-                cta: "Visit site",
+                anchor: "mymurry",
                 accent: "#A855F7",
               },
               {
@@ -126,8 +118,7 @@ export default function Home() {
                 name: "Quant-Trading",
                 desc: "Built a backtesting engine, a grid-search optimizer, and a custom scoring formula that penalizes strategies inconsistent across tickers - then promoted the best ones to a live scanner.",
                 stack: ["Python", "NumPy", "pandas", "scikit-learn", "Pine Script v6"],
-                url: "https://github.com/Jaden300/Quant-Trading",
-                cta: "View repo",
+                anchor: "quant-trading",
                 accent: "#10B981",
               },
             ].map((p, i) => (
@@ -141,7 +132,7 @@ export default function Home() {
                       <span key={t} style={{ fontSize:11, color:"var(--text-tertiary)", border:"1px solid var(--border)", borderRadius:100, padding:"3px 10px", fontWeight:300 }}>{t}</span>
                     ))}
                   </div>
-                  <a href={p.url} target="_blank" rel="noreferrer" style={{
+                  <a href={`/work#${p.anchor}`} style={{
                     display:"inline-block", alignSelf:"flex-start",
                     fontSize:11, fontWeight:600, letterSpacing:"0.14em", textTransform:"uppercase",
                     color:p.accent, border:`1px solid ${p.accent}`, borderRadius:4,
@@ -150,14 +141,14 @@ export default function Home() {
                   }}
                     onMouseEnter={e => { e.currentTarget.style.background = p.accent; e.currentTarget.style.color = "#080a0f" }}
                     onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = p.accent }}
-                  >{p.cta} ↗</a>
+                  >View project</a>
                 </div>
               </Reveal>
             ))}
           </div>
           <Reveal delay={0.2}>
             <div style={{ marginTop:18, textAlign:"right" }}>
-              <span onClick={() => navigate("/work")} className="ink-line" style={{ fontSize:12, color:"var(--text-tertiary)", cursor:"pointer", letterSpacing:"0.1em" }}>All projects →</span>
+              <span onClick={() => navigate("/work")} className="ink-line" style={{ fontSize:12, color:"var(--text-tertiary)", cursor:"pointer", letterSpacing:"0.1em" }}>All projects</span>
             </div>
           </Reveal>
         </div>
@@ -167,7 +158,7 @@ export default function Home() {
       <section style={{ padding:"100px 48px", borderBottom:"1px solid var(--border)", position:"relative", zIndex:1 }}>
         <div style={{ maxWidth:1000, margin:"0 auto" }}>
           <Reveal>
-            <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4vw,48px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:48 }}>Experience.</h2>
+            <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4vw,48px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:48 }}>Experience</h2>
           </Reveal>
           <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:12 }}>
             {[
@@ -187,7 +178,7 @@ export default function Home() {
                 type: "Volunteer",
                 desc: "UX audit identifying 5+ accessibility issues. Improvement proposal covering contrast, navigation, and scroll depth.",
                 accent: "#8B5CF6",
-                anchor: "volunteer-well",
+                anchor: "the-volunteer-well",
               },
               {
                 org: "Asenion",
@@ -215,27 +206,29 @@ export default function Home() {
                   }}
                     onMouseEnter={e => { e.currentTarget.style.background = r.accent; e.currentTarget.style.color = "#080a0f" }}
                     onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = r.accent }}
-                  >View role →</a>
+                  >View role</a>
                 </div>
               </Reveal>
             ))}
           </div>
           <Reveal delay={0.2}>
             <div style={{ marginTop:18, textAlign:"right" }}>
-              <span onClick={() => navigate("/experience")} className="ink-line" style={{ fontSize:12, color:"var(--text-tertiary)", cursor:"pointer", letterSpacing:"0.1em" }}>Full experience →</span>
+              <span onClick={() => navigate("/experience")} className="ink-line" style={{ fontSize:12, color:"var(--text-tertiary)", cursor:"pointer", letterSpacing:"0.1em" }}>Full experience</span>
             </div>
           </Reveal>
         </div>
       </section>
 
       {/* ── FOOTER */}
-      <footer style={{ position:"relative", zIndex:1, padding:"28px 48px", display:"flex", justifyContent:"space-between", alignItems:"center", borderTop:"1px solid var(--border)", fontSize:11, letterSpacing:"0.16em", color:"var(--text-tertiary)" }}>
-        <span>© 2026 Jaden Wong</span>
-        <span>Toronto, Ontario</span>
-        <a href="mailto:jn.wong.enterprise@gmail.com" style={{ color:"var(--text-tertiary)", textDecoration:"none", transition:"color 0.2s" }}
+      <footer style={{ position:"relative", zIndex:1, padding:"28px 48px", display:"flex", justifyContent:"center", alignItems:"center", gap:40, borderTop:"1px solid var(--border)", fontSize:12, letterSpacing:"0.1em" }}>
+        <a href="https://github.com/Jaden300" target="_blank" rel="noreferrer" style={{ color:"var(--text-tertiary)", textDecoration:"none", transition:"color 0.2s" }}
           onMouseEnter={e => e.currentTarget.style.color = "var(--text)"}
           onMouseLeave={e => e.currentTarget.style.color = "var(--text-tertiary)"}
-        >jn.wong.enterprise@gmail.com</a>
+        >GitHub</a>
+        <a href="https://linkedin.com/in/jaden-wong09" target="_blank" rel="noreferrer" style={{ color:"var(--text-tertiary)", textDecoration:"none", transition:"color 0.2s" }}
+          onMouseEnter={e => e.currentTarget.style.color = "var(--text)"}
+          onMouseLeave={e => e.currentTarget.style.color = "var(--text-tertiary)"}
+        >LinkedIn</a>
       </footer>
 
     </div>
