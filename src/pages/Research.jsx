@@ -1,6 +1,5 @@
 import Reveal from "../components/Reveal"
 import ParticleWarp from "../components/ParticleWarp"
-import ResearchCanvas3D from "../components/ResearchCanvas3D"
 import { GestureAccuracyBars, AccuracyGauge } from "../components/Charts"
 import { Dino, Sheep, Dog, Penguin, Mouse } from "../components/Critters"
 
@@ -137,7 +136,7 @@ export default function Research() {
       }}>
         {/* Faded background character */}
         <div style={{ position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center", pointerEvents:"none", userSelect:"none" }}>
-          <span style={{ fontFamily:"'Noto Serif CJK SC','Hiragino Mincho ProN','SimSun',serif", fontWeight:900, fontSize:"80vw", lineHeight:1, color:"var(--accent)", opacity:0.03 }}>研</span>
+          <span style={{ fontFamily:"'Noto Serif CJK SC','Hiragino Mincho ProN','SimSun',serif", fontWeight:900, fontSize:"55vw", lineHeight:1, color:"var(--accent)", opacity:0.025 }}>研</span>
         </div>
 
         <div style={{ position:"relative", zIndex:1, padding:"0 48px" }}>
@@ -178,9 +177,6 @@ export default function Research() {
           ))}
         </div>
       </section>
-
-      {/* ── 3D PARTICLE CANVAS */}
-      <ResearchCanvas3D />
 
       {/* ── TECHNICAL REPORT */}
       <section style={{ position:"relative", zIndex:1, padding:"100px 48px", borderBottom:"1px solid var(--border)", overflow:"visible" }}>

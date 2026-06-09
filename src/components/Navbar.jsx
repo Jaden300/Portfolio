@@ -19,9 +19,10 @@ export default function Navbar() {
   }, [])
 
   const links = [
-    ["Research", "/research"],
-    ["Projects", "/work"],
-    ["About",    "/about"],
+    ["Experience", "/experience"],
+    ["Work",       "/work"],
+    ["Research",   "/research"],
+    ["About",      "/about"],
   ]
 
   return (

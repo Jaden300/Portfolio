@@ -2,22 +2,23 @@ import Reveal from "../components/Reveal"
 import ParticleWarp from "../components/ParticleWarp"
 import HelixScene from "../components/HelixScene"
 import { SkillProficiencyBars, PipelineViz } from "../components/Charts"
-import { Fox, Mouse, Hamster, Owl, Penguin, Dino } from "../components/Critters"
+import { Mouse, Hamster, Owl } from "../components/Critters"
 
 const TIMELINE = [
   { year:"Sept 2024", event:"Started myojam - EMG gesture classification from scratch, no lab, no hardware, just public data" },
   { year:"Dec 2024",  event:"Reached 84.85% cross-subject accuracy on Ninapro DB5" },
   { year:"Feb 2025",  event:"Launched myojam.com - full-stack web demo, no hardware required" },
-  { year:"Sept 2025", event:"Co-op at Fairly AI as AI QA Intern - designed 1,000+ test cases" },
-  { year:"Jan 2026",  event:"Completed Fairly AI co-op; returned to myojam as Co-founder & Lead Developer (volunteer)" },
+  { year:"Sept 2025", event:"AI Intern at Asenion (formerly Fairly AI) - built LLM safety evaluator and token cost estimator across 3 provider families" },
+  { year:"Jan 2026",  event:"Completed Asenion co-op; returned to myojam as Co-founder & Lead Developer (volunteer)" },
   { year:"Apr 2026",  event:"Launched ELEVATE - international EMG innovation competition" },
+  { year:"May 2026",  event:"Joined One Community as volunteer SWE and The Volunteer Well as volunteer web developer" },
 ]
 
 const SKILLS = [
   { cat:"Machine Learning",      color:"#f5e040", items:["scikit-learn","Random Forest","XGBoost","Logistic Regression","KNN","SVM","PCA · t-SNE","LIME"] },
   { cat:"Signal Processing",     color:"#fbbf24", items:["Surface EMG","Butterworth filter","Sliding window","MAV · RMS · ZC · WL","Ninapro DB5","Spectral analysis"] },
-  { cat:"Full-Stack",            color:"#fef3c7", items:["React","Vite","FastAPI","Python","Vercel","Render","REST APIs","Three.js","Canvas API"] },
-  { cat:"Systems & Hardware",    color:"#f5e040", items:["PyQt6","macOS Quartz","Arduino","Serial comms","MyoWare 2.0"] },
+  { cat:"Full-Stack",            color:"#fef3c7", items:["React","Next.js 15","TypeScript","FastAPI","Python","PostgreSQL","Prisma","Supabase","Vercel","REST APIs"] },
+  { cat:"Systems & Tools",      color:"#f5e040", items:["PyQt6","Arduino","Three.js","NumPy","pandas","Pine Script v6","Tkinter","Git"] },
 ]
 
 export default function About() {
@@ -96,99 +97,6 @@ export default function About() {
       {/* ── HELIX */}
       <HelixScene />
 
-      {/* ── EXPERIENCE */}
-      <section style={{ position:"relative", zIndex:1, padding:"100px 48px", borderBottom:"1px solid var(--border)", overflow:"visible" }}>
-        <Fox style={{ top:80, left:"3%" }} />
-        <Penguin style={{ bottom:80, right:"3%" }} />
-        <div style={{ maxWidth:1000, margin:"0 auto" }}>
-          <Reveal>
-            <div style={{ fontSize:10, color:"var(--gold)", textTransform:"uppercase", letterSpacing:"0.25em", marginBottom:8, fontFamily:"var(--serif)" }}>Experience</div>
-            <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4.5vw,52px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:64 }}>Where I've worked.</h2>
-          </Reveal>
-
-          {/* myojam - big card */}
-          <Reveal delay={0.05} grand>
-            <div style={{ background:"var(--bg-2)", borderRadius:24, padding:"48px", marginBottom:16, borderLeft:"3px solid var(--gold)" }}>
-              <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:28, flexWrap:"wrap", gap:16 }}>
-                <div>
-                  <div style={{ fontSize:26, fontWeight:700, color:"var(--text)", fontFamily:"var(--serif)", letterSpacing:"-0.5px", marginBottom:6 }}>myojam</div>
-                  <div style={{ fontSize:13, color:"var(--gold)", fontWeight:500, marginBottom:4 }}>Co-founder & Lead Developer (volunteer)</div>
-                  <div style={{ fontSize:12, color:"var(--text-tertiary)", fontWeight:300 }}>Sept 2024 – present · Remote</div>
-                </div>
-                <div style={{ display:"flex", gap:12 }}>
-                  {[["84.85%","accuracy"],["11","articles"],["MIT","license"]].map(([v,l]) => (
-                    <div key={l} style={{ textAlign:"center", padding:"14px 20px", background:"var(--bg)", borderRadius:12 }}>
-                      <div style={{ fontSize:20, fontWeight:800, color:"var(--gold)", fontFamily:"var(--serif)", letterSpacing:"-0.5px" }}>{v}</div>
-                      <div style={{ fontSize:10, color:"var(--text-tertiary)", textTransform:"uppercase", letterSpacing:"0.06em", marginTop:2 }}>{l}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div style={{ display:"flex", flexDirection:"column", gap:12 }}>
-                {[
-                  "Built an open-source sEMG gesture classifier from scratch - 84.85% cross-subject accuracy on Ninapro DB5",
-                  "Designed and shipped the full stack: FastAPI backend, React/Vite frontend, PyQt6 native macOS app",
-                  "Published 11 educational articles and 3 lesson plans; launched the ELEVATE international EMG competition",
-                  "No lab access, no funding, no hardware - built entirely from public data and open-source tooling",
-                ].map((b, i) => (
-                  <div key={i} style={{ display:"flex", gap:14, alignItems:"flex-start" }}>
-                    <span style={{ color:"var(--gold)", fontWeight:700, flexShrink:0, marginTop:1 }}>→</span>
-                    <span style={{ fontSize:14, color:"var(--text-secondary)", fontWeight:300, lineHeight:1.75 }}>{b}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Reveal>
-
-          {/* Fairly AI - big card */}
-          <Reveal delay={0.08} grand>
-            <div style={{ background:"var(--bg-2)", borderRadius:24, padding:"48px", marginBottom:16, borderLeft:"3px solid #3B82F6" }}>
-              <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:28, flexWrap:"wrap", gap:16 }}>
-                <div>
-                  <div style={{ fontSize:26, fontWeight:700, color:"var(--text)", fontFamily:"var(--serif)", letterSpacing:"-0.5px", marginBottom:6 }}>Fairly AI</div>
-                  <div style={{ fontSize:13, color:"#3B82F6", fontWeight:500, marginBottom:4 }}>AI Intern - QA Assistant (Student Co-op)</div>
-                  <div style={{ fontSize:12, color:"var(--text-tertiary)", fontWeight:300 }}>Sept 2025 – Jan 2026 · Kitchener, ON</div>
-                </div>
-                <div style={{ display:"flex", gap:12 }}>
-                  {[["1,000+","test cases"],["60%","time saved"],["70%","accuracy gain"]].map(([v,l]) => (
-                    <div key={l} style={{ textAlign:"center", padding:"14px 20px", background:"var(--bg)", borderRadius:12 }}>
-                      <div style={{ fontSize:20, fontWeight:800, color:"var(--gold)", fontFamily:"var(--serif)", letterSpacing:"-0.5px" }}>{v}</div>
-                      <div style={{ fontSize:10, color:"var(--text-tertiary)", textTransform:"uppercase", letterSpacing:"0.06em", marginTop:2 }}>{l}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div style={{ display:"flex", flexDirection:"column", gap:12 }}>
-                {[
-                  "Designed and executed 1,000+ test cases to systematically investigate model behaviour",
-                  "Developed data workflows reducing project time by 60%",
-                  "Led benchmarking across 12+ scenarios over 15 cycles - improved classification by 70%",
-                  "Produced structured documentation with visualisations for stakeholder decisions",
-                ].map((b, i) => (
-                  <div key={i} style={{ display:"flex", gap:14, alignItems:"flex-start" }}>
-                    <span style={{ color:"var(--gold)", fontWeight:700, flexShrink:0, marginTop:1 }}>→</span>
-                    <span style={{ fontSize:14, color:"var(--text-secondary)", fontWeight:300, lineHeight:1.75 }}>{b}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Reveal>
-
-          {/* Education */}
-          <Reveal delay={0.15}>
-            <div style={{ background:"var(--bg-2)", borderRadius:24, padding:"36px 48px", borderLeft:"3px solid var(--gold)" }}>
-              <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", flexWrap:"wrap", gap:12 }}>
-                <div>
-                  <div style={{ fontSize:20, fontWeight:700, color:"var(--text)", fontFamily:"var(--serif)", marginBottom:4 }}>Bur Oak Secondary School</div>
-                  <div style={{ fontSize:13, color:"var(--gold)", fontWeight:500, marginBottom:4 }}>2023 – present · Markham, ON</div>
-                  <div style={{ fontSize:13, color:"var(--text-tertiary)", fontWeight:300 }}>Software Engineering Workshop Club - Lesson Planner · Designed Python curriculum for elementary students</div>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
       {/* ── SKILLS */}
       <section style={{ position:"relative", zIndex:1, padding:"100px 48px", borderBottom:"1px solid var(--border)", overflow:"visible" }}>
         <Owl style={{ top:80, right:"3%" }} />
@@ -226,9 +134,26 @@ export default function About() {
 
           {/* EMG Pipeline */}
           <Reveal delay={0.16}>
-            <div style={{ background:"var(--bg-2)", borderRadius:20, padding:"36px 40px" }}>
+            <div style={{ background:"var(--bg-2)", borderRadius:20, padding:"36px 40px", marginBottom:16 }}>
               <div style={{ fontSize:10, color:"var(--text-tertiary)", textTransform:"uppercase", letterSpacing:"0.18em", marginBottom:24 }}>myojam classification pipeline</div>
               <PipelineViz />
+            </div>
+          </Reveal>
+
+          {/* Certifications */}
+          <Reveal delay={0.2}>
+            <div style={{ fontSize:10, color:"var(--text-tertiary)", textTransform:"uppercase", letterSpacing:"0.18em", marginBottom:12 }}>Certifications</div>
+            <div style={{ display:"flex", flexDirection:"column", gap:8 }}>
+              {[
+                { name:"IBM Machine Learning Professional Certificate",       issuer:"IBM",    date:"Dec 2025" },
+                { name:"IBM Introduction to Machine Learning Specialization", issuer:"IBM",    date:"Dec 2025" },
+                { name:"Google AI Professional Certificate",                  issuer:"Google", date:"Apr 2026" },
+              ].map(cert => (
+                <div key={cert.name} style={{ background:"var(--bg-2)", border:"1px solid var(--border)", borderRadius:12, padding:"14px 24px", display:"flex", justifyContent:"space-between", alignItems:"center", flexWrap:"wrap", gap:8 }}>
+                  <div style={{ fontSize:14, fontWeight:500, color:"var(--text)" }}>{cert.name}</div>
+                  <div style={{ fontSize:11, color:"var(--text-tertiary)", fontWeight:300, whiteSpace:"nowrap" }}>{cert.issuer} &nbsp;·&nbsp; {cert.date}</div>
+                </div>
+              ))}
             </div>
           </Reveal>
         </div>

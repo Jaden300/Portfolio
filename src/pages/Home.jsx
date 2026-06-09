@@ -137,10 +137,10 @@ export default function Home() {
         <Reveal delay={0.1} grand>
           <div>
             <p style={{ fontSize:17, fontWeight:300, lineHeight:1.82, color:"rgba(237,234,226,0.7)", marginBottom:24 }}>
-              I'm a <strong style={{ color:"var(--text)", fontWeight:500 }}>16-year-old engineer and researcher</strong> from Toronto, Ontario. I build full-stack ML systems, process biomedical signals, and publish educational content - because open access to technology is the point.
+              I'm a <strong style={{ color:"var(--text)", fontWeight:500 }}>16-year-old engineer and researcher</strong> from Toronto, Ontario. I build full-stack ML systems, AI-powered web platforms, and quantitative trading frameworks - across whatever the problem demands.
             </p>
             <p style={{ fontSize:17, fontWeight:300, lineHeight:1.82, color:"rgba(237,234,226,0.7)" }}>
-              As <strong style={{ color:"var(--text)", fontWeight:500 }}>Co-founder & Lead Developer (volunteer)</strong> of <strong style={{ color:"var(--text)", fontWeight:500 }}>myojam</strong>, I built an open-source EMG gesture classifier achieving 84.85% cross-subject accuracy - no lab, no funding. Previously AI QA intern at <strong style={{ color:"var(--text)", fontWeight:500 }}>Fairly AI</strong>, designing 1,000+ test cases and cutting evaluation pipeline time by 60%.
+              Currently volunteering as SWE at <strong style={{ color:"var(--text)", fontWeight:500 }}>One Community</strong> and web developer at <strong style={{ color:"var(--text)", fontWeight:500 }}>The Volunteer Well</strong>. Previously AI intern at <strong style={{ color:"var(--text)", fontWeight:500 }}>Asenion</strong> and co-founder of <strong style={{ color:"var(--text)", fontWeight:500 }}>myojam</strong> - 84.85% cross-subject EMG accuracy, no lab, no funding.
             </p>
             <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(108px,1fr))", gap:10, marginTop:44 }}>
               {["Python","React","FastAPI","scikit-learn","PyQt6","Three.js","Signal Processing","Random Forest","XGBoost","LIME","NumPy","Vite"].map(chip => (
@@ -159,8 +159,8 @@ export default function Home() {
         <Penguin style={{ top:-32, right:"8%" }} />
         {[
           { val:84, suffix:".85%", label:"Cross-subject accuracy" },
-          { val:1000, suffix:"+", label:"QA test cases designed" },
-          { val:11, suffix:"+", label:"Published articles" },
+          { val:4, suffix:"", label:"Volunteer roles" },
+          { val:3, suffix:"", label:"Major projects" },
         ].map((s, i) => (
           <Reveal key={i} delay={i * 0.08}>
             <div style={{ padding:"44px 48px", borderRight: i < 2 ? "1px solid var(--border)" : "none", position:"relative", overflow:"visible" }}>
@@ -277,17 +277,17 @@ export default function Home() {
 
             <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:12 }}>
               {[
-                { title:"Unsupervised Learning", sub:"PCA · t-SNE · KMeans · DBSCAN", url:"https://github.com/Jaden300/Unsupervised-Learning" },
-                { title:"Mobile Price Classification", sub:"XGBoost · LIME · GridSearchCV", url:"https://github.com/Jaden300/Mobile-Price-Classification" },
+                { title:"MyMurry", label:"Full-Stack AI", sub:"GPT-4o · Next.js 15 · PostgreSQL · Supabase", url:"https://mymurry.com", cta:"Visit site ↗" },
+                { title:"Quant-Trading", label:"Quant Research", sub:"23 strategies · 5 production · Pine Script v6", url:"https://github.com/Jaden300/Quant-Trading", cta:"GitHub ↗" },
               ].map((p, i) => (
                 <Reveal key={p.title} delay={0.15 + i * 0.05}>
                   <div className="hover-lift" style={{ background:"var(--bg-2)", border:"1px solid var(--border)", borderRadius:4, padding:"24px", cursor: "pointer", height:"100%" }}
                     onClick={() => window.open(p.url,"_blank")}
                   >
-                    <div style={{ fontSize:10, color:"var(--accent)", fontWeight:500, textTransform:"uppercase", letterSpacing:"0.14em", marginBottom:10 }}>Machine Learning</div>
+                    <div style={{ fontSize:10, color:"var(--accent)", fontWeight:500, textTransform:"uppercase", letterSpacing:"0.14em", marginBottom:10 }}>{p.label}</div>
                     <h3 style={{ fontSize:16, fontWeight:400, color:"var(--text)", letterSpacing:"-0.5px", marginBottom:8, fontFamily:"var(--serif)" }}>{p.title}</h3>
                     <p style={{ fontSize:12, color:"var(--text-tertiary)", fontWeight:300, marginBottom:14 }}>{p.sub}</p>
-                    <span style={{ fontSize:11, color:"var(--accent)", fontWeight:500, letterSpacing:"0.1em" }}>GitHub ↗</span>
+                    <span style={{ fontSize:11, color:"var(--accent)", fontWeight:500, letterSpacing:"0.1em" }}>{p.cta}</span>
                   </div>
                 </Reveal>
               ))}
@@ -313,22 +313,23 @@ export default function Home() {
           </Reveal>
           <Reveal delay={0.1}>
             <div>
-              <div style={{ marginBottom:24 }}>
-                <div style={{ fontSize:22, fontWeight:400, color:"var(--text)", fontFamily:"var(--serif)", letterSpacing:"-0.5px", marginBottom:4 }}>Fairly AI</div>
-                <div style={{ fontSize:12, color:"var(--accent)", fontWeight:400, letterSpacing:"0.04em", marginBottom:2 }}>AI Intern - QA Assistant</div>
-                <div style={{ fontSize:11, color:"var(--text-tertiary)", fontWeight:300, letterSpacing:"0.06em" }}>Sept 2025 – Jan 2026 · Kitchener, ON</div>
-              </div>
-              <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:12, marginBottom:24 }}>
-                {[["1,000+","test cases"],["60%","workflow reduction"],["70%","classification gain"]].map(([v, l]) => (
-                  <div key={l} style={{ padding:"18px", border:"1px solid var(--border)", borderRadius:4, background:"var(--bg-2)" }}>
-                    <div style={{ fontSize:22, fontWeight:400, color:"var(--text)", fontFamily:"var(--serif)", letterSpacing:"-1px", marginBottom:4 }}>{v}</div>
-                    <div style={{ fontSize:10, color:"var(--text-tertiary)", fontWeight:300, textTransform:"uppercase", letterSpacing:"0.1em" }}>{l}</div>
+              <div style={{ display:"flex", flexDirection:"column", gap:10, marginBottom:28 }}>
+                {[
+                  { org:"One Community",      title:"Software Engineer",          period:"May 2026 – Present",     accent:"#3B82F6" },
+                  { org:"The Volunteer Well", title:"Web Developer",              period:"May 2026 – Present",     accent:"#8B5CF6" },
+                  { org:"Asenion",            title:"AI Intern - QA Assistant",   period:"Sep 2025 – Jan 2026",   accent:"#3B82F6" },
+                  { org:"myojam",             title:"Co-founder & Lead Developer",period:"Sep 2024 – Present",    accent:"var(--gold)" },
+                ].map(r => (
+                  <div key={r.org} style={{ background:"var(--bg-2)", border:"1px solid var(--border)", borderRadius:8, padding:"16px 20px", display:"flex", justifyContent:"space-between", alignItems:"center", flexWrap:"wrap", gap:8 }}>
+                    <div>
+                      <div style={{ fontSize:15, fontWeight:600, color:"var(--text)", fontFamily:"var(--serif)", marginBottom:2 }}>{r.org}</div>
+                      <div style={{ fontSize:12, color:r.accent, fontWeight:400 }}>{r.title}</div>
+                    </div>
+                    <div style={{ fontSize:11, color:"var(--text-tertiary)", fontWeight:300, whiteSpace:"nowrap" }}>{r.period}</div>
                   </div>
                 ))}
               </div>
-              <p style={{ fontSize:14, fontWeight:300, lineHeight:1.82, color:"rgba(237,234,226,0.6)" }}>
-                Designed and executed 1,000+ test cases to investigate model behaviour. Led a benchmarking study across 12+ scenarios over 15 cycles, improving classification by 70%. Developed data workflows reducing project time by 60%.
-              </p>
+              <span onClick={() => navigate("/experience")} className="ink-line" style={{ fontSize:12, color:"var(--text-tertiary)", cursor:"pointer", letterSpacing:"0.1em" }}>Full experience →</span>
             </div>
           </Reveal>
         </div>
