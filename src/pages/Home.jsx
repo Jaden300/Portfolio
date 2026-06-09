@@ -315,10 +315,9 @@ export default function Home() {
             <div>
               <div style={{ display:"flex", flexDirection:"column", gap:10, marginBottom:28 }}>
                 {[
-                  { org:"One Community",      title:"Software Engineer",          period:"May 2026 – Present",     accent:"#3B82F6" },
-                  { org:"The Volunteer Well", title:"Web Developer",              period:"May 2026 – Present",     accent:"#8B5CF6" },
-                  { org:"Asenion",            title:"AI Intern - QA Assistant",   period:"Sep 2025 – Jan 2026",   accent:"#3B82F6" },
-                  { org:"myojam",             title:"Co-founder & Lead Developer",period:"Sep 2024 – Present",    accent:"var(--gold)" },
+                  { org:"One Community",      title:"Software Engineer",        period:"May 2026 – Present",   accent:"#3B82F6" },
+                  { org:"The Volunteer Well", title:"Web Developer",            period:"May 2026 – Present",   accent:"#8B5CF6" },
+                  { org:"Asenion",            title:"AI Intern - QA Assistant", period:"Sep 2025 – Jan 2026", accent:"#3B82F6" },
                 ].map(r => (
                   <div key={r.org} style={{ background:"var(--bg-2)", border:"1px solid var(--border)", borderRadius:8, padding:"16px 20px", display:"flex", justifyContent:"space-between", alignItems:"center", flexWrap:"wrap", gap:8 }}>
                     <div>

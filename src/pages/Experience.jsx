@@ -46,22 +46,6 @@ const ROLES = [
     ],
     url: null,
   },
-  {
-    org: "myojam",
-    title: "Co-founder & Lead Developer",
-    period: "Sep 2024 – Present",
-    location: "Remote",
-    type: "Volunteer",
-    accent: "#f5e040",
-    metrics: [["84.85%", "accuracy"], ["11", "articles"], ["MIT", "license"]],
-    bullets: [
-      "Built an open-source sEMG gesture classifier from scratch - 84.85% cross-subject accuracy on Ninapro DB5",
-      "Designed and shipped the full stack: FastAPI backend, React/Vite frontend, PyQt6 native macOS app",
-      "Published 11 educational articles and 3 lesson plans; launched the ELEVATE international EMG competition",
-      "No lab access, no funding, no hardware - built entirely from public data and open-source tooling",
-    ],
-    url: "https://myojam.com",
-  },
 ]
 
 const CERTS = [
@@ -87,7 +71,7 @@ export default function Experience() {
         <div style={{ position: "relative", zIndex: 1, padding: "0 48px" }}>
           <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.38em", textTransform: "uppercase", color: "var(--accent)", marginBottom: 24, animation: "heroLabel 0.9s cubic-bezier(0.16,1,0.3,1) 0.2s both", display: "flex", alignItems: "center", gap: 16 }}>
             <span style={{ display: "inline-block", width: 32, height: 1, background: "var(--accent)", opacity: 0.6 }} />
-            4 roles · 2 active
+            3 roles · 2 active
             <span style={{ display: "inline-block", width: 32, height: 1, background: "var(--accent)", opacity: 0.6 }} />
           </div>
           <h1 style={{ fontFamily: "var(--serif)", fontSize: "clamp(64px,10vw,130px)", lineHeight: 0.9, letterSpacing: "-0.03em", color: "var(--text)", animation: "heroName 1.1s cubic-bezier(0.16,1,0.3,1) 0.35s both" }}>
