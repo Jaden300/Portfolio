@@ -124,11 +124,11 @@ export default function About() {
           <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:12 }}>
             {[
               { label:"Gaming", title:"Clash Royale", desc:"Been playing since the early seasons. It's basically applied game theory." },
-              { label:"Chess", title:"Chess player", desc:"Regular games online. Chess sharpens pattern recognition in ways that actually transfer." },
-              { label:"Opening prep", title:"Leonidas Variation", desc:"My favourite opening. Aggressive, principled, and most people haven't prepared for it." },
+              { label:"Chess", title:"Chess player", desc:"Regular games online. Chess sharpens pattern recognition in ways that transfer. My favourite opening is the Leonidas Variation." },
+              { label:"Off the clock", title:"Downtown walks & coffee", desc:"My favourite thing is wandering around busy cities and going for coffees. Let's grab one sometime!" },
             ].map((fact, i) => (
               <Reveal key={fact.title} delay={i * 0.07} grand>
-                <div style={{ background:"var(--bg-2)", borderRadius:16, padding:"32px", borderTop:"2px solid var(--gold)" }}>
+                <div style={{ background:"var(--bg-2)", borderRadius:16, padding:"32px", borderTop:"2px solid var(--gold)", height:"100%", boxSizing:"border-box" }}>
                   <div style={{ fontSize:10, color:"var(--gold)", fontWeight:600, textTransform:"uppercase", letterSpacing:"0.18em", marginBottom:12 }}>{fact.label}</div>
                   <div style={{ fontFamily:"var(--serif)", fontSize:20, fontWeight:700, color:"var(--text)", letterSpacing:"-0.5px", marginBottom:12 }}>{fact.title}</div>
                   <p style={{ fontSize:13, color:"var(--text-secondary)", fontWeight:300, lineHeight:1.7, margin:0 }}>{fact.desc}</p>

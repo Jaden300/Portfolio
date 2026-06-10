@@ -41,24 +41,21 @@ const RESOURCES = [
   {
     title: "EMG Basics - full lesson plan",
     type: "Lesson Plan",
-    audience: "Grades 9-12 · Biology / Physics",
-    duration: "75 min",
+    audience: "Biology / Physics",
     desc: "Complete classroom-ready lesson including timed phases, student activities, teacher notes, differentiation strategies, and a 4-point assessment rubric.",
     url: "https://myojam.com/educators/lesson-emg-basics",
   },
   {
     title: "Teaching a machine to read gestures",
     type: "Lesson Plan",
-    audience: "Grades 10-12 / Intro university · CS / Data Science",
-    duration: "90 min",
+    audience: "CS / Data Science",
     desc: "Hands-on ML lesson covering feature extraction, decision boundaries, and confusion matrix interpretation - using real Ninapro data.",
     url: "https://myojam.com/educators/lesson-gesture-classifier",
   },
   {
     title: "myocode: code with your muscles",
     type: "Lesson Plan",
-    audience: "Grades 6-10 · CS / STEM",
-    duration: "60 min",
+    audience: "CS / STEM",
     desc: "Introduces event-driven programming through myocode, myojam's block coding environment where EMG gestures are first-class events.",
     url: "https://myojam.com/educators/lesson-myocode",
   },
@@ -80,7 +77,7 @@ export default function Research() {
             <span style={{ display:"inline-block", width:32, height:1, background:"var(--accent)", opacity:0.6 }} />
           </div>
           <h1 style={{ fontFamily:"var(--serif)", fontSize:"clamp(64px,10vw,130px)", lineHeight:0.9, letterSpacing:"-0.03em", color:"var(--text)", animation:"heroName 1.1s cubic-bezier(0.16,1,0.3,1) 0.35s both" }}>
-            Blog &<br /><em style={{ fontStyle:"italic", color:"var(--accent)" }}>writing</em>
+            Publications &<br /><em style={{ fontStyle:"italic", color:"var(--accent)" }}>writing</em>
           </h1>
           <p style={{ fontSize:16, fontWeight:300, color:"var(--text-secondary)", maxWidth:520, margin:"28px auto 0", lineHeight:1.75, animation:"heroFade 1s ease 0.75s both" }}>
             A technical report, eleven articles spanning neuroscience, signal processing, and ML ethics, and three educator-ready lesson plans - all openly published on myojam.com.
@@ -132,28 +129,29 @@ export default function Research() {
       <section style={{ position:"relative", zIndex:1, padding:"100px 48px 120px" }}>
         <div style={{ maxWidth:1000, margin:"0 auto" }}>
           <Reveal>
-            <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4.5vw,52px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:56 }}>Educational resources</h2>
+            <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-end", marginBottom:56, flexWrap:"wrap", gap:16 }}>
+              <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4.5vw,52px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px" }}>Educational resources</h2>
+              <a href="https://www.myojam.com/educators" target="_blank" rel="noreferrer"
+                style={{ fontSize:13, color:"var(--gold)", fontWeight:500, letterSpacing:"0.06em", textDecoration:"none" }}
+                onMouseEnter={e => e.currentTarget.style.opacity="0.7"}
+                onMouseLeave={e => e.currentTarget.style.opacity="1"}
+              >See more ↗</a>
+            </div>
           </Reveal>
 
-          <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:2 }}>
+          <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:16 }}>
             {RESOURCES.map((r, i) => (
               <Reveal key={r.title} delay={i * 0.08}>
-                <a href={r.url} target="_blank" rel="noreferrer" style={{ display:"block", textDecoration:"none" }}
+                <a href={r.url} target="_blank" rel="noreferrer" style={{ display:"flex", textDecoration:"none", height:"100%" }}
                   onMouseEnter={e => e.currentTarget.querySelector(".rcard").style.background = "var(--bg)"}
                   onMouseLeave={e => e.currentTarget.querySelector(".rcard").style.background = "var(--bg-2)"}
                 >
-                  <div className="rcard" style={{
-                    background:"var(--bg-2)", padding:"36px", transition:"background 0.2s",
-                    borderRadius: i===0 ? "20px 0 0 20px" : i===2 ? "0 20px 20px 0" : "0",
-                  }}>
-                    <div style={{ display:"flex", gap:8, marginBottom:20, flexWrap:"wrap" }}>
-                      <span style={{ fontSize:10, fontWeight:700, color:"var(--gold)", background:"rgba(245,224,64,0.08)", border:"1px solid rgba(245,224,64,0.22)", borderRadius:100, padding:"3px 12px", textTransform:"uppercase", letterSpacing:"0.06em" }}>{r.type}</span>
-                      <span style={{ fontSize:10, color:"var(--text-tertiary)", border:"1px solid var(--border)", borderRadius:100, padding:"3px 10px", fontWeight:300 }}>{r.duration}</span>
-                    </div>
+                  <div className="rcard" style={{ background:"var(--bg-2)", borderRadius:20, padding:"32px", transition:"background 0.2s", display:"flex", flexDirection:"column", width:"100%", height:"100%", boxSizing:"border-box" }}>
+                    <span style={{ fontSize:10, fontWeight:700, color:"var(--gold)", background:"rgba(245,224,64,0.08)", border:"1px solid rgba(245,224,64,0.22)", borderRadius:100, padding:"3px 12px", textTransform:"uppercase", letterSpacing:"0.06em", alignSelf:"flex-start", marginBottom:20 }}>{r.type}</span>
                     <div style={{ fontFamily:"var(--serif)", fontSize:17, fontWeight:700, color:"var(--text)", marginBottom:8, lineHeight:1.3, letterSpacing:"-0.3px" }}>{r.title}</div>
                     <div style={{ fontSize:11, color:"var(--gold)", fontWeight:500, marginBottom:14, letterSpacing:"0.04em" }}>{r.audience}</div>
-                    <p style={{ fontSize:13, color:"var(--text-secondary)", lineHeight:1.75, fontWeight:300, marginBottom:20 }}>{r.desc}</p>
-                    <span style={{ fontSize:12, fontWeight:600, color:"var(--gold)", letterSpacing:"0.06em" }}>View lesson plan ↗</span>
+                    <p style={{ fontSize:13, color:"var(--text-secondary)", lineHeight:1.75, fontWeight:300, marginBottom:20, flex:1 }}>{r.desc}</p>
+                    <span style={{ fontSize:13, color:"var(--gold)", fontWeight:600 }}>Read ↗</span>
                   </div>
                 </a>
               </Reveal>

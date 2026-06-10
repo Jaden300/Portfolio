@@ -2,31 +2,35 @@ import { useState, useEffect } from "react"
 import Reveal from "../components/Reveal"
 import { Dog, Sheep, Bunny } from "../components/Critters"
 
+const ROTS  = [-6, 3.5, -2]
+
 function ImageStack({ images }) {
   const [hovered, setHovered] = useState(null)
-  const offsets = [
-    { dx: -30, dy: 20, rot: -7 },
-    { dx:  18, dy: 10, rot:  4 },
-    { dx:   0, dy:  0, rot:  0 },
-  ]
+  const CARD_H = 175
+  const STEP   = 68
+  const count  = images.length
+  const containerH = CARD_H + (count - 1) * STEP + 16
+
   return (
-    <div style={{ position:"relative", height:260, marginBottom:4 }}>
+    <div style={{ position:"relative", height:containerH }}>
       {images.map((src, i) => {
-        const off = offsets[i] ?? offsets[0]
         const isHov = hovered === i
         return (
           <img key={i} src={src} alt=""
             onMouseEnter={() => setHovered(i)}
             onMouseLeave={() => setHovered(null)}
             style={{
-              position:"absolute", inset:0,
-              width:"100%", height:"100%",
+              position:"absolute",
+              top:    i * STEP,
+              left:   0, right: 0,
+              height: CARD_H,
+              width:  "100%",
               objectFit:"cover", borderRadius:12,
               border:"1px solid var(--border)",
-              zIndex: isHov ? 10 : i + 1,
+              zIndex: isHov ? 10 : count - i,
               transform: isHov
-                ? "translateY(-20px) scale(1.06) rotate(0deg)"
-                : `translate(${off.dx}px, ${off.dy}px) rotate(${off.rot}deg)`,
+                ? "translateY(-16px) scale(1.05) rotate(0deg)"
+                : `rotate(${ROTS[i] ?? 0}deg)`,
               transition:"transform 0.25s cubic-bezier(0.16,1,0.3,1), box-shadow 0.25s ease",
               boxShadow: isHov
                 ? "0 24px 52px rgba(0,0,0,0.55)"
@@ -124,10 +128,10 @@ export default function Work() {
             <Reveal key={p.name} delay={i * 0.08} grand>
               <div id={p.name.toLowerCase()} style={{ background: "var(--bg-2)", borderRadius: 24, overflow: "visible", borderLeft: `3px solid ${p.accent}` }}>
                 <div style={{ padding: "48px" }}>
-                  <div style={{ display:"grid", gridTemplateColumns:"1fr 360px", gap:56, alignItems:"start" }}>
+                  <div style={{ display:"grid", gridTemplateColumns:"1fr 360px", gap:56, alignItems:"stretch" }}>
 
                     {/* Left: content */}
-                    <div>
+                    <div style={{ display:"flex", flexDirection:"column" }}>
                       <div style={{ display:"flex", gap:10, marginBottom:12, alignItems:"center" }}>
                         <span style={{ fontSize:11, color:"var(--text-tertiary)", border:"1px solid var(--border)", borderRadius:100, padding:"3px 12px", fontWeight:300 }}>{p.year}</span>
                       </div>
@@ -152,28 +156,30 @@ export default function Work() {
                         ))}
                       </div>
 
-                      <div style={{ display:"flex", flexWrap:"wrap", gap:6 }}>
+                      <div style={{ display:"flex", flexWrap:"wrap", gap:6, marginBottom:24 }}>
                         {p.tags.map(t => (
                           <span key={t} style={{ fontSize:11, color:"var(--text-tertiary)", border:"1px solid var(--border)", borderRadius:100, padding:"3px 12px", fontWeight:300 }}>{t}</span>
                         ))}
                       </div>
-                    </div>
 
-                    {/* Right: image stack + button */}
-                    <div style={{ paddingTop:8, display:"flex", flexDirection:"column", gap:16 }}>
-                      <ImageStack images={p.images} />
-                      <div style={{ display:"flex", gap:12, alignItems:"center" }}>
-                        <a href={p.url} target="_blank" rel="noreferrer" style={{ flex:1, textAlign:"center", fontSize:12, fontWeight:600, letterSpacing:"0.08em", textTransform:"uppercase", color:"#080a0f", background:p.accent, border:`1px solid ${p.accent}`, borderRadius:6, padding:"10px 0", textDecoration:"none", transition:"filter 0.2s" }}
-                          onMouseEnter={e => e.currentTarget.style.filter = "brightness(1.1)"}
-                          onMouseLeave={e => e.currentTarget.style.filter = "brightness(1)"}
-                        >{p.url.includes("github.com") ? "View repo" : "Visit site"}</a>
+                      {/* Buttons - bottom-right */}
+                      <div style={{ marginTop:"auto", display:"flex", justifyContent:"flex-end", gap:10 }}>
                         {p.github && p.github !== p.url && (
-                          <a href={p.github} target="_blank" rel="noreferrer" style={{ flex:1, textAlign:"center", fontSize:12, fontWeight:500, letterSpacing:"0.08em", textTransform:"uppercase", color:"var(--text-tertiary)", border:"1px solid var(--border)", borderRadius:6, padding:"10px 0", textDecoration:"none", transition:"border-color 0.2s, color 0.2s" }}
+                          <a href={p.github} target="_blank" rel="noreferrer" style={{ fontSize:12, fontWeight:500, letterSpacing:"0.08em", textTransform:"uppercase", color:"var(--text-tertiary)", border:"1px solid var(--border)", borderRadius:6, padding:"10px 20px", textDecoration:"none", transition:"border-color 0.2s, color 0.2s" }}
                             onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--text)"; e.currentTarget.style.color = "var(--text)" }}
                             onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "var(--text-tertiary)" }}
                           >GitHub</a>
                         )}
+                        <a href={p.url} target="_blank" rel="noreferrer" style={{ fontSize:12, fontWeight:600, letterSpacing:"0.08em", textTransform:"uppercase", color:"#080a0f", background:p.accent, border:`1px solid ${p.accent}`, borderRadius:6, padding:"10px 20px", textDecoration:"none", transition:"filter 0.2s" }}
+                          onMouseEnter={e => e.currentTarget.style.filter = "brightness(1.1)"}
+                          onMouseLeave={e => e.currentTarget.style.filter = "brightness(1)"}
+                        >{p.url.includes("github.com") ? "View repo" : "Visit site"}</a>
                       </div>
+                    </div>
+
+                    {/* Right: image stack */}
+                    <div style={{ paddingTop:8 }}>
+                      <ImageStack images={p.images} />
                     </div>
 
                   </div>
