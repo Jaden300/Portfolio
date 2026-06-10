@@ -15,8 +15,6 @@ export default function Home() {
         display: "flex", flexDirection: "column", justifyContent: "flex-end",
         overflow: "visible",
       }}>
-        <ChessHero />
-        <div style={{ position:"absolute", bottom:0, left:0, right:0, height:200, background:"linear-gradient(to top,rgba(8,10,15,0.92),transparent)", zIndex:2, pointerEvents:"none" }} />
 
         <div style={{ position:"relative", zIndex:3, padding:"0 48px 68px", textAlign:"center", display:"flex", flexDirection:"column", alignItems:"center" }}>
           <img src="/profile.jpg" alt="Jaden Wong" style={{ width:116, height:116, borderRadius:"50%", objectFit:"cover", border:"2px solid rgba(245,224,64,0.4)", marginBottom:20, animation:"heroFade 0.9s ease 0.1s both" }} />
@@ -45,10 +43,15 @@ export default function Home() {
       </section>
 
       {/* ── BIO */}
-      <section style={{ position:"relative", zIndex:1, padding:"100px 48px", display:"grid", gridTemplateColumns:"240px 1fr", gap:"0 80px", borderBottom:"1px solid var(--border)" }}>
+      <section style={{ position:"relative", zIndex:1, padding:"100px 48px", display:"grid", gridTemplateColumns:"260px 1fr", gap:"0 80px", borderBottom:"1px solid var(--border)" }}>
         <Reveal>
-          <div style={{ fontSize:10, fontWeight:600, letterSpacing:"0.36em", textTransform:"uppercase", color:"var(--text-tertiary)", paddingTop:6 }}>
-            About
+          <div>
+            <div style={{ fontSize:16, fontWeight:700, letterSpacing:"0.18em", textTransform:"uppercase", color:"var(--text-tertiary)", paddingTop:6 }}>
+              About
+            </div>
+            <div style={{ position:"relative", width:"100%", height:220, marginTop:24, overflow:"hidden", borderRadius:12, opacity:0.35 }}>
+              <ChessHero />
+            </div>
           </div>
         </Reveal>
         <Reveal delay={0.1} grand>
@@ -219,17 +222,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FOOTER */}
-      <footer style={{ position:"relative", zIndex:1, padding:"28px 48px", display:"flex", justifyContent:"center", alignItems:"center", gap:40, borderTop:"1px solid var(--border)", fontSize:12, letterSpacing:"0.1em" }}>
-        <a href="https://github.com/Jaden300" target="_blank" rel="noreferrer" style={{ color:"var(--text-tertiary)", textDecoration:"none", transition:"color 0.2s" }}
-          onMouseEnter={e => e.currentTarget.style.color = "var(--text)"}
-          onMouseLeave={e => e.currentTarget.style.color = "var(--text-tertiary)"}
-        >GitHub</a>
-        <a href="https://linkedin.com/in/jaden-wong09" target="_blank" rel="noreferrer" style={{ color:"var(--text-tertiary)", textDecoration:"none", transition:"color 0.2s" }}
-          onMouseEnter={e => e.currentTarget.style.color = "var(--text)"}
-          onMouseLeave={e => e.currentTarget.style.color = "var(--text-tertiary)"}
-        >LinkedIn</a>
-      </footer>
 
     </div>
   )

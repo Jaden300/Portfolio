@@ -15,7 +15,7 @@ export default function Navbar() {
   const links = [
     ["Experience", "/experience"],
     ["Work",       "/work"],
-    ["Research",   "/research"],
+    ["Blog",       "/research"],
     ["About",      "/about"],
   ]
 
@@ -31,7 +31,7 @@ export default function Navbar() {
     }}>
       {/* Logo */}
       <div onClick={() => navigate("/")} style={{ cursor:"pointer", display:"flex", alignItems:"center", gap:0 }}>
-        <span style={{ fontFamily:"'DM Serif Display',Georgia,serif", fontSize:20, fontWeight:400, color:"var(--text)", letterSpacing:"-0.5px" }}>JW</span>
+        <span style={{ fontFamily:"'DM Serif Display',Georgia,serif", fontSize:16, fontWeight:400, color:"var(--text)", letterSpacing:"-0.3px" }}>Jaden Wong</span>
       </div>
 
       <div style={{ display:"flex", alignItems:"center", gap:32 }}>

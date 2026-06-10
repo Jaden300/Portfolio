@@ -1,17 +1,16 @@
 import { useState, useEffect } from "react"
 import Reveal from "../components/Reveal"
-import PageBanner from "../components/PageBanner"
 import { Dog, Sheep, Bunny } from "../components/Critters"
 
 function ImageStack({ images }) {
   const [hovered, setHovered] = useState(null)
   const offsets = [
-    { dx: -10, dy: 8, rot: -3.5 },
-    { dx:   6, dy: 4, rot:  2.0 },
-    { dx:   0, dy: 0, rot:  0.0 },
+    { dx: -30, dy: 20, rot: -7 },
+    { dx:  18, dy: 10, rot:  4 },
+    { dx:   0, dy:  0, rot:  0 },
   ]
   return (
-    <div style={{ position:"relative", height:260 }}>
+    <div style={{ position:"relative", height:260, marginBottom:4 }}>
       {images.map((src, i) => {
         const off = offsets[i] ?? offsets[0]
         const isHov = hovered === i
@@ -26,7 +25,7 @@ function ImageStack({ images }) {
               border:"1px solid var(--border)",
               zIndex: isHov ? 10 : i + 1,
               transform: isHov
-                ? "translateY(-16px) scale(1.05) rotate(0deg)"
+                ? "translateY(-20px) scale(1.06) rotate(0deg)"
                 : `translate(${off.dx}px, ${off.dy}px) rotate(${off.rot}deg)`,
               transition:"transform 0.25s cubic-bezier(0.16,1,0.3,1), box-shadow 0.25s ease",
               boxShadow: isHov
@@ -104,13 +103,17 @@ export default function Work() {
   }, [])
 
   return (
-    <div style={{ background: "var(--bg)", minHeight: "100vh", paddingTop: 60 }}>
-      <PageBanner
-        label="Selected work"
-        title="What I've"
-        accent="built."
-        sub="Three projects - EMG systems, a full-stack AI platform, and quantitative trading research."
-      />
+    <div style={{ background: "var(--bg)", minHeight: "100vh" }}>
+      <section style={{ padding:"120px 48px 60px", textAlign:"center" }}>
+        <div style={{ fontSize:11, fontWeight:500, letterSpacing:"0.38em", textTransform:"uppercase", color:"var(--accent)", marginBottom:20, display:"flex", alignItems:"center", justifyContent:"center", gap:16, animation:"heroLabel 0.9s cubic-bezier(0.16,1,0.3,1) 0.2s both" }}>
+          <span style={{ display:"inline-block", width:32, height:1, background:"var(--accent)", opacity:0.6 }} />
+          Selected work
+          <span style={{ display:"inline-block", width:32, height:1, background:"var(--accent)", opacity:0.6 }} />
+        </div>
+        <h1 style={{ fontFamily:"var(--serif)", fontSize:"clamp(52px,8vw,110px)", lineHeight:0.92, letterSpacing:"-0.03em", color:"var(--text)", animation:"heroName 1.1s cubic-bezier(0.16,1,0.3,1) 0.35s both" }}>
+          What I've<br /><em style={{ fontStyle:"italic", color:"var(--accent)" }}>built</em>
+        </h1>
+      </section>
 
       <section style={{ padding: "80px 48px 120px", position: "relative", overflow: "visible" }}>
         <Dog style={{ top: 60, right: "3%" }} />
@@ -149,30 +152,28 @@ export default function Work() {
                         ))}
                       </div>
 
-                      <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", flexWrap:"wrap", gap:12 }}>
-                        <div style={{ display:"flex", flexWrap:"wrap", gap:6 }}>
-                          {p.tags.map(t => (
-                            <span key={t} style={{ fontSize:11, color:"var(--text-tertiary)", border:"1px solid var(--border)", borderRadius:100, padding:"3px 12px", fontWeight:300 }}>{t}</span>
-                          ))}
-                        </div>
-                        <div style={{ display:"flex", gap:16, alignItems:"center" }}>
-                          {p.github && p.github !== p.url && (
-                            <a href={p.github} target="_blank" rel="noreferrer" style={{ fontSize:12, color:"var(--text-tertiary)", fontWeight:500, textDecoration:"none", letterSpacing:"0.06em" }}
-                              onMouseEnter={e => e.currentTarget.style.color = "var(--text)"}
-                              onMouseLeave={e => e.currentTarget.style.color = "var(--text-tertiary)"}
-                            >GitHub ↗</a>
-                          )}
-                          <a href={p.url} target="_blank" rel="noreferrer" style={{ fontSize:12, color:p.accent, fontWeight:600, textDecoration:"none", letterSpacing:"0.06em" }}
-                            onMouseEnter={e => e.currentTarget.style.opacity = "0.75"}
-                            onMouseLeave={e => e.currentTarget.style.opacity = "1"}
-                          >{p.url.includes("github.com") ? "View repo ↗" : "Visit site ↗"}</a>
-                        </div>
+                      <div style={{ display:"flex", flexWrap:"wrap", gap:6 }}>
+                        {p.tags.map(t => (
+                          <span key={t} style={{ fontSize:11, color:"var(--text-tertiary)", border:"1px solid var(--border)", borderRadius:100, padding:"3px 12px", fontWeight:300 }}>{t}</span>
+                        ))}
                       </div>
                     </div>
 
-                    {/* Right: image stack */}
-                    <div style={{ paddingTop:8 }}>
+                    {/* Right: image stack + button */}
+                    <div style={{ paddingTop:8, display:"flex", flexDirection:"column", gap:16 }}>
                       <ImageStack images={p.images} />
+                      <div style={{ display:"flex", gap:12, alignItems:"center" }}>
+                        <a href={p.url} target="_blank" rel="noreferrer" style={{ flex:1, textAlign:"center", fontSize:12, fontWeight:600, letterSpacing:"0.08em", textTransform:"uppercase", color:"#080a0f", background:p.accent, border:`1px solid ${p.accent}`, borderRadius:6, padding:"10px 0", textDecoration:"none", transition:"filter 0.2s" }}
+                          onMouseEnter={e => e.currentTarget.style.filter = "brightness(1.1)"}
+                          onMouseLeave={e => e.currentTarget.style.filter = "brightness(1)"}
+                        >{p.url.includes("github.com") ? "View repo" : "Visit site"}</a>
+                        {p.github && p.github !== p.url && (
+                          <a href={p.github} target="_blank" rel="noreferrer" style={{ flex:1, textAlign:"center", fontSize:12, fontWeight:500, letterSpacing:"0.08em", textTransform:"uppercase", color:"var(--text-tertiary)", border:"1px solid var(--border)", borderRadius:6, padding:"10px 0", textDecoration:"none", transition:"border-color 0.2s, color 0.2s" }}
+                            onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--text)"; e.currentTarget.style.color = "var(--text)" }}
+                            onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "var(--text-tertiary)" }}
+                          >GitHub</a>
+                        )}
+                      </div>
                     </div>
 
                   </div>

@@ -39,7 +39,7 @@ const ROLES = [
     location: "Kitchener, ON",
     type: "Student Co-op",
     accent: "#3B82F6",
-    note: "formerly Fairly AI",
+
     metrics: [["200+", "test prompts"], ["R² ≥ 0.95", "token model"], ["3", "LLM providers"]],
     bullets: [
       "LLM Safety Evaluator - designed 200+ adversarial jailbreak prompts across 10+ attack categories and 8 model configs; classified outputs via confusion matrix analysis (precision + recall); trained Random Forest and KNN classifiers on labeled samples to identify which prompt features predicted successful jailbreaks",
@@ -72,9 +72,6 @@ export default function Experience() {
         display: "flex", flexDirection: "column", justifyContent: "center",
         alignItems: "center", textAlign: "center", overflow: "hidden",
       }}>
-        <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", pointerEvents: "none", userSelect: "none" }}>
-          <span style={{ fontFamily: "'Noto Serif CJK SC','Hiragino Mincho ProN','SimSun',serif", fontWeight: 900, fontSize: "78vw", lineHeight: 1, color: "var(--accent)", opacity: 0.03 }}>業</span>
-        </div>
         <div style={{ position: "relative", zIndex: 1, padding: "0 48px" }}>
           <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.38em", textTransform: "uppercase", color: "var(--accent)", marginBottom: 24, animation: "heroLabel 0.9s cubic-bezier(0.16,1,0.3,1) 0.2s both", display: "flex", alignItems: "center", gap: 16 }}>
             <span style={{ display: "inline-block", width: 32, height: 1, background: "var(--accent)", opacity: 0.6 }} />

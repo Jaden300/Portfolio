@@ -1,23 +1,17 @@
 import Reveal from "../components/Reveal"
-import HelixScene from "../components/HelixScene"
-import { SkillProficiencyBars, PipelineViz } from "../components/Charts"
-import { Mouse, Hamster, Owl } from "../components/Critters"
-
-const TIMELINE = [
-  { year:"Sept 2024", event:"Started myojam - EMG gesture classification from scratch, no lab, no hardware, just public data" },
-  { year:"Dec 2024",  event:"Reached 84.85% cross-subject accuracy on Ninapro DB5" },
-  { year:"Feb 2025",  event:"Launched myojam.com - full-stack web demo, no hardware required" },
-  { year:"Sept 2025", event:"AI Intern at Asenion (formerly Fairly AI) - built LLM safety evaluator and token cost estimator across 3 provider families" },
-  { year:"Jan 2026",  event:"Completed Asenion co-op; returned to myojam as Co-founder & Lead Developer (volunteer)" },
-  { year:"Apr 2026",  event:"Launched ELEVATE - international EMG innovation competition" },
-  { year:"May 2026",  event:"Joined One Community as volunteer SWE and The Volunteer Well as volunteer web developer" },
-]
+import { Owl } from "../components/Critters"
 
 const SKILLS = [
   { cat:"Machine Learning",      color:"#f5e040", items:["scikit-learn","Random Forest","XGBoost","Logistic Regression","KNN","SVM","PCA · t-SNE","LIME"] },
   { cat:"Signal Processing",     color:"#fbbf24", items:["Surface EMG","Butterworth filter","Sliding window","MAV · RMS · ZC · WL","Ninapro DB5","Spectral analysis"] },
   { cat:"Full-Stack",            color:"#fef3c7", items:["React","Next.js 15","TypeScript","FastAPI","Python","PostgreSQL","Prisma","Supabase","Vercel","REST APIs"] },
   { cat:"Systems & Tools",      color:"#f5e040", items:["PyQt6","Arduino","Three.js","NumPy","pandas","Pine Script v6","Tkinter","Git"] },
+]
+
+const CERTS = [
+  { name:"IBM Machine Learning Professional Certificate",       issuer:"IBM",    date:"Dec 2025", logo:"https://logo.clearbit.com/ibm.com" },
+  { name:"IBM Introduction to Machine Learning Specialization", issuer:"IBM",    date:"Dec 2025", logo:"https://logo.clearbit.com/ibm.com" },
+  { name:"Google AI Professional Certificate",                  issuer:"Google", date:"Apr 2026", logo:"https://logo.clearbit.com/google.com" },
 ]
 
 export default function About() {
@@ -42,14 +36,11 @@ export default function About() {
             I build full-stack ML systems, process biomedical signals, and publish openly - because access to technology is the whole point.
           </p>
         </div>
-
       </section>
 
       {/* ── STATEMENT + FACTS */}
       <section style={{ position:"relative", zIndex:1, borderTop:"1px solid var(--border)", borderBottom:"1px solid var(--border)" }}>
         <div style={{ maxWidth:1200, margin:"0 auto", display:"grid", gridTemplateColumns:"1fr 1fr" }}>
-
-          {/* Left - big editorial statement */}
           <div style={{ padding:"80px 64px 80px 48px", borderRight:"1px solid var(--border)" }}>
             <Reveal grand>
               <p style={{ fontFamily:"var(--serif)", fontSize:"clamp(24px,3vw,38px)", fontWeight:400, fontStyle:"italic", color:"var(--text)", lineHeight:1.35, letterSpacing:"-0.5px" }}>
@@ -58,8 +49,6 @@ export default function About() {
               <div style={{ width:48, height:2, background:"var(--gold)", marginTop:32 }} />
             </Reveal>
           </div>
-
-          {/* Right - compact facts */}
           <div style={{ padding:"80px 48px 80px 64px" }}>
             <Reveal delay={0.1}>
               <div style={{ display:"flex", flexDirection:"column", gap:20 }}>
@@ -82,19 +71,15 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── HELIX */}
-      <HelixScene />
-
-      {/* ── SKILLS */}
+      {/* ── WORK STACK */}
       <section style={{ position:"relative", zIndex:1, padding:"100px 48px", borderBottom:"1px solid var(--border)", overflow:"visible" }}>
         <Owl style={{ top:80, right:"3%" }} />
         <div style={{ maxWidth:1000, margin:"0 auto" }}>
           <Reveal>
-            <div style={{ fontSize:10, color:"var(--gold)", textTransform:"uppercase", letterSpacing:"0.25em", marginBottom:8, fontFamily:"var(--serif)" }}>Technical skills</div>
-            <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4.5vw,52px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:64 }}>What I work with</h2>
+            <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4.5vw,52px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:64 }}>Work stack</h2>
           </Reveal>
 
-          <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:2, marginBottom:40 }}>
+          <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:2, marginBottom:48 }}>
             {SKILLS.map((skill, i) => (
               <Reveal key={skill.cat} delay={i * 0.07}>
                 <div style={{ padding:"36px", background:"var(--bg-2)", borderRadius: i===0?"20px 0 0 0": i===1?"0 20px 0 0": i===2?"0 0 0 20px":"0 0 20px 0" }}>
@@ -112,34 +97,17 @@ export default function About() {
             ))}
           </div>
 
-          {/* Proficiency bars */}
-          <Reveal delay={0.12}>
-            <div style={{ background:"var(--bg-2)", borderRadius:20, padding:"36px 40px", marginBottom:16 }}>
-              <div style={{ fontSize:10, color:"var(--text-tertiary)", textTransform:"uppercase", letterSpacing:"0.18em", marginBottom:24 }}>Core proficiency</div>
-              <SkillProficiencyBars />
-            </div>
-          </Reveal>
-
-          {/* EMG Pipeline */}
-          <Reveal delay={0.16}>
-            <div style={{ background:"var(--bg-2)", borderRadius:20, padding:"36px 40px", marginBottom:16 }}>
-              <div style={{ fontSize:10, color:"var(--text-tertiary)", textTransform:"uppercase", letterSpacing:"0.18em", marginBottom:24 }}>myojam classification pipeline</div>
-              <PipelineViz />
-            </div>
-          </Reveal>
-
           {/* Certifications */}
-          <Reveal delay={0.2}>
-            <div style={{ fontSize:10, color:"var(--text-tertiary)", textTransform:"uppercase", letterSpacing:"0.18em", marginBottom:12 }}>Certifications</div>
-            <div style={{ display:"flex", flexDirection:"column", gap:8 }}>
-              {[
-                { name:"IBM Machine Learning Professional Certificate",       issuer:"IBM",    date:"Dec 2025" },
-                { name:"IBM Introduction to Machine Learning Specialization", issuer:"IBM",    date:"Dec 2025" },
-                { name:"Google AI Professional Certificate",                  issuer:"Google", date:"Apr 2026" },
-              ].map(cert => (
-                <div key={cert.name} style={{ background:"var(--bg-2)", border:"1px solid var(--border)", borderRadius:12, padding:"14px 24px", display:"flex", justifyContent:"space-between", alignItems:"center", flexWrap:"wrap", gap:8 }}>
-                  <div style={{ fontSize:14, fontWeight:500, color:"var(--text)" }}>{cert.name}</div>
-                  <div style={{ fontSize:11, color:"var(--text-tertiary)", fontWeight:300, whiteSpace:"nowrap" }}>{cert.issuer} &nbsp;·&nbsp; {cert.date}</div>
+          <Reveal delay={0.15}>
+            <div style={{ fontSize:10, color:"var(--text-tertiary)", textTransform:"uppercase", letterSpacing:"0.18em", marginBottom:20 }}>Certifications</div>
+            <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:12 }}>
+              {CERTS.map(cert => (
+                <div key={cert.name} style={{ background:"var(--bg-2)", border:"1px solid var(--border)", borderRadius:16, padding:"28px 24px", display:"flex", flexDirection:"column", gap:16 }}>
+                  <img src={cert.logo} alt={cert.issuer} style={{ width:40, height:40, objectFit:"contain", background:"white", borderRadius:6, padding:5 }} />
+                  <div>
+                    <div style={{ fontSize:13, fontWeight:600, color:"var(--text)", lineHeight:1.4, marginBottom:8 }}>{cert.name}</div>
+                    <div style={{ fontSize:11, color:"var(--text-tertiary)", fontWeight:300 }}>{cert.issuer} · {cert.date}</div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -147,27 +115,23 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── TIMELINE */}
-      <section style={{ position:"relative", zIndex:1, padding:"100px 48px 120px", overflow:"visible" }}>
-        <Mouse style={{ top:80, left:"3%" }} />
-        <Hamster style={{ bottom:120, right:"4%" }} />
+      {/* ── FUN FACTS */}
+      <section style={{ position:"relative", zIndex:1, padding:"100px 48px 120px" }}>
         <div style={{ maxWidth:1000, margin:"0 auto" }}>
           <Reveal>
-            <div style={{ fontSize:10, color:"var(--gold)", textTransform:"uppercase", letterSpacing:"0.25em", marginBottom:8, fontFamily:"var(--serif)" }}>Journey</div>
-            <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4.5vw,52px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:72 }}>How I got here</h2>
+            <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4.5vw,52px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:48 }}>A few other things</h2>
           </Reveal>
-
-          <div style={{ position:"relative" }}>
-            <div style={{ position:"absolute", left:0, top:8, bottom:0, width:1, background:"linear-gradient(to bottom, var(--gold), transparent)" }} />
-
-            {TIMELINE.map((item, i) => (
-              <Reveal key={i} delay={i * 0.07}>
-                <div style={{ display:"flex", gap:40, paddingBottom:48, paddingLeft:32, position:"relative" }}>
-                  <div style={{ position:"absolute", left:-5, top:8, width:11, height:11, borderRadius:"50%", background:"var(--bg)", border:"2px solid var(--gold)", flexShrink:0 }} />
-                  <div style={{ minWidth:110, flexShrink:0 }}>
-                    <span style={{ fontSize:11, color:"var(--gold)", fontWeight:600, letterSpacing:"0.06em" }}>{item.year}</span>
-                  </div>
-                  <p style={{ fontSize:15, color:"var(--text-secondary)", fontWeight:300, lineHeight:1.75, margin:0 }}>{item.event}</p>
+          <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:12 }}>
+            {[
+              { label:"Gaming", title:"Clash Royale", desc:"Been playing since the early seasons. It's basically applied game theory." },
+              { label:"Chess", title:"Chess player", desc:"Regular games online. Chess sharpens pattern recognition in ways that actually transfer." },
+              { label:"Opening prep", title:"Leonidas Variation", desc:"My favourite opening. Aggressive, principled, and most people haven't prepared for it." },
+            ].map((fact, i) => (
+              <Reveal key={fact.title} delay={i * 0.07} grand>
+                <div style={{ background:"var(--bg-2)", borderRadius:16, padding:"32px", borderTop:"2px solid var(--gold)" }}>
+                  <div style={{ fontSize:10, color:"var(--gold)", fontWeight:600, textTransform:"uppercase", letterSpacing:"0.18em", marginBottom:12 }}>{fact.label}</div>
+                  <div style={{ fontFamily:"var(--serif)", fontSize:20, fontWeight:700, color:"var(--text)", letterSpacing:"-0.5px", marginBottom:12 }}>{fact.title}</div>
+                  <p style={{ fontSize:13, color:"var(--text-secondary)", fontWeight:300, lineHeight:1.7, margin:0 }}>{fact.desc}</p>
                 </div>
               </Reveal>
             ))}
