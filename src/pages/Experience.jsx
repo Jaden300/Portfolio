@@ -93,6 +93,7 @@ export default function Experience() {
           {ROLES.map((role, i) => (
             <Reveal key={role.org} delay={i * 0.07} grand>
               <div id={role.org.toLowerCase().replace(/\s+/g, "-")} style={{ background: "var(--bg-2)", borderRadius: 24, padding: "48px", marginBottom: 16, borderLeft: `3px solid ${role.accent}` }}>
+
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 28, flexWrap: "wrap", gap: 16 }}>
                   <div>
                     <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 4 }}>
@@ -132,6 +133,20 @@ export default function Experience() {
               </div>
             </Reveal>
           ))}
+
+          <Reveal delay={0.22}>
+            <div style={{ background: "var(--bg-2)", borderRadius: 24, padding: "22px 48px", borderLeft: "3px solid rgba(255,255,255,0.08)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <div>
+                <div style={{ fontFamily: "var(--serif)", fontSize: 19, fontWeight: 700, color: "var(--text)", letterSpacing: "-0.3px", marginBottom: 3 }}>See the full list</div>
+                <div style={{ fontSize: 12, color: "var(--text-tertiary)", fontWeight: 300 }}>All experience on LinkedIn</div>
+              </div>
+              <a href="https://www.linkedin.com/in/jaden-wong09/" target="_blank" rel="noreferrer"
+                style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "#0077B5", border: "1px solid #0077B5", borderRadius: 6, padding: "10px 22px", textDecoration: "none", transition: "background 0.2s, color 0.2s" }}
+                onMouseEnter={e => { e.currentTarget.style.background = "#0077B5"; e.currentTarget.style.color = "#fff" }}
+                onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#0077B5" }}
+              >LinkedIn ↗</a>
+            </div>
+          </Reveal>
         </div>
       </section>
 

@@ -47,22 +47,19 @@ export default function Home() {
             ML Engineering · Signal Processing · Toronto, Ontario
           </p>
           <div style={{ display:"flex", gap:10, flexWrap:"wrap", justifyContent:"center", animation:"heroFade 0.9s ease 1.05s both" }}>
-            <button onClick={() => navigate("/projects")} style={{ width:148, fontSize:11, fontWeight:500, letterSpacing:"0.2em", textTransform:"uppercase", color:"#080a0f", padding:"11px 0", border:"1px solid var(--accent)", borderRadius:3, background:"var(--accent)", cursor:"pointer", fontFamily:"var(--font)", transition:"filter 0.2s" }}
-              onMouseEnter={e => e.currentTarget.style.filter = "brightness(1.1)"}
-              onMouseLeave={e => e.currentTarget.style.filter = "brightness(1)"}
-            >View Projects</button>
-            <button onClick={() => navigate("/contact")} style={{ width:148, fontSize:11, fontWeight:500, letterSpacing:"0.2em", textTransform:"uppercase", color:"var(--text)", padding:"11px 0", border:"1px solid var(--border-dark)", borderRadius:3, background:"transparent", cursor:"pointer", fontFamily:"var(--font)", transition:"border-color 0.2s" }}
-              onMouseEnter={e => e.currentTarget.style.borderColor = "var(--text)"}
-              onMouseLeave={e => e.currentTarget.style.borderColor = "var(--border-dark)"}
-            >Get in Touch</button>
-            <a href="https://github.com/Jaden300" target="_blank" rel="noreferrer" style={{ width:148, display:"inline-block", textAlign:"center", fontSize:11, fontWeight:500, letterSpacing:"0.2em", textTransform:"uppercase", color:"var(--text-tertiary)", padding:"11px 0", border:"1px solid var(--border)", borderRadius:3, background:"transparent", fontFamily:"var(--font)", textDecoration:"none", boxSizing:"border-box", transition:"border-color 0.2s, color 0.2s" }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--text)"; e.currentTarget.style.color = "var(--text)" }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "var(--text-tertiary)" }}
-            >GitHub</a>
-            <a href="https://www.linkedin.com/in/jaden-wong09/" target="_blank" rel="noreferrer" style={{ width:148, display:"inline-block", textAlign:"center", fontSize:11, fontWeight:500, letterSpacing:"0.2em", textTransform:"uppercase", color:"var(--text-tertiary)", padding:"11px 0", border:"1px solid var(--border)", borderRadius:3, background:"transparent", fontFamily:"var(--font)", textDecoration:"none", boxSizing:"border-box", transition:"border-color 0.2s, color 0.2s" }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--text)"; e.currentTarget.style.color = "var(--text)" }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "var(--text-tertiary)" }}
-            >LinkedIn</a>
+            {[
+              { label:"View Projects", action:() => navigate("/projects"), isBtn:true },
+              { label:"Get in Touch",  action:() => navigate("/contact"),  isBtn:true },
+              { label:"GitHub",        href:"https://github.com/Jaden300" },
+              { label:"LinkedIn",      href:"https://www.linkedin.com/in/jaden-wong09/" },
+            ].map(({ label, action, isBtn, href }) => {
+              const style = { width:148, fontSize:11, fontWeight:500, letterSpacing:"0.2em", textTransform:"uppercase", color:"rgba(237,234,226,0.75)", padding:"11px 0", border:"1px solid rgba(237,234,226,0.25)", borderRadius:3, background:"transparent", cursor:"pointer", fontFamily:"var(--font)", textDecoration:"none", display:"inline-block", textAlign:"center", boxSizing:"border-box", transition:"border-color 0.2s, color 0.2s" }
+              const enter = e => { e.currentTarget.style.borderColor = "rgba(237,234,226,0.75)"; e.currentTarget.style.color = "var(--text)" }
+              const leave = e => { e.currentTarget.style.borderColor = "rgba(237,234,226,0.25)"; e.currentTarget.style.color = "rgba(237,234,226,0.75)" }
+              return isBtn
+                ? <button key={label} onClick={action} style={style} onMouseEnter={enter} onMouseLeave={leave}>{label}</button>
+                : <a key={label} href={href} target="_blank" rel="noreferrer" style={style} onMouseEnter={enter} onMouseLeave={leave}>{label}</a>
+            })}
           </div>
         </div>
       </section>

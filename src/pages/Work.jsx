@@ -121,6 +121,7 @@ export default function Work() {
       <section style={{ padding: "80px 48px 120px", position: "relative", overflow: "visible" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", flexDirection: "column", gap: 16 }}>
           {PROJECTS.map((p, i) => (
+
             <Reveal key={p.name} delay={i * 0.08} grand>
               <div id={p.name.toLowerCase()} style={{ background: "var(--bg-2)", borderRadius: 24, overflow: "visible", borderLeft: `3px solid ${p.accent}` }}>
                 <div style={{ padding: "48px" }}>
@@ -181,6 +182,20 @@ export default function Work() {
               </div>
             </Reveal>
           ))}
+
+          <Reveal delay={0.22}>
+            <div style={{ background: "var(--bg-2)", borderRadius: 24, padding: "22px 48px", borderLeft: "3px solid rgba(255,255,255,0.08)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <div>
+                <div style={{ fontFamily: "var(--serif)", fontSize: 19, fontWeight: 700, color: "var(--text)", letterSpacing: "-0.3px", marginBottom: 3 }}>See the full list</div>
+                <div style={{ fontSize: 12, color: "var(--text-tertiary)", fontWeight: 300 }}>All projects on GitHub</div>
+              </div>
+              <a href="https://github.com/Jaden300" target="_blank" rel="noreferrer"
+                style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text)", border: "1px solid var(--border-dark)", borderRadius: 6, padding: "10px 22px", textDecoration: "none", transition: "border-color 0.2s, background 0.2s" }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--text)"; e.currentTarget.style.background = "rgba(255,255,255,0.06)" }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border-dark)"; e.currentTarget.style.background = "transparent" }}
+              >GitHub ↗</a>
+            </div>
+          </Reveal>
         </div>
       </section>
     </div>

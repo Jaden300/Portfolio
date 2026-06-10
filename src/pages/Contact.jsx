@@ -1,8 +1,17 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Reveal from "../components/Reveal"
 
 export default function Contact() {
   const [copied, setCopied] = useState(false)
+
+  useEffect(() => {
+    const script = document.createElement("script")
+    script.src = "https://platform.linkedin.com/badges/js/profile.js"
+    script.async = true
+    script.defer = true
+    document.body.appendChild(script)
+    return () => { if (document.body.contains(script)) document.body.removeChild(script) }
+  }, [])
 
   function copyEmail() {
     navigator.clipboard.writeText("jn.wong.enterprise@gmail.com").then(() => {
@@ -51,7 +60,7 @@ export default function Contact() {
       </section>
 
       {/* ── CONTACT BOXES */}
-      <section style={{ padding:"80px 48px 120px", position:"relative", zIndex:1 }}>
+      <section style={{ padding:"32px 48px 120px", position:"relative", zIndex:1 }}>
         <div style={{ maxWidth:900, margin:"0 auto" }}>
           <Reveal>
             <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4.5vw,52px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:48 }}>Get in touch</h2>
@@ -76,6 +85,17 @@ export default function Contact() {
                 }}>
                   {copied ? "Copied" : "Copy email"}
                 </button>
+                <a href="mailto:jn.wong.enterprise@gmail.com" style={{
+                  display:"block", textAlign:"center",
+                  background:"transparent", color:"var(--gold)",
+                  border:"1px solid var(--gold)", borderRadius:8, padding:"11px 0",
+                  fontSize:12, fontWeight:700, textDecoration:"none",
+                  letterSpacing:"0.08em", textTransform:"uppercase",
+                  transition:"background 0.2s, color 0.2s",
+                }}
+                  onMouseEnter={e => { e.currentTarget.style.background = "var(--gold)"; e.currentTarget.style.color = "#080a0f" }}
+                  onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--gold)" }}
+                >Send email ↗</a>
               </div>
             </Reveal>
 
@@ -122,6 +142,14 @@ export default function Contact() {
             </Reveal>
 
           </div>
+
+          <Reveal delay={0.2}>
+            <div style={{ marginTop:48, display:"flex", justifyContent:"center" }}>
+              <div className="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="jaden-wong09" data-version="v1">
+                <a className="badge-base__link LI-simple-link" href="https://ca.linkedin.com/in/jaden-wong09?trk=profile-badge">Jaden W.</a>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
     </div>

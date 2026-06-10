@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom"
 import Reveal from "../components/Reveal"
 import { Owl } from "../components/Critters"
 
@@ -15,6 +16,7 @@ const CERTS = [
 ]
 
 export default function About() {
+  const navigate = useNavigate()
   return (
     <div style={{ background:"var(--bg)", minHeight:"100vh", color:"var(--text)" }}>
       {/* ── HERO */}
@@ -136,6 +138,18 @@ export default function About() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Get in touch */}
+      <section style={{ padding: "0 48px 80px", position: "relative", zIndex: 1 }}>
+        <div style={{ maxWidth: 1000, margin: "0 auto", textAlign: "center" }}>
+          <Reveal>
+            <button onClick={() => navigate("/contact")} style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--text)", border: "1px solid var(--border-dark)", borderRadius: 4, padding: "12px 28px", background: "transparent", cursor: "pointer", fontFamily: "var(--font)", transition: "border-color 0.2s" }}
+              onMouseEnter={e => e.currentTarget.style.borderColor = "var(--text)"}
+              onMouseLeave={e => e.currentTarget.style.borderColor = "var(--border-dark)"}
+            >Get in touch ↗</button>
+          </Reveal>
         </div>
       </section>
 

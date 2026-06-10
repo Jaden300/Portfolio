@@ -76,14 +76,14 @@ export default function Research() {
         <div style={{ position:"relative", zIndex:1, padding:"0 48px" }}>
           <div style={{ fontSize:11, fontWeight:500, letterSpacing:"0.38em", textTransform:"uppercase", color:"var(--accent)", marginBottom:24, animation:"heroLabel 0.9s cubic-bezier(0.16,1,0.3,1) 0.2s both", display:"flex", alignItems:"center", gap:16 }}>
             <span style={{ display:"inline-block", width:32, height:1, background:"var(--accent)", opacity:0.6 }} />
-            12 articles · 3 lesson plans · openly published
+            Technical reports · 5+ articles · 10+ hours of resources
             <span style={{ display:"inline-block", width:32, height:1, background:"var(--accent)", opacity:0.6 }} />
           </div>
           <h1 style={{ fontFamily:"var(--serif)", fontSize:"clamp(64px,10vw,130px)", lineHeight:0.9, letterSpacing:"-0.03em", color:"var(--text)", animation:"heroName 1.1s cubic-bezier(0.16,1,0.3,1) 0.35s both" }}>
             Publications &<br /><em style={{ fontStyle:"italic", color:"var(--accent)" }}>writing</em>
           </h1>
           <p style={{ fontSize:16, fontWeight:300, color:"var(--text-secondary)", maxWidth:520, margin:"28px auto 0", lineHeight:1.75, animation:"heroFade 1s ease 0.75s both" }}>
-            A technical report, eleven articles spanning neuroscience, signal processing, and ML ethics, and three educator-ready lesson plans - all openly published on myojam.com.
+            Technical reports, 5+ articles spanning neuroscience, signal processing, and ML ethics, and 10+ hours of educational resources - openly published.
           </p>
         </div>
       </section>
@@ -95,9 +95,9 @@ export default function Research() {
             <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-end", marginBottom:56, flexWrap:"wrap", gap:16 }}>
               <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4.5vw,52px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px" }}>Articles</h2>
               <a href="https://www.myojam.com/education" target="_blank" rel="noreferrer"
-                style={{ fontSize:13, color:"var(--gold)", fontWeight:500, letterSpacing:"0.06em", textDecoration:"none" }}
-                onMouseEnter={e => e.currentTarget.style.opacity="0.7"}
-                onMouseLeave={e => e.currentTarget.style.opacity="1"}
+                style={{ fontSize:11, color:"var(--gold)", fontWeight:600, letterSpacing:"0.1em", textTransform:"uppercase", textDecoration:"none", border:"1px solid var(--gold)", borderRadius:4, padding:"7px 16px", transition:"background 0.2s, color 0.2s" }}
+                onMouseEnter={e => { e.currentTarget.style.background = "var(--gold)"; e.currentTarget.style.color = "#080a0f" }}
+                onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--gold)" }}
               >See more ↗</a>
             </div>
           </Reveal>
@@ -117,7 +117,7 @@ export default function Research() {
                       <p style={{ fontSize:13, color:"var(--text-secondary)", lineHeight:1.75, fontWeight:300, marginBottom:20 }}>{article.desc}</p>
                       <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center" }}>
                         <span style={{ fontSize:11, color:"var(--text-tertiary)", fontWeight:300 }}>{article.date}</span>
-                        <span style={{ fontSize:13, color:tc, fontWeight:600 }}>Read ↗</span>
+                        <span style={{ fontSize:11, color:tc, fontWeight:600, border:`1px solid ${tc}`, borderRadius:4, padding:"5px 12px", letterSpacing:"0.06em" }}>Read ↗</span>
                       </div>
                     </div>
                   </a>
@@ -135,9 +135,9 @@ export default function Research() {
             <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-end", marginBottom:56, flexWrap:"wrap", gap:16 }}>
               <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4.5vw,52px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px" }}>Educational resources</h2>
               <a href="https://www.myojam.com/educators" target="_blank" rel="noreferrer"
-                style={{ fontSize:13, color:"var(--gold)", fontWeight:500, letterSpacing:"0.06em", textDecoration:"none" }}
-                onMouseEnter={e => e.currentTarget.style.opacity="0.7"}
-                onMouseLeave={e => e.currentTarget.style.opacity="1"}
+                style={{ fontSize:11, color:"var(--gold)", fontWeight:600, letterSpacing:"0.1em", textTransform:"uppercase", textDecoration:"none", border:"1px solid var(--gold)", borderRadius:4, padding:"7px 16px", transition:"background 0.2s, color 0.2s" }}
+                onMouseEnter={e => { e.currentTarget.style.background = "var(--gold)"; e.currentTarget.style.color = "#080a0f" }}
+                onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--gold)" }}
               >See more ↗</a>
             </div>
           </Reveal>
@@ -156,7 +156,7 @@ export default function Research() {
                     <p style={{ fontSize:13, color:"var(--text-secondary)", lineHeight:1.75, fontWeight:300, marginBottom:20, flex:1 }}>{r.desc}</p>
                     <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center" }}>
                       <span style={{ fontSize:11, color:"var(--text-tertiary)", fontWeight:300 }}>{r.date}</span>
-                      <span style={{ fontSize:13, color:"var(--gold)", fontWeight:600 }}>Read ↗</span>
+                      <span style={{ fontSize:11, color:"var(--gold)", fontWeight:600, border:"1px solid var(--gold)", borderRadius:4, padding:"5px 12px", letterSpacing:"0.06em" }}>Read ↗</span>
                     </div>
                   </div>
                 </a>
