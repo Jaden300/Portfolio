@@ -49,11 +49,6 @@ const ROLES = [
   },
 ]
 
-const CERTS = [
-  { name: "IBM Machine Learning Professional Certificate", issuer: "IBM", date: "Dec 2025" },
-  { name: "IBM Introduction to Machine Learning Specialization", issuer: "IBM", date: "Dec 2025" },
-  { name: "Google AI Professional Certificate", issuer: "Google", date: "Apr 2026" },
-]
 
 export default function Experience() {
   useEffect(() => {
@@ -88,7 +83,7 @@ export default function Experience() {
       </section>
 
       {/* ROLES */}
-      <section style={{ position: "relative", zIndex: 1, padding: "100px 48px", borderBottom: "1px solid var(--border)", overflow: "visible" }}>
+      <section style={{ position: "relative", zIndex: 1, padding: "100px 48px 120px", overflow: "visible" }}>
         <Fox style={{ top: 80, left: "3%" }} />
         <Penguin style={{ bottom: 80, right: "3%" }} />
         <div style={{ maxWidth: 1000, margin: "0 auto" }}>
@@ -141,24 +136,6 @@ export default function Experience() {
         </div>
       </section>
 
-      {/* CERTIFICATIONS */}
-      <section style={{ position: "relative", zIndex: 1, padding: "100px 48px 120px", overflow: "visible" }}>
-        <div style={{ maxWidth: 1000, margin: "0 auto" }}>
-          <Reveal>
-            <h2 style={{ fontFamily: "var(--serif)", fontSize: "clamp(32px,4.5vw,52px)", fontWeight: 700, color: "var(--text)", letterSpacing: "-1.5px", marginBottom: 48 }}>Certifications</h2>
-          </Reveal>
-          <Reveal delay={0.05}>
-            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              {CERTS.map(cert => (
-                <div key={cert.name} style={{ background: "var(--bg-2)", border: "1px solid var(--border)", borderRadius: 12, padding: "16px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}>
-                  <div style={{ fontSize: 14, fontWeight: 600, color: "var(--text)" }}>{cert.name}</div>
-                  <div style={{ fontSize: 11, color: "var(--text-tertiary)", fontWeight: 300, whiteSpace: "nowrap" }}>{cert.issuer} &nbsp;·&nbsp; {cert.date}</div>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-        </div>
-      </section>
     </div>
   )
 }

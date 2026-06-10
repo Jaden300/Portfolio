@@ -6,7 +6,7 @@ const FEATURED = [
     tag: "Technical Report",
     date: "April 2026",
     desc: "84.85% cross-subject accuracy on Ninapro DB5. Open-source surface EMG gesture classification - Random Forest classifier trained on 64-dimensional time-domain features across 16 electrode channels.",
-    url: "https://myojam.com/research",
+    url: "https://myojam.com/research/paper",
   },
   {
     title: "Build your own EMG sensor for under $60",
@@ -57,7 +57,7 @@ const RESOURCES = [
     type: "Lesson Plan",
     audience: "CS / STEM",
     desc: "Introduces event-driven programming through myocode, myojam's block coding environment where EMG gestures are first-class events.",
-    url: "https://myojam.com/educators/lesson-myocode",
+    url: "https://myojam.com/educators/lesson-applications-ethics",
   },
 ]
 

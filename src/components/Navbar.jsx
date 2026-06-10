@@ -13,10 +13,10 @@ export default function Navbar() {
   }, [])
 
   const links = [
-    ["Experience", "/experience"],
-    ["Work",       "/work"],
+    ["Projects",     "/projects"],
+    ["Experience",   "/experience"],
     ["Publications", "/research"],
-    ["About",      "/about"],
+    ["About",        "/about"],
   ]
 
   return (
@@ -44,9 +44,6 @@ export default function Navbar() {
             position:"relative",
           }}>
             {label}
-            {pathname === path && (
-              <span style={{ position:"absolute", bottom:-4, left:"50%", transform:"translateX(-50%)", width:4, height:4, borderRadius:"50%", background:"var(--gold)" }} />
-            )}
           </span>
         ))}
         <a href="/contact" onClick={e => { e.preventDefault(); navigate("/contact") }} style={{

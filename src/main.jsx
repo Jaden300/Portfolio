@@ -23,7 +23,7 @@ function Shell() {
       <Routes>
         <Route path="/"         element={<Home />} />
         <Route path="/about"      element={<About />} />
-        <Route path="/work"       element={<Work />} />
+        <Route path="/projects"   element={<Work />} />
         <Route path="/research"   element={<Research />} />
         <Route path="/contact"    element={<Contact />} />
         <Route path="/rotunda"    element={<Rotunda />} />

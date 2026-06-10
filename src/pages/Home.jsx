@@ -30,10 +30,10 @@ export default function Home() {
             ML Engineering · Signal Processing · Toronto, Ontario
           </p>
           <div style={{ display:"flex", gap:12, animation:"heroFade 0.9s ease 1.05s both" }}>
-            <button onClick={() => navigate("/work")} style={{ fontSize:11, fontWeight:500, letterSpacing:"0.2em", textTransform:"uppercase", color:"#080a0f", padding:"11px 22px", border:"1px solid var(--accent)", borderRadius:3, background:"var(--accent)", cursor:"pointer", fontFamily:"var(--font)", transition:"filter 0.2s" }}
+            <button onClick={() => navigate("/projects")} style={{ fontSize:11, fontWeight:500, letterSpacing:"0.2em", textTransform:"uppercase", color:"#080a0f", padding:"11px 22px", border:"1px solid var(--accent)", borderRadius:3, background:"var(--accent)", cursor:"pointer", fontFamily:"var(--font)", transition:"filter 0.2s" }}
               onMouseEnter={e => e.currentTarget.style.filter = "brightness(1.1)"}
               onMouseLeave={e => e.currentTarget.style.filter = "brightness(1)"}
-            >View Work</button>
+            >View Projects</button>
             <button onClick={() => navigate("/contact")} style={{ fontSize:11, fontWeight:500, letterSpacing:"0.2em", textTransform:"uppercase", color:"var(--text)", padding:"11px 22px", border:"1px solid var(--border-dark)", borderRadius:3, background:"transparent", cursor:"pointer", fontFamily:"var(--font)", transition:"border-color 0.2s" }}
               onMouseEnter={e => e.currentTarget.style.borderColor = "var(--text)"}
               onMouseLeave={e => e.currentTarget.style.borderColor = "var(--border-dark)"}
@@ -96,7 +96,13 @@ export default function Home() {
       <section style={{ padding:"100px 48px", borderBottom:"1px solid var(--border)", position:"relative", zIndex:1 }}>
         <div style={{ maxWidth:1000, margin:"0 auto" }}>
           <Reveal>
-            <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4vw,48px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:48 }}>Projects</h2>
+            <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:48 }}>
+              <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4vw,48px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px" }}>Projects</h2>
+              <button onClick={() => navigate("/projects")} style={{ fontSize:11, fontWeight:600, letterSpacing:"0.14em", textTransform:"uppercase", color:"var(--text-tertiary)", border:"1px solid var(--border)", borderRadius:4, padding:"9px 18px", background:"transparent", cursor:"pointer", fontFamily:"var(--font)", transition:"border-color 0.2s, color 0.2s" }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--text)"; e.currentTarget.style.color = "var(--text)" }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "var(--text-tertiary)" }}
+              >All projects</button>
+            </div>
           </Reveal>
           <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:12 }}>
             {[
@@ -135,7 +141,7 @@ export default function Home() {
                       <span key={t} style={{ fontSize:11, color:"var(--text-tertiary)", border:"1px solid var(--border)", borderRadius:100, padding:"3px 10px", fontWeight:300 }}>{t}</span>
                     ))}
                   </div>
-                  <a href={`/work#${p.anchor}`} style={{
+                  <a href={`/projects#${p.anchor}`} style={{
                     display:"inline-block", alignSelf:"flex-start",
                     fontSize:11, fontWeight:600, letterSpacing:"0.14em", textTransform:"uppercase",
                     color:p.accent, border:`1px solid ${p.accent}`, borderRadius:4,
@@ -149,11 +155,6 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
-          <Reveal delay={0.2}>
-            <div style={{ marginTop:18, textAlign:"right" }}>
-              <span onClick={() => navigate("/work")} className="ink-line" style={{ fontSize:12, color:"var(--text-tertiary)", cursor:"pointer", letterSpacing:"0.1em" }}>All projects</span>
-            </div>
-          </Reveal>
         </div>
       </section>
 
@@ -161,7 +162,13 @@ export default function Home() {
       <section style={{ padding:"100px 48px", borderBottom:"1px solid var(--border)", position:"relative", zIndex:1 }}>
         <div style={{ maxWidth:1000, margin:"0 auto" }}>
           <Reveal>
-            <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4vw,48px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:48 }}>Experience</h2>
+            <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:48 }}>
+              <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4vw,48px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px" }}>Experience</h2>
+              <button onClick={() => navigate("/experience")} style={{ fontSize:11, fontWeight:600, letterSpacing:"0.14em", textTransform:"uppercase", color:"var(--text-tertiary)", border:"1px solid var(--border)", borderRadius:4, padding:"9px 18px", background:"transparent", cursor:"pointer", fontFamily:"var(--font)", transition:"border-color 0.2s, color 0.2s" }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--text)"; e.currentTarget.style.color = "var(--text)" }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "var(--text-tertiary)" }}
+              >Full experience</button>
+            </div>
           </Reveal>
           <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:12 }}>
             {[
@@ -214,11 +221,6 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
-          <Reveal delay={0.2}>
-            <div style={{ marginTop:18, textAlign:"right" }}>
-              <span onClick={() => navigate("/experience")} className="ink-line" style={{ fontSize:12, color:"var(--text-tertiary)", cursor:"pointer", letterSpacing:"0.1em" }}>Full experience</span>
-            </div>
-          </Reveal>
         </div>
       </section>
 

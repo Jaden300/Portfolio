@@ -119,7 +119,7 @@ export default function About() {
       <section style={{ position:"relative", zIndex:1, padding:"100px 48px 120px" }}>
         <div style={{ maxWidth:1000, margin:"0 auto" }}>
           <Reveal>
-            <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4.5vw,52px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:48 }}>A few other things</h2>
+            <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4.5vw,52px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:48 }}>Passions</h2>
           </Reveal>
           <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:12 }}>
             {[

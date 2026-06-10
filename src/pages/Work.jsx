@@ -128,10 +128,10 @@ export default function Work() {
             <Reveal key={p.name} delay={i * 0.08} grand>
               <div id={p.name.toLowerCase()} style={{ background: "var(--bg-2)", borderRadius: 24, overflow: "visible", borderLeft: `3px solid ${p.accent}` }}>
                 <div style={{ padding: "48px" }}>
-                  <div style={{ display:"grid", gridTemplateColumns:"1fr 360px", gap:56, alignItems:"stretch" }}>
+                  <div style={{ display:"grid", gridTemplateColumns:"1fr 360px", gap:56, alignItems:"start" }}>
 
                     {/* Left: content */}
-                    <div style={{ display:"flex", flexDirection:"column" }}>
+                    <div>
                       <div style={{ display:"flex", gap:10, marginBottom:12, alignItems:"center" }}>
                         <span style={{ fontSize:11, color:"var(--text-tertiary)", border:"1px solid var(--border)", borderRadius:100, padding:"3px 12px", fontWeight:300 }}>{p.year}</span>
                       </div>
@@ -163,23 +163,21 @@ export default function Work() {
                       </div>
 
                       {/* Buttons - bottom-right */}
-                      <div style={{ marginTop:"auto", display:"flex", justifyContent:"flex-end", gap:10 }}>
-                        {p.github && p.github !== p.url && (
-                          <a href={p.github} target="_blank" rel="noreferrer" style={{ fontSize:12, fontWeight:500, letterSpacing:"0.08em", textTransform:"uppercase", color:"var(--text-tertiary)", border:"1px solid var(--border)", borderRadius:6, padding:"10px 20px", textDecoration:"none", transition:"border-color 0.2s, color 0.2s" }}
-                            onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--text)"; e.currentTarget.style.color = "var(--text)" }}
-                            onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "var(--text-tertiary)" }}
-                          >GitHub</a>
-                        )}
-                        <a href={p.url} target="_blank" rel="noreferrer" style={{ fontSize:12, fontWeight:600, letterSpacing:"0.08em", textTransform:"uppercase", color:"#080a0f", background:p.accent, border:`1px solid ${p.accent}`, borderRadius:6, padding:"10px 20px", textDecoration:"none", transition:"filter 0.2s" }}
-                          onMouseEnter={e => e.currentTarget.style.filter = "brightness(1.1)"}
-                          onMouseLeave={e => e.currentTarget.style.filter = "brightness(1)"}
-                        >{p.url.includes("github.com") ? "View repo" : "Visit site"}</a>
-                      </div>
                     </div>
 
-                    {/* Right: image stack */}
-                    <div style={{ paddingTop:8 }}>
+                    {/* Right: image stack + buttons */}
+                    <div style={{ paddingTop:8, display:"flex", flexDirection:"column", gap:14 }}>
                       <ImageStack images={p.images} />
+                      <a href={p.url} target="_blank" rel="noreferrer" style={{ display:"block", textAlign:"center", fontSize:13, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#080a0f", background:p.accent, border:`1px solid ${p.accent}`, borderRadius:8, padding:"14px 0", textDecoration:"none", transition:"filter 0.2s" }}
+                        onMouseEnter={e => e.currentTarget.style.filter = "brightness(1.1)"}
+                        onMouseLeave={e => e.currentTarget.style.filter = "brightness(1)"}
+                      >{p.url.includes("github.com") ? "View repo" : "Visit site"}</a>
+                      {p.github && p.github !== p.url && (
+                        <a href={p.github} target="_blank" rel="noreferrer" style={{ display:"block", textAlign:"center", fontSize:13, fontWeight:600, letterSpacing:"0.1em", textTransform:"uppercase", color:"var(--text-tertiary)", border:"1px solid var(--border)", borderRadius:8, padding:"14px 0", textDecoration:"none", transition:"border-color 0.2s, color 0.2s" }}
+                          onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--text)"; e.currentTarget.style.color = "var(--text)" }}
+                          onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "var(--text-tertiary)" }}
+                        >GitHub</a>
+                      )}
                     </div>
 
                   </div>
