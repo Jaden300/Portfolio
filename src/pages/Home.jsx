@@ -13,8 +13,25 @@ export default function Home() {
         position: "relative", zIndex: 1,
         height: "100vh", minHeight: 700,
         display: "flex", flexDirection: "column", justifyContent: "flex-end",
-        overflow: "visible",
+        overflow: "hidden",
       }}>
+
+        {/* Faint cursive "Wong" backdrop */}
+        <div style={{
+          position:"absolute", inset:0, zIndex:0,
+          display:"flex", alignItems:"center", justifyContent:"center",
+          pointerEvents:"none",
+        }}>
+          <span style={{
+            fontFamily:"'Dancing Script', cursive",
+            fontSize:"clamp(220px, 46vw, 640px)",
+            color:"rgba(255,255,255,0.042)",
+            fontWeight:700,
+            lineHeight:1,
+            userSelect:"none",
+            letterSpacing:"-0.01em",
+          }}>Wong</span>
+        </div>
 
         <div style={{ position:"relative", zIndex:3, padding:"0 48px 68px", textAlign:"center", display:"flex", flexDirection:"column", alignItems:"center" }}>
           <img src="/profile.jpg" alt="Jaden Wong" style={{ width:116, height:116, borderRadius:"50%", objectFit:"cover", border:"2px solid rgba(245,224,64,0.4)", marginBottom:20, animation:"heroFade 0.9s ease 0.1s both" }} />
@@ -24,20 +41,28 @@ export default function Home() {
             <span style={{ display:"inline-block", width:28, height:1, background:"var(--accent)", opacity:0.7 }} />
           </div>
           <h1 style={{ fontFamily:"var(--serif)", fontSize:"clamp(60px,8vw,120px)", lineHeight:0.93, letterSpacing:"-0.02em", color:"var(--text)", marginBottom:8, animation:"heroName 1.1s cubic-bezier(0.16,1,0.3,1) 0.38s both" }}>
-            Jaden<br /><em style={{ fontStyle:"italic" }}>Wong</em>
+            Jaden
           </h1>
           <p style={{ fontSize:13, letterSpacing:"0.06em", color:"var(--text-tertiary)", marginBottom:28, animation:"heroFade 0.9s ease 0.85s both" }}>
             ML Engineering · Signal Processing · Toronto, Ontario
           </p>
-          <div style={{ display:"flex", gap:12, animation:"heroFade 0.9s ease 1.05s both" }}>
-            <button onClick={() => navigate("/projects")} style={{ fontSize:11, fontWeight:500, letterSpacing:"0.2em", textTransform:"uppercase", color:"#080a0f", padding:"11px 22px", border:"1px solid var(--accent)", borderRadius:3, background:"var(--accent)", cursor:"pointer", fontFamily:"var(--font)", transition:"filter 0.2s" }}
+          <div style={{ display:"flex", gap:10, flexWrap:"wrap", justifyContent:"center", animation:"heroFade 0.9s ease 1.05s both" }}>
+            <button onClick={() => navigate("/projects")} style={{ width:148, fontSize:11, fontWeight:500, letterSpacing:"0.2em", textTransform:"uppercase", color:"#080a0f", padding:"11px 0", border:"1px solid var(--accent)", borderRadius:3, background:"var(--accent)", cursor:"pointer", fontFamily:"var(--font)", transition:"filter 0.2s" }}
               onMouseEnter={e => e.currentTarget.style.filter = "brightness(1.1)"}
               onMouseLeave={e => e.currentTarget.style.filter = "brightness(1)"}
             >View Projects</button>
-            <button onClick={() => navigate("/contact")} style={{ fontSize:11, fontWeight:500, letterSpacing:"0.2em", textTransform:"uppercase", color:"var(--text)", padding:"11px 22px", border:"1px solid var(--border-dark)", borderRadius:3, background:"transparent", cursor:"pointer", fontFamily:"var(--font)", transition:"border-color 0.2s" }}
+            <button onClick={() => navigate("/contact")} style={{ width:148, fontSize:11, fontWeight:500, letterSpacing:"0.2em", textTransform:"uppercase", color:"var(--text)", padding:"11px 0", border:"1px solid var(--border-dark)", borderRadius:3, background:"transparent", cursor:"pointer", fontFamily:"var(--font)", transition:"border-color 0.2s" }}
               onMouseEnter={e => e.currentTarget.style.borderColor = "var(--text)"}
               onMouseLeave={e => e.currentTarget.style.borderColor = "var(--border-dark)"}
             >Get in Touch</button>
+            <a href="https://github.com/Jaden300" target="_blank" rel="noreferrer" style={{ width:148, display:"inline-block", textAlign:"center", fontSize:11, fontWeight:500, letterSpacing:"0.2em", textTransform:"uppercase", color:"var(--text-tertiary)", padding:"11px 0", border:"1px solid var(--border)", borderRadius:3, background:"transparent", fontFamily:"var(--font)", textDecoration:"none", boxSizing:"border-box", transition:"border-color 0.2s, color 0.2s" }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--text)"; e.currentTarget.style.color = "var(--text)" }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "var(--text-tertiary)" }}
+            >GitHub</a>
+            <a href="https://www.linkedin.com/in/jaden-wong09/" target="_blank" rel="noreferrer" style={{ width:148, display:"inline-block", textAlign:"center", fontSize:11, fontWeight:500, letterSpacing:"0.2em", textTransform:"uppercase", color:"var(--text-tertiary)", padding:"11px 0", border:"1px solid var(--border)", borderRadius:3, background:"transparent", fontFamily:"var(--font)", textDecoration:"none", boxSizing:"border-box", transition:"border-color 0.2s, color 0.2s" }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--text)"; e.currentTarget.style.color = "var(--text)" }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "var(--text-tertiary)" }}
+            >LinkedIn</a>
           </div>
         </div>
       </section>
@@ -78,7 +103,7 @@ export default function Home() {
       <div style={{ position:"relative", zIndex:1, display:"grid", gridTemplateColumns:"repeat(3,1fr)", borderBottom:"1px solid var(--border)" }}>
         {[
           { val:"4+", label:"Months of internship experience" },
-          { val:2,    label:"Volunteer positions" },
+          { val:2,    label:"Positions" },
           { val:3,    label:"Projects" },
         ].map((s, i) => (
           <Reveal key={i} delay={i * 0.08}>
@@ -98,9 +123,9 @@ export default function Home() {
           <Reveal>
             <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:48 }}>
               <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4vw,48px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px" }}>Projects</h2>
-              <button onClick={() => navigate("/projects")} style={{ fontSize:11, fontWeight:600, letterSpacing:"0.14em", textTransform:"uppercase", color:"var(--text-tertiary)", border:"1px solid var(--border)", borderRadius:4, padding:"9px 18px", background:"transparent", cursor:"pointer", fontFamily:"var(--font)", transition:"border-color 0.2s, color 0.2s" }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--text)"; e.currentTarget.style.color = "var(--text)" }}
-                onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "var(--text-tertiary)" }}
+              <button onClick={() => navigate("/projects")} style={{ fontSize:11, fontWeight:600, letterSpacing:"0.14em", textTransform:"uppercase", color:"#080a0f", border:"1px solid white", borderRadius:4, padding:"9px 18px", background:"white", cursor:"pointer", fontFamily:"var(--font)", transition:"filter 0.2s" }}
+                onMouseEnter={e => e.currentTarget.style.filter = "brightness(0.92)"}
+                onMouseLeave={e => e.currentTarget.style.filter = "brightness(1)"}
               >All projects</button>
             </div>
           </Reveal>
@@ -164,9 +189,9 @@ export default function Home() {
           <Reveal>
             <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:48 }}>
               <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4vw,48px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px" }}>Experience</h2>
-              <button onClick={() => navigate("/experience")} style={{ fontSize:11, fontWeight:600, letterSpacing:"0.14em", textTransform:"uppercase", color:"var(--text-tertiary)", border:"1px solid var(--border)", borderRadius:4, padding:"9px 18px", background:"transparent", cursor:"pointer", fontFamily:"var(--font)", transition:"border-color 0.2s, color 0.2s" }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--text)"; e.currentTarget.style.color = "var(--text)" }}
-                onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "var(--text-tertiary)" }}
+              <button onClick={() => navigate("/experience")} style={{ fontSize:11, fontWeight:600, letterSpacing:"0.14em", textTransform:"uppercase", color:"#080a0f", border:"1px solid white", borderRadius:4, padding:"9px 18px", background:"white", cursor:"pointer", fontFamily:"var(--font)", transition:"filter 0.2s" }}
+                onMouseEnter={e => e.currentTarget.style.filter = "brightness(0.92)"}
+                onMouseLeave={e => e.currentTarget.style.filter = "brightness(1)"}
               >Full experience</button>
             </div>
           </Reveal>

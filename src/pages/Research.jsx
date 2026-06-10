@@ -6,21 +6,21 @@ const FEATURED = [
     tag: "Technical Report",
     date: "April 2026",
     desc: "84.85% cross-subject accuracy on Ninapro DB5. Open-source surface EMG gesture classification - Random Forest classifier trained on 64-dimensional time-domain features across 16 electrode channels.",
-    url: "https://myojam.com/research/paper",
+    url: "https://myojam.com",
   },
   {
     title: "Build your own EMG sensor for under $60",
     tag: "Hardware",
     date: "October 2025",
     desc: "A complete weekend project guide: parts list, wiring, Arduino firmware, electrode placement, and signal quality checks.",
-    url: "https://myojam.com/education/build-your-own",
+    url: "https://myojam.com",
   },
   {
     title: "After EMG: what comes next",
     tag: "Future",
     date: "September 2025",
     desc: "Surface EMG is one point on a spectrum from skin sensing to direct neural recording. HD-sEMG, peripheral nerve interfaces, and motor cortex decoding.",
-    url: "https://myojam.com/education/future-of-bci",
+    url: "https://myojam.com",
   },
 ]
 
@@ -42,22 +42,25 @@ const RESOURCES = [
     title: "EMG Basics - full lesson plan",
     type: "Lesson Plan",
     audience: "Biology / Physics",
+    date: "November 2025",
     desc: "Complete classroom-ready lesson including timed phases, student activities, teacher notes, differentiation strategies, and a 4-point assessment rubric.",
-    url: "https://myojam.com/educators/lesson-emg-basics",
+    url: "https://myojam.com",
   },
   {
     title: "Teaching a machine to read gestures",
     type: "Lesson Plan",
     audience: "CS / Data Science",
+    date: "January 2026",
     desc: "Hands-on ML lesson covering feature extraction, decision boundaries, and confusion matrix interpretation - using real Ninapro data.",
-    url: "https://myojam.com/educators/lesson-gesture-classifier",
+    url: "https://myojam.com",
   },
   {
     title: "myocode: code with your muscles",
     type: "Lesson Plan",
     audience: "CS / STEM",
+    date: "March 2026",
     desc: "Introduces event-driven programming through myocode, myojam's block coding environment where EMG gestures are first-class events.",
-    url: "https://myojam.com/educators/lesson-applications-ethics",
+    url: "https://myojam.com",
   },
 ]
 
@@ -151,7 +154,10 @@ export default function Research() {
                     <div style={{ fontFamily:"var(--serif)", fontSize:17, fontWeight:700, color:"var(--text)", marginBottom:8, lineHeight:1.3, letterSpacing:"-0.3px" }}>{r.title}</div>
                     <div style={{ fontSize:11, color:"var(--gold)", fontWeight:500, marginBottom:14, letterSpacing:"0.04em" }}>{r.audience}</div>
                     <p style={{ fontSize:13, color:"var(--text-secondary)", lineHeight:1.75, fontWeight:300, marginBottom:20, flex:1 }}>{r.desc}</p>
-                    <span style={{ fontSize:13, color:"var(--gold)", fontWeight:600 }}>Read ↗</span>
+                    <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center" }}>
+                      <span style={{ fontSize:11, color:"var(--text-tertiary)", fontWeight:300 }}>{r.date}</span>
+                      <span style={{ fontSize:13, color:"var(--gold)", fontWeight:600 }}>Read ↗</span>
+                    </div>
                   </div>
                 </a>
               </Reveal>

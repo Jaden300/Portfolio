@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
 import Reveal from "../components/Reveal"
-import { Dog, Sheep, Bunny } from "../components/Critters"
 
 const ROTS  = [-6, 3.5, -2]
 
@@ -120,9 +119,6 @@ export default function Work() {
       </section>
 
       <section style={{ padding: "80px 48px 120px", position: "relative", overflow: "visible" }}>
-        <Dog style={{ top: 60, right: "3%" }} />
-        <Sheep style={{ bottom: 180, left: "3%" }} />
-        <Bunny style={{ bottom: 60, right: "6%" }} />
         <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", flexDirection: "column", gap: 16 }}>
           {PROJECTS.map((p, i) => (
             <Reveal key={p.name} delay={i * 0.08} grand>

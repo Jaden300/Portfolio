@@ -16,7 +16,6 @@ const ROLES = [
       "Built User Management section - 5-column user table, collapsible UI architecture, dark mode support, and empty-state handling; data layer decoupled for seamless API replacement",
       "20+ QA reviews across 10+ dashboard components and 15+ UI flows - surfaced runtime crashes, broken navigation paths, missing imports, and dark mode regressions",
     ],
-    url: "https://www.onecommunity.cc",
   },
   {
     org: "The Volunteer Well",

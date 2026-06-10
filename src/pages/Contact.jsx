@@ -61,7 +61,7 @@ export default function Contact() {
 
             {/* Email */}
             <Reveal delay={0.05} grand>
-              <div style={{ background:"var(--bg-2)", borderRadius:20, padding:"36px", borderTop:"2px solid var(--gold)", display:"flex", flexDirection:"column", gap:16 }}>
+              <div style={{ background:"var(--bg-2)", borderRadius:20, padding:"36px", borderTop:"2px solid var(--gold)", display:"flex", flexDirection:"column", gap:16, height:"100%", boxSizing:"border-box" }}>
                 <div style={{ fontSize:10, color:"var(--text-tertiary)", fontWeight:300, textTransform:"uppercase", letterSpacing:"0.1em" }}>Email</div>
                 <div style={{ fontFamily:"var(--serif)", fontSize:15, fontWeight:600, color:"var(--text)", lineHeight:1.4, flex:1 }}>
                   jn.wong.enterprise<br />@gmail.com
@@ -81,7 +81,7 @@ export default function Contact() {
 
             {/* LinkedIn */}
             <Reveal delay={0.1} grand>
-              <div style={{ background:"var(--bg-2)", borderRadius:20, padding:"36px", borderTop:"2px solid #0077B5", display:"flex", flexDirection:"column", gap:16 }}>
+              <div style={{ background:"var(--bg-2)", borderRadius:20, padding:"36px", borderTop:"2px solid #0077B5", display:"flex", flexDirection:"column", gap:16, height:"100%", boxSizing:"border-box" }}>
                 <div style={{ fontSize:10, color:"var(--text-tertiary)", fontWeight:300, textTransform:"uppercase", letterSpacing:"0.1em" }}>LinkedIn</div>
                 <div style={{ fontFamily:"var(--serif)", fontSize:15, fontWeight:600, color:"var(--text)", lineHeight:1.4, flex:1 }}>
                   jaden-wong09
@@ -102,7 +102,7 @@ export default function Contact() {
 
             {/* GitHub */}
             <Reveal delay={0.15} grand>
-              <div style={{ background:"var(--bg-2)", borderRadius:20, padding:"36px", borderTop:"2px solid var(--text-tertiary)", display:"flex", flexDirection:"column", gap:16 }}>
+              <div style={{ background:"var(--bg-2)", borderRadius:20, padding:"36px", borderTop:"2px solid var(--text-tertiary)", display:"flex", flexDirection:"column", gap:16, height:"100%", boxSizing:"border-box" }}>
                 <div style={{ fontSize:10, color:"var(--text-tertiary)", fontWeight:300, textTransform:"uppercase", letterSpacing:"0.1em" }}>GitHub</div>
                 <div style={{ fontFamily:"var(--serif)", fontSize:15, fontWeight:600, color:"var(--text)", lineHeight:1.4, flex:1 }}>
                   Jaden300
