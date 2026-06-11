@@ -97,6 +97,23 @@ const PROJECTS = [
     tags: ["Python", "NumPy", "pandas", "yfinance", "scikit-learn", "Pine Script v6"],
     images: ["/work/quant-1.jpg", "/work/quant-2.jpg"],
   },
+  {
+    name: "Machine Learning Series",
+    year: "2024 - 2025",
+    url: "https://github.com/Jaden300/Machine-Learning-Series",
+    github: "https://github.com/Jaden300/Machine-Learning-Series",
+    accent: "#F97316",
+    summary: "4 end-to-end ML notebooks (614 cells, 28,482 lines) spanning EDA, Classification, Regression, and Unsupervised Learning across real-world Kaggle datasets - built as a self-directed deep dive into applied ML.",
+    bullets: [
+      "Benchmarked 10+ classifiers on a 2,000-sample mobile price dataset - best single model 95.3% (Multinomial Logistic Regression, L1); stacked ensemble (SVC + KNN + Decision Tree → LR meta-learner) reached 97.0% test accuracy",
+      "3-layer interpretability pipeline: permutation importance, global surrogate model (82.8% fidelity to black-box), and LIME for instance-level explanations; tuned regression via GridSearchCV achieving R² = 0.9893 with 50-fold CV stability (std = 0.00146)",
+      "Engineered polynomial feature interactions (degree-2) and a custom per-group z-score deviation function; conducted 4 frequentist hypothesis tests (t-test, ANOVA, chi-square) on clinical data",
+      "Applied PCA, KernelPCA, t-SNE, DBSCAN, and KMeans across Spotify and Sign Language MNIST datasets; image segmentation on a custom photo via KMeans, GMM, and MeanShift",
+    ],
+    metrics: [["97.0%", "Ensemble acc"], ["R² 0.989", "Regression"], ["614", "Notebook cells"], ["10+", "Algorithms"]],
+    tags: ["Python", "Jupyter", "scikit-learn", "XGBoost", "LIME", "statsmodels", "OpenCV", "pandas", "NumPy"],
+    images: ["/work/ml-1.jpg", "/work/ml-2.jpg", "/work/ml-3.jpg"],
+  },
 ]
 
 export default function Work() {

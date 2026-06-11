@@ -10,9 +10,9 @@ const SKILLS = [
 ]
 
 const CERTS = [
-  { name:"IBM Machine Learning Professional Certificate",       issuer:"IBM",    date:"Dec 2025", logo:"https://logo.clearbit.com/ibm.com" },
-  { name:"IBM Introduction to Machine Learning Specialization", issuer:"IBM",    date:"Dec 2025", logo:"https://logo.clearbit.com/ibm.com" },
-  { name:"Google AI Professional Certificate",                  issuer:"Google", date:"Apr 2026", logo:"https://logo.clearbit.com/google.com" },
+  { name:"IBM Machine Learning Professional Certificate",       issuer:"IBM",    date:"Dec 2025", logo:"/logos/ibm.png" },
+  { name:"IBM Introduction to Machine Learning Specialization", issuer:"IBM",    date:"Dec 2025", logo:"/logos/ibm.png" },
+  { name:"Google AI Professional Certificate",                  issuer:"Google", date:"Apr 2026", logo:"/logos/google.png" },
 ]
 
 export default function About() {
