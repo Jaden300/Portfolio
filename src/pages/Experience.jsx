@@ -6,6 +6,7 @@ import { LinkedInIcon } from "../components/Icons"
 const ROLES = [
   {
     org: "One Community",
+    logo: "/logos/onecommunity.png",
     title: "Software Engineer",
     period: "May 2026 – Present",
     location: "Remote",
@@ -21,6 +22,7 @@ const ROLES = [
   },
   {
     org: "The Volunteer Well",
+    logo: "/logos/volunteerwellw.png",
     title: "Web Developer",
     period: "May 2026 – Present",
     location: "Grimsby, ON",
@@ -36,6 +38,7 @@ const ROLES = [
   },
   {
     org: "Asenion",
+    logo: "/logos/asenion.png",
     title: "AI Intern - QA Assistant",
     period: "Sep 2025 – Jan 2026",
     location: "Kitchener, ON",
@@ -99,7 +102,8 @@ export default function Experience() {
 
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 28, flexWrap: "wrap", gap: 16 }}>
                   <div>
-                    <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 4 }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 4 }}>
+                      {role.logo && <img src={role.logo} alt="" style={{ width: 36, height: 36, objectFit: "contain", borderRadius: 6, flexShrink: 0 }} />}
                       <div style={{ fontSize: 26, fontWeight: 700, color: "var(--text)", fontFamily: "var(--serif)", letterSpacing: "-0.5px" }}>{role.org}</div>
                       {role.note && <span style={{ fontSize: 11, color: "var(--text-tertiary)", fontWeight: 300, fontStyle: "italic" }}>{role.note}</span>}
                     </div>
