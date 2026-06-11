@@ -7,7 +7,7 @@
 ![Three.js](https://img.shields.io/badge/Three.js-black?style=flat&logo=three.js&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Vercel-black?style=flat&logo=vercel&logoColor=white)
 
-Personal portfolio site for Jaden Wong - 16-year-old ML engineer and researcher from Toronto, Ontario.
+Personal portfolio site for Jaden Wong - ML engineer and builder from Toronto, Ontario.
 
 ---
 
@@ -17,8 +17,9 @@ Personal portfolio site for Jaden Wong - 16-year-old ML engineer and researcher 
 |---|---|
 | Framework | React 19 + Vite 8 |
 | Routing | React Router DOM 7 |
-| 3D / Graphics | Three.js, Canvas API |
-| Styling | Plain CSS + inline styles |
+| 3D | Three.js (ChessHero scene) |
+| Fonts | DM Serif Display, Dancing Script, Inter |
+| Styling | Inline styles |
 | Deployment | Vercel |
 
 ---
@@ -27,21 +28,23 @@ Personal portfolio site for Jaden Wong - 16-year-old ML engineer and researcher 
 
 | Route | Description |
 |---|---|
-| `/` | Home - hero, bio, stats, 3D chess showcase, research + project previews |
-| `/about` | About - timeline, experience cards, DNA helix 3D scene, skill proficiency charts, EMG pipeline diagram |
-| `/research` | Research - technical report with accuracy visualizations, 11 articles, 3 lesson plans |
-| `/work` | Work - project showcase with 3D rotunda, publications |
-| `/contact` | Contact - direct email, status card, embedded Tally form |
+| `/` | Home - hero with cursive Wong backdrop, bio, stats strip, project and experience previews |
+| `/projects` | Projects - full cards for myojam, MyMurry, Quant-Trading, and Machine Learning Series |
+| `/experience` | Experience - role cards with metrics for One Community, The Volunteer Well, and Asenion |
+| `/research` | Publications - technical report, 5+ articles, and educational resources |
+| `/about` | About - bio, work stack, certifications, and passions |
+| `/contact` | Contact - email, LinkedIn, and GitHub boxes |
 
 ---
 
-## Features
+## Projects
 
-- **Three.js scenes** - DNA double helix, chess piece rotunda, particle character animations
-- **Data visualizations** - SVG accuracy gauge, per-gesture accuracy bars, skill proficiency bars, EMG pipeline diagram - all built without a charting library
-- **14 CSS critter characters** - hand-crafted in pure CSS, each independently animated
-- **Immersive scroll** - parallax CJK backgrounds, particle warp star field, cinematic entrance animations
-- **Page progress bar** - gold fill bar tracks scroll position across all pages
+| Project | Description |
+|---|---|
+| **myojam** | EMG gesture classification - 84.85% cross-subject accuracy, full-stack platform, 11 articles |
+| **MyMurry** | AI active recall platform - GPT-4o scoring, 21+ endpoints, 9 DB models, i18n |
+| **Quant-Trading** | 23 trading strategies, 5 live - Kalman filter, ~2,140 backtested param combos |
+| **Machine Learning Series** | 4 ML notebooks, 614 cells - 97.0% stacked ensemble, R² = 0.9893 regression |
 
 ---
 
