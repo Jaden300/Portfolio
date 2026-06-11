@@ -130,6 +130,7 @@ export default function Home() {
               {
                 label: "EMG Research",
                 name: "myojam",
+                logo: "/logos/myojam.png",
                 desc: "Built a signal pipeline from scratch - Arduino sensors through a Butterworth filter, feature extraction, and a Random Forest classifier - then wrapped it in a full-stack web platform with interactive demos.",
                 stack: ["Python", "React", "FastAPI", "scikit-learn", "Arduino"],
                 anchor: "myojam",
@@ -138,6 +139,7 @@ export default function Home() {
               {
                 label: "Full-Stack AI",
                 name: "MyMurry",
+                logo: "/logos/mymurry.png",
                 desc: "Built the active recall loop end-to-end: note upload, GPT-4o concept sectioning, free-recall session scoring, and a point-by-point breakdown of what you missed. Auth, i18n, and calendar integration included.",
                 stack: ["Next.js 15", "TypeScript", "PostgreSQL", "GPT-4o", "Supabase"],
                 anchor: "mymurry",
@@ -155,7 +157,10 @@ export default function Home() {
               <Reveal key={p.name} delay={i * 0.07} grand>
                 <div style={{ background:"var(--bg-2)", borderRadius:16, padding:"32px", height:"100%", display:"flex", flexDirection:"column", borderTop:`2px solid ${p.accent}` }}>
                   <div style={{ fontSize:10, color:p.accent, fontWeight:600, textTransform:"uppercase", letterSpacing:"0.18em", marginBottom:12 }}>{p.label}</div>
-                  <h3 style={{ fontFamily:"var(--serif)", fontSize:22, fontWeight:700, color:"var(--text)", letterSpacing:"-0.5px", marginBottom:10 }}>{p.name}</h3>
+                  <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:10 }}>
+                    {p.logo && <img src={p.logo} alt="" style={{ width:24, height:24, objectFit:"contain", borderRadius:4, flexShrink:0 }} />}
+                    <h3 style={{ fontFamily:"var(--serif)", fontSize:22, fontWeight:700, color:"var(--text)", letterSpacing:"-0.5px", margin:0 }}>{p.name}</h3>
+                  </div>
                   <p style={{ fontSize:13, color:"var(--text-secondary)", fontWeight:300, lineHeight:1.7, marginBottom:16, flex:1 }}>{p.desc}</p>
                   <div style={{ display:"flex", flexWrap:"wrap", gap:5, marginBottom:20 }}>
                     {p.stack.map(t => (
@@ -195,6 +200,7 @@ export default function Home() {
             {[
               {
                 org: "One Community",
+                logo: "/logos/onecommunity.png",
                 title: "Software Engineer",
                 period: "May 2026 - Present",
                 type: "Volunteer",
@@ -204,6 +210,7 @@ export default function Home() {
               },
               {
                 org: "The Volunteer Well",
+                logo: "/logos/volunteerwellw.png",
                 title: "Web Developer",
                 period: "May 2026 - Present",
                 type: "Volunteer",
@@ -213,6 +220,7 @@ export default function Home() {
               },
               {
                 org: "Asenion",
+                logo: "/logos/asenion.png",
                 title: "AI Intern - QA",
                 period: "Sep 2025 - Jan 2026",
                 type: "Co-op",
@@ -224,7 +232,10 @@ export default function Home() {
               <Reveal key={r.org} delay={i * 0.07} grand>
                 <div style={{ background:"var(--bg-2)", borderRadius:16, padding:"32px", height:"100%", display:"flex", flexDirection:"column", borderTop:`2px solid ${r.accent}` }}>
                   <div style={{ fontSize:10, color:r.accent, fontWeight:600, textTransform:"uppercase", letterSpacing:"0.18em", marginBottom:12 }}>{r.type}</div>
-                  <div style={{ fontFamily:"var(--serif)", fontSize:20, fontWeight:700, color:"var(--text)", letterSpacing:"-0.5px", marginBottom:4 }}>{r.org}</div>
+                  <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:4 }}>
+                    {r.logo && <img src={r.logo} alt="" style={{ width:24, height:24, objectFit:"contain", borderRadius:4, flexShrink:0 }} />}
+                    <div style={{ fontFamily:"var(--serif)", fontSize:20, fontWeight:700, color:"var(--text)", letterSpacing:"-0.5px" }}>{r.org}</div>
+                  </div>
                   <div style={{ fontSize:12, color:"var(--text-secondary)", fontWeight:400, marginBottom:4 }}>{r.title}</div>
                   <div style={{ fontSize:11, color:"var(--text-tertiary)", fontWeight:300, marginBottom:16 }}>{r.period}</div>
                   <p style={{ fontSize:13, color:"var(--text-secondary)", fontWeight:300, lineHeight:1.7, flex:1, marginBottom:20 }}>{r.desc}</p>
