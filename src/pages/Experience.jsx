@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import Reveal from "../components/Reveal"
 import { Fox, Penguin } from "../components/Critters"
+import { LinkedInIcon } from "../components/Icons"
 
 const ROLES = [
   {
@@ -11,6 +12,7 @@ const ROLES = [
     type: "Volunteer, Part-Time",
     accent: "#3B82F6",
     url: null,
+    metrics: [["20+", "QA reviews"], ["2", "modules"], ["15+", "UI flows"]],
     bullets: [
       "Built Garden Management dashboard from scratch - 4 metric cards, 4-tab navigation, and a 2×2 calendar grid (16 event slots: Seeding, Transplanting, Succession, Harvesting) with date range, location, yield, and status per event",
       "Built User Management section - 5-column user table, collapsible UI architecture, dark mode support, and empty-state handling; data layer decoupled for seamless API replacement",
@@ -24,6 +26,7 @@ const ROLES = [
     location: "Grimsby, ON",
     type: "Volunteer, Part-Time",
     accent: "#8B5CF6",
+    metrics: [["5+", "UX issues"], ["3", "deliverables"]],
     bullets: [
       "Manual UX audit across multiple pages - identified 5+ usability and accessibility issues affecting navigation, readability, and conversion flow, each documented with a proposed fix",
       "Traced critical frontend interaction failures in CTA components - broken buttons and misconfigured links that were blocking core user actions from functioning",
@@ -69,7 +72,7 @@ export default function Experience() {
         <div style={{ position: "relative", zIndex: 1, padding: "0 48px" }}>
           <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.38em", textTransform: "uppercase", color: "var(--accent)", marginBottom: 24, animation: "heroLabel 0.9s cubic-bezier(0.16,1,0.3,1) 0.2s both", display: "flex", alignItems: "center", gap: 16 }}>
             <span style={{ display: "inline-block", width: 32, height: 1, background: "var(--accent)", opacity: 0.6 }} />
-            3 roles · 2 active
+            3 roles
             <span style={{ display: "inline-block", width: 32, height: 1, background: "var(--accent)", opacity: 0.6 }} />
           </div>
           <h1 style={{ fontFamily: "var(--serif)", fontSize: "clamp(64px,10vw,130px)", lineHeight: 0.9, letterSpacing: "-0.03em", color: "var(--text)", animation: "heroName 1.1s cubic-bezier(0.16,1,0.3,1) 0.35s both" }}>
@@ -141,10 +144,10 @@ export default function Experience() {
                 <div style={{ fontSize: 12, color: "var(--text-tertiary)", fontWeight: 300 }}>All experience on LinkedIn</div>
               </div>
               <a href="https://www.linkedin.com/in/jaden-wong09/" target="_blank" rel="noreferrer"
-                style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "#0077B5", border: "1px solid #0077B5", borderRadius: 6, padding: "10px 22px", textDecoration: "none", transition: "background 0.2s, color 0.2s" }}
+                style={{ display:"inline-flex", alignItems:"center", gap:6, fontSize: 11, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "#0077B5", border: "1px solid #0077B5", borderRadius: 6, padding: "10px 22px", textDecoration: "none", transition: "background 0.2s, color 0.2s" }}
                 onMouseEnter={e => { e.currentTarget.style.background = "#0077B5"; e.currentTarget.style.color = "#fff" }}
                 onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#0077B5" }}
-              >LinkedIn ↗</a>
+              ><LinkedInIcon />LinkedIn</a>
             </div>
           </Reveal>
         </div>

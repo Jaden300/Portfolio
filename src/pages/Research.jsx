@@ -98,7 +98,7 @@ export default function Research() {
                 style={{ fontSize:11, color:"var(--gold)", fontWeight:600, letterSpacing:"0.1em", textTransform:"uppercase", textDecoration:"none", border:"1px solid var(--gold)", borderRadius:4, padding:"7px 16px", transition:"background 0.2s, color 0.2s" }}
                 onMouseEnter={e => { e.currentTarget.style.background = "var(--gold)"; e.currentTarget.style.color = "#080a0f" }}
                 onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--gold)" }}
-              >See more ↗</a>
+              >See more</a>
             </div>
           </Reveal>
 
@@ -117,7 +117,7 @@ export default function Research() {
                       <p style={{ fontSize:13, color:"var(--text-secondary)", lineHeight:1.75, fontWeight:300, marginBottom:20 }}>{article.desc}</p>
                       <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center" }}>
                         <span style={{ fontSize:11, color:"var(--text-tertiary)", fontWeight:300 }}>{article.date}</span>
-                        <span style={{ fontSize:11, color:tc, fontWeight:600, border:`1px solid ${tc}`, borderRadius:4, padding:"5px 12px", letterSpacing:"0.06em" }}>Read ↗</span>
+                        <span style={{ fontSize:11, color:tc, fontWeight:600, border:`1px solid ${tc}`, borderRadius:4, padding:"5px 12px", letterSpacing:"0.06em" }}>Read</span>
                       </div>
                     </div>
                   </a>
@@ -138,7 +138,7 @@ export default function Research() {
                 style={{ fontSize:11, color:"var(--gold)", fontWeight:600, letterSpacing:"0.1em", textTransform:"uppercase", textDecoration:"none", border:"1px solid var(--gold)", borderRadius:4, padding:"7px 16px", transition:"background 0.2s, color 0.2s" }}
                 onMouseEnter={e => { e.currentTarget.style.background = "var(--gold)"; e.currentTarget.style.color = "#080a0f" }}
                 onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--gold)" }}
-              >See more ↗</a>
+              >See more</a>
             </div>
           </Reveal>
 
@@ -156,7 +156,7 @@ export default function Research() {
                     <p style={{ fontSize:13, color:"var(--text-secondary)", lineHeight:1.75, fontWeight:300, marginBottom:20, flex:1 }}>{r.desc}</p>
                     <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center" }}>
                       <span style={{ fontSize:11, color:"var(--text-tertiary)", fontWeight:300 }}>{r.date}</span>
-                      <span style={{ fontSize:11, color:"var(--gold)", fontWeight:600, border:"1px solid var(--gold)", borderRadius:4, padding:"5px 12px", letterSpacing:"0.06em" }}>Read ↗</span>
+                      <span style={{ fontSize:11, color:"var(--gold)", fontWeight:600, border:"1px solid var(--gold)", borderRadius:4, padding:"5px 12px", letterSpacing:"0.06em" }}>Read</span>
                     </div>
                   </div>
                 </a>

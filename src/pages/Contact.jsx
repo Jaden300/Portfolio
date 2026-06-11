@@ -1,17 +1,9 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Reveal from "../components/Reveal"
+import { GitHubIcon, LinkedInIcon } from "../components/Icons"
 
 export default function Contact() {
   const [copied, setCopied] = useState(false)
-
-  useEffect(() => {
-    const script = document.createElement("script")
-    script.src = "https://platform.linkedin.com/badges/js/profile.js"
-    script.async = true
-    script.defer = true
-    document.body.appendChild(script)
-    return () => { if (document.body.contains(script)) document.body.removeChild(script) }
-  }, [])
 
   function copyEmail() {
     navigator.clipboard.writeText("jn.wong.enterprise@gmail.com").then(() => {
@@ -95,7 +87,7 @@ export default function Contact() {
                 }}
                   onMouseEnter={e => { e.currentTarget.style.background = "var(--gold)"; e.currentTarget.style.color = "#080a0f" }}
                   onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--gold)" }}
-                >Send email ↗</a>
+                >Send email</a>
               </div>
             </Reveal>
 
@@ -107,7 +99,7 @@ export default function Contact() {
                   jaden-wong09
                 </div>
                 <a href="https://linkedin.com/in/jaden-wong09" target="_blank" rel="noreferrer" style={{
-                  display:"block", textAlign:"center",
+                  display:"flex", alignItems:"center", justifyContent:"center", gap:6,
                   background:"transparent", color:"#0077B5",
                   border:"1px solid #0077B5", borderRadius:8, padding:"11px 0",
                   fontSize:12, fontWeight:700, textDecoration:"none",
@@ -116,7 +108,7 @@ export default function Contact() {
                 }}
                   onMouseEnter={e => { e.currentTarget.style.background = "#0077B5"; e.currentTarget.style.color = "#fff" }}
                   onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#0077B5" }}
-                >Visit profile</a>
+                ><LinkedInIcon />Visit profile</a>
               </div>
             </Reveal>
 
@@ -128,7 +120,7 @@ export default function Contact() {
                   Jaden300
                 </div>
                 <a href="https://github.com/Jaden300" target="_blank" rel="noreferrer" style={{
-                  display:"block", textAlign:"center",
+                  display:"flex", alignItems:"center", justifyContent:"center", gap:6,
                   background:"transparent", color:"var(--text)",
                   border:"1px solid var(--border-dark)", borderRadius:8, padding:"11px 0",
                   fontSize:12, fontWeight:700, textDecoration:"none",
@@ -137,19 +129,12 @@ export default function Contact() {
                 }}
                   onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--text)"; e.currentTarget.style.background = "rgba(255,255,255,0.06)" }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border-dark)"; e.currentTarget.style.background = "transparent" }}
-                >View profile</a>
+                ><GitHubIcon />View profile</a>
               </div>
             </Reveal>
 
           </div>
 
-          <Reveal delay={0.2}>
-            <div style={{ marginTop:48, display:"flex", justifyContent:"center" }}>
-              <div className="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="jaden-wong09" data-version="v1">
-                <a className="badge-base__link LI-simple-link" href="https://ca.linkedin.com/in/jaden-wong09?trk=profile-badge">Jaden W.</a>
-              </div>
-            </div>
-          </Reveal>
         </div>
       </section>
     </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import Reveal from "../components/Reveal"
+import { GitHubIcon } from "../components/Icons"
 
 const ROTS  = [-6, 3.5, -2]
 
@@ -45,6 +46,7 @@ function ImageStack({ images }) {
 const PROJECTS = [
   {
     name: "myojam",
+    logo: "/logos/myojam.png",
     year: "2024 - present",
     url: "https://myojam.com",
     github: "https://github.com/Jaden300/myojam",
@@ -62,9 +64,10 @@ const PROJECTS = [
   },
   {
     name: "MyMurry",
+    logo: "/logos/mymurry.png",
     year: "2026 - present",
     url: "https://mymurry.com",
-    github: null,
+    github: "https://github.com/Jaden300/MyMurry",
     accent: "#A855F7",
     summary: "Built the active recall loop end-to-end: users upload notes, GPT-4o sections them into key concepts, then users recall everything they remember and get scored 0-100 with a breakdown of what they missed.",
     bullets: [
@@ -132,7 +135,10 @@ export default function Work() {
                       <div style={{ display:"flex", gap:10, marginBottom:12, alignItems:"center" }}>
                         <span style={{ fontSize:11, color:"var(--text-tertiary)", border:"1px solid var(--border)", borderRadius:100, padding:"3px 12px", fontWeight:300 }}>{p.year}</span>
                       </div>
-                      <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(28px,3.5vw,40px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1px", marginBottom:12 }}>{p.name}</h2>
+                      <div style={{ display:"flex", alignItems:"center", gap:12, marginBottom:12 }}>
+                        {p.logo && <img src={p.logo} alt="" style={{ width:36, height:36, objectFit:"contain", borderRadius:6, flexShrink:0 }} />}
+                        <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(28px,3.5vw,40px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1px", margin:0 }}>{p.name}</h2>
+                      </div>
                       <p style={{ fontSize:15, color:"var(--text-secondary)", lineHeight:1.8, fontWeight:300, marginBottom:28, maxWidth:520 }}>{p.summary}</p>
 
                       <div style={{ display:"flex", flexDirection:"column", gap:10, marginBottom:28 }}>
@@ -190,10 +196,10 @@ export default function Work() {
                 <div style={{ fontSize: 12, color: "var(--text-tertiary)", fontWeight: 300 }}>All projects on GitHub</div>
               </div>
               <a href="https://github.com/Jaden300" target="_blank" rel="noreferrer"
-                style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text)", border: "1px solid var(--border-dark)", borderRadius: 6, padding: "10px 22px", textDecoration: "none", transition: "border-color 0.2s, background 0.2s" }}
+                style={{ display:"inline-flex", alignItems:"center", gap:6, fontSize: 11, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text)", border: "1px solid var(--border-dark)", borderRadius: 6, padding: "10px 22px", textDecoration: "none", transition: "border-color 0.2s, background 0.2s" }}
                 onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--text)"; e.currentTarget.style.background = "rgba(255,255,255,0.06)" }}
                 onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border-dark)"; e.currentTarget.style.background = "transparent" }}
-              >GitHub ↗</a>
+              ><GitHubIcon />GitHub</a>
             </div>
           </Reveal>
         </div>

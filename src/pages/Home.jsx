@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import Reveal from "../components/Reveal"
 import ChessHero from "../components/ChessHero"
+import { GitHubIcon, LinkedInIcon } from "../components/Icons"
 
 export default function Home() {
   const navigate = useNavigate()
@@ -47,19 +48,17 @@ export default function Home() {
             ML Engineering · Signal Processing · Toronto, Ontario
           </p>
           <div style={{ display:"flex", gap:10, flexWrap:"wrap", justifyContent:"center", animation:"heroFade 0.9s ease 1.05s both" }}>
-            {[
-              { label:"View Projects", action:() => navigate("/projects"), isBtn:true },
-              { label:"Get in Touch",  action:() => navigate("/contact"),  isBtn:true },
-              { label:"GitHub",        href:"https://github.com/Jaden300" },
-              { label:"LinkedIn",      href:"https://www.linkedin.com/in/jaden-wong09/" },
-            ].map(({ label, action, isBtn, href }) => {
-              const style = { width:148, fontSize:11, fontWeight:500, letterSpacing:"0.2em", textTransform:"uppercase", color:"rgba(237,234,226,0.75)", padding:"11px 0", border:"1px solid rgba(237,234,226,0.25)", borderRadius:3, background:"transparent", cursor:"pointer", fontFamily:"var(--font)", textDecoration:"none", display:"inline-block", textAlign:"center", boxSizing:"border-box", transition:"border-color 0.2s, color 0.2s" }
-              const enter = e => { e.currentTarget.style.borderColor = "rgba(237,234,226,0.75)"; e.currentTarget.style.color = "var(--text)" }
-              const leave = e => { e.currentTarget.style.borderColor = "rgba(237,234,226,0.25)"; e.currentTarget.style.color = "rgba(237,234,226,0.75)" }
-              return isBtn
-                ? <button key={label} onClick={action} style={style} onMouseEnter={enter} onMouseLeave={leave}>{label}</button>
-                : <a key={label} href={href} target="_blank" rel="noreferrer" style={style} onMouseEnter={enter} onMouseLeave={leave}>{label}</a>
-            })}
+            {(() => {
+              const s = { display:"inline-flex", alignItems:"center", justifyContent:"center", gap:7, width:148, fontSize:11, fontWeight:600, letterSpacing:"0.16em", textTransform:"uppercase", color:"var(--gold)", padding:"11px 0", border:"1px solid var(--gold)", borderRadius:3, background:"transparent", cursor:"pointer", fontFamily:"var(--font)", textDecoration:"none", boxSizing:"border-box", transition:"background 0.2s, color 0.2s" }
+              const on = e => { e.currentTarget.style.background = "var(--gold)"; e.currentTarget.style.color = "#080a0f" }
+              const off = e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--gold)" }
+              return <>
+                <button onClick={() => navigate("/projects")} style={s} onMouseEnter={on} onMouseLeave={off}>View Projects</button>
+                <button onClick={() => navigate("/contact")} style={s} onMouseEnter={on} onMouseLeave={off}>Get in Touch</button>
+                <a href="https://github.com/Jaden300" target="_blank" rel="noreferrer" style={s} onMouseEnter={on} onMouseLeave={off}><GitHubIcon />GitHub</a>
+                <a href="https://www.linkedin.com/in/jaden-wong09/" target="_blank" rel="noreferrer" style={s} onMouseEnter={on} onMouseLeave={off}><LinkedInIcon />LinkedIn</a>
+              </>
+            })()}
           </div>
         </div>
       </section>

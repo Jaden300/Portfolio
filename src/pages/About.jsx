@@ -148,7 +148,7 @@ export default function About() {
             <button onClick={() => navigate("/contact")} style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--text)", border: "1px solid var(--border-dark)", borderRadius: 4, padding: "12px 28px", background: "transparent", cursor: "pointer", fontFamily: "var(--font)", transition: "border-color 0.2s" }}
               onMouseEnter={e => e.currentTarget.style.borderColor = "var(--text)"}
               onMouseLeave={e => e.currentTarget.style.borderColor = "var(--border-dark)"}
-            >Get in touch ↗</button>
+            >Get in touch</button>
           </Reveal>
         </div>
       </section>
