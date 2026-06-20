@@ -6,7 +6,7 @@ const SLIDES = [
   { piece:"queen",  title:"Researcher",    body:"11 published articles and a full technical report spanning neuroscience, signal processing, ML, hardware, and the ethics of biometric interfaces.", tags:["11 articles","Technical report","Open access"] },
   { piece:"rook",   title:"Fairly AI",     body:"AI QA Intern. Designed 1,000+ test cases, reduced evaluation workflow by 60%, and led benchmarking across 12+ scenarios over 15 refinement cycles.", tags:["AI QA","Benchmarking","Co-op · 2025–2026"] },
   { piece:"bishop", title:"Full Stack",    body:"From raw EMG signal to interactive web demo - React frontend, FastAPI backend, Three.js visualisations, deployed on Vercel and Render.", tags:["React","FastAPI","Three.js","Canvas API","PyQt6"] },
-  { piece:"knight", title:"16 & Building", body:"Bur Oak, Markham. Designing Python curriculum for elementary students. Moving in directions others don't expect.", tags:["16 years old","Toronto","ELEVATE competition"] },
+  { piece:"knight", title:"17 & Building", body:"Bur Oak, Markham. Designing Python curriculum for elementary students. Moving in directions others don't expect.", tags:["17 years old","Toronto","ELEVATE competition"] },
   { piece:"pawn",   title:"The Origin",    body:"September 2024 - no hardware, no lab, no funding. Just public data, curiosity, and a relentless need to build something that mattered.", tags:["Sept 2024","Self-taught","From scratch"] },
 ]
 const N = SLIDES.length

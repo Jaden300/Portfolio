@@ -29,9 +29,9 @@ const SLIDES = [
   },
   {
     piece: "knight",
-    title: "16 & Building",
+    title: "17 & Building",
     body: "Bur Oak, Markham. Designing Python curriculum for elementary students. Moving in directions others don't expect.",
-    tags: ["16 years old", "Toronto", "ELEVATE competition"],
+    tags: ["17 years old", "Toronto", "ELEVATE competition"],
   },
   {
     piece: "pawn",
