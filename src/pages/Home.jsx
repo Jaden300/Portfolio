@@ -78,7 +78,7 @@ export default function Home() {
         <Reveal delay={0.1} grand>
           <div>
             <p style={{ fontSize:17, fontWeight:300, lineHeight:1.82, color:"rgba(237,234,226,0.7)", marginBottom:24 }}>
-              I'm a <strong style={{ color:"var(--text)", fontWeight:500 }}>16-year-old engineer and researcher</strong> from Toronto, Ontario. I build full-stack ML systems, AI-powered web platforms, and quantitative trading frameworks - across whatever the problem demands.
+              I'm a <strong style={{ color:"var(--text)", fontWeight:500 }}>17-year-old engineer and researcher</strong> from Toronto, Ontario. I build full-stack ML systems, AI-powered web platforms, and quantitative trading frameworks - across whatever the problem demands.
             </p>
             <p style={{ fontSize:17, fontWeight:300, lineHeight:1.82, color:"rgba(237,234,226,0.7)" }}>
               Currently volunteering as SWE at <strong style={{ color:"var(--text)", fontWeight:500 }}>One Community</strong> and web developer at <strong style={{ color:"var(--text)", fontWeight:500 }}>The Volunteer Well</strong>. Previously AI intern at <strong style={{ color:"var(--text)", fontWeight:500 }}>Asenion</strong> and co-founder of <strong style={{ color:"var(--text)", fontWeight:500 }}>myojam</strong> - open-source EMG gesture classification, no lab, no funding.
