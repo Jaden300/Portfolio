@@ -28,13 +28,44 @@ const ROLES = [
     location: "Grimsby, ON",
     type: "Volunteer, Part-Time",
     accent: "#8B5CF6",
-    metrics: [["5+", "UX issues"], ["3", "deliverables"]],
-    bullets: [
-      "Manual UX audit across multiple pages - identified 5+ usability and accessibility issues affecting navigation, readability, and conversion flow, each documented with a proposed fix",
-      "Traced critical frontend interaction failures in CTA components - broken buttons and misconfigured links that were blocking core user actions from functioning",
-      "Delivered a structured UX improvement proposal covering contrast, excessive scroll depth, accessibility, and redundant user pathways",
-    ],
     url: null,
+    metrics: [["5", "pages audited"], ["4", "email templates"], ["10", "slide deck"]],
+    bullets: [
+      "Conducted a manual UX and accessibility audit across 5 pages - identifying broken CTAs, WCAG contrast failures, scroll depth issues, and a missing asset, each documented with a prioritized fix",
+      "Delivered findings as a structured presentation with a P1-P4 action list, speaking script, and implementation guidance requiring no custom development",
+      "Authored a 10-slide partner outreach deck and 4 audience-segmented email templates ready for immediate deployment",
+    ],
+  },
+  {
+    org: "Youth Improvement Services",
+    logo: "/logos/yis.png",
+    title: "Data & Technology Consultant",
+    period: "Jun 2026 – Jul 2026",
+    location: "Remote",
+    type: "Volunteer",
+    accent: "#10B981",
+    url: null,
+    metrics: [["2", "formal reports"], ["5", "tech domains"], ["74%", "housing rate"]],
+    bullets: [
+      "Audited full data infrastructure across case management, donor CRM, grant reporting, and security - delivered two formal reports with phased implementation roadmaps",
+      "Uncovered an SEO-blocking noindex tag hiding the site from all search engines; delivered a website feedback report covering navigation, messaging, and funder credibility",
+      "Designed a tiered identity verification framework, recommended a 5-domain technology stack with nonprofit pricing, and made the org's 74% housing resolution rate grant-verifiable",
+    ],
+  },
+  {
+    org: "LGBT Voice Tanzania",
+    logo: "/logos/lgbtvoicetz.png",
+    title: "WordPress Website Makeover Volunteer",
+    period: "Jun 2026",
+    location: "Remote",
+    type: "Volunteer",
+    accent: "#EC4899",
+    url: null,
+    metrics: [["3", "prototypes"], ["7", "plugins"], ["17+", "years of impact"]],
+    bullets: [
+      "Built 3 iterative HTML prototypes for a homepage redesign - applying UX flow, visual hierarchy, color theming, and CTA placement, with each iteration refined based on client feedback",
+      "Recommended a full WordPress stack, pivoting to a page builder-free Twenty Twenty-Five + Gutenberg setup their non-technical team could manage independently",
+    ],
   },
   {
     org: "Asenion",
@@ -75,7 +106,7 @@ export default function Experience() {
         <div style={{ position: "relative", zIndex: 1, padding: "0 48px" }}>
           <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.38em", textTransform: "uppercase", color: "var(--accent)", marginBottom: 24, animation: "heroLabel 0.9s cubic-bezier(0.16,1,0.3,1) 0.2s both", display: "flex", alignItems: "center", gap: 16 }}>
             <span style={{ display: "inline-block", width: 32, height: 1, background: "var(--accent)", opacity: 0.6 }} />
-            3 roles
+            5 roles
             <span style={{ display: "inline-block", width: 32, height: 1, background: "var(--accent)", opacity: 0.6 }} />
           </div>
           <h1 style={{ fontFamily: "var(--serif)", fontSize: "clamp(64px,10vw,130px)", lineHeight: 0.9, letterSpacing: "-0.03em", color: "var(--text)", animation: "heroName 1.1s cubic-bezier(0.16,1,0.3,1) 0.35s both" }}>

@@ -99,7 +99,7 @@ export default function Home() {
       <div style={{ position:"relative", zIndex:1, display:"grid", gridTemplateColumns:"repeat(3,1fr)", borderBottom:"1px solid var(--border)" }}>
         {[
           { val:"4+", label:"Months of internship experience" },
-          { val:2,    label:"Positions" },
+          { val:4,    label:"Positions" },
           { val:3,    label:"Projects" },
         ].map((s, i) => (
           <Reveal key={i} delay={i * 0.08}>
@@ -199,14 +199,14 @@ export default function Home() {
           <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:12 }}>
             {[
               {
-                org: "One Community",
-                logo: "/logos/onecommunity.png",
-                title: "Software Engineer",
-                period: "May 2026 - Present",
+                org: "LGBT Voice Tanzania",
+                logo: "/logos/lgbtvoicetz.png",
+                title: "WordPress Website Makeover Volunteer",
+                period: "Jun 2026",
                 type: "Volunteer",
-                desc: "Built Garden Management dashboard and User Management section. 20+ QA reviews across 10+ components.",
-                accent: "#3B82F6",
-                anchor: "one-community",
+                desc: "Built 3 iterative HTML prototypes for a homepage redesign and recommended a full WordPress stack tailored for a non-technical team.",
+                accent: "#EC4899",
+                anchor: "lgbt-voice-tanzania",
               },
               {
                 org: "The Volunteer Well",
