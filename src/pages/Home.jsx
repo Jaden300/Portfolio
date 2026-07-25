@@ -199,26 +199,6 @@ export default function Home() {
           <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:12 }}>
             {[
               {
-                org: "LGBT Voice Tanzania",
-                logo: "/logos/lgbtvoicetz.png",
-                title: "WordPress Website Makeover Volunteer",
-                period: "Jun 2026",
-                type: "Volunteer",
-                desc: "Built 3 iterative HTML prototypes for a homepage redesign and recommended a full WordPress stack tailored for a non-technical team.",
-                accent: "#EC4899",
-                anchor: "lgbt-voice-tanzania",
-              },
-              {
-                org: "The Volunteer Well",
-                logo: "/logos/volunteerwellw.png",
-                title: "Web Developer",
-                period: "May 2026 - Present",
-                type: "Volunteer",
-                desc: "UX audit identifying 5+ accessibility issues. Improvement proposal covering contrast, navigation, and scroll depth.",
-                accent: "#8B5CF6",
-                anchor: "the-volunteer-well",
-              },
-              {
                 org: "Asenion",
                 logo: "/logos/asenion.png",
                 title: "AI Intern - QA",
@@ -227,6 +207,26 @@ export default function Home() {
                 desc: "LLM safety evaluator and token cost estimator across 3 provider families. 200+ adversarial prompts, R² ≥ 0.95.",
                 accent: "#3B82F6",
                 anchor: "asenion",
+              },
+              {
+                org: "One Community",
+                logo: "/logos/onecommunity.png",
+                title: "Software Engineer",
+                period: "May 2026 - Present",
+                type: "Volunteer",
+                desc: "Built Garden Management dashboard and User Management section. 20+ QA reviews across 10+ components.",
+                accent: "#3B82F6",
+                anchor: "one-community",
+              },
+              {
+                org: "The Volunteer Well",
+                logo: "/logos/volunteerwellw.png",
+                title: "Web Developer",
+                period: "May 2026 - Present",
+                type: "Volunteer",
+                desc: "UX audit across 5 pages identifying broken CTAs, WCAG contrast failures, and scroll depth issues. Delivered a P1-P4 action list and partner outreach deck.",
+                accent: "#8B5CF6",
+                anchor: "the-volunteer-well",
               },
             ].map((r, i) => (
               <Reveal key={r.org} delay={i * 0.07} grand>
