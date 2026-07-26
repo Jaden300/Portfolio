@@ -214,7 +214,7 @@ export default function Home() {
                 title: "Software Engineer",
                 period: "May 2026 - Present",
                 type: "Volunteer",
-                desc: "Built Garden Management dashboard and User Management section. 20+ QA reviews across 10+ components.",
+                desc: "Built Garden Management and User Management from scratch. Took over 5+ complex PRs, fixed critical bugs, and resolved SonarQube violations across the codebase.",
                 accent: "#3B82F6",
                 anchor: "one-community",
               },

@@ -13,11 +13,11 @@ const ROLES = [
     type: "Volunteer, Part-Time",
     accent: "#3B82F6",
     url: null,
-    metrics: [["20+", "QA reviews"], ["2", "modules"], ["15+", "UI flows"]],
+    metrics: [["5+", "PRs taken over"], ["31", "tests fixed"], ["20+", "QA reviews"]],
     bullets: [
-      "Built Garden Management dashboard from scratch - 4 metric cards, 4-tab navigation, and a 2×2 calendar grid (16 event slots: Seeding, Transplanting, Succession, Harvesting) with date range, location, yield, and status per event",
-      "Built User Management section - 5-column user table, collapsible UI architecture, dark mode support, and empty-state handling; data layer decoupled for seamless API replacement",
-      "20+ QA reviews across 10+ dashboard components and 15+ UI flows - surfaced runtime crashes, broken navigation paths, missing imports, and dark mode regressions",
+      "Built the Garden Management landing page and User Management section from scratch - metric cards, tab navbar, calendar grid, and a 5-column user table with dark mode and intentional API decoupling",
+      "Took over 5+ complex PRs - merging stale branches, converting to CSS Modules, fixing SonarQube violations, and porting components across Node version upgrades",
+      "Fixed critical bugs including a null crash causing downstream TypeErrors, a case-sensitivity import path breaking 31 tests on Linux CI, and a Redux reliability violation rated C by SonarQube",
     ],
   },
   {
