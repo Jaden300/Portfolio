@@ -5,6 +5,22 @@ import { LinkedInIcon } from "../components/Icons"
 
 const ROLES = [
   {
+    org: "Elevation Athletics",
+    logo: "/logos/elevationathletics.png",
+    title: "Web Assistant",
+    period: "Jun 2026 – Aug 2026",
+    location: "Newmarket, ON",
+    type: "Contract",
+    accent: "#F97316",
+    url: null,
+    metrics: [["3", "AI chatbots"], ["13,000+", "records enriched"], ["500+", "segments built"]],
+    bullets: [
+      "Built and deployed 3 production AI chatbots across all EA web properties using the OpenAI API, an interactive map and calendar for the league hub, and an internal Constant Contact contact-entry tool - each shipped to production across WordPress and React environments",
+      "Architected and demoed an automatic contact-tagging WordPress mu-plugin to senior leadership, uploaded 3,000+ contacts via a custom transformation pipeline, and enriched 13,000+ legacy records across 500+ segments by city, region, and sport",
+      "Built 2 Puppeteer scraping pipelines across 4 municipal booking platforms, ML-analyzed 3,000+ program records identifying price as the dominant enrolment driver, and authored 2 competitor research reports with per-platform SWOT analysis",
+    ],
+  },
+  {
     org: "One Community",
     logo: "/logos/onecommunity.png",
     title: "Software Engineer",
@@ -106,7 +122,7 @@ export default function Experience() {
         <div style={{ position: "relative", zIndex: 1, padding: "0 48px" }}>
           <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.38em", textTransform: "uppercase", color: "var(--accent)", marginBottom: 24, animation: "heroLabel 0.9s cubic-bezier(0.16,1,0.3,1) 0.2s both", display: "flex", alignItems: "center", gap: 16 }}>
             <span style={{ display: "inline-block", width: 32, height: 1, background: "var(--accent)", opacity: 0.6 }} />
-            5 roles
+            6 roles
             <span style={{ display: "inline-block", width: 32, height: 1, background: "var(--accent)", opacity: 0.6 }} />
           </div>
           <h1 style={{ fontFamily: "var(--serif)", fontSize: "clamp(64px,10vw,130px)", lineHeight: 0.9, letterSpacing: "-0.03em", color: "var(--text)", animation: "heroName 1.1s cubic-bezier(0.16,1,0.3,1) 0.35s both" }}>

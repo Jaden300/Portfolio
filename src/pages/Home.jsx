@@ -99,7 +99,7 @@ export default function Home() {
       <div style={{ position:"relative", zIndex:1, display:"grid", gridTemplateColumns:"repeat(3,1fr)", borderBottom:"1px solid var(--border)" }}>
         {[
           { val:"4+", label:"Months of internship experience" },
-          { val:4,    label:"Positions" },
+          { val:5,    label:"Positions" },
           { val:3,    label:"Projects" },
         ].map((s, i) => (
           <Reveal key={i} delay={i * 0.08}>
@@ -199,14 +199,14 @@ export default function Home() {
           <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:12 }}>
             {[
               {
-                org: "Asenion",
-                logo: "/logos/asenion.png",
-                title: "AI Intern - QA",
-                period: "Sep 2025 - Jan 2026",
-                type: "Co-op",
-                desc: "LLM safety evaluator and token cost estimator across 3 provider families. 200+ adversarial prompts, R² ≥ 0.95.",
-                accent: "#3B82F6",
-                anchor: "asenion",
+                org: "Elevation Athletics",
+                logo: "/logos/elevationathletics.png",
+                title: "Web Assistant",
+                period: "Jun 2026 - Aug 2026",
+                type: "Contract",
+                desc: "Built 3 production AI chatbots, an auto contact-tagging system, and 2 scraping pipelines. Enriched 13,000+ records across 500+ segments.",
+                accent: "#F97316",
+                anchor: "elevation-athletics",
               },
               {
                 org: "One Community",
