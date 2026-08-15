@@ -109,7 +109,7 @@ export default function Experience() {
       setTimeout(() => {
         const el = document.querySelector(hash)
         if (el) {
-          const y = el.getBoundingClientRect().top + window.scrollY - 120
+          const y = el.getBoundingClientRect().top + window.scrollY - 175
           window.scrollTo({ top: y, behavior: "smooth" })
         }
       }, 400)
