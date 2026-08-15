@@ -98,8 +98,8 @@ export default function Home() {
       {/* ── NUMBERS */}
       <div style={{ position:"relative", zIndex:1, display:"grid", gridTemplateColumns:"repeat(3,1fr)", borderBottom:"1px solid var(--border)" }}>
         {[
-          { val:"4+", label:"Months of internship experience" },
-          { val:5,    label:"Positions" },
+          { val:"6+", label:"Months of internship experience" },
+          { val:6,    label:"Positions" },
           { val:3,    label:"Projects" },
         ].map((s, i) => (
           <Reveal key={i} delay={i * 0.08}>
