@@ -119,8 +119,13 @@ export default function Work() {
   useEffect(() => {
     const hash = window.location.hash
     if (hash) {
-      const el = document.querySelector(hash)
-      if (el) setTimeout(() => el.scrollIntoView({ behavior:"smooth", block:"start" }), 150)
+      setTimeout(() => {
+        const el = document.querySelector(hash)
+        if (el) {
+          const y = el.getBoundingClientRect().top + window.scrollY - 175
+          window.scrollTo({ top: y, behavior: "smooth" })
+        }
+      }, 400)
     }
   }, [])
 
