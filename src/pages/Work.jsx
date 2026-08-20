@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import Reveal from "../components/Reveal"
 import { GitHubIcon } from "../components/Icons"
-import { Cat, Frog, Panda, Dog, Sheep } from "../components/Critters"
+import { Cat, Frog, Panda, Dog } from "../components/Critters"
 
 const ROTS  = [-6, 3.5, -2]
 
@@ -144,11 +144,10 @@ export default function Work() {
       </section>
 
       <section style={{ padding: "80px 48px 120px", position: "relative", overflow: "visible" }}>
-        <Cat   style={{ top:  100, left:  "2%"  }} />
-        <Frog  style={{ top:  500, right: "2%"  }} />
-        <Panda style={{ top:  950, left:  "3%"  }} />
-        <Dog   style={{ top: 1450, right: "3%"  }} />
-        <Sheep style={{ top: 1900, left:  "2%"  }} />
+        <Cat   style={{ top:  150, left:  "2%"  }} />
+        <Frog  style={{ top:  650, right: "2%"  }} />
+        <Panda style={{ top: 1200, left:  "3%"  }} />
+        <Dog   style={{ top: 1800, right: "3%"  }} />
         <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", flexDirection: "column", gap: 16 }}>
           {PROJECTS.map((p, i) => (
 

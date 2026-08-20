@@ -70,7 +70,7 @@ export default function Research() {
     <div style={{ background:"var(--bg)", minHeight:"100vh", color:"var(--text)" }}>
       {/* ── HERO */}
       <section style={{
-        position:"relative", height:"100vh", minHeight:600, zIndex:1,
+        position:"relative", padding:"140px 0 80px", zIndex:1,
         display:"flex", flexDirection:"column", justifyContent:"center",
         alignItems:"center", textAlign:"center", overflow:"hidden",
       }}>
@@ -90,7 +90,7 @@ export default function Research() {
       </section>
 
       {/* ── ARTICLES */}
-      <section style={{ position:"relative", zIndex:1, padding:"48px 48px", borderBottom:"1px solid var(--border)" }}>
+      <section style={{ position:"relative", zIndex:1, padding:"100px 48px", borderBottom:"1px solid var(--border)" }}>
         <Chick   style={{ top:  80,  left:  "2%"  }} />
         <Mouse   style={{ top:  500, right: "2%"  }} />
         <Hamster style={{ top:  950, left:  "3%"  }} />

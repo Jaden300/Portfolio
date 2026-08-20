@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom"
 import Reveal from "../components/Reveal"
-import { Owl } from "../components/Critters"
+import { Owl, Bear, Penguin } from "../components/Critters"
 
 const SKILLS = [
-  { cat:"Machine Learning",      color:"#f5e040", items:["scikit-learn","Random Forest","XGBoost","Logistic Regression","KNN","SVM","PCA · t-SNE","LIME"] },
-  { cat:"Signal Processing",     color:"#fbbf24", items:["Surface EMG","Butterworth filter","Sliding window","MAV · RMS · ZC · WL","Ninapro DB5","Spectral analysis"] },
-  { cat:"Full-Stack",            color:"#fef3c7", items:["React","Next.js 15","TypeScript","FastAPI","Python","PostgreSQL","Prisma","Supabase","Vercel","REST APIs"] },
-  { cat:"Systems & Tools",      color:"#f5e040", items:["PyQt6","Arduino","Three.js","NumPy","pandas","Pine Script v6","Tkinter","Git"] },
+  { cat:"Machine Learning",      color:"#f5e040", items:["scikit-learn","Random Forest","XGBoost","Logistic Regression","KNN","SVM","PCA · t-SNE","LIME","Gradient Boosting","Confusion Matrix","GridSearchCV"] },
+  { cat:"Signal Processing",     color:"#fbbf24", items:["Surface EMG","Butterworth filter","Sliding window","MAV · RMS · ZC · WL","Ninapro DB5","Spectral analysis","Arduino","WebSerial API"] },
+  { cat:"Full-Stack",            color:"#fef3c7", items:["React","Next.js 15","TypeScript","FastAPI","Python","PostgreSQL","Prisma","Supabase","GPT-4o","Zustand","Tailwind CSS","WordPress","Vercel","REST APIs"] },
+  { cat:"Systems & Tools",      color:"#f5e040", items:["PyQt6","Three.js","NumPy","pandas","Pine Script v6","Tkinter","Puppeteer","Matplotlib · Seaborn","Google Apps Script","Constant Contact API","Git"] },
 ]
 
 const CERTS = [
@@ -74,8 +74,10 @@ export default function About() {
       </section>
 
       {/* ── WORK STACK */}
-      <section style={{ position:"relative", zIndex:1, padding:"48px 48px", borderBottom:"1px solid var(--border)", overflow:"visible" }}>
-        <Owl style={{ top:80, right:"3%" }} />
+      <section style={{ position:"relative", zIndex:1, padding:"100px 48px", borderBottom:"1px solid var(--border)", overflow:"visible" }}>
+        <Bear    style={{ top: 80,  left:  "3%" }} />
+        <Owl     style={{ top: 80,  right: "3%" }} />
+        <Penguin style={{ top: 600, left:  "3%" }} />
         <div style={{ maxWidth:1000, margin:"0 auto" }}>
           <Reveal>
             <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4.5vw,52px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:64 }}>Work stack</h2>
@@ -118,7 +120,7 @@ export default function About() {
       </section>
 
       {/* ── FUN FACTS */}
-      <section style={{ position:"relative", zIndex:1, padding:"48px 48px 120px" }}>
+      <section style={{ position:"relative", zIndex:1, padding:"100px 48px 120px" }}>
         <div style={{ maxWidth:1000, margin:"0 auto" }}>
           <Reveal>
             <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4.5vw,52px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:48 }}>Passions</h2>

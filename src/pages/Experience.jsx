@@ -136,7 +136,7 @@ export default function Experience() {
     <div style={{ background: "var(--bg)", minHeight: "100vh", color: "var(--text)" }}>
       {/* HERO */}
       <section style={{
-        position: "relative", height: "100vh", minHeight: 600, zIndex: 1,
+        position: "relative", padding: "140px 0 80px", zIndex: 1,
         display: "flex", flexDirection: "column", justifyContent: "center",
         alignItems: "center", textAlign: "center", overflow: "hidden",
       }}>
@@ -156,7 +156,7 @@ export default function Experience() {
       </section>
 
       {/* ROLES */}
-      <section style={{ position: "relative", zIndex: 1, padding: "48px 48px 120px", overflow: "visible" }}>
+      <section style={{ position: "relative", zIndex: 1, padding: "100px 48px 120px", overflow: "visible" }}>
         <Fox     style={{ top:  120, left:  "3%"  }} />
         <Bunny   style={{ top:  480, right: "2%"  }} />
         <Bear    style={{ top:  900, left:  "2%"  }} />
