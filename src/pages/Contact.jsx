@@ -28,7 +28,7 @@ export default function Contact() {
             display:"flex", alignItems:"center", gap:16,
           }}>
             <span style={{ display:"inline-block", width:32, height:1, background:"var(--accent)", opacity:0.6 }} />
-            Research · Collaboration · Opportunities
+            Research • Collaboration • Opportunities
             <span style={{ display:"inline-block", width:32, height:1, background:"var(--accent)", opacity:0.6 }} />
           </div>
 

@@ -1,35 +1,31 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import "./index.css"
 import Home       from "./pages/Home"
 import About      from "./pages/About"
 import Work       from "./pages/Work"
 import Research   from "./pages/Research"
 import Contact    from "./pages/Contact"
-import Rotunda    from "./pages/Rotunda"
 import Experience from "./pages/Experience"
 import Navbar   from "./components/Navbar"
 import Footer   from "./components/Footer"
 import ScrollToTop from "./components/ScrollToTop"
 
 function Shell() {
-  const { pathname } = useLocation()
-  const immersive    = pathname === "/rotunda"
   return (
     <>
       <ScrollToTop />
-      {!immersive && <Navbar />}
+      <Navbar />
       <Routes>
-        <Route path="/"         element={<Home />} />
+        <Route path="/"           element={<Home />} />
         <Route path="/about"      element={<About />} />
         <Route path="/projects"   element={<Work />} />
         <Route path="/research"   element={<Research />} />
         <Route path="/contact"    element={<Contact />} />
-        <Route path="/rotunda"    element={<Rotunda />} />
         <Route path="/experience" element={<Experience />} />
       </Routes>
-      {!immersive && <Footer />}
+      <Footer />
     </>
   )
 }

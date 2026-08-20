@@ -28,7 +28,7 @@ export default function About() {
         <div style={{ position:"relative", zIndex:1, padding:"0 48px" }}>
           <div style={{ fontSize:11, fontWeight:500, letterSpacing:"0.38em", textTransform:"uppercase", color:"var(--accent)", marginBottom:24, animation:"heroLabel 0.9s cubic-bezier(0.16,1,0.3,1) 0.2s both", display:"flex", alignItems:"center", gap:16 }}>
             <span style={{ display:"inline-block", width:32, height:1, background:"var(--accent)", opacity:0.6 }} />
-            17 · Toronto · Engineer
+            17 • Toronto • Engineer
             <span style={{ display:"inline-block", width:32, height:1, background:"var(--accent)", opacity:0.6 }} />
           </div>
           <h1 style={{ fontFamily:"var(--serif)", fontSize:"clamp(64px,10vw,130px)", lineHeight:0.9, letterSpacing:"-0.03em", color:"var(--text)", animation:"heroName 1.1s cubic-bezier(0.16,1,0.3,1) 0.35s both" }}>
@@ -56,7 +56,7 @@ export default function About() {
               <div style={{ display:"flex", flexDirection:"column", gap:20 }}>
                 {[
                   ["Location",    "Toronto, Ontario"],
-                  ["Focus",       "ML · Signal processing · Full-stack"],
+                  ["Focus",       "ML • Signal processing • Full-stack"],
                   ["Status",      "Open to work"],
                   ["Languages",   "Python, JavaScript, C++"],
                   ["Flagship",    "myojam.com"],
@@ -110,7 +110,7 @@ export default function About() {
                   <img src={cert.logo} alt={cert.issuer} style={{ width:40, height:40, objectFit:"contain", background:"white", borderRadius:6, padding:5 }} />
                   <div>
                     <div style={{ fontSize:13, fontWeight:600, color:"var(--text)", lineHeight:1.4, marginBottom:8 }}>{cert.name}</div>
-                    <div style={{ fontSize:11, color:"var(--text-tertiary)", fontWeight:300 }}>{cert.issuer} · {cert.date}</div>
+                    <div style={{ fontSize:11, color:"var(--text-tertiary)", fontWeight:300 }}>{cert.issuer} • {cert.date}</div>
                   </div>
                 </div>
               ))}

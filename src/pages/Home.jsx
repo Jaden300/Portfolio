@@ -38,14 +38,14 @@ export default function Home() {
           <img src="/profile.jpg" alt="Jaden Wong" style={{ width:116, height:116, borderRadius:"50%", objectFit:"cover", border:"2px solid rgba(245,224,64,0.4)", marginBottom:20, animation:"heroFade 0.9s ease 0.1s both" }} />
           <div style={{ display:"inline-flex", alignItems:"center", gap:14, fontSize:11, fontWeight:500, letterSpacing:"0.34em", textTransform:"uppercase", color:"var(--accent)", marginBottom:16, animation:"heroLabel 0.9s cubic-bezier(0.16,1,0.3,1) 0.2s both" }}>
             <span style={{ display:"inline-block", width:28, height:1, background:"var(--accent)", opacity:0.7 }} />
-            Engineer · Researcher · Builder
+            Engineer • Researcher • Builder
             <span style={{ display:"inline-block", width:28, height:1, background:"var(--accent)", opacity:0.7 }} />
           </div>
           <h1 style={{ fontFamily:"var(--serif)", fontSize:"clamp(60px,8vw,120px)", lineHeight:0.93, letterSpacing:"-0.02em", color:"var(--text)", marginBottom:8, animation:"heroName 1.1s cubic-bezier(0.16,1,0.3,1) 0.38s both" }}>
             Jaden
           </h1>
           <p style={{ fontSize:13, letterSpacing:"0.06em", color:"var(--text-tertiary)", marginBottom:28, animation:"heroFade 0.9s ease 0.85s both" }}>
-            ML Engineering · Signal Processing · Toronto, Ontario
+            ML Engineering • Signal Processing • Toronto, Ontario
           </p>
           <div style={{ display:"flex", gap:10, flexWrap:"wrap", justifyContent:"center", animation:"heroFade 0.9s ease 1.05s both" }}>
             {(() => {

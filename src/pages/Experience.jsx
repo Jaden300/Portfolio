@@ -8,7 +8,7 @@ const ROLES = [
     org: "One Community",
     logo: "/logos/onecommunity.png",
     title: "Software Engineer",
-    period: "May 2026 – Present",
+    period: "May 2026 - Present",
     location: "Remote",
     type: "Volunteer, Part-Time",
     accent: "#3B82F6",
@@ -24,8 +24,8 @@ const ROLES = [
     org: "The Volunteer Well",
     logo: "/logos/volunteerwellw.png",
     titles: [
-      { title: "Website Manager", period: "Aug 2026 – Present" },
-      { title: "Web Developer", period: "May 2026 – Aug 2026" },
+      { title: "Website Manager", period: "Aug 2026 - Present" },
+      { title: "Web Developer", period: "May 2026 - Aug 2026" },
     ],
     location: "Grimsby, ON",
     type: "Volunteer, Part-Time",
@@ -42,7 +42,7 @@ const ROLES = [
     org: "Elevation Athletics",
     logo: "/logos/elevationathletics.png",
     title: "Web Assistant",
-    period: "Jun 2026 – Aug 2026",
+    period: "Jun 2026 - Aug 2026",
     location: "Newmarket, ON",
     type: "Contract",
     accent: "#F97316",
@@ -58,7 +58,7 @@ const ROLES = [
     org: "Beading Divas to the Rescue",
     logo: "/logos/beadingdivas.png",
     title: "Web Technology Volunteer Consultant",
-    period: "Jun 2026 – Jul 2026",
+    period: "Jun 2026 - Jul 2026",
     location: "Remote",
     type: "Volunteer",
     accent: "#F43F5E",
@@ -73,7 +73,7 @@ const ROLES = [
     org: "Youth Improvement Services",
     logo: "/logos/yis.png",
     title: "Data & Technology Consultant",
-    period: "Jun 2026 – Jul 2026",
+    period: "Jun 2026 - Jul 2026",
     location: "Remote",
     type: "Volunteer",
     accent: "#10B981",
@@ -104,7 +104,7 @@ const ROLES = [
     org: "Asenion",
     logo: "/logos/asenion.png",
     title: "AI Intern - QA Assistant",
-    period: "Sep 2025 – Jan 2026",
+    period: "Sep 2025 - Jan 2026",
     location: "Kitchener, ON",
     type: "Student Co-op",
     accent: "#3B82F6",
@@ -182,15 +182,15 @@ export default function Experience() {
                       <div style={{ marginBottom: 4 }}>
                         {role.titles.map((t, ti) => (
                           <div key={ti} style={{ fontSize: 13, color: ti === 0 ? role.accent : "var(--text-tertiary)", fontWeight: 500, marginBottom: 1 }}>
-                            {t.title} &nbsp;·&nbsp; <span style={{ fontWeight: 300 }}>{t.period}</span>
+                            {t.title}  •  <span style={{ fontWeight: 300 }}>{t.period}</span>
                           </div>
                         ))}
-                        <div style={{ fontSize: 12, color: "var(--text-tertiary)", fontWeight: 300, marginTop: 3 }}>{role.type} &nbsp;·&nbsp; {role.location}</div>
+                        <div style={{ fontSize: 12, color: "var(--text-tertiary)", fontWeight: 300, marginTop: 3 }}>{role.type}  •  {role.location}</div>
                       </div>
                     ) : (
                       <>
-                        <div style={{ fontSize: 13, color: role.accent, fontWeight: 500, marginBottom: 4 }}>{role.title} &nbsp;·&nbsp; {role.type}</div>
-                        <div style={{ fontSize: 12, color: "var(--text-tertiary)", fontWeight: 300 }}>{role.period} &nbsp;·&nbsp; {role.location}</div>
+                        <div style={{ fontSize: 13, color: role.accent, fontWeight: 500, marginBottom: 4 }}>{role.title}  •  {role.type}</div>
+                        <div style={{ fontSize: 12, color: "var(--text-tertiary)", fontWeight: 300 }}>{role.period}  •  {role.location}</div>
                       </>
                     )}
                   </div>
