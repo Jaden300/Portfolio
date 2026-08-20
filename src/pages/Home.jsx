@@ -81,7 +81,7 @@ export default function Home() {
               I'm a <strong style={{ color:"var(--text)", fontWeight:500 }}>17-year-old engineer and researcher</strong> from Toronto, Ontario. I build full-stack ML systems, AI-powered web platforms, and quantitative trading frameworks - across whatever the problem demands.
             </p>
             <p style={{ fontSize:17, fontWeight:300, lineHeight:1.82, color:"rgba(237,234,226,0.7)" }}>
-              Currently volunteering as SWE at <strong style={{ color:"var(--text)", fontWeight:500 }}>One Community</strong> and web developer at <strong style={{ color:"var(--text)", fontWeight:500 }}>The Volunteer Well</strong>. Previously AI intern at <strong style={{ color:"var(--text)", fontWeight:500 }}>Asenion</strong> and co-founder of <strong style={{ color:"var(--text)", fontWeight:500 }}>myojam</strong> - open-source EMG gesture classification, no lab, no funding.
+              Currently volunteering as SWE at <strong style={{ color:"var(--text)", fontWeight:500 }}>One Community</strong> and website manager at <strong style={{ color:"var(--text)", fontWeight:500 }}>The Volunteer Well</strong>. Previously AI intern at <strong style={{ color:"var(--text)", fontWeight:500 }}>Asenion</strong> and co-founder of <strong style={{ color:"var(--text)", fontWeight:500 }}>myojam</strong> - open-source EMG gesture classification, no lab, no funding.
             </p>
             <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(108px,1fr))", gap:10, marginTop:44 }}>
               {["Python","React","FastAPI","scikit-learn","PyQt6","Three.js","Signal Processing","Random Forest","XGBoost","LIME","NumPy","Vite"].map(chip => (
@@ -99,8 +99,8 @@ export default function Home() {
       <div style={{ position:"relative", zIndex:1, display:"grid", gridTemplateColumns:"repeat(3,1fr)", borderBottom:"1px solid var(--border)" }}>
         {[
           { val:"6+", label:"Months of internship experience" },
-          { val:6,    label:"Positions" },
-          { val:3,    label:"Projects" },
+          { val:7,    label:"Positions" },
+          { val:4,    label:"Projects" },
         ].map((s, i) => (
           <Reveal key={i} delay={i * 0.08}>
             <div style={{ padding:"44px 48px", borderRight: i < 2 ? "1px solid var(--border)" : "none" }}>
@@ -199,16 +199,6 @@ export default function Home() {
           <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:12 }}>
             {[
               {
-                org: "Elevation Athletics",
-                logo: "/logos/elevationathletics.png",
-                title: "Web Assistant",
-                period: "Jun 2026 - Aug 2026",
-                type: "Contract",
-                desc: "Built 3 production AI chatbots, an auto contact-tagging system, and 2 scraping pipelines. Enriched 13,000+ records across 500+ segments.",
-                accent: "#F97316",
-                anchor: "elevation-athletics",
-              },
-              {
                 org: "One Community",
                 logo: "/logos/onecommunity.png",
                 title: "Software Engineer",
@@ -221,12 +211,22 @@ export default function Home() {
               {
                 org: "The Volunteer Well",
                 logo: "/logos/volunteerwellw.png",
-                title: "Web Developer",
+                title: "Website Manager",
                 period: "May 2026 - Present",
                 type: "Volunteer",
                 desc: "UX audit across 5 pages identifying broken CTAs, WCAG contrast failures, and scroll depth issues. Delivered a P1-P4 action list and partner outreach deck.",
                 accent: "#8B5CF6",
                 anchor: "the-volunteer-well",
+              },
+              {
+                org: "Elevation Athletics",
+                logo: "/logos/elevationathletics.png",
+                title: "Web Assistant",
+                period: "Jun 2026 - Aug 2026",
+                type: "Contract",
+                desc: "Built 3 production AI chatbots, an auto contact-tagging system, and 2 scraping pipelines. Enriched 13,000+ records across 500+ segments.",
+                accent: "#F97316",
+                anchor: "elevation-athletics",
               },
             ].map((r, i) => (
               <Reveal key={r.org} delay={i * 0.07} grand>
