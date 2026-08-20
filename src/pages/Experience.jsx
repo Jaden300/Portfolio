@@ -5,22 +5,6 @@ import { LinkedInIcon } from "../components/Icons"
 
 const ROLES = [
   {
-    org: "Elevation Athletics",
-    logo: "/logos/elevationathletics.png",
-    title: "Web Assistant",
-    period: "Jun 2026 – Aug 2026",
-    location: "Newmarket, ON",
-    type: "Contract",
-    accent: "#F97316",
-    url: null,
-    metrics: [["3", "AI chatbots"], ["13,000+", "records enriched"], ["500+", "segments built"]],
-    bullets: [
-      "Built and deployed 3 production AI chatbots across all EA web properties using the OpenAI API, an interactive map and calendar for the league hub, and an internal Constant Contact contact-entry tool - each shipped to production across WordPress and React environments",
-      "Architected and demoed an automatic contact-tagging WordPress mu-plugin to senior leadership, uploaded 3,000+ contacts via a custom transformation pipeline, and enriched 13,000+ legacy records across 500+ segments by city, region, and sport",
-      "Built 2 Puppeteer scraping pipelines across 4 municipal booking platforms, ML-analyzed 3,000+ program records identifying price as the dominant enrolment driver, and authored 2 competitor research reports with per-platform SWOT analysis",
-    ],
-  },
-  {
     org: "One Community",
     logo: "/logos/onecommunity.png",
     title: "Software Engineer",
@@ -39,8 +23,10 @@ const ROLES = [
   {
     org: "The Volunteer Well",
     logo: "/logos/volunteerwellw.png",
-    title: "Web Developer",
-    period: "May 2026 – Present",
+    titles: [
+      { title: "Website Manager", period: "Aug 2026 – Present" },
+      { title: "Web Developer", period: "May 2026 – Aug 2026" },
+    ],
     location: "Grimsby, ON",
     type: "Volunteer, Part-Time",
     accent: "#8B5CF6",
@@ -50,6 +36,37 @@ const ROLES = [
       "Conducted a manual UX and accessibility audit across 5 pages - identifying broken CTAs, WCAG contrast failures, scroll depth issues, and a missing asset, each documented with a prioritized fix",
       "Delivered findings as a structured presentation with a P1-P4 action list, speaking script, and implementation guidance requiring no custom development",
       "Authored a 10-slide partner outreach deck and 4 audience-segmented email templates ready for immediate deployment",
+    ],
+  },
+  {
+    org: "Elevation Athletics",
+    logo: "/logos/elevationathletics.png",
+    title: "Web Assistant",
+    period: "Jun 2026 – Aug 2026",
+    location: "Newmarket, ON",
+    type: "Contract",
+    accent: "#F97316",
+    url: null,
+    metrics: [["3", "AI chatbots"], ["13,000+", "records enriched"], ["500+", "segments built"]],
+    bullets: [
+      "Built and deployed 3 production AI chatbots across all EA web properties using the OpenAI API, an interactive map and calendar for the league hub, and an internal Constant Contact contact-entry tool - each shipped to production across WordPress and React environments",
+      "Architected and demoed an automatic contact-tagging WordPress mu-plugin to senior leadership, uploaded 3,000+ contacts via a custom transformation pipeline, and enriched 13,000+ legacy records across 500+ segments by city, region, and sport",
+      "Built 2 Puppeteer scraping pipelines across 4 municipal booking platforms, ML-analyzed 3,000+ program records identifying price as the dominant enrolment driver, and authored 2 competitor research reports with per-platform SWOT analysis",
+    ],
+  },
+  {
+    org: "Beading Divas to the Rescue",
+    logo: "/logos/beadingdivas.png",
+    title: "Web Technology Volunteer Consultant",
+    period: "Jun 2026 – Jul 2026",
+    location: "Remote",
+    type: "Volunteer",
+    accent: "#F43F5E",
+    url: null,
+    metrics: [["1", "Zoom consultation"], ["3", "platforms advised"], ["Live", "nav fix"]],
+    bullets: [
+      "Provided one-on-one remote WordPress support via live Zoom - diagnosed and restored a broken primary navigation bar, integrated an Instagram feed, and advised on expanding social presence to Pinterest",
+      "Guided the organization's representative through WordPress interface navigation in real time, enabling them to independently manage similar website updates going forward",
     ],
   },
   {
@@ -91,13 +108,12 @@ const ROLES = [
     location: "Kitchener, ON",
     type: "Student Co-op",
     accent: "#3B82F6",
-
+    url: null,
     metrics: [["200+", "test prompts"], ["R² ≥ 0.95", "token model"], ["3", "LLM providers"]],
     bullets: [
       "LLM Safety Evaluator - designed 200+ adversarial jailbreak prompts across 10+ attack categories and 8 model configs; classified outputs via confusion matrix analysis (precision + recall); trained Random Forest and KNN classifiers on labeled samples to identify which prompt features predicted successful jailbreaks",
       "Token & Cost Estimator - built Python/Tkinter desktop app with budget-aware model recommendation across OpenAI, Anthropic, and Llama; R² ≥ 0.95 on held-out validation via HuggingFace tokenizer; presented at internal demo sprint, directly resulting in expansion from 1 to 3 provider families",
     ],
-    url: null,
   },
 ]
 
@@ -127,7 +143,7 @@ export default function Experience() {
         <div style={{ position: "relative", zIndex: 1, padding: "0 48px" }}>
           <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.38em", textTransform: "uppercase", color: "var(--accent)", marginBottom: 24, animation: "heroLabel 0.9s cubic-bezier(0.16,1,0.3,1) 0.2s both", display: "flex", alignItems: "center", gap: 16 }}>
             <span style={{ display: "inline-block", width: 32, height: 1, background: "var(--accent)", opacity: 0.6 }} />
-            6 roles
+            7 roles
             <span style={{ display: "inline-block", width: 32, height: 1, background: "var(--accent)", opacity: 0.6 }} />
           </div>
           <h1 style={{ fontFamily: "var(--serif)", fontSize: "clamp(64px,10vw,130px)", lineHeight: 0.9, letterSpacing: "-0.03em", color: "var(--text)", animation: "heroName 1.1s cubic-bezier(0.16,1,0.3,1) 0.35s both" }}>
@@ -159,8 +175,21 @@ export default function Experience() {
                       <div style={{ fontSize: 26, fontWeight: 700, color: "var(--text)", fontFamily: "var(--serif)", letterSpacing: "-0.5px" }}>{role.org}</div>
                       {role.note && <span style={{ fontSize: 11, color: "var(--text-tertiary)", fontWeight: 300, fontStyle: "italic" }}>{role.note}</span>}
                     </div>
-                    <div style={{ fontSize: 13, color: role.accent, fontWeight: 500, marginBottom: 4 }}>{role.title} &nbsp;·&nbsp; {role.type}</div>
-                    <div style={{ fontSize: 12, color: "var(--text-tertiary)", fontWeight: 300 }}>{role.period} &nbsp;·&nbsp; {role.location}</div>
+                    {role.titles ? (
+                      <div style={{ marginBottom: 4 }}>
+                        {role.titles.map((t, ti) => (
+                          <div key={ti} style={{ fontSize: 13, color: ti === 0 ? role.accent : "var(--text-tertiary)", fontWeight: 500, marginBottom: 1 }}>
+                            {t.title} &nbsp;·&nbsp; <span style={{ fontWeight: 300 }}>{t.period}</span>
+                          </div>
+                        ))}
+                        <div style={{ fontSize: 12, color: "var(--text-tertiary)", fontWeight: 300, marginTop: 3 }}>{role.type} &nbsp;·&nbsp; {role.location}</div>
+                      </div>
+                    ) : (
+                      <>
+                        <div style={{ fontSize: 13, color: role.accent, fontWeight: 500, marginBottom: 4 }}>{role.title} &nbsp;·&nbsp; {role.type}</div>
+                        <div style={{ fontSize: 12, color: "var(--text-tertiary)", fontWeight: 300 }}>{role.period} &nbsp;·&nbsp; {role.location}</div>
+                      </>
+                    )}
                   </div>
                   {role.metrics && (
                     <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
