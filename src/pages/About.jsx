@@ -74,7 +74,7 @@ export default function About() {
       </section>
 
       {/* ── WORK STACK */}
-      <section style={{ position:"relative", zIndex:1, padding:"100px 48px", borderBottom:"1px solid var(--border)", overflow:"visible" }}>
+      <section style={{ position:"relative", zIndex:1, padding:"48px 48px", borderBottom:"1px solid var(--border)", overflow:"visible" }}>
         <Owl style={{ top:80, right:"3%" }} />
         <div style={{ maxWidth:1000, margin:"0 auto" }}>
           <Reveal>
@@ -118,7 +118,7 @@ export default function About() {
       </section>
 
       {/* ── FUN FACTS */}
-      <section style={{ position:"relative", zIndex:1, padding:"100px 48px 120px" }}>
+      <section style={{ position:"relative", zIndex:1, padding:"48px 48px 120px" }}>
         <div style={{ maxWidth:1000, margin:"0 auto" }}>
           <Reveal>
             <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4.5vw,52px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px", marginBottom:48 }}>Passions</h2>

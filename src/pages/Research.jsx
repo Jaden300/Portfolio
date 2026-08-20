@@ -1,4 +1,5 @@
 import Reveal from "../components/Reveal"
+import { Chick, Mouse, Hamster, Dino } from "../components/Critters"
 
 const FEATURED = [
   {
@@ -80,7 +81,7 @@ export default function Research() {
             <span style={{ display:"inline-block", width:32, height:1, background:"var(--accent)", opacity:0.6 }} />
           </div>
           <h1 style={{ fontFamily:"var(--serif)", fontSize:"clamp(64px,10vw,130px)", lineHeight:0.9, letterSpacing:"-0.03em", color:"var(--text)", animation:"heroName 1.1s cubic-bezier(0.16,1,0.3,1) 0.35s both" }}>
-            Publications &<br /><em style={{ fontStyle:"italic", color:"var(--accent)" }}>writing</em>
+            Research &<br /><em style={{ fontStyle:"italic", color:"var(--accent)" }}>Publications</em>
           </h1>
           <p style={{ fontSize:16, fontWeight:300, color:"var(--text-secondary)", maxWidth:520, margin:"28px auto 0", lineHeight:1.75, animation:"heroFade 1s ease 0.75s both" }}>
             Technical reports, 5+ articles spanning neuroscience, signal processing, and ML ethics, and 10+ hours of educational resources - openly published.
@@ -89,7 +90,11 @@ export default function Research() {
       </section>
 
       {/* ── ARTICLES */}
-      <section style={{ position:"relative", zIndex:1, padding:"100px 48px", borderTop:"1px solid var(--border)", borderBottom:"1px solid var(--border)" }}>
+      <section style={{ position:"relative", zIndex:1, padding:"48px 48px", borderBottom:"1px solid var(--border)" }}>
+        <Chick   style={{ top:  80,  left:  "2%"  }} />
+        <Mouse   style={{ top:  500, right: "2%"  }} />
+        <Hamster style={{ top:  950, left:  "3%"  }} />
+        <Dino    style={{ top: 1400, right: "3%"  }} />
         <div style={{ maxWidth:1000, margin:"0 auto" }}>
           <Reveal>
             <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-end", marginBottom:56, flexWrap:"wrap", gap:16 }}>
@@ -111,9 +116,9 @@ export default function Research() {
                     onMouseEnter={e => e.currentTarget.querySelector(".acard").style.background = "var(--bg)"}
                     onMouseLeave={e => e.currentTarget.querySelector(".acard").style.background = "var(--bg-2)"}
                   >
-                    <div className="acard" style={{ background:"var(--bg-2)", borderRadius:20, padding:"32px", height:"100%", transition:"background 0.2s", borderTop:`3px solid ${tc}`, boxSizing:"border-box", display:"flex", flexDirection:"column" }}>
+                    <div className="acard" style={{ background:"var(--bg-2)", borderRadius:20, padding:"32px", height:"100%", transition:"background 0.2s", borderTop:`3px solid ${tc}`, boxSizing:"border-box", display:"flex", flexDirection:"column", justifyContent:"flex-start" }}>
                       <span style={{ fontSize:10, fontWeight:700, color:tc, background:`${tc}15`, border:`1px solid ${tc}30`, borderRadius:100, padding:"3px 12px", textTransform:"uppercase", letterSpacing:"0.08em", alignSelf:"flex-start", marginBottom:20 }}>{article.tag}</span>
-                      <h3 style={{ fontFamily:"var(--serif)", fontSize:"clamp(15px,1.6vw,18px)", fontWeight:700, color:"var(--text)", letterSpacing:"-0.3px", lineHeight:1.3, marginBottom:14, flex:1 }}>{article.title}</h3>
+                      <h3 style={{ fontFamily:"var(--serif)", fontSize:"clamp(15px,1.6vw,18px)", fontWeight:700, color:"var(--text)", letterSpacing:"-0.3px", lineHeight:1.3, marginBottom:14 }}>{article.title}</h3>
                       <p style={{ fontSize:13, color:"var(--text-secondary)", lineHeight:1.75, fontWeight:300, marginBottom:20 }}>{article.desc}</p>
                       <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center" }}>
                         <span style={{ fontSize:11, color:"var(--text-tertiary)", fontWeight:300 }}>{article.date}</span>
@@ -149,11 +154,11 @@ export default function Research() {
                   onMouseEnter={e => e.currentTarget.querySelector(".rcard").style.background = "var(--bg)"}
                   onMouseLeave={e => e.currentTarget.querySelector(".rcard").style.background = "var(--bg-2)"}
                 >
-                  <div className="rcard" style={{ background:"var(--bg-2)", borderRadius:20, padding:"32px", transition:"background 0.2s", display:"flex", flexDirection:"column", width:"100%", height:"100%", boxSizing:"border-box" }}>
+                  <div className="rcard" style={{ background:"var(--bg-2)", borderRadius:20, padding:"32px", transition:"background 0.2s", display:"flex", flexDirection:"column", justifyContent:"flex-start", width:"100%", height:"100%", boxSizing:"border-box" }}>
                     <span style={{ fontSize:10, fontWeight:700, color:"var(--gold)", background:"rgba(245,224,64,0.08)", border:"1px solid rgba(245,224,64,0.22)", borderRadius:100, padding:"3px 12px", textTransform:"uppercase", letterSpacing:"0.06em", alignSelf:"flex-start", marginBottom:20 }}>{r.type}</span>
                     <div style={{ fontFamily:"var(--serif)", fontSize:17, fontWeight:700, color:"var(--text)", marginBottom:8, lineHeight:1.3, letterSpacing:"-0.3px" }}>{r.title}</div>
                     <div style={{ fontSize:11, color:"var(--gold)", fontWeight:500, marginBottom:14, letterSpacing:"0.04em" }}>{r.audience}</div>
-                    <p style={{ fontSize:13, color:"var(--text-secondary)", lineHeight:1.75, fontWeight:300, marginBottom:20, flex:1 }}>{r.desc}</p>
+                    <p style={{ fontSize:13, color:"var(--text-secondary)", lineHeight:1.75, fontWeight:300, marginBottom:20 }}>{r.desc}</p>
                     <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center" }}>
                       <span style={{ fontSize:11, color:"var(--text-tertiary)", fontWeight:300 }}>{r.date}</span>
                       <span style={{ fontSize:11, color:"var(--gold)", fontWeight:600, border:"1px solid var(--gold)", borderRadius:4, padding:"5px 12px", letterSpacing:"0.06em" }}>Read</span>

@@ -128,15 +128,6 @@ export default function Home() {
           <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:12 }}>
             {[
               {
-                label: "EMG Research",
-                name: "myojam",
-                logo: "/logos/myojam.png",
-                desc: "Built a signal pipeline from scratch - Arduino sensors through a Butterworth filter, feature extraction, and a Random Forest classifier - then wrapped it in a full-stack web platform with interactive demos.",
-                stack: ["Python", "React", "FastAPI", "scikit-learn", "Arduino"],
-                anchor: "myojam",
-                accent: "#f5e040",
-              },
-              {
                 label: "Full-Stack AI",
                 name: "MyMurry",
                 logo: "/logos/mymurry.png",
@@ -152,6 +143,15 @@ export default function Home() {
                 stack: ["Python", "NumPy", "pandas", "scikit-learn", "Pine Script v6"],
                 anchor: "quant-trading",
                 accent: "#10B981",
+              },
+              {
+                label: "EMG Research",
+                name: "myojam",
+                logo: "/logos/myojam.png",
+                desc: "Built a signal pipeline from scratch - Arduino sensors through a Butterworth filter, feature extraction, and a Random Forest classifier - then wrapped it in a full-stack web platform with interactive demos.",
+                stack: ["Python", "React", "FastAPI", "scikit-learn", "Arduino"],
+                anchor: "myojam",
+                accent: "#f5e040",
               },
             ].map((p, i) => (
               <Reveal key={p.name} delay={i * 0.07} grand>

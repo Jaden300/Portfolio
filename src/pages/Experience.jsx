@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import Reveal from "../components/Reveal"
-import { Fox, Penguin } from "../components/Critters"
+import { Fox, Penguin, Bunny, Bear, Owl } from "../components/Critters"
 import { LinkedInIcon } from "../components/Icons"
 
 const ROLES = [
@@ -156,9 +156,12 @@ export default function Experience() {
       </section>
 
       {/* ROLES */}
-      <section style={{ position: "relative", zIndex: 1, padding: "100px 48px 120px", overflow: "visible" }}>
-        <Fox style={{ top: 80, left: "3%" }} />
-        <Penguin style={{ bottom: 80, right: "3%" }} />
+      <section style={{ position: "relative", zIndex: 1, padding: "48px 48px 120px", overflow: "visible" }}>
+        <Fox     style={{ top:  120, left:  "3%"  }} />
+        <Bunny   style={{ top:  480, right: "2%"  }} />
+        <Bear    style={{ top:  900, left:  "2%"  }} />
+        <Owl     style={{ top: 1400, right: "3%"  }} />
+        <Penguin style={{ top: 1900, left:  "3%"  }} />
         <div style={{ maxWidth: 1000, margin: "0 auto" }}>
           <Reveal>
             <h2 style={{ fontFamily: "var(--serif)", fontSize: "clamp(32px,4.5vw,52px)", fontWeight: 700, color: "var(--text)", letterSpacing: "-1.5px", marginBottom: 64 }}>Experience</h2>

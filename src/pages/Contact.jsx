@@ -16,7 +16,7 @@ export default function Contact() {
     <div style={{ background:"var(--bg)", minHeight:"100vh", color:"var(--text)" }}>
       {/* ── HERO */}
       <section style={{
-        position:"relative", height:"100vh", minHeight:600,
+        position:"relative", padding:"140px 0 80px",
         display:"flex", flexDirection:"column", justifyContent:"center",
         alignItems:"center", textAlign:"center", zIndex:1, overflow:"hidden",
       }}>

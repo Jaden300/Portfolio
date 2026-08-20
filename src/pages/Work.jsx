@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import Reveal from "../components/Reveal"
 import { GitHubIcon } from "../components/Icons"
+import { Cat, Frog, Panda, Dog, Sheep } from "../components/Critters"
 
 const ROTS  = [-6, 3.5, -2]
 
@@ -45,24 +46,6 @@ function ImageStack({ images }) {
 
 const PROJECTS = [
   {
-    name: "myojam",
-    logo: "/logos/myojam.png",
-    year: "2024 - present",
-    url: "https://myojam.com",
-    github: "https://github.com/Jaden300/myojam",
-    accent: "#f5e040",
-    summary: "Built a full signal pipeline from scratch: Arduino sensors, Butterworth bandpass filtering, 64-feature extraction, and a Random Forest classifier. Deployed as a full-stack web platform with interactive demos - no hardware required.",
-    bullets: [
-      "Designed the feature extraction stage: 64 features per window (MAV, RMS, Zero Crossing, Waveform Length) across 16 EMG channels, then trained and evaluated using Leave-One-Subject-Out cross-validation",
-      "Built the inference layer as a FastAPI service with sub-5ms response time, consumed by a React frontend with 8 interactive browser demos including a signal playground and Scratch-like block-coding interface",
-      "Wrote a full PyQt6 desktop app for hardware signal capture, preprocessing, and real-time classification via the same FastAPI backend",
-      "Published 11 educational articles, 3 lesson plans, and launched ELEVATE - an international EMG innovation competition",
-    ],
-    metrics: [["84.85%", "Cross-subject acc"], ["8", "Browser demos"], ["11", "Articles"], ["<5ms", "Inference"]],
-    tags: ["Python", "React", "FastAPI", "scikit-learn", "PyQt6", "Three.js", "Arduino"],
-    images: ["/work/myojam-1.jpg", "/work/myojam-2.jpg", "/work/myojam-3.jpg"],
-  },
-  {
     name: "MyMurry",
     logo: "/logos/mymurry.png",
     year: "2026 - present",
@@ -96,6 +79,24 @@ const PROJECTS = [
     metrics: [["23", "Strategies"], ["5", "Live"], ["~2,140", "Param combos"], ["491", "Tickers"]],
     tags: ["Python", "NumPy", "pandas", "yfinance", "scikit-learn", "Pine Script v6"],
     images: ["/work/quant-1.jpg", "/work/quant-2.jpg"],
+  },
+  {
+    name: "myojam",
+    logo: "/logos/myojam.png",
+    year: "2024 - present",
+    url: "https://myojam.com",
+    github: "https://github.com/Jaden300/myojam",
+    accent: "#f5e040",
+    summary: "Built a full signal pipeline from scratch: Arduino sensors, Butterworth bandpass filtering, 64-feature extraction, and a Random Forest classifier. Deployed as a full-stack web platform with interactive demos - no hardware required.",
+    bullets: [
+      "Designed the feature extraction stage: 64 features per window (MAV, RMS, Zero Crossing, Waveform Length) across 16 EMG channels, then trained and evaluated using Leave-One-Subject-Out cross-validation",
+      "Built the inference layer as a FastAPI service with sub-5ms response time, consumed by a React frontend with 8 interactive browser demos including a signal playground and Scratch-like block-coding interface",
+      "Wrote a full PyQt6 desktop app for hardware signal capture, preprocessing, and real-time classification via the same FastAPI backend",
+      "Published 11 educational articles, 3 lesson plans, and launched ELEVATE - an international EMG innovation competition",
+    ],
+    metrics: [["84.85%", "Cross-subject acc"], ["8", "Browser demos"], ["11", "Articles"], ["<5ms", "Inference"]],
+    tags: ["Python", "React", "FastAPI", "scikit-learn", "PyQt6", "Three.js", "Arduino"],
+    images: ["/work/myojam-1.jpg", "/work/myojam-2.jpg", "/work/myojam-3.jpg"],
   },
   {
     name: "Machine Learning Series",
@@ -143,16 +144,21 @@ export default function Work() {
       </section>
 
       <section style={{ padding: "80px 48px 120px", position: "relative", overflow: "visible" }}>
+        <Cat   style={{ top:  100, left:  "2%"  }} />
+        <Frog  style={{ top:  500, right: "2%"  }} />
+        <Panda style={{ top:  950, left:  "3%"  }} />
+        <Dog   style={{ top: 1450, right: "3%"  }} />
+        <Sheep style={{ top: 1900, left:  "2%"  }} />
         <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", flexDirection: "column", gap: 16 }}>
           {PROJECTS.map((p, i) => (
 
             <Reveal key={p.name} delay={i * 0.08} grand>
-              <div id={p.name.toLowerCase()} style={{ background: "var(--bg-2)", borderRadius: 24, overflow: "visible", borderLeft: `3px solid ${p.accent}` }}>
+              <div id={p.name.toLowerCase()} style={{ background: "var(--bg-2)", borderRadius: 24, overflow: "hidden", borderLeft: `3px solid ${p.accent}` }}>
                 <div style={{ padding: "48px" }}>
-                  <div style={{ display:"grid", gridTemplateColumns:"1fr 360px", gap:56, alignItems:"start" }}>
+                  <div style={{ display:"grid", gridTemplateColumns:"1fr minmax(0, 360px)", gap:56, alignItems:"start" }}>
 
                     {/* Left: content */}
-                    <div>
+                    <div style={{ minWidth: 0 }}>
                       <div style={{ display:"flex", gap:10, marginBottom:12, alignItems:"center" }}>
                         <span style={{ fontSize:11, color:"var(--text-tertiary)", border:"1px solid var(--border)", borderRadius:100, padding:"3px 12px", fontWeight:300 }}>{p.year}</span>
                       </div>
@@ -190,7 +196,7 @@ export default function Work() {
                     </div>
 
                     {/* Right: image stack + buttons */}
-                    <div style={{ paddingTop:8, display:"flex", flexDirection:"column", gap:14 }}>
+                    <div style={{ paddingTop:8, display:"flex", flexDirection:"column", gap:14, minWidth:0 }}>
                       <ImageStack images={p.images} />
                       <a href={p.url} target="_blank" rel="noreferrer" style={{ display:"block", textAlign:"center", fontSize:13, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#080a0f", background:p.accent, border:`1px solid ${p.accent}`, borderRadius:8, padding:"14px 0", textDecoration:"none", transition:"filter 0.2s" }}
                         onMouseEnter={e => e.currentTarget.style.filter = "brightness(1.1)"}
