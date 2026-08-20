@@ -21,7 +21,7 @@ export default function About() {
     <div style={{ background:"var(--bg)", minHeight:"100vh", color:"var(--text)" }}>
       {/* ── HERO */}
       <section style={{
-        position:"relative", height:"100vh", minHeight:600, zIndex:1,
+        position:"relative", padding:"140px 0 80px", zIndex:1,
         display:"flex", flexDirection:"column", justifyContent:"center",
         alignItems:"center", textAlign:"center", overflow:"hidden",
       }}>
@@ -128,7 +128,7 @@ export default function About() {
           <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:12 }}>
             {[
               { label:"Gaming", title:"Clash Royale", desc:"Been playing since the early seasons. It's basically applied game theory." },
-              { label:"Chess", title:"Chess player", desc:"Regular games online. Chess sharpens pattern recognition in ways that transfer. My favourite opening is the Leonidas Variation." },
+              { label:"Chess", title:"Chess player", desc:"Regular games online. Chess sharpens pattern recognition in ways that transfer. My favourite opening is the Leonardis Variation." },
               { label:"Off the clock", title:"Downtown walks & coffee", desc:"My favourite thing is wandering around busy cities and going for coffees. Let's grab one sometime!" },
             ].map((fact, i) => (
               <Reveal key={fact.title} delay={i * 0.07} grand>
