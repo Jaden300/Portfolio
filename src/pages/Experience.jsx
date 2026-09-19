@@ -107,7 +107,7 @@ const ROLES = [
     title: "AI Intern - QA Assistant",
     period: "Sep 2025 - Jan 2026",
     location: "Kitchener, ON",
-    type: "Student Co-op",
+    type: "Co-op",
     accent: "#3B82F6",
     url: null,
     metrics: [["200+", "test prompts"], ["R² ≥ 0.95", "token model"], ["3", "LLM providers"]],

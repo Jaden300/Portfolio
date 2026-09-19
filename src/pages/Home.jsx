@@ -213,26 +213,6 @@ export default function Home() {
           <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:12 }}>
             {[
               {
-                org: "One Community",
-                logo: "/logos/onecommunity.png",
-                title: "Software Engineer",
-                period: "May 2026 - Present",
-                type: "Volunteer",
-                desc: "Built Garden Management and User Management from scratch. Took over 5+ complex PRs, fixed critical bugs, and resolved SonarQube violations across the codebase.",
-                accent: "#3B82F6",
-                anchor: "one-community",
-              },
-              {
-                org: "The Volunteer Well",
-                logo: "/logos/volunteerwellw.png",
-                title: "Website Manager",
-                period: "May 2026 - Present",
-                type: "Volunteer",
-                desc: "UX audit across 5 pages identifying broken CTAs, WCAG contrast failures, and scroll depth issues. Delivered a P1-P4 action list and partner outreach deck.",
-                accent: "#8B5CF6",
-                anchor: "the-volunteer-well",
-              },
-              {
                 org: "Elevation Athletics",
                 logo: "/logos/elevationathletics.png",
                 title: "Web Assistant",
@@ -241,6 +221,26 @@ export default function Home() {
                 desc: "Built 3 production AI chatbots, an auto contact-tagging system, and 2 scraping pipelines. Enriched 13,000+ records across 500+ segments.",
                 accent: "#F97316",
                 anchor: "elevation-athletics",
+              },
+              {
+                org: "Asenion",
+                logo: "/logos/asenion.png",
+                title: "AI Intern - QA Assistant",
+                period: "Sep 2025 - Jan 2026",
+                type: "Co-op",
+                desc: "Designed 200+ adversarial jailbreak prompts across 10+ attack categories, then built a Python/Tkinter token and cost estimator hitting R² >= 0.95, expanding coverage from 1 to 3 provider families.",
+                accent: "#3B82F6",
+                anchor: "asenion",
+              },
+              {
+                org: "One Community",
+                logo: "/logos/onecommunity.png",
+                title: "Software Engineer",
+                period: "May 2026 - Present",
+                type: "Volunteer",
+                desc: "Built Garden Management and User Management from scratch. Took over 5+ complex PRs, fixed critical bugs, and resolved SonarQube violations across the codebase.",
+                accent: "#10B981",
+                anchor: "one-community",
               },
             ].map((r, i) => (
               <Reveal key={r.org} delay={i * 0.07} grand>
