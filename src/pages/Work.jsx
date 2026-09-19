@@ -96,7 +96,7 @@ const PROJECTS = [
     github: "https://github.com/Jaden300/Machine-Learning-Series",
     accent: "#F97316",
     bullets: [
-      "Benchmarked **10+ classifiers** on a 2,000-sample mobile price dataset - stacked ensemble (SVC + KNN + Decision Tree → LR meta-learner) hit **97.0%** vs 95.3% best single model; tuned regression via **GridSearchCV** achieving **R² = 0.9893**",
+      "Benchmarked **10+ classifiers** on a 2,000-sample mobile price dataset - stacked ensemble (SVC + KNN + Decision Tree - LR meta-learner) hit **97.0%** vs 95.3% best single model; tuned regression via **GridSearchCV** achieving **R² = 0.9893**",
       "Applied **PCA**, **KernelPCA**, **t-SNE**, **DBSCAN**, and **KMeans** across Spotify and Sign Language MNIST; image segmentation via KMeans, GMM, and MeanShift",
     ],
     metrics: [["97.0%", "Ensemble acc"], ["R² 0.989", "Regression"], ["614", "Notebook cells"], ["10+", "Algorithms"]],

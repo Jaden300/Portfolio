@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Reveal from "../components/Reveal"
 import Bold from "../components/Bold"
 import { GitHubIcon } from "../components/Icons"
@@ -47,23 +47,6 @@ function ImageStack({ images }) {
 
 const PROJECTS = [
   {
-    name: "MySquishi",
-    eventLogo: "/logos/volthacks.png",
-    projectLogo: "/logos/mysquishi.png",
-    year: "2026",
-    event: "VoltHacks 2026",
-    url: "https://mysquishi.onrender.com/",
-    github: "https://github.com/Jaden300/MySquishi",
-    accent: "#EF4444",
-    bullets: [
-      "Built a **sEMG**-driven rehab platform (**MyoWare** sensor → **FastAPI**/**scikit-learn** → React) around a single Protocol boundary so live sensor, simulator, and CSV replay sources are interchangeable at runtime with zero consumer changes",
-      "Shipped **15 model slices** (signal quality, rep segmentation, EMG-to-force regression, fatigue, recovery trajectory) selected via expanding-window time-series CV, with every predictive output enforcing a structural Interval type",
-      "Ran real hardware bring-up logging **Tier A/B/C signal quality** (33.8x contrast, 0% ADC clipping, Cohen's d up to 4.13), which set product scope to 3 effort levels and ruled out per-finger gesture decoding",
-    ],
-    metrics: [["49", "Commits"], ["434", "Backend tests"], ["9 days", "Build time"], ["15", "Model slices"]],
-    images: ["/work/mysquishi-1.jpg", "/work/mysquishi-2.jpg", "/work/mysquishi-3.jpg"],
-  },
-  {
     name: "MyPillPal",
     eventLogo: "/logos/csh.png",
     projectLogo: "/logos/mypillpal.png",
@@ -81,23 +64,6 @@ const PROJECTS = [
     ],
     metrics: [["10", "Regions"], ["8", "Clinical rules"], ["10", "Risk factors"], ["7", "Commits"]],
     images: ["/work/mypillpal-1.jpg", "/work/mypillpal-2.jpg", "/work/mypillpal-3.jpg"],
-  },
-  {
-    name: "MyLumi",
-    eventLogo: "/logos/hackforhumanity.png",
-    projectLogo: "/logos/mylumi.png",
-    year: "2026",
-    event: "Hack for Humanity 2026",
-    url: "https://mylumi-web.onrender.com/",
-    github: "https://github.com/Jaden300/MyLumi",
-    accent: "#8B5CF6",
-    bullets: [
-      "Built a local-first journaling app with no account, no analytics, no server-side copy - a stateless **FastAPI** service fits a model per request and discards the payload with nothing logged",
-      "Fit **ridge regression** per request for interpretable symptom-burden forecasting, adaptively shrinking features so limited data can't produce an overconfident overfit model",
-      "Ran **Holm-Bonferroni-corrected correlation analysis** and a walk-forward backtest that caught its own prediction interval under-covering, then fixed it - backed by **844 passing tests**",
-    ],
-    metrics: [["844", "Tests passing"], ["p=0.004", "Key correlation"], ["29", "Body regions"], ["7+", "Night data floor"]],
-    images: ["/work/mylumi-1.jpg", "/work/mylumi-2.jpg", "/work/mylumi-3.jpg"],
   },
   {
     name: "Pip",
@@ -118,9 +84,56 @@ const PROJECTS = [
     metrics: [["7", "Biomes"], ["73", "Crop database"], ["120", "Monte Carlo trials"], ["365", "Day horizon"]],
     images: ["/work/pip-1.png", "/work/pip-2.png", "/work/pip-3.png"],
   },
+  {
+    name: "MySquishi",
+    eventLogo: "/logos/volthacks.png",
+    projectLogo: "/logos/mysquishi.png",
+    year: "2026",
+    event: "VoltHacks 2026",
+    url: "https://mysquishi.onrender.com/",
+    github: "https://github.com/Jaden300/MySquishi",
+    accent: "#EF4444",
+    bullets: [
+      "Built a **sEMG**-driven rehab platform (**MyoWare** sensor - **FastAPI**/**scikit-learn** - React) around a single Protocol boundary so live sensor, simulator, and CSV replay sources are interchangeable at runtime with zero consumer changes",
+      "Shipped **15 model slices** (signal quality, rep segmentation, EMG-to-force regression, fatigue, recovery trajectory) selected via expanding-window time-series CV, with every predictive output enforcing a structural Interval type",
+      "Ran real hardware bring-up logging **Tier A/B/C signal quality** (33.8x contrast, 0% ADC clipping, Cohen's d up to 4.13), which set product scope to 3 effort levels and ruled out per-finger gesture decoding",
+    ],
+    metrics: [["49", "Commits"], ["434", "Backend tests"], ["9 days", "Build time"], ["15", "Model slices"]],
+    images: ["/work/mysquishi-1.jpg", "/work/mysquishi-2.jpg", "/work/mysquishi-3.jpg"],
+  },
+  {
+    name: "MyLumi",
+    eventLogo: "/logos/hackforhumanity.png",
+    projectLogo: "/logos/mylumi.png",
+    year: "2026",
+    event: "Hack for Humanity 2026",
+    url: "https://mylumi-web.onrender.com/",
+    github: "https://github.com/Jaden300/MyLumi",
+    accent: "#8B5CF6",
+    bullets: [
+      "Built a local-first journaling app with no account, no analytics, no server-side copy - a stateless **FastAPI** service fits a model per request and discards the payload with nothing logged",
+      "Fit **ridge regression** per request for interpretable symptom-burden forecasting, adaptively shrinking features so limited data can't produce an overconfident overfit model",
+      "Ran **Holm-Bonferroni-corrected correlation analysis** and a walk-forward backtest that caught its own prediction interval under-covering, then fixed it - backed by **844 passing tests**",
+    ],
+    metrics: [["844", "Tests passing"], ["p=0.004", "Key correlation"], ["29", "Body regions"], ["7+", "Night data floor"]],
+    images: ["/work/mylumi-1.jpg", "/work/mylumi-2.jpg", "/work/mylumi-3.jpg"],
+  },
 ]
 
 export default function Hackathons() {
+  useEffect(() => {
+    const hash = window.location.hash
+    if (hash) {
+      setTimeout(() => {
+        const el = document.querySelector(hash)
+        if (el) {
+          const y = el.getBoundingClientRect().top + window.scrollY - 175
+          window.scrollTo({ top: y, behavior: "smooth" })
+        }
+      }, 400)
+    }
+  }, [])
+
   return (
     <div style={{ background: "var(--bg)", minHeight: "100vh" }}>
       <section style={{ padding:"120px 48px 60px", textAlign:"center" }}>

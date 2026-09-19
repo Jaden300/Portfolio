@@ -7,6 +7,7 @@ Quick-start for every session. Keep this minimal - full details live in docs/.
 - NEVER add `Co-Authored-By` or any Claude credit to git commits
 - NEVER use em dashes (—) anywhere - use ` - ` instead
 - NEVER use en dashes (–) in content - use ` - ` instead
+- NEVER use arrows (→) in body text/content - use ` - ` instead (arrows are fine as standalone UI glyphs, e.g. a pipeline-flow indicator between chart chips)
 - Middle dots (·) as structural separators should be • - dots inside skill chip labels (e.g. `PCA · t-SNE`) are fine
 
 ## Stack
