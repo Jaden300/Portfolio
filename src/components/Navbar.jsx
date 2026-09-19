@@ -15,7 +15,7 @@ export default function Navbar() {
   const links = [
     ["Projects",     "/projects"],
     ["Experience",   "/experience"],
-    ["Research", "/research"],
+    ["Hackathons", "/hackathons"],
     ["About",        "/about"],
   ]
 

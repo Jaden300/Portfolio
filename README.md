@@ -1,7 +1,5 @@
 # Portfolio - Jaden Wong
 
-![banner](public/banner.svg)
-
 ![preview](public/screenshots/preview.png)
 
 ![React](https://img.shields.io/badge/React_19-20232A?style=flat&logo=react&logoColor=61DAFB)

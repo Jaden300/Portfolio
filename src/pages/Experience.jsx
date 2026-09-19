@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import Reveal from "../components/Reveal"
+import Bold from "../components/Bold"
 import { Fox, Penguin, Bunny, Bear, Owl } from "../components/Critters"
 import { LinkedInIcon } from "../components/Icons"
 
@@ -15,9 +16,9 @@ const ROLES = [
     url: null,
     metrics: [["5+", "PRs taken over"], ["31", "tests fixed"], ["20+", "QA reviews"]],
     bullets: [
-      "Built the Garden Management landing page and User Management section from scratch - metric cards, tab navbar, calendar grid, and a 5-column user table with dark mode and intentional API decoupling",
-      "Took over 5+ complex PRs - merging stale branches, converting to CSS Modules, fixing SonarQube violations, and porting components across Node version upgrades",
-      "Fixed critical bugs including a null crash causing downstream TypeErrors, a case-sensitivity import path breaking 31 tests on Linux CI, and a Redux reliability violation rated C by SonarQube",
+      "Built the **Garden Management** landing page and **User Management** section from scratch - metric cards, tab navbar, calendar grid, and a 5-column user table with dark mode and intentional API decoupling",
+      "Took over **5+ complex PRs** - merging stale branches, converting to CSS Modules, fixing SonarQube violations, and porting components across Node version upgrades",
+      "Fixed critical bugs including a null crash causing downstream TypeErrors, a case-sensitivity import path breaking **31 tests** on Linux CI, and a Redux reliability violation rated C by SonarQube",
     ],
   },
   {
@@ -33,9 +34,9 @@ const ROLES = [
     url: null,
     metrics: [["5", "pages audited"], ["4", "email templates"], ["10", "slide deck"]],
     bullets: [
-      "Conducted a manual UX and accessibility audit across 5 pages - identifying broken CTAs, WCAG contrast failures, scroll depth issues, and a missing asset, each documented with a prioritized fix",
-      "Delivered findings as a structured presentation with a P1-P4 action list, speaking script, and implementation guidance requiring no custom development",
-      "Authored a 10-slide partner outreach deck and 4 audience-segmented email templates ready for immediate deployment",
+      "Conducted a manual **UX and accessibility audit** across **5 pages** - identifying broken CTAs, WCAG contrast failures, scroll depth issues, and a missing asset, each documented with a prioritized fix",
+      "Delivered findings as a structured presentation with a **P1-P4 action list**, speaking script, and implementation guidance requiring no custom development",
+      "Authored a **10-slide partner outreach deck** and **4 audience-segmented email templates** ready for immediate deployment",
     ],
   },
   {
@@ -49,9 +50,9 @@ const ROLES = [
     url: null,
     metrics: [["3", "AI chatbots"], ["13,000+", "records enriched"], ["500+", "segments built"]],
     bullets: [
-      "Built and deployed 3 production AI chatbots across all EA web properties using the OpenAI API, an interactive map and calendar for the league hub, and an internal Constant Contact contact-entry tool - each shipped to production across WordPress and React environments",
-      "Architected and demoed an automatic contact-tagging WordPress mu-plugin to senior leadership, uploaded 3,000+ contacts via a custom transformation pipeline, and enriched 13,000+ legacy records across 500+ segments by city, region, and sport",
-      "Built 2 Puppeteer scraping pipelines across 4 municipal booking platforms, ML-analyzed 3,000+ program records identifying price as the dominant enrolment driver, and authored 2 competitor research reports with per-platform SWOT analysis",
+      "Built and deployed **3 production AI chatbots** across all EA web properties using the **OpenAI API**, an interactive map and calendar for the league hub, and an internal Constant Contact contact-entry tool - each shipped to production across WordPress and React environments",
+      "Architected and demoed an automatic contact-tagging **WordPress mu-plugin** to senior leadership, uploaded 3,000+ contacts via a custom transformation pipeline, and enriched **13,000+ legacy records** across **500+ segments** by city, region, and sport",
+      "Built **2 Puppeteer scraping pipelines** across 4 municipal booking platforms, ML-analyzed 3,000+ program records identifying price as the dominant enrolment driver, and authored 2 competitor research reports with per-platform SWOT analysis",
     ],
   },
   {
@@ -65,7 +66,7 @@ const ROLES = [
     url: null,
     metrics: [["1", "Zoom consultation"], ["3", "platforms advised"], ["Live", "nav fix"]],
     bullets: [
-      "Provided one-on-one remote WordPress support via live Zoom - diagnosed and restored a broken primary navigation bar, integrated an Instagram feed, and advised on expanding social presence to Pinterest",
+      "Provided one-on-one remote **WordPress** support via live Zoom - diagnosed and restored a broken primary navigation bar, integrated an **Instagram feed**, and advised on expanding social presence to Pinterest",
       "Guided the organization's representative through WordPress interface navigation in real time, enabling them to independently manage similar website updates going forward",
     ],
   },
@@ -80,9 +81,9 @@ const ROLES = [
     url: null,
     metrics: [["2", "formal reports"], ["5", "tech domains"], ["74%", "housing rate"]],
     bullets: [
-      "Audited full data infrastructure across case management, donor CRM, grant reporting, and security - delivered two formal reports with phased implementation roadmaps",
-      "Uncovered an SEO-blocking noindex tag hiding the site from all search engines; delivered a website feedback report covering navigation, messaging, and funder credibility",
-      "Designed a tiered identity verification framework, recommended a 5-domain technology stack with nonprofit pricing, and made the org's 74% housing resolution rate grant-verifiable",
+      "Audited full data infrastructure across case management, **donor CRM**, grant reporting, and security - delivered **two formal reports** with phased implementation roadmaps",
+      "Uncovered an **SEO-blocking noindex tag** hiding the site from all search engines; delivered a website feedback report covering navigation, messaging, and funder credibility",
+      "Designed a tiered **identity verification framework**, recommended a **5-domain technology stack** with nonprofit pricing, and made the org's **74% housing resolution rate** grant-verifiable",
     ],
   },
   {
@@ -96,8 +97,8 @@ const ROLES = [
     url: null,
     metrics: [["3", "prototypes"], ["7", "plugins"], ["17+", "years of impact"]],
     bullets: [
-      "Built 3 iterative HTML prototypes for a homepage redesign - applying UX flow, visual hierarchy, color theming, and CTA placement, with each iteration refined based on client feedback",
-      "Recommended a full WordPress stack, pivoting to a page builder-free Twenty Twenty-Five + Gutenberg setup their non-technical team could manage independently",
+      "Built **3 iterative HTML prototypes** for a homepage redesign - applying UX flow, visual hierarchy, color theming, and CTA placement, with each iteration refined based on client feedback",
+      "Recommended a full **WordPress stack**, pivoting to a page builder-free **Twenty Twenty-Five + Gutenberg** setup their non-technical team could manage independently",
     ],
   },
   {
@@ -111,8 +112,8 @@ const ROLES = [
     url: null,
     metrics: [["200+", "test prompts"], ["R² ≥ 0.95", "token model"], ["3", "LLM providers"]],
     bullets: [
-      "LLM Safety Evaluator - designed 200+ adversarial jailbreak prompts across 10+ attack categories and 8 model configs; classified outputs via confusion matrix analysis (precision + recall); trained Random Forest and KNN classifiers on labeled samples to identify which prompt features predicted successful jailbreaks",
-      "Token & Cost Estimator - built Python/Tkinter desktop app with budget-aware model recommendation across OpenAI, Anthropic, and Llama; R² ≥ 0.95 on held-out validation via HuggingFace tokenizer; presented at internal demo sprint, directly resulting in expansion from 1 to 3 provider families",
+      "**LLM Safety Evaluator** - designed **200+ adversarial jailbreak prompts** across 10+ attack categories and 8 model configs; classified outputs via confusion matrix analysis (precision + recall); trained **Random Forest** and **KNN** classifiers on labeled samples to identify which prompt features predicted successful jailbreaks",
+      "**Token & Cost Estimator** - built **Python/Tkinter** desktop app with budget-aware model recommendation across OpenAI, Anthropic, and Llama; **R² ≥ 0.95** on held-out validation via HuggingFace tokenizer; presented at internal demo sprint, directly resulting in expansion from 1 to 3 provider families",
     ],
   },
 ]
@@ -143,7 +144,7 @@ export default function Experience() {
         <div style={{ position: "relative", zIndex: 1, padding: "0 48px" }}>
           <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.38em", textTransform: "uppercase", color: "var(--accent)", marginBottom: 24, animation: "heroLabel 0.9s cubic-bezier(0.16,1,0.3,1) 0.2s both", display: "flex", alignItems: "center", gap: 16 }}>
             <span style={{ display: "inline-block", width: 32, height: 1, background: "var(--accent)", opacity: 0.6 }} />
-            7 roles
+            Where I've worked
             <span style={{ display: "inline-block", width: 32, height: 1, background: "var(--accent)", opacity: 0.6 }} />
           </div>
           <h1 style={{ fontFamily: "var(--serif)", fontSize: "clamp(64px,10vw,130px)", lineHeight: 0.9, letterSpacing: "-0.03em", color: "var(--text)", animation: "heroName 1.1s cubic-bezier(0.16,1,0.3,1) 0.35s both" }}>
@@ -209,7 +210,7 @@ export default function Experience() {
                   {role.bullets.map((b, j) => (
                     <div key={j} style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
                       <span style={{ color: role.accent, fontWeight: 700, flexShrink: 0, marginTop: 1 }}>•</span>
-                      <span style={{ fontSize: 14, color: "var(--text-secondary)", fontWeight: 300, lineHeight: 1.75 }}>{b}</span>
+                      <span style={{ fontSize: 14, color: "var(--text-secondary)", fontWeight: 300, lineHeight: 1.75 }}><Bold text={b} /></span>
                     </div>
                   ))}
                 </div>

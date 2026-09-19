@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Reveal from "../components/Reveal"
 import Bold from "../components/Bold"
 import { GitHubIcon } from "../components/Icons"
-import { Cat, Frog, Panda, Dog } from "../components/Critters"
+import { Chick, Mouse, Hamster, Dino } from "../components/Critters"
 
 const ROTS  = [-6, 3.5, -2]
 
@@ -47,116 +47,124 @@ function ImageStack({ images }) {
 
 const PROJECTS = [
   {
-    name: "MyMurry",
-    logo: "/logos/mymurry.png",
-    year: "2026 - present",
-    url: "https://mymurry.com",
-    accent: "#A855F7",
+    name: "MySquishi",
+    eventLogo: "/logos/volthacks.png",
+    projectLogo: "/logos/mysquishi.png",
+    year: "2026",
+    event: "VoltHacks 2026",
+    url: "https://mysquishi.onrender.com/",
+    github: "https://github.com/Jaden300/MySquishi",
+    accent: "#EF4444",
     bullets: [
-      "Designed and built **21+ REST endpoints** across **Next.js App Router**: note CRUD, AI analysis sessions, Google Calendar and Tasks proxy, **TOTP MFA** recovery, and public browse",
-      "Modelled **9 PostgreSQL tables** via **Prisma ORM** with **Supabase auth** (Google OAuth 2.0, silent token refresh, SHA-256-hashed 2FA recovery codes), plus a custom **i18n system** spanning **700+ strings** across English, French, and Spanish",
-      "Integrated **GPT-4o** for section generation and recall scoring - each session produces a point-by-point coverage breakdown showing exactly what concepts were missed",
+      "Built a **sEMG**-driven rehab platform (**MyoWare** sensor → **FastAPI**/**scikit-learn** → React) around a single Protocol boundary so live sensor, simulator, and CSV replay sources are interchangeable at runtime with zero consumer changes",
+      "Shipped **15 model slices** (signal quality, rep segmentation, EMG-to-force regression, fatigue, recovery trajectory) selected via expanding-window time-series CV, with every predictive output enforcing a structural Interval type",
+      "Ran real hardware bring-up logging **Tier A/B/C signal quality** (33.8x contrast, 0% ADC clipping, Cohen's d up to 4.13), which set product scope to 3 effort levels and ruled out per-finger gesture decoding",
     ],
-    metrics: [["21+", "API endpoints"], ["9", "DB models"], ["700+", "i18n strings"], ["MFA", "2-factor auth"]],
-    images: ["/work/mymurry-1.jpg", "/work/mymurry-2.jpg", "/work/mymurry-3.jpg"],
+    metrics: [["49", "Commits"], ["434", "Backend tests"], ["9 days", "Build time"], ["15", "Model slices"]],
+    images: ["/work/mysquishi-1.jpg", "/work/mysquishi-2.jpg", "/work/mysquishi-3.jpg"],
   },
   {
-    name: "Quant-Trading",
-    year: "2025 - present",
-    url: "https://github.com/Jaden300/Quant-Trading",
-    github: "https://github.com/Jaden300/Quant-Trading",
+    name: "MyPillPal",
+    eventLogo: "/logos/csh.png",
+    projectLogo: "/logos/mypillpal.png",
+    year: "2026",
+    event: "CSH Social Impact 2026",
+    badge: "Winner - Bio + Tech Track",
+    teams: "38",
+    url: "https://mypillpal.vercel.app/",
+    github: "https://github.com/Jaden300/MyPillPal",
+    accent: "#3B82F6",
+    bullets: [
+      "Built a client-only tool turning public **antibiogram data** into a personalized \"**Doctor Conversation Guide**\" - no backend, no accounts, all inputs discarded on tab close",
+      "Designed a transparent **weighted risk model** over **10 clinically-sourced factors**, each weight tied to a published odds ratio, plus a priority-ordered rule engine assembling 3-5 doctor questions from 8 clinical rules",
+      "Modeled resistance data across **5 infection types** and **10 regions** with every rate source-tagged, built as pure side-effect-free functions decoupled from UI state for auditability",
+    ],
+    metrics: [["10", "Regions"], ["8", "Clinical rules"], ["10", "Risk factors"], ["7", "Commits"]],
+    images: ["/work/mypillpal-1.jpg", "/work/mypillpal-2.jpg", "/work/mypillpal-3.jpg"],
+  },
+  {
+    name: "MyLumi",
+    eventLogo: "/logos/hackforhumanity.png",
+    projectLogo: "/logos/mylumi.png",
+    year: "2026",
+    event: "Hack for Humanity 2026",
+    url: "https://mylumi-web.onrender.com/",
+    github: "https://github.com/Jaden300/MyLumi",
+    accent: "#8B5CF6",
+    bullets: [
+      "Built a local-first journaling app with no account, no analytics, no server-side copy - a stateless **FastAPI** service fits a model per request and discards the payload with nothing logged",
+      "Fit **ridge regression** per request for interpretable symptom-burden forecasting, adaptively shrinking features so limited data can't produce an overconfident overfit model",
+      "Ran **Holm-Bonferroni-corrected correlation analysis** and a walk-forward backtest that caught its own prediction interval under-covering, then fixed it - backed by **844 passing tests**",
+    ],
+    metrics: [["844", "Tests passing"], ["p=0.004", "Key correlation"], ["29", "Body regions"], ["7+", "Night data floor"]],
+    images: ["/work/mylumi-1.jpg", "/work/mylumi-2.jpg", "/work/mylumi-3.jpg"],
+  },
+  {
+    name: "Pip",
+    eventLogo: "/logos/ignitionhacks.png",
+    projectLogo: "/logos/pip.png",
+    year: "2026",
+    event: "Ignition Hacks 2026",
+    badge: "2nd Best Use of Base44",
+    teams: "87",
+    url: "https://verdant-uird.onrender.com/",
+    github: "https://github.com/Jaden300/Verdant",
     accent: "#10B981",
     bullets: [
-      "Wrote a bar-by-bar **backtesting engine** from scratch and a multi-parameter optimizer that runs **~2,140 combinations** per strategy across a 5.3-year daily bar history, scored via a custom formula penalizing cross-ticker inconsistency",
-      "Built a **Kalman filter** crossover strategy in **NumPy** from scratch: dual recursive Bayesian estimators tracking two price series, with no signal-processing library dependency",
-      "Wrote a live **S&P 500 scanner** that downloads OHLCV history for **~491 tickers** and outputs ranked signals by confidence score in real time",
+      "Built a full-stack garden simulator turning a natural-language description into an explorable **3D world** with a live care engine - **LLM** extracts plant list, **World Labs Marble** generates the scene, server-side growth model drives outcomes",
+      "Engineered a soil/fertilizer/weather growth model as **four multiplied factors** (texture, pH, nutrients, weather), run through **Monte Carlo** forward simulation summarized as p10/p50/p90 uncertainty bands",
+      "Built a custom weather generator verified within **0.02°C** of source climate, a **7-biome classifier** against real elevation data, and a **73-crop database** with prompt-keyed world caching",
     ],
-    metrics: [["23", "Strategies"], ["5", "Live"], ["~2,140", "Param combos"], ["491", "Tickers"]],
-    images: ["/work/quant-1.jpg", "/work/quant-2.jpg"],
-  },
-  {
-    name: "myojam",
-    logo: "/logos/myojam.png",
-    year: "2024 - present",
-    url: "https://myojam.com",
-    github: "https://github.com/Jaden300/myojam",
-    accent: "#f5e040",
-    bullets: [
-      "Built a full-stack assistive tech platform translating surface **EMG signals** into real-time hand gesture classification for motor-impaired computer control - spanning React, FastAPI, PyQt6, and Arduino hardware",
-      "Trained a **Random Forest** on **Ninapro DB5** (16,269 windows, 10 subjects) via Leave-One-Subject-Out CV, hitting **84.85% cross-subject accuracy** at <5ms inference",
-      "Shipped **8 interactive browser demos**, a 1,256-line **PyQt6** desktop app with 3D hand visualization, and published 7 articles plus 3 curriculum-aligned lesson plans",
-    ],
-    metrics: [["84.85%", "Cross-subject acc"], ["8", "Browser demos"], ["11", "Articles"], ["<5ms", "Inference"]],
-    images: ["/work/myojam-1.jpg", "/work/myojam-2.jpg", "/work/myojam-3.jpg"],
-  },
-  {
-    name: "Machine Learning Series",
-    year: "2024 - 2025",
-    url: "https://github.com/Jaden300/Machine-Learning-Series",
-    github: "https://github.com/Jaden300/Machine-Learning-Series",
-    accent: "#F97316",
-    bullets: [
-      "Benchmarked **10+ classifiers** on a 2,000-sample mobile price dataset - stacked ensemble (SVC + KNN + Decision Tree → LR meta-learner) hit **97.0%** vs 95.3% best single model; tuned regression via **GridSearchCV** achieving **R² = 0.9893**",
-      "Applied **PCA**, **KernelPCA**, **t-SNE**, **DBSCAN**, and **KMeans** across Spotify and Sign Language MNIST; image segmentation via KMeans, GMM, and MeanShift",
-    ],
-    metrics: [["97.0%", "Ensemble acc"], ["R² 0.989", "Regression"], ["614", "Notebook cells"], ["10+", "Algorithms"]],
-    images: ["/work/ml-1.jpg", "/work/ml-2.jpg", "/work/ml-3.jpg"],
+    metrics: [["7", "Biomes"], ["73", "Crop database"], ["120", "Monte Carlo trials"], ["365", "Day horizon"]],
+    images: ["/work/pip-1.png", "/work/pip-2.png", "/work/pip-3.png"],
   },
 ]
 
-export default function Work() {
-  useEffect(() => {
-    const hash = window.location.hash
-    if (hash) {
-      setTimeout(() => {
-        const el = document.querySelector(hash)
-        if (el) {
-          const y = el.getBoundingClientRect().top + window.scrollY - 175
-          window.scrollTo({ top: y, behavior: "smooth" })
-        }
-      }, 400)
-    }
-  }, [])
-
+export default function Hackathons() {
   return (
     <div style={{ background: "var(--bg)", minHeight: "100vh" }}>
       <section style={{ padding:"120px 48px 60px", textAlign:"center" }}>
         <div style={{ fontSize:11, fontWeight:500, letterSpacing:"0.38em", textTransform:"uppercase", color:"var(--accent)", marginBottom:20, display:"flex", alignItems:"center", justifyContent:"center", gap:16, animation:"heroLabel 0.9s cubic-bezier(0.16,1,0.3,1) 0.2s both" }}>
           <span style={{ display:"inline-block", width:32, height:1, background:"var(--accent)", opacity:0.6 }} />
-          Selected work
+          Weekend builds
           <span style={{ display:"inline-block", width:32, height:1, background:"var(--accent)", opacity:0.6 }} />
         </div>
         <h1 style={{ fontFamily:"var(--serif)", fontSize:"clamp(52px,8vw,110px)", lineHeight:0.92, letterSpacing:"-0.03em", color:"var(--text)", animation:"heroName 1.1s cubic-bezier(0.16,1,0.3,1) 0.35s both" }}>
-          What I've<br /><em style={{ fontStyle:"italic", color:"var(--accent)" }}>built</em>
+          Hackathons
         </h1>
         <p style={{ fontSize:16, fontWeight:300, color:"var(--text-secondary)", maxWidth:520, margin:"28px auto 0", lineHeight:1.75, animation:"heroFade 1s ease 0.75s both" }}>
-          Full-stack platforms, quantitative trading systems, and machine learning pipelines - built end to end, from data to deployment.
+          Weekend builds under real constraints - full-stack products shipped, judged, and deployed in under two weeks.
         </p>
       </section>
 
       <section style={{ padding: "80px 48px 120px", position: "relative", overflow: "visible" }}>
-        <Cat   style={{ top:  150, left:  "2%"  }} />
-        <Frog  style={{ top:  650, right: "2%"  }} />
-        <Panda style={{ top: 1200, left:  "3%"  }} />
-        <Dog   style={{ top: 1800, right: "3%"  }} />
+        <Chick   style={{ top:  150, left:  "2%"  }} />
+        <Mouse   style={{ top:  650, right: "2%"  }} />
+        <Hamster style={{ top: 1200, left:  "3%"  }} />
+        <Dino    style={{ top: 1800, right: "3%"  }} />
         <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", flexDirection: "column", gap: 16 }}>
           {PROJECTS.map((p, i) => (
 
             <Reveal key={p.name} delay={i * 0.08} grand>
-              <div id={p.name.toLowerCase()} style={{ background: "var(--bg-2)", borderRadius: 24, overflow: "hidden", borderLeft: `3px solid ${p.accent}` }}>
-                <div style={{ padding: "48px" }}>
+              <div id={p.name.toLowerCase()} style={{ background: "var(--bg-2)", borderRadius: 24, overflow: "hidden", borderLeft: `3px solid ${p.accent}`, display:"flex" }}>
+
+                {/* Left: logo panel (20% of card width) */}
+                <div style={{ flex:"0 0 20%", background:"var(--bg)", display:"flex", flexDirection:"column" }}>
+                  <div style={{ flex:"0 0 75%", display:"flex", alignItems:"center", justifyContent:"center", overflow:"hidden" }}>
+                    {p.eventLogo && <img src={p.eventLogo} alt="" style={{ width:"100%", height:"100%", objectFit:"cover" }} />}
+                  </div>
+                  <div style={{ flex:"0 0 25%", display:"flex", alignItems:"center", justifyContent:"center", padding:"8px 12px", textAlign:"center" }}>
+                    <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(16px,1.6vw,22px)", fontWeight:700, color:"var(--text)", letterSpacing:"-0.5px", margin:0 }}>{p.event}</h2>
+                  </div>
+                </div>
+
+                <div style={{ flex:"1 1 auto", padding: "48px", minWidth: 0 }}>
                   <div style={{ display:"grid", gridTemplateColumns:"1fr minmax(0, 360px)", gap:56, alignItems:"start" }}>
 
-                    {/* Left: content */}
+                    {/* content */}
                     <div style={{ minWidth: 0 }}>
-                      <div style={{ display:"flex", gap:10, marginBottom:12, alignItems:"center", flexWrap:"wrap" }}>
-                        <span style={{ fontSize:11, color:"var(--text-tertiary)", border:"1px solid var(--border)", borderRadius:100, padding:"3px 12px", fontWeight:300 }}>{p.year}</span>
-                        {p.badge && (
-                          <span style={{ fontSize:11, color:"#3a2a05", background:"linear-gradient(135deg, #ffe28a, #d4a017)", border:"1px solid #f5c542", borderRadius:100, padding:"3px 12px", fontWeight:700, boxShadow:"0 0 12px rgba(245,197,66,0.35)" }}>{p.badge}</span>
-                        )}
-                      </div>
-                      <div style={{ display:"flex", alignItems:"center", gap:12, marginBottom:12 }}>
-                        {p.logo && <img src={p.logo} alt="" style={{ width:36, height:36, objectFit:"contain", borderRadius:6, flexShrink:0 }} />}
+                      <div style={{ display:"flex", alignItems:"center", gap:12, marginBottom:20 }}>
+                        {p.projectLogo && <img src={p.projectLogo} alt="" style={{ width:36, height:36, objectFit:"contain", borderRadius:6, flexShrink:0 }} />}
                         <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(28px,3.5vw,40px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1px", margin:0 }}>{p.name}</h2>
                       </div>
                       <div style={{ display:"flex", flexDirection:"column", gap:10, marginBottom:28 }}>
@@ -176,8 +184,6 @@ export default function Work() {
                           </div>
                         ))}
                       </div>
-
-                      {/* Buttons - bottom-right */}
                     </div>
 
                     {/* Right: image stack + buttons */}
@@ -186,12 +192,24 @@ export default function Work() {
                       <a href={p.url} target="_blank" rel="noreferrer" style={{ display:"block", textAlign:"center", fontSize:13, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#080a0f", background:p.accent, border:`1px solid ${p.accent}`, borderRadius:8, padding:"14px 0", textDecoration:"none", transition:"filter 0.2s" }}
                         onMouseEnter={e => e.currentTarget.style.filter = "brightness(1.1)"}
                         onMouseLeave={e => e.currentTarget.style.filter = "brightness(1)"}
-                      >{p.url.includes("github.com") ? "View repo" : "Visit site"}</a>
+                      >Visit site</a>
                       {p.github && p.github !== p.url && (
                         <a href={p.github} target="_blank" rel="noreferrer" style={{ display:"block", textAlign:"center", fontSize:13, fontWeight:600, letterSpacing:"0.1em", textTransform:"uppercase", color:"var(--text-tertiary)", border:"1px solid var(--border)", borderRadius:8, padding:"14px 0", textDecoration:"none", transition:"border-color 0.2s, color 0.2s" }}
                           onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--text)"; e.currentTarget.style.color = "var(--text)" }}
                           onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "var(--text-tertiary)" }}
-                        >GitHub</a>
+                        >View repo</a>
+                      )}
+                      {p.badge && (
+                        <div style={{
+                          textAlign:"center", borderRadius:8, padding:"12px 14px",
+                          border:"1px solid #f5c542",
+                          background:"linear-gradient(110deg, #d4a017 0%, #ffe28a 35%, #fff4c4 45%, #ffe28a 55%, #d4a017 100%)",
+                          backgroundSize:"250% 100%",
+                          animation:"goldShine 3.2s linear infinite, goldGlow 2.4s ease-in-out infinite",
+                        }}>
+                          <div style={{ fontSize:13, fontWeight:700, color:"#3a2a05", letterSpacing:"0.02em" }}>{p.badge}</div>
+                          {p.teams && <div style={{ fontSize:11, fontWeight:600, color:"#4a3608", marginTop:2 }}>Out of {p.teams} teams</div>}
+                        </div>
                       )}
                     </div>
 
@@ -205,7 +223,7 @@ export default function Work() {
             <div style={{ background: "var(--bg-2)", borderRadius: 24, padding: "22px 48px", borderLeft: "3px solid rgba(255,255,255,0.08)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
               <div>
                 <div style={{ fontFamily: "var(--serif)", fontSize: 19, fontWeight: 700, color: "var(--text)", letterSpacing: "-0.3px", marginBottom: 3 }}>See the full list</div>
-                <div style={{ fontSize: 12, color: "var(--text-tertiary)", fontWeight: 300 }}>All projects on GitHub</div>
+                <div style={{ fontSize: 12, color: "var(--text-tertiary)", fontWeight: 300 }}>All hackathon projects on GitHub</div>
               </div>
               <a href="https://github.com/Jaden300" target="_blank" rel="noreferrer"
                 style={{ display:"inline-flex", alignItems:"center", gap:6, fontSize: 11, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text)", border: "1px solid var(--border-dark)", borderRadius: 6, padding: "10px 22px", textDecoration: "none", transition: "border-color 0.2s, background 0.2s" }}

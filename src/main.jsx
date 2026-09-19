@@ -1,11 +1,12 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { Analytics } from "@vercel/analytics/react"
 import "./index.css"
 import Home       from "./pages/Home"
 import About      from "./pages/About"
 import Work       from "./pages/Work"
-import Research   from "./pages/Research"
+import Hackathons from "./pages/Hackathons"
 import Contact    from "./pages/Contact"
 import Experience from "./pages/Experience"
 import Navbar   from "./components/Navbar"
@@ -21,11 +22,12 @@ function Shell() {
         <Route path="/"           element={<Home />} />
         <Route path="/about"      element={<About />} />
         <Route path="/projects"   element={<Work />} />
-        <Route path="/research"   element={<Research />} />
+        <Route path="/hackathons" element={<Hackathons />} />
         <Route path="/contact"    element={<Contact />} />
         <Route path="/experience" element={<Experience />} />
       </Routes>
       <Footer />
+      <Analytics />
     </>
   )
 }

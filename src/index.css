@@ -74,6 +74,8 @@ body:hover #cursor { opacity: 1; }
 @keyframes heroName  { from{opacity:0;transform:translateY(52px) scale(0.94)} to{opacity:1;transform:translateY(0) scale(1)} }
 @keyframes heroSub   { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
 @keyframes heroFade  { from{opacity:0} to{opacity:1} }
+@keyframes goldShine { 0%{background-position:-200% 0;} 100%{background-position:200% 0;} }
+@keyframes goldGlow  { 0%,100%{box-shadow:0 0 12px rgba(245,197,66,0.35);} 50%{box-shadow:0 0 22px rgba(245,197,66,0.65);} }
 
 /* ── CRITTER ANIMATIONS ── */
 @keyframes cBob  { 0%,100%{transform:translateY(0) rotate(-2deg);}   50%{transform:translateY(-9px) rotate(2deg);}   }

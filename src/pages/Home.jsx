@@ -98,9 +98,9 @@ export default function Home() {
       {/* ── NUMBERS */}
       <div style={{ position:"relative", zIndex:1, display:"grid", gridTemplateColumns:"repeat(3,1fr)", borderBottom:"1px solid var(--border)" }}>
         {[
-          { val:"6+", label:"Months of internship experience" },
-          { val:7,    label:"Positions" },
-          { val:5,    label:"Projects" },
+          { val:"12+", label:"Months of internship experience" },
+          { val:8,     label:"Projects" },
+          { val:2,     label:"Hackathon wins" },
         ].map((s, i) => (
           <Reveal key={i} delay={i * 0.08}>
             <div style={{ padding:"44px 48px", borderRight: i < 2 ? "1px solid var(--border)" : "none" }}>
@@ -137,21 +137,26 @@ export default function Home() {
                 accent: "#A855F7",
               },
               {
-                label: "Quant Research",
-                name: "Quant-Trading",
-                desc: "Built a backtesting engine, a grid-search optimizer, and a custom scoring formula that penalizes strategies inconsistent across tickers - then promoted the best ones to a live scanner.",
-                stack: ["Python", "NumPy", "pandas", "scikit-learn", "Pine Script v6"],
-                anchor: "quant-trading",
-                accent: "#10B981",
+                label: "Hackathon",
+                name: "MyPillPal",
+                logo: "/logos/mypillpal.png",
+                badge: "Winner - Bio + Tech Track",
+                desc: "Built a client-only tool turning public antibiogram data into a personalized doctor conversation guide, backed by a transparent weighted risk model over 10 clinically-sourced factors.",
+                stack: ["React", "Vite", "Tailwind CSS", "TypeScript"],
+                anchor: "mypillpal",
+                accent: "#3B82F6",
+                external: "/hackathons",
               },
               {
-                label: "EMG Research",
-                name: "myojam",
-                logo: "/logos/myojam.png",
-                desc: "Built a signal pipeline from scratch - Arduino sensors through a Butterworth filter, feature extraction, and a Random Forest classifier - then wrapped it in a full-stack web platform with interactive demos.",
-                stack: ["Python", "React", "FastAPI", "scikit-learn", "Arduino"],
-                anchor: "myojam",
-                accent: "#f5e040",
+                label: "Hackathon",
+                name: "Pip",
+                logo: "/logos/pip.png",
+                badge: "2nd Best Use of Base44",
+                desc: "Built a full-stack garden simulator turning a natural-language description into an explorable 3D world with a live care engine driven by a real soil/weather growth model.",
+                stack: ["React", "Node", "Express", "Three.js"],
+                anchor: "pip",
+                accent: "#10B981",
+                external: "/hackathons",
               },
             ].map((p, i) => (
               <Reveal key={p.name} delay={i * 0.07} grand>
@@ -161,13 +166,22 @@ export default function Home() {
                     {p.logo && <img src={p.logo} alt="" style={{ width:24, height:24, objectFit:"contain", borderRadius:4, flexShrink:0 }} />}
                     <h3 style={{ fontFamily:"var(--serif)", fontSize:22, fontWeight:700, color:"var(--text)", letterSpacing:"-0.5px", margin:0 }}>{p.name}</h3>
                   </div>
+                  {p.badge && (
+                    <span style={{
+                      alignSelf:"flex-start", fontSize:10, color:"#3a2a05", fontWeight:700, borderRadius:100, padding:"3px 12px", marginBottom:12,
+                      border:"1px solid #f5c542",
+                      background:"linear-gradient(110deg, #d4a017 0%, #ffe28a 35%, #fff4c4 45%, #ffe28a 55%, #d4a017 100%)",
+                      backgroundSize:"250% 100%",
+                      animation:"goldShine 3.2s linear infinite, goldGlow 2.4s ease-in-out infinite",
+                    }}>{p.badge}</span>
+                  )}
                   <p style={{ fontSize:13, color:"var(--text-secondary)", fontWeight:300, lineHeight:1.7, marginBottom:16, flex:1 }}>{p.desc}</p>
                   <div style={{ display:"flex", flexWrap:"wrap", gap:5, marginBottom:20 }}>
                     {p.stack.map(t => (
                       <span key={t} style={{ fontSize:11, color:"var(--text-tertiary)", border:"1px solid var(--border)", borderRadius:100, padding:"3px 10px", fontWeight:300 }}>{t}</span>
                     ))}
                   </div>
-                  <a href={`/projects#${p.anchor}`} style={{
+                  <a href={`${p.external || "/projects"}#${p.anchor}`} style={{
                     display:"inline-block", alignSelf:"flex-start",
                     fontSize:11, fontWeight:600, letterSpacing:"0.14em", textTransform:"uppercase",
                     color:p.accent, border:`1px solid ${p.accent}`, borderRadius:4,
