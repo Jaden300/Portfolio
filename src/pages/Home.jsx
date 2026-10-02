@@ -100,7 +100,7 @@ export default function Home() {
         {[
           { val:"12+", label:"Months of internship experience" },
           { val:8,     label:"Projects" },
-          { val:2,     label:"Hackathon wins" },
+          { val:3,     label:"Hackathon wins" },
         ].map((s, i) => (
           <Reveal key={i} delay={i * 0.08}>
             <div style={{ padding:"44px 48px", borderRight: i < 2 ? "1px solid var(--border)" : "none" }}>
@@ -149,13 +149,13 @@ export default function Home() {
               },
               {
                 label: "Hackathon",
-                name: "Pip",
-                logo: "/logos/pip.png",
-                badge: "2nd Best Use of Base44",
-                desc: "Built a full-stack garden simulator turning a natural-language description into an explorable 3D world with a live care engine driven by a real soil/weather growth model.",
-                stack: ["React", "Node", "Express", "Three.js"],
-                anchor: "pip",
-                accent: "#10B981",
+                name: "MySquishi",
+                logo: "/logos/mysquishi.png",
+                badge: "Top 10",
+                desc: "Built a sEMG-driven rehab platform around a single Protocol boundary so live sensor, simulator, and CSV replay sources are interchangeable at runtime with zero consumer changes.",
+                stack: ["React", "FastAPI", "scikit-learn", "MyoWare"],
+                anchor: "mysquishi",
+                accent: "#EF4444",
                 external: "/hackathons",
               },
             ].map((p, i) => (
@@ -170,9 +170,9 @@ export default function Home() {
                     <span style={{
                       alignSelf:"flex-start", fontSize:10, color:"#3a2a05", fontWeight:700, borderRadius:100, padding:"3px 12px", marginBottom:12,
                       border:"1px solid #f5c542",
-                      background:"linear-gradient(110deg, #d4a017 0%, #ffe28a 35%, #fff4c4 45%, #ffe28a 55%, #d4a017 100%)",
-                      backgroundSize:"250% 100%",
-                      animation:"goldShine 3.2s linear infinite, goldGlow 2.4s ease-in-out infinite",
+                      background:"linear-gradient(90deg, #d4920f 0%, #e8c04a 25%, #fffbe0 50%, #e8c04a 75%, #d4920f 100%)",
+                      backgroundSize:"200% 100%",
+                      animation:"goldShine 2.4s linear infinite",
                     }}>{p.badge}</span>
                   )}
                   <p style={{ fontSize:13, color:"var(--text-secondary)", fontWeight:300, lineHeight:1.7, marginBottom:16, flex:1 }}>{p.desc}</p>

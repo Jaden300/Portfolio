@@ -66,6 +66,25 @@ const PROJECTS = [
     images: ["/work/mypillpal-1.jpg", "/work/mypillpal-2.jpg", "/work/mypillpal-3.jpg"],
   },
   {
+    name: "MySquishi",
+    eventLogo: "/logos/volthacks.png",
+    projectLogo: "/logos/mysquishi.png",
+    year: "2026",
+    event: "VoltHacks 2026",
+    badge: "Top 10",
+    teams: "471",
+    url: "https://mysquishi.onrender.com/",
+    github: "https://github.com/Jaden300/MySquishi",
+    accent: "#EF4444",
+    bullets: [
+      "Built a **sEMG**-driven rehab platform (**MyoWare** sensor - **FastAPI**/**scikit-learn** - React) around a single Protocol boundary so live sensor, simulator, and CSV replay sources are interchangeable at runtime with zero consumer changes",
+      "Shipped **15 model slices** (signal quality, rep segmentation, EMG-to-force regression, fatigue, recovery trajectory) selected via expanding-window time-series CV, with every predictive output enforcing a structural Interval type",
+      "Ran real hardware bring-up logging **Tier A/B/C signal quality** (33.8x contrast, 0% ADC clipping, Cohen's d up to 4.13), which set product scope to 3 effort levels and ruled out per-finger gesture decoding",
+    ],
+    metrics: [["49", "Commits"], ["434", "Backend tests"], ["9 days", "Build time"], ["15", "Model slices"]],
+    images: ["/work/mysquishi-1.jpg", "/work/mysquishi-2.jpg", "/work/mysquishi-3.jpg"],
+  },
+  {
     name: "Pip",
     eventLogo: "/logos/ignitionhacks.png",
     projectLogo: "/logos/pip.png",
@@ -83,23 +102,6 @@ const PROJECTS = [
     ],
     metrics: [["7", "Biomes"], ["73", "Crop database"], ["120", "Monte Carlo trials"], ["365", "Day horizon"]],
     images: ["/work/pip-1.png", "/work/pip-2.png", "/work/pip-3.png"],
-  },
-  {
-    name: "MySquishi",
-    eventLogo: "/logos/volthacks.png",
-    projectLogo: "/logos/mysquishi.png",
-    year: "2026",
-    event: "VoltHacks 2026",
-    url: "https://mysquishi.onrender.com/",
-    github: "https://github.com/Jaden300/MySquishi",
-    accent: "#EF4444",
-    bullets: [
-      "Built a **sEMG**-driven rehab platform (**MyoWare** sensor - **FastAPI**/**scikit-learn** - React) around a single Protocol boundary so live sensor, simulator, and CSV replay sources are interchangeable at runtime with zero consumer changes",
-      "Shipped **15 model slices** (signal quality, rep segmentation, EMG-to-force regression, fatigue, recovery trajectory) selected via expanding-window time-series CV, with every predictive output enforcing a structural Interval type",
-      "Ran real hardware bring-up logging **Tier A/B/C signal quality** (33.8x contrast, 0% ADC clipping, Cohen's d up to 4.13), which set product scope to 3 effort levels and ruled out per-finger gesture decoding",
-    ],
-    metrics: [["49", "Commits"], ["434", "Backend tests"], ["9 days", "Build time"], ["15", "Model slices"]],
-    images: ["/work/mysquishi-1.jpg", "/work/mysquishi-2.jpg", "/work/mysquishi-3.jpg"],
   },
   {
     name: "MyLumi",
@@ -216,9 +218,9 @@ export default function Hackathons() {
                         <div style={{
                           textAlign:"center", borderRadius:8, padding:"12px 14px",
                           border:"1px solid #f5c542",
-                          background:"linear-gradient(110deg, #d4a017 0%, #ffe28a 35%, #fff4c4 45%, #ffe28a 55%, #d4a017 100%)",
-                          backgroundSize:"250% 100%",
-                          animation:"goldShine 3.2s linear infinite, goldGlow 2.4s ease-in-out infinite",
+                          background:"linear-gradient(90deg, #d4920f 0%, #e8c04a 25%, #fffbe0 50%, #e8c04a 75%, #d4920f 100%)",
+                          backgroundSize:"200% 100%",
+                          animation:"goldShine 2.4s linear infinite",
                         }}>
                           <div style={{ fontSize:13, fontWeight:700, color:"#3a2a05", letterSpacing:"0.02em" }}>{p.badge}</div>
                           {p.teams && <div style={{ fontSize:11, fontWeight:600, color:"#4a3608", marginTop:2 }}>Out of {p.teams} teams</div>}
