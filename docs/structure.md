@@ -19,22 +19,15 @@ Portfolio/
     profile.jpg
     logos/                # org/company logos used in Experience and Research
     screenshots/          # app screenshots
-    work/                 # project images used in Work (projects) page
+    work/                 # project images shown in the Home page project row
   src/
-    main.jsx              # router, Shell (Navbar + Routes + Footer)
+    main.jsx              # router, Shell (single Home route + music widget)
     index.css             # global styles, CSS variables, critter animations
     pages/
       Home.jsx            # landing page - bio chips, stats, experience preview
-      About.jsx           # hero, statement + facts, work stack, certifications, passions
-      Work.jsx            # projects (MyMurry, Quant-Trading, myojam, ML Series)
-      Experience.jsx      # all roles / volunteer / co-op
       Research.jsx        # articles, educational resources
-      Contact.jsx         # contact form / links
     components/
-      Navbar.jsx          # top nav
-      Footer.jsx          # site footer
       Reveal.jsx          # scroll-reveal animation wrapper
-      ScrollToTop.jsx     # resets scroll on route change
       Critters.jsx        # 14 CSS animal figurines (Bunny, Chick, Bear, Cat, Frog, Panda, Fox, Dog, Sheep, Penguin, Mouse, Hamster, Dino, Owl)
       Icons.jsx           # SVG icon components (GitHubIcon, LinkedInIcon, etc.)
       Charts.jsx          # chart components
@@ -52,31 +45,13 @@ Portfolio/
 - Stats row, experience preview cards, featured project cards
 - Bio chips array: Python, React, Next.js, TypeScript, FastAPI, PostgreSQL, Prisma, Supabase, GPT-4o, scikit-learn, PyQt6, Three.js, Signal Processing, NumPy, Pine Script v6, Puppeteer
 
-### About.jsx
-- Hero: `padding: "140px 0 80px"` (NOT height: 100vh)
-- Statement + facts grid (2-col)
-- Work Stack: SKILLS array (4 categories) + CERTS array
-- Passions: Gaming, Chess (Leonardis Variation), Downtown walks
-- Critters: Bear (top left), Owl (top right), Penguin (lower left) in Work Stack section
+### Projects (section on Home)
+- 4 projects in src/data/projects.js: MyMurry, Quant-Trading, myojam, Machine Learning Series
+- Rendered by components/ProjectsRow.jsx: hover expands a card and pops its images out over the neighbours
 
-### Work.jsx (Projects)
-- 5 projects: MyMurry, Quant-Trading, myojam, Pip, Machine Learning Series
-- Each has image stack, bullets, metrics, tags
-- Critters: Cat (top left), Frog (right), Panda (lower left), Dog (lower right)
-- Note: Sheep critter was removed - its .puff divs rendered as white circles (bug)
-
-### Experience.jsx
-- Hero: `padding: "140px 0 80px"` (NOT height: 100vh)
-- 7 roles: One Community, The Volunteer Well, Elevation Athletics, Beading Divas, Youth Improvement Services, LGBT Voice Tanzania, Asenion
-- Critters: Fox, Bunny, Bear, Owl, Penguin spread through roles section
-
-### Research.jsx
-- Hero: `padding: "140px 0 80px"` (NOT height: 100vh)
-- Featured articles (3) + Educational resources (3)
-- Critters: Chick, Mouse, Hamster, Dino spread through articles section
-
-### Contact.jsx
-- Contact links / form
+### Experience and Hackathons (sections on Home)
+- Experience: 4 roles in src/data/roles.js, rendered by components/ExperienceRow.jsx (text only, no pop-outs)
+- Hackathons: 4 in src/data/hackathons.js, rendered by components/HackathonsRow.jsx (same pop-out as Projects, trophy icon + result tag on award winners)
 
 ## Design conventions
 

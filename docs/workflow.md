@@ -38,7 +38,7 @@ NOT `height: "100vh"` - that causes dead space below the centered content.
 - About.jsx: SKILLS array (4 categories) + CERTS array
 
 **Add a new project:**
-- Work.jsx: add to PROJECTS array
+- src/data/projects.js: add to PROJECTS array (needs short, long, images; ProjectsRow lays out 4 across)
 - Add images to public/work/
 - Add logo to public/logos/ if needed
 

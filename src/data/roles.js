@@ -1,0 +1,38 @@
+export const ROLES = [
+  {
+    org: "Elevation Athletics",
+    logo: "/logos/elevationathletics.png",
+    title: "Web Assistant",
+    type: "Contract",
+    accent: "#F97316",
+    short: "Built production AI chatbots and data pipelines.",
+    long: "Built **3 production AI chatbots** and an **auto contact-tagging system**. Developed **2 scraping pipelines**. Enriched **13,000+ records** across **500+ segments**.",
+  },
+  {
+    org: "Asenion",
+    logo: "/logos/asenion.png",
+    title: "AI Intern - QA Assistant",
+    type: "Co-op",
+    accent: "#3B82F6",
+    short: "Stress-tested AI models with adversarial prompts.",
+    long: "Designed **200+ adversarial jailbreak prompts** across **10+ attack categories**. Built a Python/Tkinter token and cost estimator hitting **R² >= 0.95**. Expanded coverage from **1 to 3 provider families**.",
+  },
+  {
+    org: "One Community",
+    logo: "/logos/onecommunity.png",
+    title: "Software Engineer",
+    type: "Volunteer",
+    accent: "#10B981",
+    short: "Built Garden Management and User Management from scratch.",
+    long: "Built **Garden Management** and **User Management** from scratch. Took over **5+ complex PRs** and fixed critical bugs. Resolved **SonarQube violations** across the codebase.",
+  },
+  {
+    org: "The Volunteer Well",
+    logo: "/logos/volunteerwellw.png",
+    title: "Website Manager",
+    type: "Volunteer",
+    accent: "#8B5CF6",
+    short: "Audited and improved the organization's website.",
+    long: "Ran a **UX and accessibility audit** across **5 pages** with a prioritized **P1-P4 action list**. Authored a **10-slide partner outreach deck**. Wrote **4 audience-segmented email templates** ready to deploy.",
+  },
+]

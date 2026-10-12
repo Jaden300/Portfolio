@@ -75,9 +75,9 @@ export default function ChessHero() {
     const el = mountRef.current
     if (!el) return
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false })
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
     renderer.setPixelRatio(Math.min(devicePixelRatio, 2))
-    renderer.setClearColor(0x080a0f, 1)
+    renderer.setClearColor(0x000000, 0)
     renderer.toneMapping = THREE.ACESFilmicToneMapping
     renderer.toneMappingExposure = 1.3
     el.appendChild(renderer.domElement)
@@ -87,8 +87,8 @@ export default function ChessHero() {
     const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100)
 
     // Lights - match template exactly
-    const key = new THREE.DirectionalLight(0xfff060, 2.4); key.position.set(5, 10, 6); scene.add(key)
-    const rim = new THREE.DirectionalLight(0xff8c30, 1.1); rim.position.set(-6, 4, -5); scene.add(rim)
+    const key = new THREE.DirectionalLight(0xffffff, 2.2); key.position.set(5, 10, 6); scene.add(key)
+    const rim = new THREE.DirectionalLight(0xdfe6ff, 1.0); rim.position.set(-6, 4, -5); scene.add(rim)
     const fill = new THREE.DirectionalLight(0x4466ff, 0.5); fill.position.set(0, 6, -8); scene.add(fill)
     scene.add(new THREE.AmbientLight(0xffffff, 0.22))
 
@@ -98,11 +98,11 @@ export default function ChessHero() {
       c.width = c.height = sz
       const ctx = c.getContext("2d")
       const g = ctx.createLinearGradient(0, 0, 0, sz)
-      g.addColorStop(0, "#161208"); g.addColorStop(0.3, "#b8a800")
-      g.addColorStop(0.55, "#f5ed50"); g.addColorStop(1, "#05070e")
+      g.addColorStop(0, "#1b1d22"); g.addColorStop(0.3, "#9aa0ab")
+      g.addColorStop(0.55, "#ffffff"); g.addColorStop(1, "#0b0c10")
       ctx.fillStyle = g; ctx.fillRect(0, 0, sz, sz)
       const rg = ctx.createRadialGradient(sz * .65, sz * .4, 4, sz * .65, sz * .4, sz * .45)
-      rg.addColorStop(0, "rgba(245,240,80,0.7)"); rg.addColorStop(1, "rgba(245,240,80,0)")
+      rg.addColorStop(0, "rgba(255,255,255,0.7)"); rg.addColorStop(1, "rgba(255,255,255,0)")
       ctx.fillStyle = rg; ctx.fillRect(0, 0, sz, sz)
       const tex = new THREE.CanvasTexture(c)
       tex.mapping = THREE.EquirectangularReflectionMapping
@@ -113,11 +113,11 @@ export default function ChessHero() {
     })()
 
     // Materials
-    const wMat = glassMat(new THREE.Color("#f5e040"))
-    const bMat = glassMat(new THREE.Color("#9dc8e4"))
-    const lightSqMat = new THREE.MeshStandardMaterial({ color: 0xf2ddb2, roughness: 0.38, metalness: 0.08 })
-    const darkSqMat  = new THREE.MeshStandardMaterial({ color: 0x130c04, roughness: 0.32, metalness: 0.4  })
-    const frameMat   = new THREE.MeshStandardMaterial({ color: 0x1e0f04, roughness: 0.55, metalness: 0.3  })
+    const wMat = glassMat(new THREE.Color("#f7f7f5"))
+    const bMat = glassMat(new THREE.Color("#4a4e59"))
+    const lightSqMat = new THREE.MeshStandardMaterial({ color: 0xeeeeee, roughness: 0.38, metalness: 0.08 })
+    const darkSqMat  = new THREE.MeshStandardMaterial({ color: 0x2a2d35, roughness: 0.32, metalness: 0.4  })
+    const frameMat   = new THREE.MeshStandardMaterial({ color: 0x1a1c22, roughness: 0.55, metalness: 0.3  })
 
     // Board
     const S = 0.85

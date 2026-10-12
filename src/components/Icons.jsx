@@ -9,3 +9,7 @@ export function GitHubIcon({ size = 14 }) {
 export function LinkedInIcon({ size = 14 }) {
   return <img src="/logos/linkedin.png" alt="" style={{ width: size, height: size, objectFit: "contain" }} />
 }
+
+export const ArrowUpRight = () => (
+  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ flexShrink: 0 }}><path d="M7 17L17 7M8 7h9v9" /></svg>
+)

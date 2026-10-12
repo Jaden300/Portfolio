@@ -1,18 +1,53 @@
-import { useNavigate } from "react-router-dom"
+import { lazy, Suspense, useEffect, useState } from "react"
 import Reveal from "../components/Reveal"
 import ChessHero from "../components/ChessHero"
-import { GitHubIcon, LinkedInIcon } from "../components/Icons"
+import ProjectsRow from "../components/ProjectsRow"
+import ExperienceRow from "../components/ExperienceRow"
+import HackathonsRow from "../components/HackathonsRow"
+import AboutRow from "../components/AboutRow"
+import ContactRow from "../components/ContactRow"
+
+// Loaded only when the board is clicked, so the chess engine never slows the page down
+const loadChess = () => import("../components/ChessGame")
+const ChessGame = lazy(loadChess)
+
+// Warm the browser cache with the game code and the engine files, so clicking the board opens it straight away
+const warmChess = () => {
+  loadChess()
+  fetch("/stockfish/stockfish-19-lite-single.js").catch(() => {})
+  fetch("/stockfish/stockfish-19-lite-single.wasm").catch(() => {})
+}
+import { GitHubIcon, LinkedInIcon, ArrowUpRight } from "../components/Icons"
+
+// Live Toronto time, ticking every second
+function TorontoClock() {
+  const [now, setNow] = useState(() => new Date())
+  useEffect(() => {
+    const id = setInterval(() => setNow(new Date()), 1000)
+    return () => clearInterval(id)
+  }, [])
+  const time = now.toLocaleTimeString("en-CA", { timeZone: "America/Toronto", hour: "numeric", minute: "2-digit" })
+  return (
+    <div style={{ display:"inline-flex", alignItems:"center", gap:10, fontSize:12, letterSpacing:"0.08em", color:"var(--text-secondary)", marginBottom:22, fontVariantNumeric:"tabular-nums", border:"1px solid var(--border-dark)", borderRadius:6, padding:"7px 14px", animation:"heroFade 0.9s ease 0.95s both" }}>
+      <span style={{ fontWeight:700, color:"var(--text)", letterSpacing:"0.14em" }}>YYZ</span>
+      {time}
+    </div>
+  )
+}
 
 export default function Home() {
-  const navigate = useNavigate()
-
+  const [chessOpen, setChessOpen] = useState(false)
+  useEffect(() => {
+    const t = setTimeout(warmChess, 1200)
+    return () => clearTimeout(t)
+  }, [])
   return (
     <div style={{ background: "var(--bg)", minHeight: "100vh", color: "var(--text)" }}>
 
       {/* ── HERO */}
       <section style={{
         position: "relative", zIndex: 1,
-        height: "100vh", minHeight: 700,
+        paddingTop: 40,
         display: "flex", flexDirection: "column", justifyContent: "flex-end",
         overflow: "hidden",
       }}>
@@ -25,8 +60,8 @@ export default function Home() {
         }}>
           <span style={{
             fontFamily:"'Dancing Script', cursive",
-            fontSize:"clamp(220px, 46vw, 640px)",
-            color:"rgba(255,255,255,0.042)",
+            fontSize:"clamp(160px, 30vw, 420px)",
+            color:"rgba(20,22,28,0.05)",
             fontWeight:700,
             lineHeight:1,
             userSelect:"none",
@@ -34,8 +69,8 @@ export default function Home() {
           }}>Wong</span>
         </div>
 
-        <div style={{ position:"relative", zIndex:3, padding:"0 48px 68px", textAlign:"center", display:"flex", flexDirection:"column", alignItems:"center" }}>
-          <img src="/profile.jpg" alt="Jaden Wong" style={{ width:116, height:116, borderRadius:"50%", objectFit:"cover", border:"2px solid rgba(245,224,64,0.4)", marginBottom:20, animation:"heroFade 0.9s ease 0.1s both" }} />
+        <div style={{ position:"relative", zIndex:3, padding:"0 48px 36px", textAlign:"center", display:"flex", flexDirection:"column", alignItems:"center" }}>
+          <img src="/profile.jpg" alt="Jaden Wong" style={{ width:116, height:116, borderRadius:"50%", objectFit:"cover", border:"2px solid rgba(20,22,28,0.25)", marginBottom:20, animation:"heroFade 0.9s ease 0.1s both" }} />
           <div style={{ display:"inline-flex", alignItems:"center", gap:14, fontSize:11, fontWeight:500, letterSpacing:"0.34em", textTransform:"uppercase", color:"var(--accent)", marginBottom:16, animation:"heroLabel 0.9s cubic-bezier(0.16,1,0.3,1) 0.2s both" }}>
             <span style={{ display:"inline-block", width:28, height:1, background:"var(--accent)", opacity:0.7 }} />
             Engineer • Researcher • Builder
@@ -44,19 +79,19 @@ export default function Home() {
           <h1 style={{ fontFamily:"var(--serif)", fontSize:"clamp(60px,8vw,120px)", lineHeight:0.93, letterSpacing:"-0.02em", color:"var(--text)", marginBottom:8, animation:"heroName 1.1s cubic-bezier(0.16,1,0.3,1) 0.38s both" }}>
             Jaden
           </h1>
-          <p style={{ fontSize:13, letterSpacing:"0.06em", color:"var(--text-tertiary)", marginBottom:28, animation:"heroFade 0.9s ease 0.85s both" }}>
+          <p style={{ fontSize:13, letterSpacing:"0.06em", color:"var(--text-tertiary)", marginBottom:14, animation:"heroFade 0.9s ease 0.85s both" }}>
             ML Engineering • Signal Processing • Toronto, Ontario
           </p>
+          <TorontoClock />
           <div style={{ display:"flex", gap:10, flexWrap:"wrap", justifyContent:"center", animation:"heroFade 0.9s ease 1.05s both" }}>
             {(() => {
-              const s = { display:"inline-flex", alignItems:"center", justifyContent:"center", gap:7, width:148, fontSize:11, fontWeight:600, letterSpacing:"0.16em", textTransform:"uppercase", color:"var(--gold)", padding:"11px 0", border:"1px solid var(--gold)", borderRadius:3, background:"transparent", cursor:"pointer", fontFamily:"var(--font)", textDecoration:"none", boxSizing:"border-box", transition:"background 0.2s, color 0.2s" }
-              const on = e => { e.currentTarget.style.background = "var(--gold)"; e.currentTarget.style.color = "#080a0f" }
-              const off = e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--gold)" }
+              const s = { display:"inline-flex", alignItems:"center", justifyContent:"center", gap:7, width:148, fontSize:11, fontWeight:600, letterSpacing:"0.16em", textTransform:"uppercase", padding:"11px 0", borderRadius:3, cursor:"pointer", fontFamily:"var(--font)", textDecoration:"none", boxSizing:"border-box" }
               return <>
-                <button onClick={() => navigate("/projects")} style={s} onMouseEnter={on} onMouseLeave={off}>View Projects</button>
-                <button onClick={() => navigate("/contact")} style={s} onMouseEnter={on} onMouseLeave={off}>Get in Touch</button>
-                <a href="https://github.com/Jaden300" target="_blank" rel="noreferrer" style={s} onMouseEnter={on} onMouseLeave={off}><GitHubIcon />GitHub</a>
-                <a href="https://www.linkedin.com/in/jaden-wong09/" target="_blank" rel="noreferrer" style={s} onMouseEnter={on} onMouseLeave={off}><LinkedInIcon />LinkedIn</a>
+                <a className="hero-btn" href="https://github.com/Jaden300" target="_blank" rel="noreferrer" style={s}><GitHubIcon />GitHub<ArrowUpRight /></a>
+                <a className="hero-btn" href="https://www.linkedin.com/in/jaden-wong09/" target="_blank" rel="noreferrer" style={s}><LinkedInIcon />LinkedIn<ArrowUpRight /></a>
+                <a className="hero-btn" href="mailto:jn.wong.enterprise@gmail.com" style={s}>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 7l9 6 9-6" /></svg>Email<ArrowUpRight />
+                </a>
               </>
             })()}
           </div>
@@ -64,213 +99,164 @@ export default function Home() {
       </section>
 
       {/* ── BIO */}
-      <section style={{ position:"relative", zIndex:1, padding:"100px 48px", display:"grid", gridTemplateColumns:"260px 1fr", gap:"0 80px", borderBottom:"1px solid var(--border)" }}>
-        <Reveal>
+      <section style={{ position:"relative", zIndex:1, padding:"48px 48px 56px", display:"grid", gridTemplateColumns:"260px 1fr", gap:"0 80px", borderBottom:"1px solid var(--border)" }}>
+        <Reveal delay={0.1} grand>
           <div>
-            <div style={{ fontSize:16, fontWeight:700, letterSpacing:"0.18em", textTransform:"uppercase", color:"var(--text-tertiary)", paddingTop:6 }}>
-              About
-            </div>
-            <div style={{ position:"relative", width:"100%", height:220, marginTop:24, overflow:"hidden", borderRadius:12, opacity:0.35 }}>
+            <div
+              onClick={() => setChessOpen(true)}
+              onMouseEnter={warmChess}
+              title="Click to play a game"
+              style={{ position:"relative", width:"100%", height:220, marginTop:0, overflow:"hidden", borderRadius:12, cursor:"pointer" }}
+            >
               <ChessHero />
+            </div>
+            {/* Hand-drawn arrow pointing up at the board */}
+            <div style={{ display:"flex", alignItems:"flex-start", gap:8, marginTop:6, paddingLeft:28, color:"var(--text-secondary)", pointerEvents:"none" }}>
+              <svg width="64" height="92" viewBox="0 0 64 92" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M10 88 C 4 70, 34 66, 32 50 C 30 36, 10 38, 15 49 C 20 60, 46 44, 42 12" />
+                <path d="M42 12 C 36 18, 33 22, 31 27 M42 12 C 46 17, 50 21, 55 24" />
+              </svg>
+              <span style={{ fontFamily:"var(--font)", fontSize:15, fontWeight:500, letterSpacing:"0.04em", marginTop:46, whiteSpace:"nowrap" }}>Click me!</span>
             </div>
           </div>
         </Reveal>
         <Reveal delay={0.1} grand>
           <div>
-            <p style={{ fontSize:17, fontWeight:300, lineHeight:1.82, color:"rgba(237,234,226,0.7)", marginBottom:24 }}>
-              I'm a <strong style={{ color:"var(--text)", fontWeight:500 }}>17-year-old engineer and researcher</strong> from Toronto, Ontario. I build full-stack ML systems, AI-powered web platforms, and quantitative trading frameworks - across whatever the problem demands.
+            <p style={{ fontSize:17, fontWeight:300, lineHeight:1.82, color:"rgba(20,22,28,0.72)", marginBottom:24 }}>
+              I'm a <strong style={{ color:"var(--text)", fontWeight:500 }}>17-year-old engineer and researcher</strong> from Toronto. I build ML systems, AI web platforms, and quant trading frameworks.
             </p>
-            <p style={{ fontSize:17, fontWeight:300, lineHeight:1.82, color:"rgba(237,234,226,0.7)" }}>
-              Currently volunteering as SWE at <strong style={{ color:"var(--text)", fontWeight:500 }}>One Community</strong> and website manager at <strong style={{ color:"var(--text)", fontWeight:500 }}>The Volunteer Well</strong>. Previously AI intern at <strong style={{ color:"var(--text)", fontWeight:500 }}>Asenion</strong> and co-founder of <strong style={{ color:"var(--text)", fontWeight:500 }}>myojam</strong> - open-source EMG gesture classification, no lab, no funding.
+            <p style={{ fontSize:17, fontWeight:300, lineHeight:1.82, color:"rgba(20,22,28,0.72)" }}>
+              SWE at <strong style={{ color:"var(--text)", fontWeight:500 }}>One Community</strong> and <strong style={{ color:"var(--text)", fontWeight:500 }}>The Volunteer Well</strong>. Previously AI intern at <strong style={{ color:"var(--text)", fontWeight:500 }}>Asenion</strong> and founder of <strong style={{ color:"var(--text)", fontWeight:500 }}>MyMurry</strong>.
             </p>
             <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(108px,1fr))", gap:10, marginTop:44 }}>
-              {["Python","React","Next.js","TypeScript","FastAPI","PostgreSQL","Prisma","Supabase","GPT-4o","scikit-learn","PyQt6","Three.js","Signal Processing","NumPy","Pine Script v6","Puppeteer","Tailwind CSS","Zustand","REST APIs","Git"].map(chip => (
+              {["Python","React","Next.js","TypeScript","FastAPI","PostgreSQL","GPT-4o","scikit-learn","Signal Processing","Three.js"].map(chip => (
                 <div key={chip} style={{ display:"flex", alignItems:"center", justifyContent:"center", fontSize:11, fontWeight:500, letterSpacing:"0.14em", color:"var(--text-tertiary)", border:"1px solid var(--border)", borderRadius:4, padding:"10px 8px", transition:"border-color 0.2s, color 0.2s", textAlign:"center", cursor:"default" }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(245,224,64,0.5)"; e.currentTarget.style.color = "var(--text)" }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(20,22,28,0.5)"; e.currentTarget.style.color = "var(--text)" }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "var(--text-tertiary)" }}
                 >{chip}</div>
+              ))}
+            </div>
+            <div style={{ display:"grid", gridTemplateColumns:"repeat(3, minmax(0, 170px))", gap:10, marginTop:10, justifyContent:"center" }}>
+              {[
+                { val:"12+", label:"Months of experience", to:"experience" },
+                { val:"8",   label:"Projects",             to:"projects" },
+                { val:"3",   label:"Hackathon wins",       to:"hackathons" },
+              ].map(st => (
+                <a key={st.label} href={`#${st.to}`} className="stat-box"
+                  onClick={e => { e.preventDefault(); document.getElementById(st.to)?.scrollIntoView({ behavior: "smooth", block: "start" }) }}>
+                  <div style={{ fontFamily:"var(--serif)", fontSize:30, lineHeight:1, color:"var(--text)", letterSpacing:"-0.02em", marginBottom:8 }}>{st.val}</div>
+                  <div style={{ fontSize:10, fontWeight:500, letterSpacing:"0.12em", textTransform:"uppercase", color:"var(--text-tertiary)" }}>{st.label}</div>
+                </a>
               ))}
             </div>
           </div>
         </Reveal>
       </section>
 
-      {/* ── NUMBERS */}
-      <div style={{ position:"relative", zIndex:1, display:"grid", gridTemplateColumns:"repeat(3,1fr)", borderBottom:"1px solid var(--border)" }}>
-        {[
-          { val:"12+", label:"Months of internship experience" },
-          { val:8,     label:"Projects" },
-          { val:3,     label:"Hackathon wins" },
-        ].map((s, i) => (
-          <Reveal key={i} delay={i * 0.08}>
-            <div style={{ padding:"44px 48px", borderRight: i < 2 ? "1px solid var(--border)" : "none" }}>
-              <div style={{ fontFamily:"var(--serif)", fontSize:"clamp(42px,5vw,80px)", lineHeight:1, color:"var(--text)", letterSpacing:"-0.02em", marginBottom:10 }}>
-                {s.val}
-              </div>
-              <div style={{ fontSize:14, fontWeight:400, letterSpacing:"0.08em", textTransform:"uppercase", color:"var(--text-tertiary)" }}>{s.label}</div>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-
       {/* ── PROJECTS */}
-      <section style={{ padding:"100px 48px", borderBottom:"1px solid var(--border)", position:"relative", zIndex:1 }}>
-        <div style={{ maxWidth:1000, margin:"0 auto" }}>
+      <section id="projects" style={{ padding:"36px 48px", borderBottom:"1px solid var(--border)", position:"relative", zIndex:10 }}>
+        <div style={{ maxWidth:1200, margin:"0 auto" }}>
           <Reveal>
-            <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:48 }}>
-              <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4vw,48px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px" }}>Projects</h2>
-              <button onClick={() => navigate("/projects")} style={{ fontSize:11, fontWeight:600, letterSpacing:"0.14em", textTransform:"uppercase", color:"#080a0f", border:"1px solid white", borderRadius:4, padding:"9px 18px", background:"white", cursor:"pointer", fontFamily:"var(--font)", transition:"filter 0.2s" }}
-                onMouseEnter={e => e.currentTarget.style.filter = "brightness(0.92)"}
-                onMouseLeave={e => e.currentTarget.style.filter = "brightness(1)"}
-              >All projects</button>
+            <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:24 }}>
+              <h2 style={{ display:"flex", alignItems:"center", gap:16, fontFamily:"var(--serif)", fontSize:"clamp(32px,4vw,48px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px" }}>
+                <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="var(--gold-text)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" />
+                </svg>
+                Projects
+              </h2>
             </div>
           </Reveal>
-          <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:12 }}>
-            {[
-              {
-                label: "Full-Stack AI",
-                name: "MyMurry",
-                logo: "/logos/mymurry.png",
-                desc: "Built the active recall loop end-to-end: note upload, GPT-4o concept sectioning, free-recall session scoring, and a point-by-point breakdown of what you missed. Auth, i18n, and calendar integration included.",
-                stack: ["Next.js 15", "TypeScript", "PostgreSQL", "GPT-4o", "Supabase"],
-                anchor: "mymurry",
-                accent: "#A855F7",
-              },
-              {
-                label: "Hackathon",
-                name: "MyPillPal",
-                logo: "/logos/mypillpal.png",
-                badge: "Winner - Bio + Tech Track",
-                desc: "Built a client-only tool turning public antibiogram data into a personalized doctor conversation guide, backed by a transparent weighted risk model over 10 clinically-sourced factors.",
-                stack: ["React", "Vite", "Tailwind CSS", "TypeScript"],
-                anchor: "mypillpal",
-                accent: "#3B82F6",
-                external: "/hackathons",
-              },
-              {
-                label: "Hackathon",
-                name: "MySquishi",
-                logo: "/logos/mysquishi.png",
-                badge: "Top 10",
-                desc: "Built a sEMG-driven rehab platform around a single Protocol boundary so live sensor, simulator, and CSV replay sources are interchangeable at runtime with zero consumer changes.",
-                stack: ["React", "FastAPI", "scikit-learn", "MyoWare"],
-                anchor: "mysquishi",
-                accent: "#EF4444",
-                external: "/hackathons",
-              },
-            ].map((p, i) => (
-              <Reveal key={p.name} delay={i * 0.07} grand>
-                <div style={{ background:"var(--bg-2)", borderRadius:16, padding:"32px", height:"100%", display:"flex", flexDirection:"column", borderTop:`2px solid ${p.accent}` }}>
-                  <div style={{ fontSize:10, color:p.accent, fontWeight:600, textTransform:"uppercase", letterSpacing:"0.18em", marginBottom:12 }}>{p.label}</div>
-                  <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:10 }}>
-                    {p.logo && <img src={p.logo} alt="" style={{ width:24, height:24, objectFit:"contain", borderRadius:4, flexShrink:0 }} />}
-                    <h3 style={{ fontFamily:"var(--serif)", fontSize:22, fontWeight:700, color:"var(--text)", letterSpacing:"-0.5px", margin:0 }}>{p.name}</h3>
-                  </div>
-                  {p.badge && (
-                    <span style={{
-                      alignSelf:"flex-start", fontSize:10, color:"#3a2a05", fontWeight:700, borderRadius:100, padding:"3px 12px", marginBottom:12,
-                      border:"1px solid #f5c542",
-                      background:"linear-gradient(90deg, #d4920f 0%, #e8c04a 25%, #fffbe0 50%, #e8c04a 75%, #d4920f 100%)",
-                      backgroundSize:"200% 100%",
-                      animation:"goldShine 2.4s linear infinite",
-                    }}>{p.badge}</span>
-                  )}
-                  <p style={{ fontSize:13, color:"var(--text-secondary)", fontWeight:300, lineHeight:1.7, marginBottom:16, flex:1 }}>{p.desc}</p>
-                  <div style={{ display:"flex", flexWrap:"wrap", gap:5, marginBottom:20 }}>
-                    {p.stack.map(t => (
-                      <span key={t} style={{ fontSize:11, color:"var(--text-tertiary)", border:"1px solid var(--border)", borderRadius:100, padding:"3px 10px", fontWeight:300 }}>{t}</span>
-                    ))}
-                  </div>
-                  <a href={`${p.external || "/projects"}#${p.anchor}`} style={{
-                    display:"inline-block", alignSelf:"flex-start",
-                    fontSize:11, fontWeight:600, letterSpacing:"0.14em", textTransform:"uppercase",
-                    color:p.accent, border:`1px solid ${p.accent}`, borderRadius:4,
-                    padding:"8px 16px", textDecoration:"none",
-                    transition:"background 0.2s, color 0.2s",
-                  }}
-                    onMouseEnter={e => { e.currentTarget.style.background = p.accent; e.currentTarget.style.color = "#080a0f" }}
-                    onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = p.accent }}
-                  >View project</a>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <ProjectsRow />
         </div>
       </section>
 
       {/* ── EXPERIENCE */}
-      <section style={{ padding:"100px 48px", borderBottom:"1px solid var(--border)", position:"relative", zIndex:1 }}>
-        <div style={{ maxWidth:1000, margin:"0 auto" }}>
+      <section id="experience" style={{ padding:"36px 48px", borderBottom:"1px solid var(--border)", position:"relative", zIndex:1 }}>
+        <div style={{ maxWidth:1200, margin:"0 auto" }}>
           <Reveal>
-            <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:48 }}>
-              <h2 style={{ fontFamily:"var(--serif)", fontSize:"clamp(32px,4vw,48px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px" }}>Experience</h2>
-              <button onClick={() => navigate("/experience")} style={{ fontSize:11, fontWeight:600, letterSpacing:"0.14em", textTransform:"uppercase", color:"#080a0f", border:"1px solid white", borderRadius:4, padding:"9px 18px", background:"white", cursor:"pointer", fontFamily:"var(--font)", transition:"filter 0.2s" }}
-                onMouseEnter={e => e.currentTarget.style.filter = "brightness(0.92)"}
-                onMouseLeave={e => e.currentTarget.style.filter = "brightness(1)"}
-              >Full experience</button>
+            <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:24 }}>
+              <h2 style={{ display:"flex", alignItems:"center", gap:16, fontFamily:"var(--serif)", fontSize:"clamp(32px,4vw,48px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px" }}>
+                <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="var(--gold-text)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect x="3" y="7" width="18" height="13" rx="2" />
+                  <path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18" />
+                </svg>
+                Experience
+              </h2>
             </div>
           </Reveal>
-          <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:12 }}>
-            {[
-              {
-                org: "Elevation Athletics",
-                logo: "/logos/elevationathletics.png",
-                title: "Web Assistant",
-                period: "Jun 2026 - Aug 2026",
-                type: "Contract",
-                desc: "Built 3 production AI chatbots, an auto contact-tagging system, and 2 scraping pipelines. Enriched 13,000+ records across 500+ segments.",
-                accent: "#F97316",
-                anchor: "elevation-athletics",
-              },
-              {
-                org: "Asenion",
-                logo: "/logos/asenion.png",
-                title: "AI Intern - QA Assistant",
-                period: "Sep 2025 - Jan 2026",
-                type: "Co-op",
-                desc: "Designed 200+ adversarial jailbreak prompts across 10+ attack categories, then built a Python/Tkinter token and cost estimator hitting R² >= 0.95, expanding coverage from 1 to 3 provider families.",
-                accent: "#3B82F6",
-                anchor: "asenion",
-              },
-              {
-                org: "One Community",
-                logo: "/logos/onecommunity.png",
-                title: "Software Engineer",
-                period: "May 2026 - Present",
-                type: "Volunteer",
-                desc: "Built Garden Management and User Management from scratch. Took over 5+ complex PRs, fixed critical bugs, and resolved SonarQube violations across the codebase.",
-                accent: "#10B981",
-                anchor: "one-community",
-              },
-            ].map((r, i) => (
-              <Reveal key={r.org} delay={i * 0.07} grand>
-                <div style={{ background:"var(--bg-2)", borderRadius:16, padding:"32px", height:"100%", display:"flex", flexDirection:"column", borderTop:`2px solid ${r.accent}` }}>
-                  <div style={{ fontSize:10, color:r.accent, fontWeight:600, textTransform:"uppercase", letterSpacing:"0.18em", marginBottom:12 }}>{r.type}</div>
-                  <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:4 }}>
-                    {r.logo && <img src={r.logo} alt="" style={{ width:24, height:24, objectFit:"contain", borderRadius:4, flexShrink:0 }} />}
-                    <div style={{ fontFamily:"var(--serif)", fontSize:20, fontWeight:700, color:"var(--text)", letterSpacing:"-0.5px" }}>{r.org}</div>
-                  </div>
-                  <div style={{ fontSize:12, color:"var(--text-secondary)", fontWeight:400, marginBottom:4 }}>{r.title}</div>
-                  <div style={{ fontSize:11, color:"var(--text-tertiary)", fontWeight:300, marginBottom:16 }}>{r.period}</div>
-                  <p style={{ fontSize:13, color:"var(--text-secondary)", fontWeight:300, lineHeight:1.7, flex:1, marginBottom:20 }}>{r.desc}</p>
-                  <a href={`/experience#${r.anchor}`} style={{
-                    display:"inline-block", alignSelf:"flex-start",
-                    fontSize:11, fontWeight:600, letterSpacing:"0.14em", textTransform:"uppercase",
-                    color:r.accent, border:`1px solid ${r.accent}`, borderRadius:4,
-                    padding:"8px 16px", textDecoration:"none",
-                    transition:"background 0.2s, color 0.2s",
-                  }}
-                    onMouseEnter={e => { e.currentTarget.style.background = r.accent; e.currentTarget.style.color = "#080a0f" }}
-                    onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = r.accent }}
-                  >View role</a>
-                </div>
-              </Reveal>
-            ))}
+          <ExperienceRow />
+        </div>
+      </section>
+
+      {/* ── HACKATHONS */}
+      <section id="hackathons" style={{ padding:"36px 48px", borderBottom:"1px solid var(--border)", position:"relative", zIndex:20 }}>
+        <div style={{ maxWidth:1200, margin:"0 auto" }}>
+          <Reveal>
+            <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:24 }}>
+              <h2 style={{ display:"flex", alignItems:"center", gap:16, fontFamily:"var(--serif)", fontSize:"clamp(32px,4vw,48px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px" }}>
+                <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="var(--gold-text)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" />
+                </svg>
+                Hackathons
+              </h2>
+            </div>
+          </Reveal>
+          <HackathonsRow />
+        </div>
+      </section>
+
+      {/* ── ABOUT */}
+      <section id="about" style={{ padding:"36px 48px", borderBottom:"1px solid var(--border)", position:"relative", zIndex:1 }}>
+        <div style={{ maxWidth:1200, margin:"0 auto" }}>
+          <Reveal>
+            <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:24 }}>
+              <h2 style={{ display:"flex", alignItems:"center", gap:16, fontFamily:"var(--serif)", fontSize:"clamp(32px,4vw,48px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px" }}>
+                <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="var(--gold-text)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="8" r="4" />
+                  <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" />
+                </svg>
+                About me
+              </h2>
+            </div>
+          </Reveal>
+          <AboutRow />
+        </div>
+      </section>
+
+      {/* ── CONTACT */}
+      <section id="contact" style={{ padding:"36px 48px 64px", position:"relative", zIndex:1 }}>
+        <div style={{ maxWidth:1200, margin:"0 auto" }}>
+          <Reveal>
+            <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:24 }}>
+              <h2 style={{ display:"flex", alignItems:"center", gap:16, fontFamily:"var(--serif)", fontSize:"clamp(32px,4vw,48px)", fontWeight:700, color:"var(--text)", letterSpacing:"-1.5px" }}>
+                <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="var(--gold-text)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="M3 7l9 6 9-6" />
+                </svg>
+                Get in touch
+              </h2>
+            </div>
+          </Reveal>
+          <ContactRow />
+
+          {/* Back to top */}
+          <div style={{ display:"flex", justifyContent:"center", marginTop:48 }}>
+            <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="Back to top" className="to-top">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M12 19V5M5 12l7-7 7 7" />
+              </svg>
+            </button>
           </div>
         </div>
       </section>
 
 
+
+      {chessOpen && (
+        <Suspense fallback={null}>
+          <ChessGame onClose={() => setChessOpen(false)} />
+        </Suspense>
+      )}
     </div>
   )
 }
