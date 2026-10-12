@@ -195,6 +195,7 @@ export default function ChessGame({ onClose }) {
           options={{
             position: fen,
             boardOrientation: "black",
+            showNotation: false,
             onPieceDrop: onDrop,
             // Wait a tick so the board finishes picking the piece up before the highlights re-render it
             onPieceDrag: ({ square }) => setTimeout(() => select(square), 0),

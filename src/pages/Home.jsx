@@ -69,12 +69,12 @@ export default function Home() {
           }}>Wong</span>
         </div>
 
-        <div style={{ position:"relative", zIndex:3, padding:"0 48px 36px", textAlign:"center", display:"flex", flexDirection:"column", alignItems:"center" }}>
+        <div className="hero-in" style={{ position:"relative", zIndex:3, padding:"0 48px 36px", textAlign:"center", display:"flex", flexDirection:"column", alignItems:"center" }}>
           <img src="/profile.jpg" alt="Jaden Wong" style={{ width:116, height:116, borderRadius:"50%", objectFit:"cover", border:"2px solid rgba(20,22,28,0.25)", marginBottom:20, animation:"heroFade 0.9s ease 0.1s both" }} />
           <div style={{ display:"inline-flex", alignItems:"center", gap:14, fontSize:11, fontWeight:500, letterSpacing:"0.34em", textTransform:"uppercase", color:"var(--accent)", marginBottom:16, animation:"heroLabel 0.9s cubic-bezier(0.16,1,0.3,1) 0.2s both" }}>
-            <span style={{ display:"inline-block", width:28, height:1, background:"var(--accent)", opacity:0.7 }} />
+            <span className="hero-rule" style={{ display:"inline-block", width:28, height:1, background:"var(--accent)", opacity:0.7 }} />
             Engineer • Researcher • Builder
-            <span style={{ display:"inline-block", width:28, height:1, background:"var(--accent)", opacity:0.7 }} />
+            <span className="hero-rule" style={{ display:"inline-block", width:28, height:1, background:"var(--accent)", opacity:0.7 }} />
           </div>
           <h1 style={{ fontFamily:"var(--serif)", fontSize:"clamp(60px,8vw,120px)", lineHeight:0.93, letterSpacing:"-0.02em", color:"var(--text)", marginBottom:8, animation:"heroName 1.1s cubic-bezier(0.16,1,0.3,1) 0.38s both" }}>
             Jaden
@@ -99,7 +99,7 @@ export default function Home() {
       </section>
 
       {/* ── BIO */}
-      <section style={{ position:"relative", zIndex:1, padding:"48px 48px 56px", display:"grid", gridTemplateColumns:"260px 1fr", gap:"0 80px", borderBottom:"1px solid var(--border)" }}>
+      <section className="bio-grid" style={{ position:"relative", zIndex:1, padding:"48px 48px 56px", display:"grid", gridTemplateColumns:"260px 1fr", gap:"0 80px", borderBottom:"1px solid var(--border)" }}>
         <Reveal delay={0.1} grand>
           <div>
             <div
@@ -145,7 +145,7 @@ export default function Home() {
                 <a key={st.label} href={`#${st.to}`} className="stat-box"
                   onClick={e => { e.preventDefault(); document.getElementById(st.to)?.scrollIntoView({ behavior: "smooth", block: "start" }) }}>
                   <div style={{ fontFamily:"var(--serif)", fontSize:30, lineHeight:1, color:"var(--text)", letterSpacing:"-0.02em", marginBottom:8 }}>{st.val}</div>
-                  <div style={{ fontSize:10, fontWeight:500, letterSpacing:"0.12em", textTransform:"uppercase", color:"var(--text-tertiary)" }}>{st.label}</div>
+                  <div className="stat-label" style={{ fontSize:10, fontWeight:500, letterSpacing:"0.12em", textTransform:"uppercase", color:"var(--text-tertiary)" }}>{st.label}</div>
                 </a>
               ))}
             </div>
@@ -154,7 +154,7 @@ export default function Home() {
       </section>
 
       {/* ── PROJECTS */}
-      <section id="projects" style={{ padding:"36px 48px", borderBottom:"1px solid var(--border)", position:"relative", zIndex:10 }}>
+      <section className="sec" id="projects" style={{ padding:"36px 48px", borderBottom:"1px solid var(--border)", position:"relative", zIndex:10 }}>
         <div style={{ maxWidth:1200, margin:"0 auto" }}>
           <Reveal>
             <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:24 }}>
@@ -171,7 +171,7 @@ export default function Home() {
       </section>
 
       {/* ── EXPERIENCE */}
-      <section id="experience" style={{ padding:"36px 48px", borderBottom:"1px solid var(--border)", position:"relative", zIndex:1 }}>
+      <section className="sec" id="experience" style={{ padding:"36px 48px", borderBottom:"1px solid var(--border)", position:"relative", zIndex:1 }}>
         <div style={{ maxWidth:1200, margin:"0 auto" }}>
           <Reveal>
             <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:24 }}>
@@ -189,7 +189,7 @@ export default function Home() {
       </section>
 
       {/* ── HACKATHONS */}
-      <section id="hackathons" style={{ padding:"36px 48px", borderBottom:"1px solid var(--border)", position:"relative", zIndex:20 }}>
+      <section className="sec" id="hackathons" style={{ padding:"36px 48px", borderBottom:"1px solid var(--border)", position:"relative", zIndex:20 }}>
         <div style={{ maxWidth:1200, margin:"0 auto" }}>
           <Reveal>
             <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:24 }}>
@@ -206,7 +206,7 @@ export default function Home() {
       </section>
 
       {/* ── ABOUT */}
-      <section id="about" style={{ padding:"36px 48px", borderBottom:"1px solid var(--border)", position:"relative", zIndex:1 }}>
+      <section className="sec" id="about" style={{ padding:"36px 48px", borderBottom:"1px solid var(--border)", position:"relative", zIndex:1 }}>
         <div style={{ maxWidth:1200, margin:"0 auto" }}>
           <Reveal>
             <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:24 }}>
@@ -224,7 +224,7 @@ export default function Home() {
       </section>
 
       {/* ── CONTACT */}
-      <section id="contact" style={{ padding:"36px 48px 64px", position:"relative", zIndex:1 }}>
+      <section className="sec" id="contact" style={{ padding:"36px 48px 64px", position:"relative", zIndex:1 }}>
         <div style={{ maxWidth:1200, margin:"0 auto" }}>
           <Reveal>
             <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:24 }}>

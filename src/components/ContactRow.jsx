@@ -33,7 +33,7 @@ export default function ContactRow() {
   }
 
   return (
-    <div ref={ref} style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: GAP, alignItems: "stretch" }}>
+    <div ref={ref} className="one-col" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: GAP, alignItems: "stretch" }}>
       <div style={cell(0, "var(--text)")}>
         <div style={label}>Email</div>
         <div style={value}>{EMAIL}</div>

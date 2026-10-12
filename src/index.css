@@ -375,3 +375,20 @@ body:hover #cursor { opacity: 1; }
 /* Clickable metric boxes */
 .stat-box { display: block; border: 1px solid var(--border); border-radius: 4px; padding: 16px 18px; text-decoration: none; color: inherit; cursor: pointer; transition: border-color 0.2s, background 0.2s; }
 .stat-box:hover { border-color: var(--text); background: rgba(20,22,28,0.03); }
+
+/* Phones and small tablets: stack everything in one column. Desktop is untouched. */
+@media (max-width: 900px) {
+  html, body { overflow-x: hidden; }
+  .sec { padding-left: 20px !important; padding-right: 20px !important; }
+  .hero-in { padding-left: 20px !important; padding-right: 20px !important; }
+  .hero-rule { display: none !important; }
+  .bio-grid { grid-template-columns: 1fr !important; gap: 36px 0 !important; padding: 32px 20px 40px !important; }
+  .card-row { flex-direction: column !important; }
+  .card-row > div { flex: none !important; height: auto !important; min-height: 0 !important; width: 100% !important; }
+  .card-thumb { flex: none !important; height: 140px !important; }
+  .popouts { display: none !important; }
+  .card-btns { transition: none !important; }
+  .stat-box { padding: 14px 10px !important; min-width: 0; }
+  .stat-label { letter-spacing: 0.04em !important; overflow-wrap: anywhere; }
+  .one-col { grid-template-columns: 1fr !important; }
+}

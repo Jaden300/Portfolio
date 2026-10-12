@@ -4,9 +4,10 @@ import { useRowReveal, revealStyle } from "./useRowReveal"
 import useHoverSwitch from "./useHoverSwitch"
 import useSettled from "./useSettled"
 import useExit from "./useExit"
+import useIsMobile from "./useIsMobile"
 import { PROJECTS } from "../data/projects"
 
-export const ROW_H = 228
+export const ROW_H = 264
 const GAP = 12
 const IMG_H = 380 // height of each popped-out image
 const ease = "0.45s cubic-bezier(0.16,1,0.3,1)"
@@ -48,7 +49,7 @@ export function PopOuts({ images, side: preferred, count, accent, leaving = fals
   const originX = geo ? (side === "left" ? 100 + (geo.cardW / 2 / geo.width) * 100 : -(geo.cardW / 2 / geo.width) * 100) : 0
 
   return (
-    <div ref={wrapRef} style={{
+    <div ref={wrapRef} className="popouts" style={{
       position: "absolute", top: "50%", zIndex: 40, [near]: "100%",
       width: geo ? geo.width : 0, boxSizing: "border-box", pointerEvents: "none", visibility: geo ? "visible" : "hidden",
       transform: `translateY(-50%) scale(${on ? 1 : 0.06})`, transformOrigin: `${originX}% 50%`,
@@ -107,7 +108,7 @@ export function TriangleOuts({ images, accent, leaving = false }) {
   const tilted = (tilt, from) => ({ transform: `rotate(${on ? tilt : from}deg)`, opacity: on ? 1 : 0 })
 
   return (
-    <div ref={wrapRef} style={{ position: "absolute", inset: 0, zIndex: 40, pointerEvents: "none" }}>
+    <div ref={wrapRef} className="popouts" style={{ position: "absolute", inset: 0, zIndex: 40, pointerEvents: "none" }}>
       {/* Two above, side by side. They grow out of the middle of the card. */}
       {(a || b) && (
         <div style={{
@@ -139,12 +140,13 @@ function ProjectCard({ p, index, active, onEnter, onLeave, onToggle , shown}) {
   const rv = revealStyle(shown, index)
   const full = useSettled(active)
   const popMounted = useExit(full)
+  const mobile = useIsMobile()
 
   return (
     <div
       id={p.name.toLowerCase()}
-      onMouseEnter={onEnter}
-      onMouseLeave={onLeave}
+      onMouseEnter={mobile ? undefined : onEnter}
+      onMouseLeave={mobile ? undefined : onLeave}
       onClick={onToggle}
       style={{
         position: "relative", zIndex: active ? 30 : 1,
@@ -168,12 +170,12 @@ function ProjectCard({ p, index, active, onEnter, onLeave, onToggle , shown}) {
 
       {/* The image shows while resting; on hover it leaves the card and pops out with the others */}
       {!full && (
-        <div style={{ flex: 1, minHeight: 0, borderRadius: 10, overflow: "hidden", border: "1px solid var(--border)", background: "var(--bg)" }}>
+        <div className="card-thumb" style={{ flex: 1, minHeight: 0, borderRadius: 10, overflow: "hidden", border: "1px solid var(--border)", background: "var(--bg)" }}>
           <img src={p.images[0]} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.55, display: "block" }} />
         </div>
       )}
 
-      <div style={{ display: "flex", gap: 8, maxHeight: full ? 48 : 0, marginTop: full ? "auto" : 0, opacity: full ? 1 : 0, overflow: "hidden", transition: "max-height 0.35s ease, margin-top 0.35s ease, opacity 0.25s ease" }}>
+      <div className="card-btns" style={{ display: "flex", gap: 8, maxHeight: full ? 48 : 0, marginTop: full ? "auto" : 0, opacity: full ? 1 : 0, overflow: "hidden", transition: "max-height 0.35s ease, margin-top 0.35s ease, opacity 0.25s ease" }}>
         <a href={p.url} target="_blank" rel="noreferrer" onClick={e => e.stopPropagation()} style={{ flex: 1, textAlign: "center", fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#080a0f", background: p.accent, border: `1px solid ${p.accent}`, borderRadius: 6, padding: "9px 0", textDecoration: "none", whiteSpace: "nowrap" }}>
           {p.url.includes("github.com") ? "View repo" : "Visit site"}
         </a>
@@ -184,7 +186,12 @@ function ProjectCard({ p, index, active, onEnter, onLeave, onToggle , shown}) {
         )}
       </div>
 
-      {popMounted && <PopOuts leaving={!full} images={p.images} side={index < PROJECTS.length / 2 ? "right" : "left"} count={NEIGHBOURS[index] ?? 2} accent={p.accent} />}
+      {mobile && full && (
+        <div style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 14 }}>
+          {p.images.map(src => <img key={src} src={src} alt="" style={{ width: "100%", height: "auto", display: "block", borderRadius: 12, border: `1px solid ${p.accent}55`, background: "var(--bg)" }} />)}
+        </div>
+      )}
+      {!mobile && popMounted && <PopOuts leaving={!full} images={p.images} side={index < PROJECTS.length / 2 ? "right" : "left"} count={NEIGHBOURS[index] ?? 2} accent={p.accent} />}
     </div>
   )
 }
@@ -194,13 +201,13 @@ export default function ProjectsRow() {
   const { ref, shown } = useRowReveal()
 
   return (
-    <div ref={ref} style={{ display: "flex", gap: GAP, alignItems: "stretch" }}>
+    <div ref={ref} className="card-row" style={{ display: "flex", gap: GAP, alignItems: "stretch" }}>
       {PROJECTS.map((p, i) => (
         <ProjectCard
           key={p.name} p={p} index={i} active={active === i} shown={shown}
           onEnter={() => enter(i)}
           onLeave={() => leave(i)}
-          onToggle={() => toggle(i)}
+          onToggle={e => toggle(i, e.currentTarget)}
         />
       ))}
     </div>

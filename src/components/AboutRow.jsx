@@ -49,7 +49,7 @@ export default function AboutRow() {
   }
 
   return (
-    <div ref={ref} style={{ display: "grid", gridTemplateColumns: "1.3fr 1fr 1fr", gap: GAP, alignItems: "stretch" }}>
+    <div ref={ref} className="one-col" style={{ display: "grid", gridTemplateColumns: "1.3fr 1fr 1fr", gap: GAP, alignItems: "stretch" }}>
       <div style={{ ...cell(0), display: "flex", flexDirection: "column" }}>
         <div style={label}>What I'm working on</div>
         <div style={{ flex: 1, display: "flex", alignItems: "center" }}>

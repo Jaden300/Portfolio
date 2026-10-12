@@ -3,10 +3,11 @@ import { useRowReveal, revealStyle } from "./useRowReveal"
 import useHoverSwitch from "./useHoverSwitch"
 import useSettled from "./useSettled"
 import useExit from "./useExit"
+import useIsMobile from "./useIsMobile"
 import { PopOuts, TriangleOuts } from "./ProjectsRow"
 import { HACKATHONS } from "../data/hackathons"
 
-const HACK_H = 262
+const HACK_H = 298
 const GAP = 12
 const ease = "0.45s cubic-bezier(0.16,1,0.3,1)"
 
@@ -23,12 +24,13 @@ function HackathonCard({ h, index, active, onEnter, onLeave, onToggle , shown}) 
   const rv = revealStyle(shown, index)
   const full = useSettled(active)
   const popMounted = useExit(full)
+  const mobile = useIsMobile()
 
   return (
     <div
       id={h.name.toLowerCase()}
-      onMouseEnter={onEnter}
-      onMouseLeave={onLeave}
+      onMouseEnter={mobile ? undefined : onEnter}
+      onMouseLeave={mobile ? undefined : onLeave}
       onClick={onToggle}
       style={{
         position: "relative", zIndex: active ? 30 : 1,
@@ -71,12 +73,12 @@ function HackathonCard({ h, index, active, onEnter, onLeave, onToggle , shown}) 
 
       {/* Resting teaser image */}
       {!full && (
-        <div style={{ flex: 1, minHeight: 0, borderRadius: 10, overflow: "hidden", border: "1px solid var(--border)", background: "var(--bg)" }}>
+        <div className="card-thumb" style={{ flex: 1, minHeight: 0, borderRadius: 10, overflow: "hidden", border: "1px solid var(--border)", background: "var(--bg)" }}>
           <img src={h.images[0]} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.55, display: "block" }} />
         </div>
       )}
 
-      <div style={{ display: "flex", gap: 8, maxHeight: full ? 48 : 0, marginTop: full ? "auto" : 0, opacity: full ? 1 : 0, overflow: "hidden", transition: `max-height ${ease}, opacity 0.25s ease` }}>
+      <div className="card-btns" style={{ display: "flex", gap: 8, maxHeight: full ? 48 : 0, marginTop: full ? "auto" : 0, opacity: full ? 1 : 0, overflow: "hidden", transition: `max-height ${ease}, opacity 0.25s ease` }}>
         <a href={h.url} target="_blank" rel="noreferrer" onClick={e => e.stopPropagation()} style={{ flex: 1, textAlign: "center", fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#080a0f", background: h.accent, border: `1px solid ${h.accent}`, borderRadius: 6, padding: "9px 0", textDecoration: "none", whiteSpace: "nowrap" }}>
           Visit site
         </a>
@@ -85,7 +87,12 @@ function HackathonCard({ h, index, active, onEnter, onLeave, onToggle , shown}) 
         </a>
       </div>
 
-      {popMounted && (() => {
+      {mobile && full && (
+        <div style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 14 }}>
+          {h.images.map(src => <img key={src} src={src} alt="" style={{ width: "100%", height: "auto", display: "block", borderRadius: 12, border: `1px solid ${h.accent}55`, background: "var(--bg)" }} />)}
+        </div>
+      )}
+      {!mobile && popMounted && (() => {
         const n = HACKATHONS.length
         const middle = index > 0 && index < n - 1
         // Middle card: images in a triangle around it. End cards: one column over the neighbours.
@@ -102,13 +109,13 @@ export default function HackathonsRow() {
   const { ref, shown } = useRowReveal()
 
   return (
-    <div ref={ref} style={{ display: "flex", gap: GAP, alignItems: "stretch" }}>
+    <div ref={ref} className="card-row" style={{ display: "flex", gap: GAP, alignItems: "stretch" }}>
       {HACKATHONS.map((h, i) => (
         <HackathonCard
           key={h.name} h={h} index={i} active={active === i} shown={shown}
           onEnter={() => enter(i)}
           onLeave={() => leave(i)}
-          onToggle={() => toggle(i)}
+          onToggle={e => toggle(i, e.currentTarget)}
         />
       ))}
     </div>

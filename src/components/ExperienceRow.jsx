@@ -2,6 +2,7 @@ import TypeText from "./TypeText"
 import { useRowReveal, revealStyle } from "./useRowReveal"
 import useHoverSwitch from "./useHoverSwitch"
 import useSettled from "./useSettled"
+import useIsMobile from "./useIsMobile"
 import { ROLES } from "../data/roles"
 import { ROW_H } from "./ProjectsRow"
 
@@ -11,11 +12,12 @@ const ease = "0.45s cubic-bezier(0.16,1,0.3,1)"
 function RoleCard({ r, index, active, onEnter, onLeave, onToggle , shown}) {
   const rv = revealStyle(shown, index)
   const full = useSettled(active)
+  const mobile = useIsMobile()
   return (
     <div
       id={r.org.toLowerCase().replace(/\s+/g, "-")}
-      onMouseEnter={onEnter}
-      onMouseLeave={onLeave}
+      onMouseEnter={mobile ? undefined : onEnter}
+      onMouseLeave={mobile ? undefined : onLeave}
       onClick={onToggle}
       style={{
         flex: active ? 2.3 : 1, minWidth: 0, height: ROW_H, padding: 20, boxSizing: "border-box",
@@ -47,13 +49,13 @@ export default function ExperienceRow() {
   const { ref, shown } = useRowReveal()
 
   return (
-    <div ref={ref} style={{ display: "flex", gap: GAP, alignItems: "stretch" }}>
+    <div ref={ref} className="card-row" style={{ display: "flex", gap: GAP, alignItems: "stretch" }}>
       {ROLES.map((r, i) => (
         <RoleCard
           key={r.org} r={r} index={i} active={active === i} shown={shown}
           onEnter={() => enter(i)}
           onLeave={() => leave(i)}
-          onToggle={() => toggle(i)}
+          onToggle={e => toggle(i, e.currentTarget)}
         />
       ))}
     </div>

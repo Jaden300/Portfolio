@@ -9,5 +9,5 @@ export default function useSettled(active, ms = 100) {
     const t = setTimeout(() => setSettled(true), ms)
     return () => clearTimeout(t)
   }, [active, ms])
-  return settled
+  return active && settled
 }

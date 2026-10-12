@@ -94,9 +94,9 @@ export default function NowPlaying() {
             onClick={hideForever}
             aria-label="Hide music player"
             title="Hide"
-            style={{ display: "flex", alignItems: "center", justifyContent: "center", width: 24, height: 24, padding: 0, background: "transparent", border: "1px solid var(--border-dark)", borderRadius: "50%", color: "var(--text-tertiary)", cursor: "pointer", transition: "color 0.2s, border-color 0.2s" }}
-            onMouseEnter={e => { e.currentTarget.style.color = "var(--text)"; e.currentTarget.style.borderColor = "var(--text)" }}
-            onMouseLeave={e => { e.currentTarget.style.color = "var(--text-tertiary)"; e.currentTarget.style.borderColor = "var(--border-dark)" }}
+            style={{ display: "flex", alignItems: "center", justifyContent: "center", width: 24, height: 24, padding: 0, background: "transparent", border: "none", color: "var(--text-tertiary)", cursor: "pointer", transition: "color 0.2s" }}
+            onMouseEnter={e => { e.currentTarget.style.color = "var(--text)" }}
+            onMouseLeave={e => { e.currentTarget.style.color = "var(--text-tertiary)" }}
           >
             <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">
               <path d="M1.5 1.5l7 7M8.5 1.5l-7 7" />

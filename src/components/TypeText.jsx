@@ -20,12 +20,21 @@ export default function TypeText({ text, ms = 300 }) {
     return () => cancelAnimationFrame(raf)
   }, [text, total, ms])
 
-  let left = shown
-  return parts.map((p, i) => {
-    const slice = p.t.slice(0, Math.max(0, left))
-    left -= p.t.length
-    return p.bold
-      ? <strong key={i} style={{ color: "var(--text)", fontWeight: 600 }}>{slice}</strong>
-      : slice
-  })
+  const render = n => {
+    let left = n
+    return parts.map((p, i) => {
+      const slice = p.t.slice(0, Math.max(0, left))
+      left -= p.t.length
+      return p.bold
+        ? <strong key={i} style={{ color: "var(--text)", fontWeight: 600 }}>{slice}</strong>
+        : slice
+    })
+  }
+  // The full text sits invisible underneath, so the box is already its final size while the text types in
+  return (
+    <span style={{ position: "relative", display: "block" }}>
+      <span aria-hidden="true" style={{ visibility: "hidden" }}>{render(total)}</span>
+      <span style={{ position: "absolute", inset: 0 }}>{render(shown)}</span>
+    </span>
+  )
 }
