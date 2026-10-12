@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react"
 
 // Spotify track ID (the part after /track/ in the share link, before the ?)
-const SPOTIFY_TRACK_ID = "4y3VBhJPEztyRmNxfK3tZ5"
+const SPOTIFY_TRACK_ID = "6i2XzqnaxvpNVTUw8EjPMU"
+const START_SECONDS = 150
 const API_SRC = "https://open.spotify.com/embed/iframe-api/v1"
 const HIDE_KEY = "nowPlayingHidden"
 
@@ -15,6 +16,9 @@ export default function NowPlaying() {
   const createdRef = useRef(false)
   const wantPlayRef = useRef(false)
   const startedRef = useRef(false)
+  const seekTriesRef = useRef(0)
+  const seekDoneRef = useRef(false)
+  const lastSeekRef = useRef(0)
 
   // First play starts the track, later plays resume from where it was paused
   const startOrResume = (controller) => {
@@ -35,6 +39,18 @@ export default function NowPlaying() {
         { uri: `spotify:track:${SPOTIFY_TRACK_ID}`, width: "100%", height: 80 },
         (controller) => {
           controllerRef.current = controller
+          // Seek to the start point once playback is running. Previews (about 30s) are too short to seek into, so skip those.
+          // Seeks sent while buffering are ignored, so wait for it to settle and retry quickly (every 250ms)
+          controller.addListener("playback_update", (e) => {
+            const { isPaused, isBuffering, position, duration } = e.data
+            if (seekDoneRef.current || !startedRef.current || isPaused || isBuffering || !duration) return
+            if (duration < (START_SECONDS + 5) * 1000 || position >= (START_SECONDS - 2) * 1000) { seekDoneRef.current = true; return }
+            const now = Date.now()
+            if (now - lastSeekRef.current < 250) return
+            if (++seekTriesRef.current > 8) { seekDoneRef.current = true; return }
+            lastSeekRef.current = now
+            controller.seek(START_SECONDS)
+          })
           // If the user opened the widget before the player finished loading, start as soon as it is ready
           controller.addListener("ready", () => { if (wantPlayRef.current) startOrResume(controller) })
         }

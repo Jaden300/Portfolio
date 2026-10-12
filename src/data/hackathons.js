@@ -27,9 +27,11 @@ export const HACKATHONS = [
   },
   {
     name: "MyLumi",
-    event: "Hack for Humanity",
+    event: "CSC Back-To-School",
     logo: "/logos/mylumi.png",
     accent: "#8B5CF6",
+    award: "Top 8",
+    teams: 195,
     url: "https://mylumi-web.onrender.com/",
     github: "https://github.com/Jaden300/MyLumi",
     short: "A local-first journaling app with no account and no tracking.",
