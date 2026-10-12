@@ -138,11 +138,11 @@ export default function Home() {
             </div>
             <div style={{ display:"grid", gridTemplateColumns:"repeat(3, minmax(0, 170px))", gap:10, marginTop:10, justifyContent:"center" }}>
               {[
-                { val:"12+", label:"Months of experience", to:"experience" },
-                { val:"8",   label:"Projects",             to:"projects" },
-                { val:"3",   label:"Hackathon wins",       to:"hackathons" },
+                { val:"8",   label:"Projects",             to:"projects",   c:"#A855F7" },
+                { val:"12+", label:"Months of experience", to:"experience", c:"#3B82F6" },
+                { val:"3",   label:"Hackathon wins",       to:"hackathons", c:"#F97316" },
               ].map(st => (
-                <a key={st.label} href={`#${st.to}`} className="stat-box"
+                <a key={st.label} href={`#${st.to}`} className="stat-box" style={{ "--c": st.c }}
                   onClick={e => { e.preventDefault(); document.getElementById(st.to)?.scrollIntoView({ behavior: "smooth", block: "start" }) }}>
                   <div style={{ fontFamily:"var(--serif)", fontSize:30, lineHeight:1, color:"var(--text)", letterSpacing:"-0.02em", marginBottom:8 }}>{st.val}</div>
                   <div className="stat-label" style={{ fontSize:10, fontWeight:500, letterSpacing:"0.12em", textTransform:"uppercase", color:"var(--text-tertiary)" }}>{st.label}</div>

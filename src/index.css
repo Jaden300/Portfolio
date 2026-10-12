@@ -359,9 +359,7 @@ body:hover #cursor { opacity: 1; }
 .contact-btn--gold-outline:hover { background:var(--gold); border-color:var(--gold); color:#14161c; }
 .contact-btn--copied { background:#10B981; color:#fff; border:1px solid #10B981; }
 .contact-btn--blue { background:transparent; color:#0077B5; border:1px solid #0077B5; }
-.contact-btn--blue:hover { background:#0077B5; color:#fff; }
 .contact-btn--dark { background:transparent; color:var(--text); border:1px solid var(--border-dark); }
-.contact-btn--dark:hover { border-color:var(--text); background:rgba(20,22,28,0.05); }
 .to-top { width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:transparent; border:1px solid var(--border-dark); color:var(--text-secondary); cursor:pointer; transition: border-color 0.2s, color 0.2s; }
 .to-top svg { transition: transform 0.2s; }
 .to-top:hover { border-color:var(--gold-text); color:var(--gold-text); }
@@ -374,7 +372,7 @@ body:hover #cursor { opacity: 1; }
 
 /* Clickable metric boxes */
 .stat-box { display: block; border: 1px solid var(--border); border-radius: 4px; padding: 16px 18px; text-decoration: none; color: inherit; cursor: pointer; transition: border-color 0.2s, background 0.2s; }
-.stat-box:hover { border-color: var(--text); background: rgba(20,22,28,0.03); }
+.stat-box { --c: var(--text); background: transparent; border: 1px solid var(--c); }
 
 /* Phones and small tablets: stack everything in one column. Desktop is untouched. */
 @media (max-width: 900px) {
