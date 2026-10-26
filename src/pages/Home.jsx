@@ -140,7 +140,7 @@ export default function Home() {
               {[
                 { val:"8",   label:"Projects",             to:"projects",   c:"#A855F7" },
                 { val:"12+", label:"Months of experience", to:"experience", c:"#3B82F6" },
-                { val:"3",   label:"Hackathon wins",       to:"hackathons", c:"#F97316" },
+                { val:"6",   label:"Hackathon wins",       to:"hackathons", c:"#F97316" },
               ].map(st => (
                 <a key={st.label} href={`#${st.to}`} className="stat-box" style={{ "--c": st.c }}
                   onClick={e => { e.preventDefault(); document.getElementById(st.to)?.scrollIntoView({ behavior: "smooth", block: "start" }) }}>
