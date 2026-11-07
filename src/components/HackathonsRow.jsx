@@ -55,7 +55,7 @@ function HackathonCard({ h, index, active, onEnter, onLeave, onToggle , shown}) 
             display: "inline-block", whiteSpace: "nowrap", overflow: "hidden", fontSize: 11, fontWeight: 700, color: "#ffffff",
             maxWidth: full ? 340 : 0, marginRight: full ? 7 : 0, opacity: full ? 1 : 0,
             transition: `max-width 0.9s cubic-bezier(0.22,1,0.36,1) ${full ? 0.2 : 0}s, margin-right 0.9s ease ${full ? 0.2 : 0}s, opacity 0.6s ease ${full ? 0.35 : 0}s`,
-          }}>{h.award} out of {h.teams} teams</span>
+          }}>{h.award} out of {h.participants} participants</span>
           <Trophy size={18} color={active ? "#ffffff" : "var(--gold-text)"} />
         </div>
       )}

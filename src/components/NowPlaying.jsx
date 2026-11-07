@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react"
 
 // Spotify track ID (the part after /track/ in the share link, before the ?)
-const SPOTIFY_TRACK_ID = "6i2XzqnaxvpNVTUw8EjPMU"
-const START_SECONDS = 150
+const SPOTIFY_TRACK_ID = "5KTcGJKm4HgLhLt8Tc7EQ5"
+const START_SECONDS = 17
 const API_SRC = "https://open.spotify.com/embed/iframe-api/v1"
 const HIDE_KEY = "nowPlayingHidden"
 
